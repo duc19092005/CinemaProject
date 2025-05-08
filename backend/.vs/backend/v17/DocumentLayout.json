@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\appsettings.docker.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\appsettings.docker.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -77,7 +77,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -95,7 +95,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\appsettings.Development.json",
               "RelativeDocumentMoniker": "backend\\appsettings.Development.json",
@@ -108,13 +108,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\appsettings.json",
               "RelativeDocumentMoniker": "backend\\appsettings.json",
               "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\appsettings.json",
               "RelativeToolTip": "backend\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-05-08T13:27:10.336Z",
               "EditorCaption": ""
@@ -133,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "appsettings.Docker.json",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\appsettings.Docker.json",
               "RelativeDocumentMoniker": "backend\\appsettings.Docker.json",
@@ -154,8 +154,7 @@
               "RelativeToolTip": "backend\\Program.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T12:41:10.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T12:41:10.443Z"
             },
             {
               "$type": "Document",
