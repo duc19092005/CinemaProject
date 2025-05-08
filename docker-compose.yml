@@ -33,6 +33,6 @@ services:
             ACCEPT_EULA: Y
             SA_PASSWORD : anhduc9A@5
         volumes:
-            - db_data:/var/lib/mssql
+            - db_data:/var/lib/docker/volumes
 volumes:
     db_data:
