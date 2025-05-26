@@ -8,6 +8,7 @@ D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\obj\Debug\net8.0\backend.MvcApplic
 D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\obj\Debug\net8.0\backend.sourcelink.json
 D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\bin\Debug\net8.0\appsettings.Development.json
 D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\bin\Debug\net8.0\appsettings.json
+D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\bin\Debug\net8.0\appsettings.Production.json
 D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\bin\Debug\net8.0\backend.exe
 D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\bin\Debug\net8.0\backend.deps.json
 D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\bin\Debug\net8.0\backend.runtimeconfig.json
@@ -135,4 +136,4 @@ D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\obj\Debug\net8.0\refint\backend.dl
 D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\obj\Debug\net8.0\backend.pdb
 D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\obj\Debug\net8.0\ref\backend.dll
-D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\bin\Debug\net8.0\appsettings.Production.json
+D:\DoAn_Huflit_2025\CNPM_DoAn\backend\backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
