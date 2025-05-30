@@ -1,5 +1,7 @@
-
+﻿
 using backend.Data;
+using backend.Interface.Auth;
+using backend.Services.Auth;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,6 +15,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DataContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Add thêm DI của các services
+// Auth services
+builder.Services.AddScoped<IAuth, AuthService>();
 
 Console.WriteLine(builder.Configuration.GetConnectionString("DefaultConnection"));
 

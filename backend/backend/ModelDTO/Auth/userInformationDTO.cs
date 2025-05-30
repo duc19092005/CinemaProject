@@ -13,7 +13,6 @@ namespace backend.ModelDTO.Auth
    
         public string loginUserPassword { get; set; } = "";
 
-        public IFormFile userImage { get; set; } = null!;
 
 
 
