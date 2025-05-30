@@ -12,14 +12,11 @@ namespace backend.Model.Auth
         [Column(TypeName = "varchar(100)")]
         public string userId { get; set; } = "";
 
-        public byte[] userImage { get; set; } = [];
-
-
         // Tên đăng nhập của một user
 
         [Column(TypeName = "varchar(100)")]
         [Required]
-        public string loginUserName { get; set; } = "";
+        public string loginUserEmail { get; set; } = "";
 
         // Mật khẩu của một user
 
