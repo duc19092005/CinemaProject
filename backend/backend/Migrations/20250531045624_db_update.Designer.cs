@@ -12,8 +12,8 @@ using backend.Data;
 namespace backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250521185905_add-them-anh-bia-movie-va-them-diem-user")]
-    partial class addthemanhbiamovievathemdiemuser
+    [Migration("20250531045624_db_update")]
+    partial class db_update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,7 @@ namespace backend.Migrations
                     b.Property<DateTime>("dateOfBirth")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("loginUserName")
+                    b.Property<string>("loginUserEmail")
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
