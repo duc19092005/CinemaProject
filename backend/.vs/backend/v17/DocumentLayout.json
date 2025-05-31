@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\migrations\\20250530170946_add-them-interface-services-dto-va-chinh-sua-lai-ten-model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\migrations\\20250530170946_add-them-interface-services-dto-va-chinh-sua-lai-ten-model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\migrations\\20250521185905_add-them-anh-bia-movie-va-them-diem-user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\migrations\\20250521185905_add-them-anh-bia-movie-va-them-diem-user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250531045624_db_update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\Migrations\\20250531045624_db_update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\auth\\userinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -79,14 +75,6 @@
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\migrations\\20250520183226_th\u00EAm m\u1EE5c gi\u00E1 \u0111\u1ED3 \u0103n.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\migrations\\20250520183226_th\u00EAm m\u1EE5c gi\u00E1 \u0111\u1ED3 \u0103n.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\migrations\\20250520182558_hoanthiendb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\migrations\\20250520182558_hoanthiendb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\appsettings.production.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\appsettings.production.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -95,20 +83,12 @@
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\booking\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\migrations\\20250521185905_add-them-anh-bia-movie-va-them-diem-user.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\migrations\\20250521185905_add-them-anh-bia-movie-va-them-diem-user.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\movie\\movieinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\movie\\movieinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\product\\foodinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\product\\foodinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\migrations\\datacontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\migrations\\datacontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -196,10 +176,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250508133409_v1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\Migrations\\20250508133409_v1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\migrations\\20250521191752_add-them-user-image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\migrations\\20250521191752_add-them-user-image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -218,19 +194,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20250530170946_add-them-interface-services-dto-va-chinh-sua-lai-ten-model.cs",
-              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250530170946_add-them-interface-services-dto-va-chinh-sua-lai-ten-model.cs",
-              "RelativeDocumentMoniker": "backend\\Migrations\\20250530170946_add-them-interface-services-dto-va-chinh-sua-lai-ten-model.cs",
-              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250530170946_add-them-interface-services-dto-va-chinh-sua-lai-ten-model.cs",
-              "RelativeToolTip": "backend\\Migrations\\20250530170946_add-them-interface-services-dto-va-chinh-sua-lai-ten-model.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBUAAAAAAAAAAAAAAA==",
+              "Title": "20250531045624_db_update.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250531045624_db_update.cs",
+              "RelativeDocumentMoniker": "backend\\Migrations\\20250531045624_db_update.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250531045624_db_update.cs",
+              "RelativeToolTip": "backend\\Migrations\\20250531045624_db_update.cs",
+              "ViewState": "AgIAAOwBAAAAAAAAAAAowA0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T17:09:46.823Z",
+              "WhenOpened": "2025-05-31T04:56:24.576Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "IAuth.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Interface\\Auth\\IAuth.cs",
               "RelativeDocumentMoniker": "backend\\Interface\\Auth\\IAuth.cs",
@@ -243,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "AuthService.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Services\\Auth\\AuthService.cs",
               "RelativeDocumentMoniker": "backend\\Services\\Auth\\AuthService.cs",
@@ -251,12 +227,11 @@
               "RelativeToolTip": "backend\\Services\\Auth\\AuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T17:04:52.129Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T17:04:52.129Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "registerRespondDTO.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\ModelDTO\\Auth\\AuthRespond\\registerRespondDTO.cs",
               "RelativeDocumentMoniker": "backend\\ModelDTO\\Auth\\AuthRespond\\registerRespondDTO.cs",
@@ -264,12 +239,11 @@
               "RelativeToolTip": "backend\\ModelDTO\\Auth\\AuthRespond\\registerRespondDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T17:01:01.347Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T17:01:01.347Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "registerRequest.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Request\\Auth\\registerRequest.cs",
               "RelativeDocumentMoniker": "backend\\Request\\Auth\\registerRequest.cs",
@@ -277,12 +251,11 @@
               "RelativeToolTip": "backend\\Request\\Auth\\registerRequest.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAmwBQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T16:36:16.153Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T16:36:16.153Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "loginRequest.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Request\\Auth\\loginRequest.cs",
               "RelativeDocumentMoniker": "backend\\Request\\Auth\\loginRequest.cs",
@@ -290,24 +263,11 @@
               "RelativeToolTip": "backend\\Request\\Auth\\loginRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvw0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T16:35:52.148Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T16:35:52.148Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "20250521191752_add-them-user-image.cs",
-              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250521191752_add-them-user-image.cs",
-              "RelativeDocumentMoniker": "backend\\Migrations\\20250521191752_add-them-user-image.cs",
-              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250521191752_add-them-user-image.cs",
-              "RelativeToolTip": "backend\\Migrations\\20250521191752_add-them-user-image.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T19:17:52.245Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "userInformationDTO.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\ModelDTO\\Auth\\userInformationDTO.cs",
               "RelativeDocumentMoniker": "backend\\ModelDTO\\Auth\\userInformationDTO.cs",
@@ -315,12 +275,11 @@
               "RelativeToolTip": "backend\\ModelDTO\\Auth\\userInformationDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T19:05:51.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T19:05:51.067Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "userController.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Controllers\\userController.cs",
               "RelativeDocumentMoniker": "backend\\Controllers\\userController.cs",
@@ -328,75 +287,11 @@
               "RelativeToolTip": "backend\\Controllers\\userController.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAmwBIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T19:02:09.391Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T19:02:09.391Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "20250521185905_add-them-anh-bia-movie-va-them-diem-user.Designer.cs",
-              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250521185905_add-them-anh-bia-movie-va-them-diem-user.Designer.cs",
-              "RelativeDocumentMoniker": "backend\\Migrations\\20250521185905_add-them-anh-bia-movie-va-them-diem-user.Designer.cs",
-              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250521185905_add-them-anh-bia-movie-va-them-diem-user.Designer.cs",
-              "RelativeToolTip": "backend\\Migrations\\20250521185905_add-them-anh-bia-movie-va-them-diem-user.Designer.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAIwA8AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T19:00:50.473Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20250521185905_add-them-anh-bia-movie-va-them-diem-user.cs",
-              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250521185905_add-them-anh-bia-movie-va-them-diem-user.cs",
-              "RelativeDocumentMoniker": "backend\\Migrations\\20250521185905_add-them-anh-bia-movie-va-them-diem-user.cs",
-              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250521185905_add-them-anh-bia-movie-va-them-diem-user.cs",
-              "RelativeToolTip": "backend\\Migrations\\20250521185905_add-them-anh-bia-movie-va-them-diem-user.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T18:59:05.913Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "20250520183226_th\u00EAm m\u1EE5c gi\u00E1 \u0111\u1ED3 \u0103n.cs",
-              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520183226_th\u00EAm m\u1EE5c gi\u00E1 \u0111\u1ED3 \u0103n.cs",
-              "RelativeDocumentMoniker": "backend\\Migrations\\20250520183226_th\u00EAm m\u1EE5c gi\u00E1 \u0111\u1ED3 \u0103n.cs",
-              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520183226_th\u00EAm m\u1EE5c gi\u00E1 \u0111\u1ED3 \u0103n.cs",
-              "RelativeToolTip": "backend\\Migrations\\20250520183226_th\u00EAm m\u1EE5c gi\u00E1 \u0111\u1ED3 \u0103n.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T18:32:26.982Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "DataContextModelSnapshot.cs",
-              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\DataContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "backend\\Migrations\\DataContextModelSnapshot.cs",
-              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\DataContextModelSnapshot.cs",
-              "RelativeToolTip": "backend\\Migrations\\DataContextModelSnapshot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T18:30:08.935Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "20250520182558_hoanThienDB.cs",
-              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520182558_hoanThienDB.cs",
-              "RelativeDocumentMoniker": "backend\\Migrations\\20250520182558_hoanThienDB.cs",
-              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520182558_hoanThienDB.cs",
-              "RelativeToolTip": "backend\\Migrations\\20250520182558_hoanThienDB.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwCgAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T18:25:58.887Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 33,
               "Title": "cinemaRoom.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\CinemaRoom\\cinemaRoom.cs",
               "RelativeDocumentMoniker": "backend\\Model\\CinemaRoom\\cinemaRoom.cs",
@@ -408,7 +303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 25,
               "Title": "priceInformation.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Price\\priceInformation.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Price\\priceInformation.cs",
@@ -420,7 +315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 24,
               "Title": "userType.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Price\\userType.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Price\\userType.cs",
@@ -432,7 +327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 29,
               "Title": "Language.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\Language.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Movie\\Language.cs",
@@ -444,7 +339,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 27,
               "Title": "movieGenreInformation.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\movieGenreInformation.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Movie\\movieGenreInformation.cs",
@@ -456,7 +351,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 26,
               "Title": "movieSchedule.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\movieSchedule.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Movie\\movieSchedule.cs",
@@ -468,7 +363,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 28,
               "Title": "movieGenre.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\movieGenre.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Movie\\movieGenre.cs",
@@ -480,7 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 20,
               "Title": "movieInformation.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\movieInformation.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Movie\\movieInformation.cs",
@@ -492,7 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 30,
               "Title": "cinemaMovieInformation.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Cinemas\\cinemaMovieInformation.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Cinemas\\cinemaMovieInformation.cs",
@@ -504,7 +399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 31,
               "Title": "Cinema.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Cinemas\\Cinema.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Cinemas\\Cinema.cs",
@@ -516,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "userRoleInformation.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Auth\\userRoleInformation.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Auth\\userRoleInformation.cs",
@@ -524,12 +419,11 @@
               "RelativeToolTip": "backend\\Model\\Auth\\userRoleInformation.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T18:02:25.114Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T18:02:25.114Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "roleInformation.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Auth\\roleInformation.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Auth\\roleInformation.cs",
@@ -537,12 +431,11 @@
               "RelativeToolTip": "backend\\Model\\Auth\\roleInformation.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T18:01:53.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T18:01:53.58Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "userInformation.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Auth\\userInformation.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Auth\\userInformation.cs",
@@ -550,12 +443,11 @@
               "RelativeToolTip": "backend\\Model\\Auth\\userInformation.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAwwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T18:01:09.895Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T18:01:09.895Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 23,
               "Title": "orderDetailFood.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Booking\\orderDetailFood.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Booking\\orderDetailFood.cs",
@@ -567,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 21,
               "Title": "foodInformation.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Product\\foodInformation.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Product\\foodInformation.cs",
@@ -579,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 35,
               "Title": "20250520170630_v1.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520170630_v1.cs",
               "RelativeDocumentMoniker": "backend\\Migrations\\20250520170630_v1.cs",
@@ -590,7 +482,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 34,
               "Title": "orderDetailTicket.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Booking\\orderDetailTicket.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Booking\\orderDetailTicket.cs",
@@ -602,7 +494,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 19,
               "Title": "Order.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Booking\\Order.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Booking\\Order.cs",
@@ -614,7 +506,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 32,
               "Title": "Seats.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\CinemaRoom\\Seats.cs",
               "RelativeDocumentMoniker": "backend\\Model\\CinemaRoom\\Seats.cs",
@@ -626,7 +518,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 36,
               "Title": "20250520115443_V1.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520115443_V1.cs",
               "RelativeDocumentMoniker": "backend\\Migrations\\20250520115443_V1.cs",
@@ -637,7 +529,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 37,
               "Title": "20250520112510_V1.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520112510_V1.cs",
               "RelativeDocumentMoniker": "backend\\Migrations\\20250520112510_V1.cs",
@@ -648,7 +540,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 39,
               "Title": "20250509131847_v1.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250509131847_v1.cs",
               "RelativeDocumentMoniker": "backend\\Migrations\\20250509131847_v1.cs",
@@ -659,7 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 18,
               "Title": "appsettings.Production.json",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\appsettings.Production.json",
               "RelativeDocumentMoniker": "backend\\appsettings.Production.json",
@@ -667,12 +559,11 @@
               "RelativeToolTip": "backend\\appsettings.Production.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-09T13:06:05.042Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-09T13:06:05.042Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Program.cs",
               "RelativeDocumentMoniker": "backend\\Program.cs",
@@ -680,12 +571,11 @@
               "RelativeToolTip": "backend\\Program.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAABMAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T12:41:10.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T12:41:10.443Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "WeatherForecast.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "backend\\WeatherForecast.cs",
@@ -693,12 +583,11 @@
               "RelativeToolTip": "backend\\WeatherForecast.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T12:41:17.353Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T12:41:17.353Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 22,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\appsettings.Development.json",
               "RelativeDocumentMoniker": "backend\\appsettings.Development.json",
@@ -710,7 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 38,
               "Title": "Dockerfile",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Dockerfile",
               "RelativeDocumentMoniker": "backend\\Dockerfile",
@@ -722,7 +611,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 42,
               "Title": "appsettings.Docker.json",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\appsettings.Docker.json",
               "RelativeDocumentMoniker": "backend\\appsettings.Docker.json",
@@ -733,7 +622,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\appsettings.json",
               "RelativeDocumentMoniker": "backend\\appsettings.json",
@@ -741,12 +630,11 @@
               "RelativeToolTip": "backend\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-08T13:27:10.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-08T13:27:10.336Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "backend\\Properties\\launchSettings.json",
@@ -754,12 +642,11 @@
               "RelativeToolTip": "backend\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAcAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-07T12:41:27.513Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T12:41:27.513Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "DataContext.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Data\\DataContext.cs",
               "RelativeDocumentMoniker": "backend\\Data\\DataContext.cs",
@@ -767,12 +654,11 @@
               "RelativeToolTip": "backend\\Data\\DataContext.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAowAgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T13:18:46.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-08T13:18:46.541Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 41,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -782,7 +668,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 43,
               "Title": "20250508133409_v1.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250508133409_v1.cs",
               "RelativeDocumentMoniker": "backend\\Migrations\\20250508133409_v1.cs",
@@ -793,7 +679,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "backend.csproj",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\backend.csproj",
               "RelativeDocumentMoniker": "backend\\backend.csproj",
@@ -801,12 +687,11 @@
               "RelativeToolTip": "backend\\backend.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-07T12:48:43.559Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T12:48:43.559Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 40,
               "Title": "backend.http",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\backend.http",
               "RelativeDocumentMoniker": "backend\\backend.http",
@@ -818,15 +703,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "backend",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\backend.csproj",
               "RelativeDocumentMoniker": "backend\\backend.csproj",
               "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\backend.csproj",
               "RelativeToolTip": "backend\\backend.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-07T12:41:22.81Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T12:41:22.81Z"
             }
           ]
         }
