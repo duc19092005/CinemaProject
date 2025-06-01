@@ -32,6 +32,8 @@ namespace backend.Data
 
         public DbSet<movieInformation> movieInformation { get; set; }
 
+        public DbSet<movieVisualFormat> movieVisualFormat { get; set; }
+
         public DbSet<movieSchedule> movieSchedule { get; set; }
 
         public DbSet<Order> Order { get; set; }
