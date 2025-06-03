@@ -71,5 +71,9 @@ namespace backend.Model.Movie
         public List<movieSchedule> movieSchedule { get; set; } = null!;
 
         public List<cinemaMovieInformation> cinemaMovieInformation { get; set; } = [];
+
+        // Khóa ngoại 1 bộ phim có nhiều comment
+
+        public List<movieCommentDetail> movieCommentDetail { get; set; } = [];
     }
 }
