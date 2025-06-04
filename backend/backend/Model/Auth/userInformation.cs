@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using backend.Model.Booking;
+using backend.Model.CinemaRoom;
 using backend.Model.Movie;
 
 namespace backend.Model.Auth
@@ -58,5 +59,7 @@ namespace backend.Model.Auth
         public List<Order> Order { get; set; } = [];
 
         public List<movieCommentDetail> movieCommentDetail { get; set; } = [];
+
+        public List<cleaningStatus> cleaningStatus { get; set; } = [];
     }
 }

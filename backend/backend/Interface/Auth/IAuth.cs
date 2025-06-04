@@ -13,7 +13,7 @@ namespace backend.Interface.Auth
         // Trả về một token nếu đăng nhập thành công
         // Tạm thời chưa trả về model
 
-        string AuthRequsest(loginRequest loginRequest);
+        loginRespondDTO AuthRequsest(loginRequest loginRequest);
 
     }
 }

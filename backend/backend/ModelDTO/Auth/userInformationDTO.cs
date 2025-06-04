@@ -14,8 +14,6 @@ namespace backend.ModelDTO.Auth
         public string loginUserPassword { get; set; } = "";
 
 
-
-
         public DateTime dateOfBirth { get; set; }
 
         // Số điện thoại của User

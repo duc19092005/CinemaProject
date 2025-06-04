@@ -36,5 +36,7 @@ namespace backend.Model.CinemaRoom
         public List<movieSchedule> movieSchedule { get; set; } = null!;
 
         public List<Seats> Seats { get; set; } = [];
+
+        public List<cleaningStatus> cleaningStatus { get; set; } = [];
     }
 }

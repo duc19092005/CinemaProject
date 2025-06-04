@@ -11,12 +11,9 @@ namespace backend.Services.Auth
             return null!;
         }
 
-        // Trả về một token nếu đăng nhập thành công
-        // Tạm thời chưa trả về model
-
-        public string AuthRequsest(loginRequest loginRequest)
+        public loginRespondDTO AuthRequsest(loginRequest loginRequest)
         {
-            return string.Empty;
+            return null!;
         }
     }
 }
