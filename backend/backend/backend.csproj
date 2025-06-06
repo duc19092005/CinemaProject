@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="JWT" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
@@ -18,6 +19,20 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interface\Director\" />
+    <Folder Include="ModelDTO\Customer\OrderRequest\" />
+    <Folder Include="Services\ManagermentServices\DirectorServices\" />
+    <Folder Include="Services\ManagermentServices\MovieManagermentServices\" />
+    <Folder Include="Services\ManagermentServices\SystemManagermentServices\" />
+    <Folder Include="Services\ManagermentServices\TheaterManagementServices\" />
+    <Folder Include="Services\StaffServices\CashierStaffServices\" />
+    <Folder Include="Services\StaffServices\CleanerStaffServices\" />
+    <Folder Include="Services\StaffServices\AccountantStaffServices\" />
+    <Folder Include="Services\StaffServices\" />
+    <Folder Include="Services\StaffServices\TicketInspectorServices\" />
   </ItemGroup>
 
 </Project>

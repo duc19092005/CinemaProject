@@ -24,6 +24,8 @@ namespace backend.Model.CinemaRoom
         [Required]
         public int cinemaRoomNumber { get; set; }
 
+        public bool isIMAXRoom { get; set; } = false;
+
         // Khóa ngoại
 
         [Column(TypeName = "varchar(100)")]
@@ -36,5 +38,7 @@ namespace backend.Model.CinemaRoom
         public List<movieSchedule> movieSchedule { get; set; } = null!;
 
         public List<Seats> Seats { get; set; } = [];
+
+        public List<cleaningStatus> cleaningStatus { get; set; } = [];
     }
 }

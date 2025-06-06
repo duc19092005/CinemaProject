@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace backend.Request.Auth
+namespace backend.ModelDTO.Auth.AuthRequest
 {
-    public class loginRequest
+    public class loginRequestDTO
     {
         [Required(ErrorMessage = "Không được để trống")]
         [StringLength(100, ErrorMessage = "Tên đăng nhập không được vượt quá 100 ký tự")]
@@ -11,7 +10,7 @@ namespace backend.Request.Auth
 
 
         [Required(ErrorMessage = "Không được để trống")]
-        [StringLength(100,MinimumLength = 8, ErrorMessage = "Mật khẩu ít nhất phải 8 ký tự")]
+        [StringLength(100, MinimumLength = 8, ErrorMessage = "Mật khẩu ít nhất phải 8 ký tự")]
         public string loginUserPassword { get; set; } = "";
     }
 }

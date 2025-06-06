@@ -4,6 +4,7 @@ using backend.Data;
 using backend.Model.Auth;
 using backend.ModelDTO.Auth;
 using Microsoft.EntityFrameworkCore;
+using backend.Interface.Customter;
 
 namespace backend.Controllers
 {
@@ -12,10 +13,43 @@ namespace backend.Controllers
     public class userController : ControllerBase
     {
         private readonly DataContext _dbcontext;
+        private readonly IOrderDetail orderDetail;
 
-        public userController(DataContext dbcontext)
+        public userController(DataContext dbcontext , IOrderDetail orderDetail)
         {
             _dbcontext = dbcontext;
+            this.orderDetail = orderDetail;
+        }
+
+        [HttpGet("getAllUser")]
+        public IActionResult Get()
+        {
+            return Ok(_dbcontext.userInformation.ToList());
+        }
+
+        [HttpGet("getAllUserByROle")]
+        public IActionResult GetUserRole()
+        {
+            return Ok(_dbcontext.userInformation.
+                Where(x => x.userName.Equals("Admin User")).Include(x => x.userRoleInformation));
+        }
+
+        [HttpGet("getOrderID/{id}")]
+        public IActionResult GetOrderDetail(string id)
+        {
+            try
+            {
+                var getOrder = orderDetail.GetOrderDetailRespond(id);
+                if (getOrder != null)
+                {
+                    return Ok(getOrder);
+                }
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

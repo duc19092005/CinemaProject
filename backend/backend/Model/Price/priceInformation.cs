@@ -24,9 +24,17 @@ namespace backend.Model.Price
         [ForeignKey("userType")]
         public string userTypeId { get; set; } = "";
 
+
+        [Column(TypeName = "varchar(100)")]
+        [ForeignKey("movieVisualFormat")]
+        public string movieVisualFormatId { get; set; } = "";
+
         public userType userType { get; set; } = null!;
 
+        public movieVisualFormat movieVisualFormat { get; set; } = null!;
+
         public List<orderDetailTicket> orderDetail = [];
+
 
     }
 }
