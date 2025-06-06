@@ -279,3 +279,5 @@ E:\CNPM_DoAn\CinemaProject\backend\backend\obj\Debug\net8.0\refint\backend.dll
 E:\CNPM_DoAn\CinemaProject\backend\backend\obj\Debug\net8.0\backend.pdb
 E:\CNPM_DoAn\CinemaProject\backend\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 E:\CNPM_DoAn\CinemaProject\backend\backend\obj\Debug\net8.0\ref\backend.dll
+E:\CNPM_DoAn\CinemaProject\backend\backend\bin\Debug\net8.0\JWT.dll
+E:\CNPM_DoAn\CinemaProject\backend\backend\bin\Debug\net8.0\Newtonsoft.Json.dll

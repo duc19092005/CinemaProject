@@ -1,6 +1,6 @@
-﻿using backend.Request;
-using backend.Request.Auth;
+﻿
 using backend.ModelDTO.Auth.AuthRespond;
+using backend.ModelDTO.Auth.AuthRequest;
 namespace backend.Interface.Auth
 {
     // Các Interfaces Authentication , author
@@ -8,12 +8,12 @@ namespace backend.Interface.Auth
     {
         // Tạm thời để boolean
 
-        registerRespondDTO Register(registerRequest registerRequest);
+        registerRespondDTO Register(registerRequestDTO registerRequest);
 
         // Trả về một token nếu đăng nhập thành công
         // Tạm thời chưa trả về model
 
-        loginRespondDTO AuthRequsest(loginRequest loginRequest);
+        loginRespondDTO AuthRequsest(loginRequestDTO loginRequest);
 
     }
 }

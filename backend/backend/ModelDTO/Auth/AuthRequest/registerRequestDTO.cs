@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace backend.Request.Auth
+namespace backend.ModelDTO.Auth.AuthRequest
 {
-    public class registerRequest
+    public class registerRequestDTO
     {
         [Required(ErrorMessage = "Email không được để trống.")]
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",

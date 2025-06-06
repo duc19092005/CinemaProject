@@ -24,6 +24,8 @@ namespace backend.Model.CinemaRoom
         [Required]
         public int cinemaRoomNumber { get; set; }
 
+        public bool isIMAXRoom { get; set; } = false;
+
         // Khóa ngoại
 
         [Column(TypeName = "varchar(100)")]

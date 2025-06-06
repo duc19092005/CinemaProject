@@ -1,17 +1,17 @@
 ﻿using backend.Interface.Auth;
 using backend.ModelDTO.Auth.AuthRespond;
-using backend.Request.Auth;
+using backend.ModelDTO.Auth.AuthRequest;
 
 namespace backend.Services.Auth
 {
     public class AuthService : IAuth
     {
-        public registerRespondDTO Register(registerRequest registerRequest)
+        public registerRespondDTO Register(registerRequestDTO registerRequest)
         {
             return null!;
         }
 
-        public loginRespondDTO AuthRequsest(loginRequest loginRequest)
+        public loginRespondDTO AuthRequsest(loginRequestDTO loginRequest)
         {
             return null!;
         }

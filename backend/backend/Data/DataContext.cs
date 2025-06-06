@@ -56,6 +56,7 @@ namespace backend.Data
 
         public DbSet<orderDetailFood> orderDetailFood { get;set; }
 
+
         public DbSet<cleaningStatus> cleaningStatus { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,15 +1,22 @@
 ﻿
 using backend.Data;
 using backend.Interface.Auth;
+using backend.Interface.Customter;
 using backend.Model.Auth;
 using backend.Services.Auth;
+using backend.Services.CustomerServices;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+
+
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -20,6 +27,10 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 // Add thêm DI của các services
 // Auth services
 builder.Services.AddScoped<IAuth, AuthService>();
+
+// Add thêm DI của Service user
+
+builder.Services.AddScoped<IOrderDetail, OrderDetailServices>();
 
 Console.WriteLine(builder.Configuration.GetConnectionString("DefaultConnection"));
 
