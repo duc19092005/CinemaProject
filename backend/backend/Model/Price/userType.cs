@@ -19,7 +19,7 @@ namespace backend.Model.Price
         [Column(TypeName = "nvarchar(50)")]
         public string userTypeDescription { get; set; } = "";
 
-        public List<priceInformation> priceInformation { get; set; } = null!;
+        public List<priceInformationForEachUserFilmType> priceInformation { get; set; } = null!;
 
 
     }

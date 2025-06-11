@@ -13,8 +13,9 @@ namespace backend.Model.Movie
         [Column(TypeName = "nvarchar(50)")]
         public string movieVisualFormatName { get; set; } = "";
 
-        public List<movieInformation> movieInformation { get; set; } = [];
+        // MQH N_N
+        public List<movieVisualFormatDetail> movieVisualFormatDetail { get; set; } = [];
 
-        public List<priceInformation> priceInformation { get; set; } = [];
+        public List<priceInformationForEachUserFilmType> priceInformation { get; set; } = [];
     }
 }

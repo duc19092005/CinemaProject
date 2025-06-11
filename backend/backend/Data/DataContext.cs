@@ -40,7 +40,7 @@ namespace backend.Data
 
         public DbSet<orderDetailTicket> orderDetail { get; set; }
 
-        public DbSet<priceInformation> priceInformation { get; set; }
+        public DbSet<priceInformationForEachUserFilmType> priceInformationForEachUserFilmType { get; set; }
 
         public DbSet<roleInformation> roleInformation { get; set; }
 
@@ -56,7 +56,7 @@ namespace backend.Data
 
         public DbSet<orderDetailFood> orderDetailFood { get;set; }
 
-
+        public DbSet<PriceInformation> priceInformation { get; set; }
         public DbSet<cleaningStatus> cleaningStatus { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -192,15 +192,13 @@ namespace backend.Data
             });
 
             // Seed Data for Prices
-            string priceAdult2D = Guid.NewGuid().ToString();
-            string priceChild2D = Guid.NewGuid().ToString();
-            string priceAdult3D = Guid.NewGuid().ToString();
+            string priceỈnformationID = Guid.NewGuid().ToString();
+            string priceInformationID2 = Guid.NewGuid().ToString();
 
-            modelBuilder.Entity<priceInformation>().HasData(new priceInformation[]
+            modelBuilder.Entity<PriceInformation>().HasData(new PriceInformation[]
             {
-                new priceInformation { priceInformationId = priceAdult2D, priceAmount = 100000, userTypeId = userTypeAdult, movieVisualFormatId = format2D },
-                new priceInformation { priceInformationId = priceChild2D, priceAmount = 70000, userTypeId = userTypeChild, movieVisualFormatId = format2D },
-                new priceInformation { priceInformationId = priceAdult3D, priceAmount = 130000, userTypeId = userTypeAdult, movieVisualFormatId = format3D }
+                new PriceInformation { priceInformationId = priceỈnformationID, priceAmount = 45000 },
+                new PriceInformation { priceInformationId = priceInformationID2, priceAmount = 70000 },
             });
 
             // Seed Data for Food Information
@@ -268,7 +266,6 @@ namespace backend.Data
                     movieTrailerUrl = "https://www.youtube.com/watch?v=Way9Dexny3w",
                     movieDuration = 166, // minutes
                     languageId = langEnglish,
-                    movieVisualFormatId = format2D
                 },
                 new movieInformation
                 {
@@ -281,7 +278,6 @@ namespace backend.Data
                     movieTrailerUrl = "https://www.youtube.com/watch?v=EOk9z-WbN5o",
                     movieDuration = 115, // minutes
                     languageId = langEnglish,
-                    movieVisualFormatId = format3D
                 }
             });
 

@@ -1,16 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using backend.Model.Auth;
-using backend.Model.Booking;
-using backend.Model.Cinemas;
-using backend.Model.CinemaRoom;
-using backend.Model.Movie;
-using backend.Model.Price;
-using backend.Model.Product;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace backend.Model.Price
 {
-    public class priceInformation
+    public class PriceInformation
     {
         [Key]
         [Column(TypeName = "varchar(100)")]
@@ -19,22 +12,6 @@ namespace backend.Model.Price
         [Required]
         public long priceAmount { get; set; }
 
-
-        [Column(TypeName = "varchar(100)")]
-        [ForeignKey("userType")]
-        public string userTypeId { get; set; } = "";
-
-
-        [Column(TypeName = "varchar(100)")]
-        [ForeignKey("movieVisualFormat")]
-        public string movieVisualFormatId { get; set; } = "";
-
-        public userType userType { get; set; } = null!;
-
-        public movieVisualFormat movieVisualFormat { get; set; } = null!;
-
-        public List<orderDetailTicket> orderDetail = [];
-
-
+        public List<priceInformationForEachUserFilmType> priceInformationForEachUserFilmType { get; set; } = [];
     }
 }

@@ -18,7 +18,7 @@ namespace backend.Model.Booking
 
         [Required]
         [Column(TypeName = "varchar(50)")]
-        public string paymentMethod { get; set; } = "";
+        public string paymentMethod { get; set; } = "VNPAY";
 
         [Required]
         public bool isPay { get; set; } = false;
@@ -38,5 +38,7 @@ namespace backend.Model.Booking
         public List<orderDetailTicket> orderDetail = [];
 
         public List<orderDetailFood> orderDetailFood = [];
+
+        
     }
 }

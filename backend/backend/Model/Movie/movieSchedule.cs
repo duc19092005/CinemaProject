@@ -30,5 +30,8 @@ namespace backend.Model.Movie
         public cinemaRoom cinemaRoom { get; set; } = null!;
 
         public movieInformation movieInformation { get; set; } = null!;
+
+        public List<orderDetailTicket> orderDetailTicket { get; set; } = [];
+
     }
 }
