@@ -24,7 +24,6 @@
   <ItemGroup>
     <Folder Include="Interface\ManagerInterface\Director\" />
     <Folder Include="Interface\ManagerInterface\FacilitiesManagement\" />
-    <Folder Include="Interface\NewFolder\" />
     <Folder Include="Interface\StaffInterface\ChoresStaff\" />
     <Folder Include="Interface\StaffInterface\CashierStaff\" />
     <Folder Include="Interface\StaffInterface\accountantStaff\" />
@@ -32,7 +31,6 @@
     <Folder Include="Interface\StaffInterface\TicketInspectorStaff\" />
     <Folder Include="ModelDTO\ContentManagement\MovieRespond\" />
     <Folder Include="Services\ManagermentServices\DirectorServices\" />
-    <Folder Include="Services\ManagermentServices\MovieManagermentServices\" />
     <Folder Include="Services\ManagermentServices\SystemManagermentServices\" />
     <Folder Include="Services\ManagermentServices\TheaterManagementServices\" />
     <Folder Include="Services\StaffServices\CashierStaffServices\" />

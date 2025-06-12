@@ -7,18 +7,24 @@ namespace backend.ModelDTO.ContentManagement.MovieRequest
 {
     public class MovieRequestDTO
     {
+        [Required]
+
         public string movieName { get; set; } = "";
+        [Required]
 
         // Tạm thời để byte
         public byte[] movieImage { get; set; } = [];
+        [Required]
 
         public string movieDescription { get; set; } = "";
 
         [Required]
         public string movieDirector { get; set; } = "";
 
+        [Required]
         // Diễn viên của bộ phim
         public string movieActor { get; set; } = "";
+        [Required]
 
         // url Lưu trữ trailer của bộ phim
         public string movieTrailerUrl { get; set; } = "";
@@ -29,23 +35,12 @@ namespace backend.ModelDTO.ContentManagement.MovieRequest
 
         [Required]
         public string languageId { get; set; } = "";
-
-        [ForeignKey("movieVisualFormat")]
         [Required]
-        [Column(TypeName = "varchar(100)")]
-        public string movieVisualFormatId { get; set; } = "";
 
-        public Language Language { get; set; } = null!;
+        public List<string> visualFormatList { get; set; } = [];
+        [Required]
 
-        public movieVisualFormat movieVisualFormat { get; set; } = null!;
-
-        public List<movieSchedule> movieSchedule { get; set; } = null!;
-
-        public List<cinemaMovieInformation> cinemaMovieInformation { get; set; } = [];
-
-        // Khóa ngoại 1 bộ phim có nhiều comment
-
-        public List<movieCommentDetail> movieCommentDetail { get; set; } = [];
+        public List<string> movieGenreList {  get; set; } = [];
 
     }
 }

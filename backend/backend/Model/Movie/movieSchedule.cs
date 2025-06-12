@@ -8,6 +8,7 @@ using backend.Model.CinemaRoom;
 using backend.Model.Movie;
 using backend.Model.Price;
 using backend.Model.Product;
+using backend.Model.ScheduleList;
 
 namespace backend.Model.Movie
 {
@@ -17,8 +18,6 @@ namespace backend.Model.Movie
         [Column(TypeName = "varchar(100)")]
         public string movieScheduleId { get; set; } = "";
 
-        public DateTime showDateTime { get; set; }
-
         [ForeignKey("cinemaRoom")]
         [Column(TypeName = "varchar(100)")]
         public string cinemaRoomId { get; set; } = "";
@@ -27,11 +26,23 @@ namespace backend.Model.Movie
         [Column(TypeName = "varchar(100)")]
         public string movieId { get; set; } = "";
 
+        // Khóa ngoại tham chiếu tới thứ
+        [ForeignKey("DayInWeekendSchedule")]
+        public string DayInWeekendScheduleID { get; set; } = string.Empty;
+
+        // Khóa ngoại tham chiếu tới giờ chiếu
+        [ForeignKey("HourSchedule")]
+        public string HourScheduleID { get; set; } = string.Empty;
+
         public cinemaRoom cinemaRoom { get; set; } = null!;
 
         public movieInformation movieInformation { get; set; } = null!;
 
         public List<orderDetailTicket> orderDetailTicket { get; set; } = [];
+
+        public DayInWeekendSchedule DayInWeekendSchedule { get; set; } = null!;
+
+        public HourSchedule HourSchedule { get; set; } = null!;
 
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace backend.Migrations
 {
     /// <inheritdoc />
-    public partial class db_update : Migration
+    public partial class NewestDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,11 +19,24 @@ namespace backend.Migrations
                     cinemaName = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     cinemaLocation = table.Column<string>(type: "nvarchar(200)", nullable: false),
                     cinemaDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    cinemaContactHotlineNumber = table.Column<string>(type: "varchar(10)", nullable: false)
+                    cinemaContactHotlineNumber = table.Column<string>(type: "varchar(10)", nullable: false),
+                    isSupportedIMAX = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cinema", x => x.cinemaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DayInWeekendSchedule",
+                columns: table => new
+                {
+                    DayInWeekendScheduleID = table.Column<string>(type: "varchar(50)", nullable: false),
+                    DayInWeekendScheduleName = table.Column<string>(type: "nvarchar(20)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DayInWeekendSchedule", x => x.DayInWeekendScheduleID);
                 });
 
             migrationBuilder.CreateTable(
@@ -37,6 +50,18 @@ namespace backend.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_foodInformation", x => x.foodInformationId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HourSchedule",
+                columns: table => new
+                {
+                    HourScheduleID = table.Column<string>(type: "varchar(50)", nullable: false),
+                    HourScheduleDate = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HourSchedule", x => x.HourScheduleID);
                 });
 
             migrationBuilder.CreateTable(
@@ -61,6 +86,30 @@ namespace backend.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_movieGenre", x => x.movieGenreId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "movieVisualFormat",
+                columns: table => new
+                {
+                    movieVisualFormatId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    movieVisualFormatName = table.Column<string>(type: "nvarchar(50)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_movieVisualFormat", x => x.movieVisualFormatId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "priceInformation",
+                columns: table => new
+                {
+                    priceInformationId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    priceAmount = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_priceInformation", x => x.priceInformationId);
                 });
 
             migrationBuilder.CreateTable(
@@ -111,6 +160,7 @@ namespace backend.Migrations
                 {
                     cinemaRoomId = table.Column<string>(type: "varchar(100)", nullable: false),
                     cinemaRoomNumber = table.Column<int>(type: "int", nullable: false),
+                    isIMAXRoom = table.Column<bool>(type: "bit", nullable: false),
                     cinemaId = table.Column<string>(type: "varchar(100)", nullable: false)
                 },
                 constraints: table =>
@@ -196,21 +246,61 @@ namespace backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "priceInformation",
+                name: "priceInformationForEachUserFilmType",
                 columns: table => new
                 {
-                    priceInformationId = table.Column<string>(type: "varchar(100)", nullable: false),
-                    priceAmount = table.Column<long>(type: "bigint", nullable: false),
-                    userTypeId = table.Column<string>(type: "varchar(100)", nullable: false)
+                    userTypeId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    movieVisualFormatId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    priceInformationID = table.Column<string>(type: "varchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_priceInformation", x => x.priceInformationId);
+                    table.PrimaryKey("PK_priceInformationForEachUserFilmType", x => new { x.userTypeId, x.movieVisualFormatId, x.priceInformationID });
                     table.ForeignKey(
-                        name: "FK_priceInformation_userType_userTypeId",
+                        name: "FK_priceInformationForEachUserFilmType_movieVisualFormat_movieVisualFormatId",
+                        column: x => x.movieVisualFormatId,
+                        principalTable: "movieVisualFormat",
+                        principalColumn: "movieVisualFormatId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_priceInformationForEachUserFilmType_priceInformation_priceInformationID",
+                        column: x => x.priceInformationID,
+                        principalTable: "priceInformation",
+                        principalColumn: "priceInformationId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_priceInformationForEachUserFilmType_userType_userTypeId",
                         column: x => x.userTypeId,
                         principalTable: "userType",
                         principalColumn: "userTypeId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "cleaningStatus",
+                columns: table => new
+                {
+                    roomID = table.Column<string>(type: "varchar(100)", nullable: false),
+                    staffID = table.Column<string>(type: "varchar(100)", nullable: false),
+                    startedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    endedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    cinemaRoomId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    userInformationuserId = table.Column<string>(type: "varchar(100)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_cleaningStatus", x => new { x.roomID, x.staffID, x.startedTime });
+                    table.ForeignKey(
+                        name: "FK_cleaningStatus_cinemaRoom_cinemaRoomId",
+                        column: x => x.cinemaRoomId,
+                        principalTable: "cinemaRoom",
+                        principalColumn: "cinemaRoomId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_cleaningStatus_userInformation_userInformationuserId",
+                        column: x => x.userInformationuserId,
+                        principalTable: "userInformation",
+                        principalColumn: "userId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -260,6 +350,31 @@ namespace backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "movieCommentDetail",
+                columns: table => new
+                {
+                    movieId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    userId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    userCommentDetail = table.Column<string>(type: "nvarchar(200)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_movieCommentDetail", x => new { x.movieId, x.userId });
+                    table.ForeignKey(
+                        name: "FK_movieCommentDetail_movieInformation_movieId",
+                        column: x => x.movieId,
+                        principalTable: "movieInformation",
+                        principalColumn: "movieId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_movieCommentDetail_userInformation_userId",
+                        column: x => x.userId,
+                        principalTable: "userInformation",
+                        principalColumn: "userId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "movieGenreInformation",
                 columns: table => new
                 {
@@ -288,13 +403,26 @@ namespace backend.Migrations
                 columns: table => new
                 {
                     movieScheduleId = table.Column<string>(type: "varchar(100)", nullable: false),
-                    showDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     cinemaRoomId = table.Column<string>(type: "varchar(100)", nullable: false),
-                    movieId = table.Column<string>(type: "varchar(100)", nullable: false)
+                    movieId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    DayInWeekendScheduleID = table.Column<string>(type: "varchar(50)", nullable: false),
+                    HourScheduleID = table.Column<string>(type: "varchar(50)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_movieSchedule", x => x.movieScheduleId);
+                    table.ForeignKey(
+                        name: "FK_movieSchedule_DayInWeekendSchedule_DayInWeekendScheduleID",
+                        column: x => x.DayInWeekendScheduleID,
+                        principalTable: "DayInWeekendSchedule",
+                        principalColumn: "DayInWeekendScheduleID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_movieSchedule_HourSchedule_HourScheduleID",
+                        column: x => x.HourScheduleID,
+                        principalTable: "HourSchedule",
+                        principalColumn: "HourScheduleID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_movieSchedule_cinemaRoom_cinemaRoomId",
                         column: x => x.cinemaRoomId,
@@ -310,7 +438,31 @@ namespace backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "orderDetailFood",
+                name: "movieVisualFormatDetails",
+                columns: table => new
+                {
+                    movieId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    movieVisualFormatId = table.Column<string>(type: "varchar(100)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_movieVisualFormatDetails", x => new { x.movieId, x.movieVisualFormatId });
+                    table.ForeignKey(
+                        name: "FK_movieVisualFormatDetails_movieInformation_movieId",
+                        column: x => x.movieId,
+                        principalTable: "movieInformation",
+                        principalColumn: "movieId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_movieVisualFormatDetails_movieVisualFormat_movieVisualFormatId",
+                        column: x => x.movieVisualFormatId,
+                        principalTable: "movieVisualFormat",
+                        principalColumn: "movieVisualFormatId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FoodOrderDetail",
                 columns: table => new
                 {
                     orderId = table.Column<string>(type: "varchar(100)", nullable: false),
@@ -319,15 +471,15 @@ namespace backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_orderDetailFood", x => new { x.orderId, x.foodInformationId });
+                    table.PrimaryKey("PK_FoodOrderDetail", x => new { x.orderId, x.foodInformationId });
                     table.ForeignKey(
-                        name: "FK_orderDetailFood_Order_orderId",
+                        name: "FK_FoodOrderDetail_Order_orderId",
                         column: x => x.orderId,
                         principalTable: "Order",
                         principalColumn: "orderId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_orderDetailFood_foodInformation_foodInformationId",
+                        name: "FK_FoodOrderDetail_foodInformation_foodInformationId",
                         column: x => x.foodInformationId,
                         principalTable: "foodInformation",
                         principalColumn: "foodInformationId",
@@ -335,30 +487,37 @@ namespace backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "orderDetail",
+                name: "TicketOrderDetail",
                 columns: table => new
                 {
-                    orderId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    movieScheduleID = table.Column<string>(type: "varchar(100)", nullable: false),
                     seatsId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    orderId = table.Column<string>(type: "varchar(100)", nullable: false),
                     priceInformationId = table.Column<string>(type: "varchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_orderDetail", x => new { x.orderId, x.seatsId, x.priceInformationId });
+                    table.PrimaryKey("PK_TicketOrderDetail", x => new { x.seatsId, x.movieScheduleID });
                     table.ForeignKey(
-                        name: "FK_orderDetail_Order_orderId",
+                        name: "FK_TicketOrderDetail_Order_orderId",
                         column: x => x.orderId,
                         principalTable: "Order",
                         principalColumn: "orderId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_orderDetail_Seats_seatsId",
+                        name: "FK_TicketOrderDetail_Seats_seatsId",
                         column: x => x.seatsId,
                         principalTable: "Seats",
                         principalColumn: "seatsId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_orderDetail_priceInformation_priceInformationId",
+                        name: "FK_TicketOrderDetail_movieSchedule_movieScheduleID",
+                        column: x => x.movieScheduleID,
+                        principalTable: "movieSchedule",
+                        principalColumn: "movieScheduleId",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_TicketOrderDetail_priceInformation_priceInformationId",
                         column: x => x.priceInformationId,
                         principalTable: "priceInformation",
                         principalColumn: "priceInformationId",
@@ -373,8 +532,27 @@ namespace backend.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_cinemaRoom_cinemaId",
                 table: "cinemaRoom",
-                column: "cinemaId",
-                unique: true);
+                column: "cinemaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_cleaningStatus_cinemaRoomId",
+                table: "cleaningStatus",
+                column: "cinemaRoomId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_cleaningStatus_userInformationuserId",
+                table: "cleaningStatus",
+                column: "userInformationuserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FoodOrderDetail_foodInformationId",
+                table: "FoodOrderDetail",
+                column: "foodInformationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_movieCommentDetail_userId",
+                table: "movieCommentDetail",
+                column: "userId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_movieGenreInformation_movieGenreId",
@@ -392,9 +570,24 @@ namespace backend.Migrations
                 column: "cinemaRoomId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_movieSchedule_DayInWeekendScheduleID",
+                table: "movieSchedule",
+                column: "DayInWeekendScheduleID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_movieSchedule_HourScheduleID",
+                table: "movieSchedule",
+                column: "HourScheduleID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_movieSchedule_movieId",
                 table: "movieSchedule",
                 column: "movieId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_movieVisualFormatDetails_movieVisualFormatId",
+                table: "movieVisualFormatDetails",
+                column: "movieVisualFormatId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_userId",
@@ -402,29 +595,34 @@ namespace backend.Migrations
                 column: "userId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_orderDetail_priceInformationId",
-                table: "orderDetail",
-                column: "priceInformationId");
+                name: "IX_priceInformationForEachUserFilmType_movieVisualFormatId",
+                table: "priceInformationForEachUserFilmType",
+                column: "movieVisualFormatId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_orderDetail_seatsId",
-                table: "orderDetail",
-                column: "seatsId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_orderDetailFood_foodInformationId",
-                table: "orderDetailFood",
-                column: "foodInformationId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_priceInformation_userTypeId",
-                table: "priceInformation",
-                column: "userTypeId");
+                name: "IX_priceInformationForEachUserFilmType_priceInformationID",
+                table: "priceInformationForEachUserFilmType",
+                column: "priceInformationID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Seats_cinemaRoomId",
                 table: "Seats",
                 column: "cinemaRoomId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TicketOrderDetail_movieScheduleID",
+                table: "TicketOrderDetail",
+                column: "movieScheduleID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TicketOrderDetail_orderId",
+                table: "TicketOrderDetail",
+                column: "orderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TicketOrderDetail_priceInformationId",
+                table: "TicketOrderDetail",
+                column: "priceInformationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_userRoleInformation_userId",
@@ -439,55 +637,76 @@ namespace backend.Migrations
                 name: "cinemaMovieInformation");
 
             migrationBuilder.DropTable(
+                name: "cleaningStatus");
+
+            migrationBuilder.DropTable(
+                name: "FoodOrderDetail");
+
+            migrationBuilder.DropTable(
+                name: "movieCommentDetail");
+
+            migrationBuilder.DropTable(
                 name: "movieGenreInformation");
 
             migrationBuilder.DropTable(
-                name: "movieSchedule");
+                name: "movieVisualFormatDetails");
 
             migrationBuilder.DropTable(
-                name: "orderDetail");
+                name: "priceInformationForEachUserFilmType");
 
             migrationBuilder.DropTable(
-                name: "orderDetailFood");
+                name: "TicketOrderDetail");
 
             migrationBuilder.DropTable(
                 name: "userRoleInformation");
 
             migrationBuilder.DropTable(
-                name: "movieGenre");
-
-            migrationBuilder.DropTable(
-                name: "movieInformation");
-
-            migrationBuilder.DropTable(
-                name: "Seats");
-
-            migrationBuilder.DropTable(
-                name: "priceInformation");
-
-            migrationBuilder.DropTable(
-                name: "Order");
-
-            migrationBuilder.DropTable(
                 name: "foodInformation");
 
             migrationBuilder.DropTable(
-                name: "roleInformation");
+                name: "movieGenre");
 
             migrationBuilder.DropTable(
-                name: "Language");
-
-            migrationBuilder.DropTable(
-                name: "cinemaRoom");
+                name: "movieVisualFormat");
 
             migrationBuilder.DropTable(
                 name: "userType");
 
             migrationBuilder.DropTable(
+                name: "Order");
+
+            migrationBuilder.DropTable(
+                name: "Seats");
+
+            migrationBuilder.DropTable(
+                name: "movieSchedule");
+
+            migrationBuilder.DropTable(
+                name: "priceInformation");
+
+            migrationBuilder.DropTable(
+                name: "roleInformation");
+
+            migrationBuilder.DropTable(
                 name: "userInformation");
 
             migrationBuilder.DropTable(
+                name: "DayInWeekendSchedule");
+
+            migrationBuilder.DropTable(
+                name: "HourSchedule");
+
+            migrationBuilder.DropTable(
+                name: "cinemaRoom");
+
+            migrationBuilder.DropTable(
+                name: "movieInformation");
+
+            migrationBuilder.DropTable(
                 name: "Cinema");
+
+            migrationBuilder.DropTable(
+                name: "Language");
         }
     }
 }
