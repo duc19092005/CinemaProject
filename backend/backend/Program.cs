@@ -5,10 +5,12 @@ using backend.Interface.Customter;
 using backend.Model.Auth;
 using backend.Services.Auth;
 using backend.Services.CustomerServices;
+using backend.Interface.ManagerInterface.ContentManager;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json.Serialization;
+using backend.Services.ManagermentServices.MovieManagermentServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,9 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 // Add thêm DI của các services
 // Auth services
 builder.Services.AddScoped<IAuth, AuthService>();
+
+// Add thêm DI của services Movie
+builder.Services.AddScoped<IMovie, movieServices>();
 
 // Add thêm DI của Service user
 

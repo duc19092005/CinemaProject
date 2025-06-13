@@ -36,7 +36,6 @@ namespace backend.Model.Price
 
         public List<orderDetailTicket> orderDetail = [];
 
-
     }
 
     [PrimaryKey(nameof(userTypeId) , nameof(movieVisualFormatId) , nameof(priceInformationID))]

@@ -6,7 +6,7 @@ using System.Data.Common;
 
 namespace backend.Services.ManagermentServices.MovieManagermentServices
 {
-    public class movieServices : IContentManagerServices
+    public class movieServices : IMovie
     {
         private readonly DataContext _dataContext;
 

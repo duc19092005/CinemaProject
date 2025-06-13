@@ -1,7 +1,7 @@
 ﻿using backend.ModelDTO.ContentManagement.MovieRequest;
 namespace backend.Interface.ManagerInterface.ContentManager
 {
-    public interface IContentManagerServices
+    public interface IMovie
     {
         // Tạm thời để boolean
 

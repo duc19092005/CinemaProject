@@ -8,6 +8,7 @@ using backend.Model.Movie;
 using backend.Model.Price;
 using backend.Model.Product;
 using backend.Model.ScheduleList;
+using System.Text;
 
 
 namespace backend.Data
@@ -68,7 +69,201 @@ namespace backend.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-          
+            base.OnModelCreating(modelBuilder);
+
+            // Configure GUID IDs for all entities and data seeding
+            // Cấu hình ID dưới dạng chuỗi GUID và thêm dữ liệu ban đầu (seed data)
+
+            // Seed Data for RoleInformation
+            var adminRoleId = Guid.NewGuid().ToString();
+            var userRoleId = Guid.NewGuid().ToString();
+            modelBuilder.Entity<roleInformation>().HasData(
+                new roleInformation { roleId = adminRoleId, roleName = "Admin" },
+                new roleInformation { roleId = userRoleId, roleName = "User" }
+            );
+
+            // Seed Data for UserInformation
+            var userId1 = Guid.NewGuid().ToString();
+            var userId2 = Guid.NewGuid().ToString();
+            modelBuilder.Entity<userInformation>().HasData(
+                new userInformation
+                {
+                    userId = userId1,
+                    loginUserEmail = "admin@example.com",
+                    loginUserPassword = "hashed_password_admin", // In a real app, hash this password
+                    dateOfBirth = new DateTime(1990, 1, 1),
+                    phoneNumber = "0123456789",
+                    userName = "Admin User",
+                    IdentityCode = "123456789012",
+                    userPoint = 1000
+                },
+                new userInformation
+                {
+                    userId = userId2,
+                    loginUserEmail = "user@example.com",
+                    loginUserPassword = "hashed_password_user", // In a real app, hash this password
+                    dateOfBirth = new DateTime(1995, 5, 10),
+                    phoneNumber = "0987654321",
+                    userName = "Regular User",
+                    IdentityCode = "987654321098",
+                    userPoint = 50
+                }
+            );
+
+            // Seed Data for UserRoleInformation (linking users to roles)
+            modelBuilder.Entity<userRoleInformation>().HasData(
+                new userRoleInformation { userId = userId1, roleId = adminRoleId },
+                new userRoleInformation { userId = userId2, roleId = userRoleId }
+            );
+
+            // Seed Data for Language
+            var langId1 = Guid.NewGuid().ToString();
+            var langId2 = Guid.NewGuid().ToString();
+            modelBuilder.Entity<Language>().HasData(
+                new Language { languageId = langId1, languageDetail = "Vietnamese" },
+                new Language { languageId = langId2, languageDetail = "English" }
+            );
+
+            // Seed Data for MovieGenre
+            var genreId1 = Guid.NewGuid().ToString();
+            var genreId2 = Guid.NewGuid().ToString();
+            modelBuilder.Entity<movieGenre>().HasData(
+                new movieGenre { movieGenreId = genreId1, movieGenreName = "Action" },
+                new movieGenre { movieGenreId = genreId2, movieGenreName = "Comedy" }
+            );
+
+            // Seed Data for MovieInformation
+            var movieId1 = Guid.NewGuid().ToString();
+            var movieId2 = Guid.NewGuid().ToString();
+            modelBuilder.Entity<movieInformation>().HasData(
+                new movieInformation
+                {
+                    movieId = movieId1,
+                    movieName = "Phim Hành Động 1",
+                    movieImage = new byte[] { 0x01, 0x02, 0x03 }, // Example byte array
+                    movieDescription = "Đây là một bộ phim hành động đầy kịch tính.",
+                    movieDirector = "Đạo Diễn A",
+                    movieActor = "Diễn Viên X, Diễn Viên Y",
+                    movieTrailerUrl = "http://trailer.com/phimhanhdong1",
+                    movieDuration = 120, // minutes
+                    languageId = langId1
+                },
+                new movieInformation
+                {
+                    movieId = movieId2,
+                    movieName = "Comedy Film 1",
+                    movieImage = new byte[] { 0x04, 0x05, 0x06 }, // Example byte array
+                    movieDescription = "A funny movie for the whole family.",
+                    movieDirector = "Director B",
+                    movieActor = "Actor Z, Actress W",
+                    movieTrailerUrl = "http://trailer.com/comedyfilm1",
+                    movieDuration = 90, // minutes
+                    languageId = langId2
+                }
+            );
+
+            // Seed Data for MovieGenreInformation
+            modelBuilder.Entity<movieGenreInformation>().HasData(
+                new movieGenreInformation { movieId = movieId1, movieGenreId = genreId1 },
+                new movieGenreInformation { movieId = movieId2, movieGenreId = genreId2 }
+            );
+
+            // Seed Data for Cinema
+            var cinemaId1 = Guid.NewGuid().ToString();
+            modelBuilder.Entity<Cinema>().HasData(
+                new Cinema
+                {
+                    cinemaId = cinemaId1,
+                    cinemaName = "Rạp Chiếu Phim ABC",
+                    cinemaLocation = "123 Đường XYZ, TP.HCM",
+                    cinemaDescription = "Rạp chiếu phim hiện đại với nhiều phòng chiếu.",
+                    cinemaContactHotlineNumber = "0901234567",
+                    isSupportedIMAX = true
+                }
+            );
+
+            // Seed Data for CinemaRoom
+            var room1Id = Guid.NewGuid().ToString();
+            modelBuilder.Entity<cinemaRoom>().HasData(
+                new cinemaRoom
+                {
+                    cinemaRoomId = room1Id,
+                    cinemaRoomNumber = 1,
+                    isIMAXRoom = true,
+                    cinemaId = cinemaId1
+                }
+            );
+
+            // Seed Data for Seats
+            var seat1Id = Guid.NewGuid().ToString();
+            var seat2Id = Guid.NewGuid().ToString();
+            modelBuilder.Entity<Seats>().HasData(
+                new Seats { seatsId = seat1Id, seatsNumber = "A1", isTaken = false, isMiddle = true, cinemaRoomId = room1Id },
+                new Seats { seatsId = seat2Id, seatsNumber = "A2", isTaken = false, isMiddle = true, cinemaRoomId = room1Id }
+            );
+
+            // Seed Data for DayInWeekendSchedule
+            var day1Id = Guid.NewGuid().ToString();
+            var day2Id = Guid.NewGuid().ToString();
+            modelBuilder.Entity<DayInWeekendSchedule>().HasData(
+                new DayInWeekendSchedule { DayInWeekendScheduleID = day1Id, DayInWeekendScheduleName = "Monday" },
+                new DayInWeekendSchedule { DayInWeekendScheduleID = day2Id, DayInWeekendScheduleName = "Tuesday" }
+            );
+
+            // Seed Data for HourSchedule
+            var hour1Id = Guid.NewGuid().ToString();
+            var hour2Id = Guid.NewGuid().ToString();
+            modelBuilder.Entity<HourSchedule>().HasData(
+                new HourSchedule { HourScheduleID = hour1Id, HourScheduleDate = "08:00" },
+                new HourSchedule { HourScheduleID = hour2Id, HourScheduleDate = "10:00" }
+            );
+
+            // Seed Data for movieSchedule
+            var movieScheduleId1 = Guid.NewGuid().ToString();
+            modelBuilder.Entity<movieSchedule>().HasData(
+                new movieSchedule
+                {
+                    movieScheduleId = movieScheduleId1,
+                    cinemaRoomId = room1Id,
+                    movieId = movieId1,
+                    DayInWeekendScheduleID = day1Id,
+                    HourScheduleID = hour1Id
+                }
+            );
+
+            // Seed Data for MovieVisualFormat
+            var visualFormatId1 = Guid.NewGuid().ToString();
+            modelBuilder.Entity<movieVisualFormat>().HasData(
+                new movieVisualFormat { movieVisualFormatId = visualFormatId1, movieVisualFormatName = "2D" }
+            );
+
+            // Seed Data for PriceInformation
+            var priceId1 = Guid.NewGuid().ToString();
+            modelBuilder.Entity<PriceInformation>().HasData(
+                new PriceInformation { priceInformationId = priceId1, priceAmount = 80000 }
+            );
+
+            // Seed Data for UserType
+            var userTypeId1 = Guid.NewGuid().ToString();
+            modelBuilder.Entity<userType>().HasData(
+                new userType { userTypeId = userTypeId1, userTypeDescription = "Adult" }
+            );
+
+            // Seed Data for PriceInformationForEachUserFilmType
+            modelBuilder.Entity<priceInformationForEachUserFilmType>().HasData(
+                new priceInformationForEachUserFilmType
+                {
+                    userTypeId = userTypeId1,
+                    movieVisualFormatId = visualFormatId1,
+                    priceInformationID = priceId1
+                }
+            );
+
+            // Seed Data for FoodInformation
+            var foodId1 = Guid.NewGuid().ToString();
+            modelBuilder.Entity<foodInformation>().HasData(
+                new foodInformation { foodInformationId = foodId1, foodInformationName = "Popcorn", foodPrice = 50000 }
+            );
         }
     }
 }
