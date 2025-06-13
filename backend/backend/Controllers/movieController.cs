@@ -1,5 +1,5 @@
-﻿using backend.Interface.ManagerInterface.ContentManager;
-using backend.ModelDTO.ContentManagement.MovieRequest;
+﻿using backend.Interface.MovieInterfaces;
+using backend.ModelDTO.MoviesDTO.MovieRequest;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,11 +20,12 @@ namespace backend.Controllers
         public async Task<IActionResult> createMovie([FromForm] MovieRequestDTO movieRequestDTO) 
         { 
             var postMovie = await _Imovie.uploadMovie(movieRequestDTO);
+            var getStatus = HttpContext.Response.StatusCode;
             if (postMovie)
             {
-                return Ok(postMovie);
+                return Ok(new {message = "Đã thêm thành công" , Status = getStatus });
             }
-            return NotFound();
+            return NotFound(new {message = "Đã thêm thất bại" , Status = getStatus});
         }
     }
 }

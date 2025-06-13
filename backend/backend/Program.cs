@@ -5,12 +5,13 @@ using backend.Interface.Customter;
 using backend.Model.Auth;
 using backend.Services.Auth;
 using backend.Services.CustomerServices;
-using backend.Interface.ManagerInterface.ContentManager;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json.Serialization;
-using backend.Services.ManagermentServices.MovieManagermentServices;
+using backend.Interface.MovieInterfaces;
+using backend.Services.MovieServices;
+using backend;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,8 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.UseMiddleware<AuthMiddleware>();
 
 
 app.UseAuthorization();

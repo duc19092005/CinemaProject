@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace backend.ModelDTO.ContentManagement.MovieRequest
+namespace backend.ModelDTO.MoviesDTO.MovieRequest
 {
     public class MovieRequestDTO
     {
@@ -14,7 +14,7 @@ namespace backend.ModelDTO.ContentManagement.MovieRequest
         [Required]
 
         // Tạm thời để byte
-        public byte[] movieImage { get; set; } = [];
+        public IFormFile movieImage { get; set; } = null!;
         [Required]
 
         public string movieDescription { get; set; } = "";
@@ -36,12 +36,12 @@ namespace backend.ModelDTO.ContentManagement.MovieRequest
 
         [Required]
         public string languageId { get; set; } = "";
-        
+
         [Required]
         public List<string> visualFormatList { get; set; } = [];
-        
+
         [Required]
-        public List<string> movieGenreList {  get; set; } = [];
+        public List<string> movieGenreList { get; set; } = [];
 
     }
 }

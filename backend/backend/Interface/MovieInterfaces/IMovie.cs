@@ -1,5 +1,5 @@
-﻿using backend.ModelDTO.ContentManagement.MovieRequest;
-namespace backend.Interface.ManagerInterface.ContentManager
+﻿using backend.ModelDTO.MoviesDTO.MovieRequest;
+namespace backend.Interface.MovieInterfaces
 {
     public interface IMovie
     {

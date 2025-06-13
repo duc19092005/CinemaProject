@@ -1,10 +1,10 @@
 ﻿using backend.Data;
-using backend.Interface.ManagerInterface.ContentManager;
+using backend.Interface.MovieInterfaces;
 using backend.Model.Movie;
-using backend.ModelDTO.ContentManagement.MovieRequest;
+using backend.ModelDTO.MoviesDTO.MovieRequest;
 using System.Data.Common;
 
-namespace backend.Services.ManagermentServices.MovieManagermentServices
+namespace backend.Services.MovieServices
 {
     public class movieServices : IMovie
     {
@@ -23,12 +23,17 @@ namespace backend.Services.ManagermentServices.MovieManagermentServices
                 try
                 {
                     var movieID = Guid.NewGuid();
-
+                    byte[] imageBytes = new byte[1024];
+                    using (var memory = new MemoryStream())
+                    {
+                        movieRequestDTO.movieImage.CopyTo(memory);
+                        imageBytes = memory.ToArray();
+                    }
                     var newMovie = new movieInformation()
                     {
                         movieId = movieID.ToString(),
                         movieName = movieRequestDTO.movieName,
-                        movieImage = movieRequestDTO.movieImage,
+                        movieImage = imageBytes,
                         movieDescription = movieRequestDTO.movieDescription,
                         movieDirector = movieRequestDTO.movieDirector,
                         movieTrailerUrl = movieRequestDTO.movieTrailerUrl,

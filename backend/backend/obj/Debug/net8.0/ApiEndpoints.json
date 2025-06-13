@@ -1,5 +1,66 @@
 [
   {
+    "ContainingType": "backend.Controllers.movieController",
+    "Method": "createMovie",
+    "RelativePath": "api/movie/createMovie",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "movieName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "movieImage",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "movieDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "movieDirector",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "movieActor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "movieTrailerUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "movieDuration",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "languageId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "visualFormatList",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "movieGenreList",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "backend.Controllers.userController",
     "Method": "Get",
     "RelativePath": "api/user/getAllUser",
