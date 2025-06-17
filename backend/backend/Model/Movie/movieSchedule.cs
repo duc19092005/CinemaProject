@@ -34,6 +34,10 @@ namespace backend.Model.Movie
         [ForeignKey("HourSchedule")]
         public string HourScheduleID { get; set; } = string.Empty;
 
+        // Trạng thái của lịch chiếu
+
+        public bool IsDelete { get; set; }
+
         public cinemaRoom cinemaRoom { get; set; } = null!;
 
         public movieInformation movieInformation { get; set; } = null!;

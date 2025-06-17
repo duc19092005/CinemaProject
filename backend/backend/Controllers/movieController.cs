@@ -1,4 +1,4 @@
-﻿using backend.Interface.MovieInterfaces;
+﻿using backend.Interface.GenericsInterface;
 using backend.ModelDTO.MoviesDTO.MovieRequest;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,23 +9,27 @@ namespace backend.Controllers
     [ApiController]
     public class movieController : ControllerBase
     {
-        private readonly IMovie _Imovie;
+        private readonly GenericInterface<MovieRequestDTO> _genericInterface;
 
-        public movieController(IMovie _Imovie)
+        private readonly HttpContext _httpContext;
+
+        public movieController(GenericInterface<MovieRequestDTO> _genericInterface , HttpContext httpContext)
         {
-            this._Imovie = _Imovie; 
+            this._genericInterface = _genericInterface;
+            this._httpContext = httpContext;
         }
 
         [HttpPost("createMovie")]
         public async Task<IActionResult> createMovie([FromForm] MovieRequestDTO movieRequestDTO) 
-        { 
-            var postMovie = await _Imovie.uploadMovie(movieRequestDTO);
-            var getStatus = HttpContext.Response.StatusCode;
-            if (postMovie)
+        {
+            var createdStatus = await _genericInterface.add(movieRequestDTO);
+            if (createdStatus)
             {
-                return Ok(new {message = "Đã thêm thành công" , Status = getStatus });
+                _httpContext.Response.StatusCode = StatusCodes.Status200OK;
+                return Ok(new { message = "Đã thêm thành công", statusCode = _httpContext.Response.StatusCode });
             }
-            return NotFound(new {message = "Đã thêm thất bại" , Status = getStatus});
+            HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+            return BadRequest(new { message = "Đã thêm thất bại", statusCode = _httpContext.Response.StatusCode });
         }
     }
 }

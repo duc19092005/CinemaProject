@@ -1,12 +1,13 @@
 ﻿using backend.Data;
-using backend.Interface.MovieInterfaces;
+using backend.Interface.GenericsInterface;
 using backend.Model.Movie;
 using backend.ModelDTO.MoviesDTO.MovieRequest;
 using System.Data.Common;
+using System.Linq;
 
 namespace backend.Services.MovieServices
 {
-    public class movieServices : IMovie
+    public class movieServices : GenericInterface<MovieRequestDTO>
     {
         private readonly DataContext _dataContext;
 
@@ -15,7 +16,7 @@ namespace backend.Services.MovieServices
             _dataContext = dataContext;
         }
 
-        public async Task<bool> uploadMovie(MovieRequestDTO movieRequestDTO)
+        public async Task<bool> add(MovieRequestDTO movieRequestDTO)
         {
             if (movieRequestDTO != null)
             {
@@ -83,6 +84,72 @@ namespace backend.Services.MovieServices
                 }
             }
             return false;
+        }
+
+        public async Task<bool> remove(int Id)
+        {
+            // Tìm kiếm Object
+
+            var FindObjectMovieObject = await _dataContext.movieInformation.FindAsync(Id);
+
+            // Thể loại  phim tìm kiếm
+
+            var FindGenreObject = _dataContext.movieGenreInformation.Where(x => x.movieId.Equals(Id));
+
+            // Tìm kiếm Comment 
+
+
+            var FindCommentObject = _dataContext.movieCommentDetail.Where(x => x.movieId.Equals(Id));
+
+            // Tìm kiếm lịch chiếu
+
+            var FindMovieScheduleObject = _dataContext.movieSchedule.Where(x => x.movieId.Equals(Id) && !x.IsDelete).ToList();
+            if (FindMovieScheduleObject.Count > 0)
+            {
+                var FindOrder = _dataContext.TicketOrderDetail.Any(x => x.movieScheduleID.Equals(FindMovieScheduleObject.Select(x => x.movieScheduleId)));
+                // Nếu tìm thấy phim có lịch chiếu thì ko được xóa
+                if (FindOrder)
+                {
+                    return false;
+                }
+                // nếu tìm thấy thì sẽ được xóa
+                else
+                {
+                    // Nếu tìm thấy phim thì mới được xóa
+
+                    if (FindObjectMovieObject != null)
+                    {
+                        _dataContext.movieGenreInformation.RemoveRange(FindGenreObject);
+                        _dataContext.movieInformation.RemoveRange(FindObjectMovieObject);
+                        _dataContext.movieCommentDetail.RemoveRange(FindCommentObject);
+
+                        foreach (var movieSchedule in FindMovieScheduleObject)
+                        {
+                            movieSchedule.IsDelete = false;
+                        }
+                        
+                        _dataContext.movieSchedule.UpdateRange(FindMovieScheduleObject);
+                        return true;
+                    }
+                    return false;
+                }    
+            }
+            return false;
+        }
+
+        public async Task<bool> edit(int Id, MovieRequestDTO movieRequestDTO)
+        {
+            return false;
+        }
+
+        public List<MovieRequestDTO> getListItems()
+        {
+            return null;
+        }
+
+        public async Task SaveChanges()
+        {
+            await _dataContext.SaveChangesAsync();
         }
 
     }

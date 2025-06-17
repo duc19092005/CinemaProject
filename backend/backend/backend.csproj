@@ -23,11 +23,7 @@
 
   <ItemGroup>
     <Folder Include="ModelDTO\MoviesDTO\MovieRespond\" />
-    <Folder Include="Services\StaffServices\CashierStaffServices\" />
-    <Folder Include="Services\StaffServices\CleanerStaffServices\" />
-    <Folder Include="Services\StaffServices\AccountantStaffServices\" />
-    <Folder Include="Services\StaffServices\" />
-    <Folder Include="Services\StaffServices\TicketInspectorServices\" />
+    <Folder Include="Services\GenericServices\" />
   </ItemGroup>
 
 </Project>

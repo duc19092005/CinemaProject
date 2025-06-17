@@ -9,9 +9,10 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json.Serialization;
-using backend.Interface.MovieInterfaces;
 using backend.Services.MovieServices;
 using backend;
+using backend.Interface.GenericsInterface;
+using backend.ModelDTO.MoviesDTO.MovieRequest;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,8 +32,9 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 // Auth services
 builder.Services.AddScoped<IAuth, AuthService>();
 
-// Add thêm DI của services Movie
-builder.Services.AddScoped<IMovie, movieServices>();
+// Add thêm DI của services Movie dạng Scoped
+
+builder.Services.AddScoped<GenericInterface<MovieRequestDTO>, movieServices>();
 
 // Add thêm DI của Service user
 
@@ -44,8 +46,6 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
-
-app.UseMiddleware<AuthMiddleware>();
 
 
 app.UseAuthorization();

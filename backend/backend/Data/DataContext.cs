@@ -26,6 +26,8 @@ namespace backend.Data
 
         public DbSet<cinemaRoom> cinemaRoom { get; set; }
 
+        public DbSet<movieCommentDetail> movieCommentDetail { get; set; }   
+
         public DbSet<Language> Language { get; set; }
 
         public DbSet<movieGenre> movieGenre { get; set; }
