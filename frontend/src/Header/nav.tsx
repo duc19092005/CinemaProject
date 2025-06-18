@@ -1,0 +1,163 @@
+import React, { useState } from 'react';
+import { TicketIcon } from '@heroicons/react/24/solid';
+import { MapPinIcon } from '@heroicons/react/24/solid';
+import logo from '../image/logocinema1.png';
+
+function Nav() {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log('Tìm kiếm:', searchTerm);
+    };
+
+    return (
+        <nav >
+            <div className="flex flex-row justify-between items-center px-6 py-4">
+                <div className="basis-1/6 text-center">
+                    <img
+                        src={logo} alt="logo"
+                        className="w-50 h-20 hover:scale-105 transition-transform duration-300"
+                    />
+                </div>
+                <ul className="basis-2/6 flex items-center justify-center gap-4 mx-auto">
+                    <li>
+                        <a
+                            href="https://www.youtube.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative inline-flex items-center justify-center px-4 py-2.5 overflow-hidden tracking-tighter text-white bg-purple-800 rounded-md group">
+                            <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-amber-400 rounded-full group-hover:w-56 group-hover:h-56"></span>
+                            <span className="relative text-base font-semibold flex items-center gap-2">
+                                <TicketIcon className="w-6 h-6 text-white" />
+                                Đặt vé ngay
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.youtube.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative inline-flex items-center justify-center px-4 py-2.5 overflow-hidden tracking-tighter text-white bg-purple-800 rounded-md group">
+                            <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-amber-400 rounded-full group-hover:w-56 group-hover:h-56"></span>
+                            <span className="relative text-base font-semibold flex items-center gap-2">
+                                🍿 Đặt vé ngay
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <ul className="basis-3/6 flex justify-end items-center gap-4">
+                    <li>
+                        <form
+                            onSubmit={handleSearch}
+                            className="flex items-center border border-gray-300 rounded-3xl overflow-hidden shadow-sm">
+                            <input
+                                type="text"
+                                placeholder="Tìm phim..."
+                                className="px-4 py-2 w-80 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                value={searchTerm}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)} />
+                            <button
+                                type="submit"
+                                className="bg-purple-600 text-white px-4 py-2 hover:bg-purple-800 transition">
+                                Tìm
+                            </button>
+                        </form>
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.youtube.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 text-sm text-white font-semibold rounded-md shadow-md transition-transform transform bg-transparent border border-white hover:scale-90 hover:border-purple-600 hover:shadow-purple-900/50 hover:shadow-xl focus:outline-none">
+                            Đăng nhập
+                        </a>
+
+                    </li>
+
+                </ul>
+            </div>
+            <div className="flex-auto flex justify-between items-center px-6 py-4">
+                <div className="relative flex  w-full">
+                    <span
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2">
+                        <MapPinIcon className="w-5 h-5 text-purple-400" />
+                        Chọn rạp
+                    </span>
+                    {/* Khối div xổ ra */}
+                    {isOpen && (
+                        <div className="absolute left-0 top-full w-full mt-2 z-50 ">
+                            <div className="grid grid-cols-3 gap-4 p-4 bg-white/20 backdrop-blur-md rounded shadow-lg w-full">
+                                <div>
+                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
+                                </div>
+                                <div>
+                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
+                                </div>
+                                <div>
+                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
+                                </div>
+                                <div>
+                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
+                                </div>
+                                <div>
+                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
+                                </div>
+                                <div>
+                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
+                                </div>
+                                <div>
+                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
+                                </div>
+                                <div>
+                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
+                                </div>
+                                <div>
+                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    )}
+
+                    <span
+                        className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2">
+                        <MapPinIcon className="w-5 h-5 text-purple-400" />
+                        Chọn lịch chiếu
+                    </span>
+                </div>
+                <div className="flex relative w-1/2 justify-end ">
+                    <div>
+                        <span
+                            className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2">
+                            Khuyến mãi
+                        </span>
+                    </div>
+                    <div>
+                        <span
+                            className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2">
+                            Thuê sự kiện
+                        </span>
+                    </div>
+                    <div>
+                        <span
+                            className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2">
+                            Giải trí
+                        </span>
+                    </div>
+                    <div>
+                        <span
+                            className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2">
+                            Giới thiệu
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    );
+}
+
+export default Nav;
