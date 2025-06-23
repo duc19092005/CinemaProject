@@ -27,5 +27,7 @@ namespace backend.Model.Movie
         [Column(TypeName = "nvarchar(100)")]
         [Required]
         public string movieGenreName { get; set; } = "";
+
+        public List<movieGenreInformation> movieGenreInformation { get; set; } = [];
     }
 }

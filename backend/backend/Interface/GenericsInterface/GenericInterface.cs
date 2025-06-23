@@ -3,7 +3,7 @@
     public interface GenericInterface<TEntity>
     {
         Task<bool> add(TEntity entity);
-        Task<bool> remove(int Id);
+        Task<bool> remove(string Id);
 
         Task<bool> edit(int Id, TEntity entity);
 

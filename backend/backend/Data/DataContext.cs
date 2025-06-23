@@ -21,9 +21,6 @@ namespace backend.Data
         }
 
         public DbSet<Cinema> Cinema { get; set; }
-
-        public DbSet<cinemaMovieInformation> cinemaMovieInformation { get; set; }
-
         public DbSet<cinemaRoom> cinemaRoom { get; set; }
 
         public DbSet<movieCommentDetail> movieCommentDetail { get; set; }   
@@ -67,7 +64,6 @@ namespace backend.Data
 
         public DbSet<HourSchedule> HourSchedule { get; set; }
 
-        public DbSet<DayInWeekendSchedule> DayInWeekendSchedule { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -77,11 +73,23 @@ namespace backend.Data
             // Cấu hình ID dưới dạng chuỗi GUID và thêm dữ liệu ban đầu (seed data)
 
             // Seed Data for RoleInformation
-            var adminRoleId = Guid.NewGuid().ToString();
-            var userRoleId = Guid.NewGuid().ToString();
+            var cashierId = Guid.NewGuid().ToString();
+            var customerId = Guid.NewGuid().ToString();
+            var DirectorId = Guid.NewGuid().ToString();
+            var MovieManagerId = Guid.NewGuid().ToString();
+            var ThreaterManagerId = Guid.NewGuid().ToString();
+            var FacilitiesManagerId = Guid.NewGuid().ToString();
+            var ThreaterCleanerId = Guid.NewGuid().ToString();
+
+
             modelBuilder.Entity<roleInformation>().HasData(
-                new roleInformation { roleId = adminRoleId, roleName = "Admin" },
-                new roleInformation { roleId = userRoleId, roleName = "User" }
+                new roleInformation { roleId = customerId, roleName = "Customer" },
+                new roleInformation { roleId = cashierId, roleName = "Cashier" },
+                new roleInformation { roleId = DirectorId, roleName = "Director" },
+                new roleInformation { roleId = MovieManagerId, roleName = "MovieManager" },
+                new roleInformation { roleId = ThreaterManagerId, roleName = "TheaterManager" },
+                new roleInformation { roleId = FacilitiesManagerId, roleName = "FacilitiesManager" },
+                new roleInformation { roleId = ThreaterCleanerId, roleName = "TheaterCleaner" }
             );
 
             // Seed Data for UserInformation
@@ -114,8 +122,8 @@ namespace backend.Data
 
             // Seed Data for UserRoleInformation (linking users to roles)
             modelBuilder.Entity<userRoleInformation>().HasData(
-                new userRoleInformation { userId = userId1, roleId = adminRoleId },
-                new userRoleInformation { userId = userId2, roleId = userRoleId }
+                new userRoleInformation { userId = userId1, roleId = MovieManagerId},
+                new userRoleInformation { userId = userId2, roleId = customerId }
             );
 
             // Seed Data for Language
@@ -205,12 +213,6 @@ namespace backend.Data
             );
 
             // Seed Data for DayInWeekendSchedule
-            var day1Id = Guid.NewGuid().ToString();
-            var day2Id = Guid.NewGuid().ToString();
-            modelBuilder.Entity<DayInWeekendSchedule>().HasData(
-                new DayInWeekendSchedule { DayInWeekendScheduleID = day1Id, DayInWeekendScheduleName = "Monday" },
-                new DayInWeekendSchedule { DayInWeekendScheduleID = day2Id, DayInWeekendScheduleName = "Tuesday" }
-            );
 
             // Seed Data for HourSchedule
             var hour1Id = Guid.NewGuid().ToString();
@@ -228,8 +230,11 @@ namespace backend.Data
                     movieScheduleId = movieScheduleId1,
                     cinemaRoomId = room1Id,
                     movieId = movieId1,
-                    DayInWeekendScheduleID = day1Id,
-                    HourScheduleID = hour1Id
+                    HourScheduleID = hour1Id ,
+                    cinemaID = cinemaId1 ,
+                    IsDelete = false,
+                    DayInWeekendSchedule = "Monday" ,
+                    ReleaseDate = new DateTime(2025 , 11 , 11)
                 }
             );
 

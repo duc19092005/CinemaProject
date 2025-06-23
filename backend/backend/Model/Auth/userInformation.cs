@@ -47,7 +47,7 @@ namespace backend.Model.Auth
         // Số CCCD để khi mua vé để thu ngân check vé
 
 
-        [Column(TypeName = "varchar(12)")]
+        [Column(TypeName = "varchar(70)")]
         [Required]
         public string IdentityCode { get; set; } = "";
 

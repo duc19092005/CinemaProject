@@ -8,12 +8,14 @@ namespace backend.Interface.Auth
     {
         // Tạm thời để boolean
 
-        registerRespondDTO Register(registerRequestDTO registerRequest);
+        Task<registerRespondDTO> Register(registerRequestDTO registerRequest);
 
         // Trả về một token nếu đăng nhập thành công
         // Tạm thời chưa trả về model
 
-        loginRespondDTO AuthRequsest(loginRequestDTO loginRequest);
+        Task<loginRespondDTO> AuthRequsest(loginRequestDTO loginRequest);
+
+        Task SaveChanges();
 
     }
 }

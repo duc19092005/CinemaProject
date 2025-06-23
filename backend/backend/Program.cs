@@ -13,6 +13,9 @@ using backend.Services.MovieServices;
 using backend;
 using backend.Interface.GenericsInterface;
 using backend.ModelDTO.MoviesDTO.MovieRequest;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using backend.Interface.MovieInterface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,14 +30,29 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DataContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Add thêm JWT services
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Iss"],
+            ValidAudience = builder.Configuration["Jwt:Aud"],
+            IssuerSigningKey = new SymmetricSecurityKey(UTF8Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
 // Add thêm DI của các services
 // Auth services
 builder.Services.AddScoped<IAuth, AuthService>();
 
 // Add thêm DI của services Movie dạng Scoped
 
-builder.Services.AddScoped<GenericInterface<MovieRequestDTO>, movieServices>();
+builder.Services.AddScoped<IMovieService, movieServices>();
 
 // Add thêm DI của Service user
 

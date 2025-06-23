@@ -20,22 +20,34 @@ namespace backend.Model.Movie
 
         [ForeignKey("cinemaRoom")]
         [Column(TypeName = "varchar(100)")]
+        [Required]
+
         public string cinemaRoomId { get; set; } = "";
+
+        [ForeignKey("Cinema")]
+        [Column(TypeName = "varchar(100)")]
+        [Required]
+        public string cinemaID { get; set; } = string.Empty;
 
         [ForeignKey("movieInformation")]
         [Column(TypeName = "varchar(100)")]
+        [Required]
         public string movieId { get; set; } = "";
 
         // Khóa ngoại tham chiếu tới thứ
-        [ForeignKey("DayInWeekendSchedule")]
-        public string DayInWeekendScheduleID { get; set; } = string.Empty;
+        [Required]
+        public string DayInWeekendSchedule { get; set; } = string.Empty;
 
         // Khóa ngoại tham chiếu tới giờ chiếu
         [ForeignKey("HourSchedule")]
+        [Required]
         public string HourScheduleID { get; set; } = string.Empty;
 
-        // Trạng thái của lịch chiếu
+        [Required]
+        public DateTime ReleaseDate { get; set; }
 
+        // Trạng thái của lịch chiếu
+        [Required]
         public bool IsDelete { get; set; }
 
         public cinemaRoom cinemaRoom { get; set; } = null!;
@@ -44,7 +56,7 @@ namespace backend.Model.Movie
 
         public List<orderDetailTicket> orderDetailTicket { get; set; } = [];
 
-        public DayInWeekendSchedule DayInWeekendSchedule { get; set; } = null!;
+        public Cinema Cinema { get; set; } = null!;
 
         public HourSchedule HourSchedule { get; set; } = null!;
 

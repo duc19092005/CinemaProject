@@ -281,3 +281,4 @@ E:\CNPM_DoAn\CinemaProject\backend\backend\obj\Debug\net8.0\backend.genruntimeco
 E:\CNPM_DoAn\CinemaProject\backend\backend\obj\Debug\net8.0\ref\backend.dll
 E:\CNPM_DoAn\CinemaProject\backend\backend\bin\Debug\net8.0\JWT.dll
 E:\CNPM_DoAn\CinemaProject\backend\backend\bin\Debug\net8.0\Newtonsoft.Json.dll
+E:\CNPM_DoAn\CinemaProject\backend\backend\bin\Debug\net8.0\BCrypt.Net-Next.dll

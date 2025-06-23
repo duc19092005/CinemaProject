@@ -2,34 +2,64 @@
 using backend.ModelDTO.MoviesDTO.MovieRequest;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using BCrypt.Net;
+using backend.Interface.MovieInterface;
 namespace backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class movieController : ControllerBase
     {
-        private readonly GenericInterface<MovieRequestDTO> _genericInterface;
+        private readonly IMovieService IMovieService;
 
-        private readonly HttpContext _httpContext;
 
-        public movieController(GenericInterface<MovieRequestDTO> _genericInterface , HttpContext httpContext)
+        public movieController(IMovieService IMovieService)
         {
-            this._genericInterface = _genericInterface;
-            this._httpContext = httpContext;
+            this.IMovieService = IMovieService;
         }
 
         [HttpPost("createMovie")]
         public async Task<IActionResult> createMovie([FromForm] MovieRequestDTO movieRequestDTO) 
         {
-            var createdStatus = await _genericInterface.add(movieRequestDTO);
+            var createdStatus = await IMovieService.add(movieRequestDTO);
+            
+            await IMovieService.SaveChanges();
             if (createdStatus)
             {
-                _httpContext.Response.StatusCode = StatusCodes.Status200OK;
-                return Ok(new { message = "Đã thêm thành công", statusCode = _httpContext.Response.StatusCode });
+                HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+                return Ok(new { message = "Đã thêm thành công", statusCode = HttpContext.Response.StatusCode });
             }
             HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-            return BadRequest(new { message = "Đã thêm thất bại", statusCode = _httpContext.Response.StatusCode });
+            return BadRequest(new { message = "Đã thêm thất bại", statusCode = HttpContext.Response.StatusCode });
+        }
+
+        [HttpDelete("DeleteMovie")]
+        public async Task<IActionResult> deleteMovie(string Id)
+        {
+            try
+            {
+                var deleteStatus = await IMovieService.remove(Id);
+                await IMovieService.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message);  }
+            return BadRequest();
+        }
+
+        [HttpGet("getAllMoviesPagniation")]
+        public async Task<IActionResult> getAllMoviesPagniation(int page)
+        {
+            if (page <= 0)
+            {
+                return NotFound("Sorry Page not found");
+            }
+
+            var getitemsList = await IMovieService.getListItemsPagination(page);
+            if (getitemsList != null)
+            {
+                return Ok(getitemsList);
+            }
+            return NotFound(new { message = "Cannot Find Movie There's an error" });
         }
     }
 }

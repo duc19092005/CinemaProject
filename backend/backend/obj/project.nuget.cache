@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "e3lavpSj0+Q=",
+  "dgSpecHash": "2DDEhIYu8MQ=",
   "success": true,
   "projectFilePath": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\duc19\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\duc19\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\duc19\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\duc19\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\duc19\\.nuget\\packages\\jwt\\8.0.0\\jwt.8.0.0.nupkg.sha512",
     "C:\\Users\\duc19\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.0\\microsoft.aspnetcore.authentication.jwtbearer.8.0.0.nupkg.sha512",

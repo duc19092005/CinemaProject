@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "backend.Controllers.AuthController",
+    "Method": "register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerRequestDTO",
+        "Type": "backend.ModelDTO.Auth.AuthRequest.registerRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "backend.Controllers.movieController",
     "Method": "createMovie",
     "RelativePath": "api/movie/createMovie",
@@ -55,6 +71,38 @@
       {
         "Name": "movieGenreList",
         "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "backend.Controllers.movieController",
+    "Method": "deleteMovie",
+    "RelativePath": "api/movie/DeleteMovie",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "backend.Controllers.movieController",
+    "Method": "getAllMoviesPagniation",
+    "RelativePath": "api/movie/getAllMoviesPagniation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

@@ -2,7 +2,7 @@
 {
     public class registerRespondDTO
     {
-        public bool isSuccess { get; set; } = false;
+        public int statusCode { get; set; }
 
         public string message { get; set; } = string.Empty;
     }

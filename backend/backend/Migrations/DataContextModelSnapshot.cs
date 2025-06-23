@@ -38,13 +38,38 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            roleId = "5c25fc53-d1be-4471-8fa5-a1671f6fba4e",
-                            roleName = "Admin"
+                            roleId = "83f2b568-ea33-42da-abfc-fb0c211eaf14",
+                            roleName = "Customer"
                         },
                         new
                         {
-                            roleId = "b71cb82f-c4b7-489d-b504-0af5a2143839",
-                            roleName = "User"
+                            roleId = "7bac5e3e-0d42-47a2-8f02-fc4c8e4b7f0f",
+                            roleName = "Cashier"
+                        },
+                        new
+                        {
+                            roleId = "36362348-aa92-4131-bca7-27938b099889",
+                            roleName = "Director"
+                        },
+                        new
+                        {
+                            roleId = "a35a8508-7b82-4f4c-9588-afee17fd1115",
+                            roleName = "MovieManager"
+                        },
+                        new
+                        {
+                            roleId = "8a2026f4-4b74-40ea-831e-487ef0790362",
+                            roleName = "TheaterManager"
+                        },
+                        new
+                        {
+                            roleId = "67b21539-41c0-4ccf-8dbf-bdca062373c4",
+                            roleName = "FacilitiesManager"
+                        },
+                        new
+                        {
+                            roleId = "10d4f6b3-e063-4fbf-ad4c-c0110b9de4e6",
+                            roleName = "TheaterCleaner"
                         });
                 });
 
@@ -55,7 +80,7 @@ namespace backend.Migrations
 
                     b.Property<string>("IdentityCode")
                         .IsRequired()
-                        .HasColumnType("varchar(12)");
+                        .HasColumnType("varchar(70)");
 
                     b.Property<DateTime>("dateOfBirth")
                         .HasColumnType("datetime2");
@@ -86,7 +111,7 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            userId = "f79ee79f-28c0-4e54-924b-078e3c97f891",
+                            userId = "a6b19dc7-9897-428b-ad80-b7d973af812a",
                             IdentityCode = "123456789012",
                             dateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             loginUserEmail = "admin@example.com",
@@ -97,7 +122,7 @@ namespace backend.Migrations
                         },
                         new
                         {
-                            userId = "7bdc0265-eda3-4819-b6c7-44bb7b3c8324",
+                            userId = "9fff4863-1c07-4e5e-a7f1-e50b060a7755",
                             IdentityCode = "987654321098",
                             dateOfBirth = new DateTime(1995, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             loginUserEmail = "user@example.com",
@@ -125,13 +150,13 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            roleId = "5c25fc53-d1be-4471-8fa5-a1671f6fba4e",
-                            userId = "f79ee79f-28c0-4e54-924b-078e3c97f891"
+                            roleId = "a35a8508-7b82-4f4c-9588-afee17fd1115",
+                            userId = "a6b19dc7-9897-428b-ad80-b7d973af812a"
                         },
                         new
                         {
-                            roleId = "b71cb82f-c4b7-489d-b504-0af5a2143839",
-                            userId = "7bdc0265-eda3-4819-b6c7-44bb7b3c8324"
+                            roleId = "83f2b568-ea33-42da-abfc-fb0c211eaf14",
+                            userId = "9fff4863-1c07-4e5e-a7f1-e50b060a7755"
                         });
                 });
 
@@ -237,16 +262,16 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            seatsId = "e49f06f3-3a31-4ae9-9d94-4582d967b3c6",
-                            cinemaRoomId = "a2ef3f7a-54a9-4efe-a333-f0a855d5abfe",
+                            seatsId = "bb9b83dd-5fe3-4621-afea-006a218f9d9b",
+                            cinemaRoomId = "f292983b-2dc5-429a-a541-82a30e8626f6",
                             isMiddle = true,
                             isTaken = false,
                             seatsNumber = "A1"
                         },
                         new
                         {
-                            seatsId = "08ea1f90-cbff-48aa-af6a-0b8c4c08b20f",
-                            cinemaRoomId = "a2ef3f7a-54a9-4efe-a333-f0a855d5abfe",
+                            seatsId = "7ce9a9e8-223d-4262-b6e1-2d229bd76094",
+                            cinemaRoomId = "f292983b-2dc5-429a-a541-82a30e8626f6",
                             isMiddle = true,
                             isTaken = false,
                             seatsNumber = "A2"
@@ -277,8 +302,8 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            cinemaRoomId = "a2ef3f7a-54a9-4efe-a333-f0a855d5abfe",
-                            cinemaId = "46dca9e7-8908-4197-ad5a-62bfb3a36b69",
+                            cinemaRoomId = "f292983b-2dc5-429a-a541-82a30e8626f6",
+                            cinemaId = "72a8ab3c-ad00-4167-9570-c60cead703a0",
                             cinemaRoomNumber = 1,
                             isIMAXRoom = true
                         });
@@ -346,28 +371,13 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            cinemaId = "46dca9e7-8908-4197-ad5a-62bfb3a36b69",
+                            cinemaId = "72a8ab3c-ad00-4167-9570-c60cead703a0",
                             cinemaContactHotlineNumber = "0901234567",
                             cinemaDescription = "Rạp chiếu phim hiện đại với nhiều phòng chiếu.",
                             cinemaLocation = "123 Đường XYZ, TP.HCM",
                             cinemaName = "Rạp Chiếu Phim ABC",
                             isSupportedIMAX = true
                         });
-                });
-
-            modelBuilder.Entity("backend.Model.Cinemas.cinemaMovieInformation", b =>
-                {
-                    b.Property<string>("cinemaId")
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("movieId")
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("cinemaId", "movieId");
-
-                    b.HasIndex("movieId");
-
-                    b.ToTable("cinemaMovieInformation");
                 });
 
             modelBuilder.Entity("backend.Model.Movie.Language", b =>
@@ -386,12 +396,12 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            languageId = "08e9c967-ccde-4dec-bacd-7f01fd436ab6",
+                            languageId = "abd2eb7e-1528-4e75-ae29-ac31ca161dc1",
                             languageDetail = "Vietnamese"
                         },
                         new
                         {
-                            languageId = "6c98121f-996d-47dd-87cd-bbbfbde65297",
+                            languageId = "b6ce3086-75b3-4898-9368-164bff14c933",
                             languageDetail = "English"
                         });
                 });
@@ -431,12 +441,12 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            movieGenreId = "98d96966-c652-4853-a3f8-7372dd364038",
+                            movieGenreId = "82b48385-d679-4495-8835-d0c500500d66",
                             movieGenreName = "Action"
                         },
                         new
                         {
-                            movieGenreId = "b820a293-a738-4bdf-b820-6c068f8b2dad",
+                            movieGenreId = "ad1bf5a8-08b5-4410-86d4-d2c16feae08c",
                             movieGenreName = "Comedy"
                         });
                 });
@@ -458,13 +468,13 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            movieId = "fc9bc591-7b0b-40b7-80ae-12046d37dde0",
-                            movieGenreId = "98d96966-c652-4853-a3f8-7372dd364038"
+                            movieId = "9f64aba0-5377-4e43-a2ac-9a31dfa8d0bb",
+                            movieGenreId = "82b48385-d679-4495-8835-d0c500500d66"
                         },
                         new
                         {
-                            movieId = "74e9884f-ed04-4de1-9ead-abd18a4cc159",
-                            movieGenreId = "b820a293-a738-4bdf-b820-6c068f8b2dad"
+                            movieId = "bf7e5dd7-ade2-430a-9aa2-e6fa2a5253d7",
+                            movieGenreId = "ad1bf5a8-08b5-4410-86d4-d2c16feae08c"
                         });
                 });
 
@@ -513,8 +523,8 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            movieId = "fc9bc591-7b0b-40b7-80ae-12046d37dde0",
-                            languageId = "08e9c967-ccde-4dec-bacd-7f01fd436ab6",
+                            movieId = "9f64aba0-5377-4e43-a2ac-9a31dfa8d0bb",
+                            languageId = "abd2eb7e-1528-4e75-ae29-ac31ca161dc1",
                             movieActor = "Diễn Viên X, Diễn Viên Y",
                             movieDescription = "Đây là một bộ phim hành động đầy kịch tính.",
                             movieDirector = "Đạo Diễn A",
@@ -525,8 +535,8 @@ namespace backend.Migrations
                         },
                         new
                         {
-                            movieId = "74e9884f-ed04-4de1-9ead-abd18a4cc159",
-                            languageId = "6c98121f-996d-47dd-87cd-bbbfbde65297",
+                            movieId = "bf7e5dd7-ade2-430a-9aa2-e6fa2a5253d7",
+                            languageId = "b6ce3086-75b3-4898-9368-164bff14c933",
                             movieActor = "Actor Z, Actress W",
                             movieDescription = "A funny movie for the whole family.",
                             movieDirector = "Director B",
@@ -542,9 +552,9 @@ namespace backend.Migrations
                     b.Property<string>("movieScheduleId")
                         .HasColumnType("varchar(100)");
 
-                    b.Property<string>("DayInWeekendScheduleID")
+                    b.Property<string>("DayInWeekendSchedule")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HourScheduleID")
                         .IsRequired()
@@ -552,6 +562,13 @@ namespace backend.Migrations
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime>("ReleaseDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("cinemaID")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("cinemaRoomId")
                         .IsRequired()
@@ -563,9 +580,9 @@ namespace backend.Migrations
 
                     b.HasKey("movieScheduleId");
 
-                    b.HasIndex("DayInWeekendScheduleID");
-
                     b.HasIndex("HourScheduleID");
+
+                    b.HasIndex("cinemaID");
 
                     b.HasIndex("cinemaRoomId");
 
@@ -576,12 +593,14 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            movieScheduleId = "f697a84e-2cf3-47e5-a325-ff5a71b1e749",
-                            DayInWeekendScheduleID = "da05eb63-bc89-46c7-a8df-0b2f5a549507",
-                            HourScheduleID = "85c1d103-959c-4f42-a898-2bb87823847a",
+                            movieScheduleId = "d9de5fea-2c53-4de8-b142-5f5c47b73475",
+                            DayInWeekendSchedule = "Monday",
+                            HourScheduleID = "cfdae06f-8db9-4046-9cd7-8683ce42b915",
                             IsDelete = false,
-                            cinemaRoomId = "a2ef3f7a-54a9-4efe-a333-f0a855d5abfe",
-                            movieId = "fc9bc591-7b0b-40b7-80ae-12046d37dde0"
+                            ReleaseDate = new DateTime(2025, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            cinemaID = "72a8ab3c-ad00-4167-9570-c60cead703a0",
+                            cinemaRoomId = "f292983b-2dc5-429a-a541-82a30e8626f6",
+                            movieId = "9f64aba0-5377-4e43-a2ac-9a31dfa8d0bb"
                         });
                 });
 
@@ -601,7 +620,7 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            movieVisualFormatId = "fb7a3a1b-30c3-4f34-842e-049f2546f9fe",
+                            movieVisualFormatId = "a16ec615-f61a-4537-bf8b-f5ec723d8046",
                             movieVisualFormatName = "2D"
                         });
                 });
@@ -636,7 +655,7 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            priceInformationId = "cfa7fd70-ae90-4d89-a390-6b4a3b9a3dcf",
+                            priceInformationId = "c434ce6a-af11-4125-a559-8dd39e5fc65e",
                             priceAmount = 80000L
                         });
                 });
@@ -663,9 +682,9 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            userTypeId = "55f825f9-ba33-491d-a38b-817274e7b366",
-                            movieVisualFormatId = "fb7a3a1b-30c3-4f34-842e-049f2546f9fe",
-                            priceInformationID = "cfa7fd70-ae90-4d89-a390-6b4a3b9a3dcf"
+                            userTypeId = "fe92495a-a8f6-4b9d-a9b7-a68b3aeab9f2",
+                            movieVisualFormatId = "a16ec615-f61a-4537-bf8b-f5ec723d8046",
+                            priceInformationID = "c434ce6a-af11-4125-a559-8dd39e5fc65e"
                         });
                 });
 
@@ -685,7 +704,7 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            userTypeId = "55f825f9-ba33-491d-a38b-817274e7b366",
+                            userTypeId = "fe92495a-a8f6-4b9d-a9b7-a68b3aeab9f2",
                             userTypeDescription = "Adult"
                         });
                 });
@@ -709,35 +728,9 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            foodInformationId = "bc91eb33-2b88-40e5-b44e-4e9131548af9",
+                            foodInformationId = "951cabc5-a2c5-45a7-8906-d73ba9e1fcf5",
                             foodInformationName = "Popcorn",
                             foodPrice = 50000L
-                        });
-                });
-
-            modelBuilder.Entity("backend.Model.ScheduleList.DayInWeekendSchedule", b =>
-                {
-                    b.Property<string>("DayInWeekendScheduleID")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("DayInWeekendScheduleName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("DayInWeekendScheduleID");
-
-                    b.ToTable("DayInWeekendSchedule");
-
-                    b.HasData(
-                        new
-                        {
-                            DayInWeekendScheduleID = "da05eb63-bc89-46c7-a8df-0b2f5a549507",
-                            DayInWeekendScheduleName = "Monday"
-                        },
-                        new
-                        {
-                            DayInWeekendScheduleID = "194cb350-650a-4433-966e-7ac33748b7bd",
-                            DayInWeekendScheduleName = "Tuesday"
                         });
                 });
 
@@ -757,12 +750,12 @@ namespace backend.Migrations
                     b.HasData(
                         new
                         {
-                            HourScheduleID = "85c1d103-959c-4f42-a898-2bb87823847a",
+                            HourScheduleID = "cfdae06f-8db9-4046-9cd7-8683ce42b915",
                             HourScheduleDate = "08:00"
                         },
                         new
                         {
-                            HourScheduleID = "66b9592b-60d3-4edc-afa9-f24e08bb7e8b",
+                            HourScheduleID = "43e141f9-dfd3-40a3-8bca-fc4064a4cf1f",
                             HourScheduleDate = "10:00"
                         });
                 });
@@ -892,25 +885,6 @@ namespace backend.Migrations
                     b.Navigation("userInformation");
                 });
 
-            modelBuilder.Entity("backend.Model.Cinemas.cinemaMovieInformation", b =>
-                {
-                    b.HasOne("backend.Model.Cinemas.Cinema", "Cinema")
-                        .WithMany("cinemaMovieInformation")
-                        .HasForeignKey("cinemaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("backend.Model.Movie.movieInformation", "movieInformation")
-                        .WithMany("cinemaMovieInformation")
-                        .HasForeignKey("movieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cinema");
-
-                    b.Navigation("movieInformation");
-                });
-
             modelBuilder.Entity("backend.Model.Movie.movieCommentDetail", b =>
                 {
                     b.HasOne("backend.Model.Movie.movieInformation", "movieInformation")
@@ -933,13 +907,13 @@ namespace backend.Migrations
             modelBuilder.Entity("backend.Model.Movie.movieGenreInformation", b =>
                 {
                     b.HasOne("backend.Model.Movie.movieGenre", "movieGenre")
-                        .WithMany()
+                        .WithMany("movieGenreInformation")
                         .HasForeignKey("movieGenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("backend.Model.Movie.movieInformation", "movieInformation")
-                        .WithMany()
+                        .WithMany("movieGenreInformation")
                         .HasForeignKey("movieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -962,15 +936,15 @@ namespace backend.Migrations
 
             modelBuilder.Entity("backend.Model.Movie.movieSchedule", b =>
                 {
-                    b.HasOne("backend.Model.ScheduleList.DayInWeekendSchedule", "DayInWeekendSchedule")
-                        .WithMany("movieSchedule")
-                        .HasForeignKey("DayInWeekendScheduleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("backend.Model.ScheduleList.HourSchedule", "HourSchedule")
                         .WithMany("movieSchedule")
                         .HasForeignKey("HourScheduleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("backend.Model.Cinemas.Cinema", "Cinema")
+                        .WithMany("movieSchedule")
+                        .HasForeignKey("cinemaID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -986,7 +960,7 @@ namespace backend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("DayInWeekendSchedule");
+                    b.Navigation("Cinema");
 
                     b.Navigation("HourSchedule");
 
@@ -1068,9 +1042,9 @@ namespace backend.Migrations
 
             modelBuilder.Entity("backend.Model.Cinemas.Cinema", b =>
                 {
-                    b.Navigation("cinemaMovieInformation");
-
                     b.Navigation("cinemaRoom");
+
+                    b.Navigation("movieSchedule");
                 });
 
             modelBuilder.Entity("backend.Model.Movie.Language", b =>
@@ -1078,11 +1052,16 @@ namespace backend.Migrations
                     b.Navigation("movieInformation");
                 });
 
+            modelBuilder.Entity("backend.Model.Movie.movieGenre", b =>
+                {
+                    b.Navigation("movieGenreInformation");
+                });
+
             modelBuilder.Entity("backend.Model.Movie.movieInformation", b =>
                 {
-                    b.Navigation("cinemaMovieInformation");
-
                     b.Navigation("movieCommentDetail");
+
+                    b.Navigation("movieGenreInformation");
 
                     b.Navigation("movieSchedule");
 
@@ -1109,11 +1088,6 @@ namespace backend.Migrations
             modelBuilder.Entity("backend.Model.Price.userType", b =>
                 {
                     b.Navigation("priceInformation");
-                });
-
-            modelBuilder.Entity("backend.Model.ScheduleList.DayInWeekendSchedule", b =>
-                {
-                    b.Navigation("movieSchedule");
                 });
 
             modelBuilder.Entity("backend.Model.ScheduleList.HourSchedule", b =>
