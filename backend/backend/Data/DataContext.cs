@@ -69,6 +69,10 @@ namespace backend.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<movieSchedule>()
+                .HasIndex(ms => new { ms.cinemaRoomId, ms.cinemaID, ms.ReleaseDate })
+                .IsUnique();
+
             // Configure GUID IDs for all entities and data seeding
             // Cấu hình ID dưới dạng chuỗi GUID và thêm dữ liệu ban đầu (seed data)
 

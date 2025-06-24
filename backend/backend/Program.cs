@@ -16,6 +16,8 @@ using backend.ModelDTO.MoviesDTO.MovieRequest;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using backend.Interface.MovieInterface;
+using backend.Interface.Schedule;
+using backend.Services.Schedule;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,6 +59,10 @@ builder.Services.AddScoped<IMovieService, movieServices>();
 // Add thêm DI của Service user
 
 builder.Services.AddScoped<IOrderDetail, OrderDetailServices>();
+
+// DI MovieSchedule
+
+builder.Services.AddScoped<IScheduleServices, ScheduleServices>();
 
 Console.WriteLine(builder.Configuration.GetConnectionString("DefaultConnection"));
 
