@@ -28,7 +28,7 @@ const MovieSlider = () => {
             <Swiper
                 navigation={true}
                 modules={[Navigation]}
-                className="mySwiper w-full h-[400px]"
+                className="mySwiper w-full h-[300px]"
             >
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
@@ -49,6 +49,7 @@ const MovieSlider = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
+
         </div>
     );
 };

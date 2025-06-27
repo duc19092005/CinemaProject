@@ -4275,23 +4275,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\duc19\\.nuget\\packages\\": {},
+    "C:\\Users\\Tran Hoai Duc\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\backend.csproj",
+      "projectUniqueName": "D:\\GitClone\\CinemaProject\\backend\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\backend.csproj",
-      "packagesPath": "C:\\Users\\duc19\\.nuget\\packages\\",
-      "outputPath": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\obj\\",
+      "projectPath": "D:\\GitClone\\CinemaProject\\backend\\backend\\backend.csproj",
+      "packagesPath": "C:\\Users\\Tran Hoai Duc\\.nuget\\packages\\",
+      "outputPath": "D:\\GitClone\\CinemaProject\\backend\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\duc19\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Tran Hoai Duc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4370,7 +4370,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
