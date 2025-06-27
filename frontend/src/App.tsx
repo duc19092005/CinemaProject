@@ -8,10 +8,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import QuickBooking from "./Bookig/QuickBooking";
+import Listfilm from './Cinema/Listfilm';
+import { useNavigate } from "react-router-dom";
+
 
 
 
 function App() {
+  const navigate = useNavigate();
+  const handleListfilm = () => {
+    navigate('/listfilm');
+  }
   const [showTrailer, setShowTrailer] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
 
@@ -37,13 +44,23 @@ function App() {
       trailer: "https://www.youtube.com/watch?v=Ud-YVnRK_kY",
     },
     {
-      title: "MƯỢN HỒN ĐOẠT XÁC (T18)",
-      image: "https://th.bing.com/th/id/OIP.C73d3caZ6TlIhZIih-uzggHaLW?w=783&h=1200&rs=1&pid=ImgDetMain",
-      trailer: "https://youtu.be/miUjcCPpVGo",
+      title: "LÂM GIANG TIÊN (T18)",
+      image: "https://static2.vieon.vn/vieplay-image/poster_v4/2025/06/02/djtoaqo5_660x946-lamgiangtien2.png",
+      trailer: "https://youtu.be/-hTr-NBoDnU?si=idCRW93f3kx6j7ZV",
     },
     {
-      title: "NHIỆM VỤ BẤT KHẢ THI",
-      image: "https://th.bing.com/th/id/OIP.C73d3caZ6TlIhZIih-uzggHaLW?w=783&h=1200&rs=1&pid=ImgDetMain",
+      title: "TRƯỜNG NGUYỆT TẪN MINH",
+      image: "https://bazaarvietnam.vn/wp-content/uploads/2023/04/harper-bazaar-review-phim-truong-nguyet-tan-minh-till-the-end-of-the-moon-101-e1680702014162.jpg",
+      trailer: "https://youtu.be/7kRzVm_umc0?si=bjoPQPcEVgsWZ2AL",
+    },
+    {
+      title: "BÍ KÍP LUYỆN RỒNG (K)",
+      image: "https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2025%2Fbi-kip-luyen-rong_1.jpg&w=1200&q=75",
+      trailer: "https://youtu.be/JD-idNoeiPE",
+    },
+    {
+      title: "NĂM MƯƠI (T18)",
+      image: "https://th.bing.com/th/id/R.4b3f8ee56b9334f4958f75a5f45362a9?rik=JkvbTUiZTAlZYQ&pid=ImgRaw&r=0g",
       trailer: "https://youtu.be/miUjcCPpVGo",
     },
     {
@@ -155,34 +172,37 @@ function App() {
           <MovieSlider />
           <QuickBooking />
           {/* Phim đang chiếu */}
-          <section>
-            <h2 className="text-3xl text-white font-bold py-5 uppercase">-- Phim đang chiếu --</h2>
-            <Swiper slidesPerView={4} spaceBetween={30} navigation modules={[Navigation]} className="mySwiper px-6">
-              {movies.map(renderMovieSlide)}
-            </Swiper>
-          </section>
-          {/* Nút Xem thêm */}
-          <div className="pt-12">
-            <button
-              onClick={() => window.open("https://tailwindcss.com/docs/flex-basis", "_blank")}
-              type="submit"
-              className="flex justify-center gap-2 items-center mx-auto shadow-xl text-base bg-purple-600 backdrop-blur-md lg:font-semibold isolation-auto
+          <div className="container mx-auto">
+            <section>
+              <h2 className="text-3xl text-white font-bold py-5 uppercase">-- Phim đang chiếu --</h2>
+              <Swiper slidesPerView={4} spaceBetween={30} navigation modules={[Navigation]} className="mySwiper px-6">
+                {movies.map(renderMovieSlide)}
+              </Swiper>
+            </section>
+            {/* Nút Xem thêm */}
+            <div className="pt-12">
+              <button
+                onClick={(handleListfilm)}
+                type="submit"
+                className="flex justify-center gap-2 items-center mx-auto shadow-xl text-base bg-purple-600 backdrop-blur-md lg:font-semibold isolation-auto
                     border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 
                     before:rounded-full before:bg-orange-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 
                     relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group">
-              Xem thêm
-              <svg
-                className="w-6 h-6 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700
+                Xem thêm
+                <svg
+                  className="w-6 h-6 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700
                       group-hover:border-none p-2 rotate-45"
-                viewBox="0 0 16 19"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                  className="fill-gray-800 group-hover:fill-gray-800"
-                ></path>
-              </svg>
-            </button>
+                  viewBox="0 0 16 19"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                    className="fill-gray-800 group-hover:fill-gray-800"
+                  ></path>
+                </svg>
+              </button>
+            </div>
           </div>
+
           {/* Phim sắp chiếu */}
           <section>
             <h2 className="text-3xl text-white font-bold py-5 uppercase">-- Phim sắp chiếu --</h2>
@@ -193,7 +213,7 @@ function App() {
           {/* Nút Xem thêm */}
           <div className="pt-12">
             <button
-              onClick={() => window.open("https://tailwindcss.com/docs/flex-basis", "_blank")}
+              onClick={(handleListfilm)}
               type="submit"
               className="flex justify-center gap-2 items-center mx-auto shadow-xl text-base bg-purple-600 backdrop-blur-md lg:font-semibold isolation-auto
                     border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 

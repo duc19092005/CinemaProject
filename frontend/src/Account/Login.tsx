@@ -5,17 +5,21 @@ import Bottom from '../Footer/bottom';
 
 function Login() {
     const navigate = useNavigate();
+    const handleRegister = () => {
+        navigate('/register');
+    }
 
     return (
-        <div className="App bg-slate-900 px-4">
-            <div className="sticky top-0 z-50 bg-slate-900 shadow-md">
+        <div className="min-h-screen w-full bg-cover bg-center"
+            style={{ backgroundImage: "url('https://images8.alphacoders.com/136/thumb-1920-1368754.jpeg')" }}>
+            <div className="sticky top-0 z-50  shadow-md" style={{ backgroundImage: "url('https://th.bing.com/th/id/R.9e8b6083d2c56afe3e37c99a0d008551?rik=MgANzjo9WJbFrA&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f5%2f0%2f3%2f718692-amazing-dark-purple-backgrounds-1920x1200.jpg&ehk=QVn3JWJ991bU4NaIVD9w8hngTuAZ1AHehPjBWxqpDUE%3d&risl=&pid=ImgRaw&r=0')" }}>
                 <header>
-                    <div className="content-wrapper max-w-screen-2xl text-base mx-auto px-8">
+                    <div className="content-wrapper max-w-screen-xl text-base mx-auto px-8">
                         <Nav />
                     </div>
                 </header>
             </div>
-            <div className="content-wrapper max-w-screen-2xl text-base mx-auto px-8 bg-slate-900 min-h-screen">
+            <div className="content-wrapper max-w-screen-2xl text-base mx-auto px-8  min-h-screen">
                 <div>
                     <div className="flex justify-center items-center h-full w-full">
                         <div className="grid gap-8">
@@ -49,15 +53,15 @@ function Login() {
                                         </div>
                                         <a href="#" className="text-blue-400 text-sm transition hover:underline flex  justify-end items-end">Quên mật khẩu?</a>
                                         <button
-                                            className="w-full p-3 mt-4 text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg hover:scale-105 transition transform duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            className="w-full font-bold p-3 mt-4 text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg hover:scale-105 transition transform duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                             type="submit">
-                                            LOG IN
+                                            ĐĂNG NHẬP
                                         </button>
                                     </form>
                                     <div className="flex flex-col mt-4 text-sm text-center dark:text-gray-300">
                                         <p>
                                             Chưa có tài khoản?
-                                            <a href="#" className="text-blue-400 transition hover:underline">Đăng kí</a>
+                                            <a onClick={handleRegister} className="text-blue-400 transition hover:underline">Đăng kí</a>
                                         </p>
                                     </div>
                                     <div id="third-party-auth" className="flex justify-center gap-4 mt-5">
