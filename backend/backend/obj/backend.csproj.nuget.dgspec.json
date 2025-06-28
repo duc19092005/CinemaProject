@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\backend.csproj": {}
+    "D:\\FixGit\\CinemaProject\\backend\\backend\\backend.csproj": {}
   },
   "projects": {
-    "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\backend.csproj": {
+    "D:\\FixGit\\CinemaProject\\backend\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\backend.csproj",
+        "projectUniqueName": "D:\\FixGit\\CinemaProject\\backend\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\backend.csproj",
+        "projectPath": "D:\\FixGit\\CinemaProject\\backend\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\duc19\\.nuget\\packages\\",
-        "outputPath": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\obj\\",
+        "outputPath": "D:\\FixGit\\CinemaProject\\backend\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,9 +43,8 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+          "auditMode": "direct"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -105,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

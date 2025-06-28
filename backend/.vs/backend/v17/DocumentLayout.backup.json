@@ -3,26 +3,81 @@
   "WorkspaceRootPath": "E:\\CNPM_DoAn\\CinemaProject\\backend\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|e:\\cnpm_doan\\cinemaproject\\backend\\backend\\services\\bookingservices\\bookingservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\services\\bookingservices\\bookingservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|e:\\cnpm_doan\\cinemaproject\\backend\\backend\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\cinemaroom\\seats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\cinemaroom\\seats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> main
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|e:\\cnpm_doan\\cinemaproject\\backend\\backend\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|e:\\cnpm_doan\\cinemaproject\\backend\\backend\\migrations\\20250623194000_chinh_lai_db_lich_chieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\migrations\\20250623194000_chinh_lai_db_lich_chieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\price\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\price\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\movie\\movieinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\movie\\movieinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\movie\\moviegenreinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\movie\\moviegenreinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\movie\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\movie\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\cinemas\\cinema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\cinemas\\cinema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\cinemaroom\\cinemaroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\cinemaroom\\cinemaroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\migrations\\datacontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\migrations\\datacontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\migrations\\20250531045624_db_update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\migrations\\20250531045624_db_update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\auth\\userinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\auth\\userinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\interface\\auth\\iauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\interface\\auth\\iauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> main
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|e:\\cnpm_doan\\cinemaproject\\backend\\backend\\migrations\\20250625061422_update-them-2-bang-report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\migrations\\20250625061422_update-them-2-bang-report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|e:\\cnpm_doan\\cinemaproject\\backend\\backend\\modeldto\\bookingsdto\\orderrequest\\orderrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\modeldto\\bookingsdto\\orderrequest\\orderrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -32,6 +87,37 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|e:\\cnpm_doan\\cinemaproject\\backend\\backend\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\modeldto\\auth\\authrespond\\registerresponddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\modeldto\\auth\\authrespond\\registerresponddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\modeldto\\auth\\userinformationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\modeldto\\auth\\userinformationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\request\\auth\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\request\\auth\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\request\\auth\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\request\\auth\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\auth\\userroleinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\auth\\userroleinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> main
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -55,12 +141,17 @@
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\modeldto\\bookingsdto\\orderrespond\\orderresponddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|e:\\cnpm_doan\\cinemaproject\\backend\\backend\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|e:\\cnpm_doan\\cinemaproject\\backend\\backend\\services\\movieservices\\movieservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\services\\movieservices\\movieservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\product\\foodinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\product\\foodinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> main
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|e:\\cnpm_doan\\cinemaproject\\backend\\backend\\services\\schedule\\scheduleservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -71,6 +162,7 @@
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|e:\\cnpm_doan\\cinemaproject\\backend\\backend\\model\\movie\\movievisualformat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\movie\\movievisualformat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -88,6 +180,25 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|e:\\cnpm_doan\\cinemaproject\\backend\\backend\\model\\booking\\orderdetailticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\price\\priceinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\price\\priceinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\movie\\movieschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\movie\\movieschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\movie\\moviegenre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\movie\\moviegenre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\cinemas\\cinemamovieinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\cinemas\\cinemamovieinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|d:\\doan_huflit_2025\\cnpm_doan\\backend\\backend\\model\\booking\\orderdetailticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> main
       "RelativeMoniker": "D:0:0:{9CDDAE69-9590-4670-BC1C-8548A0237787}|backend\\backend.csproj|solutionrelative:backend\\model\\booking\\orderdetailticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -366,7 +477,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 3,
+=======
+          "SelectedChildIndex": 28,
+>>>>>>> main
           "Children": [
             {
               "$type": "Bookmark",
@@ -378,6 +493,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 9,
               "Title": "IBookingServices.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Interface\\BookingInterface\\IBookingServices.cs",
@@ -1065,6 +1181,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 63,
+=======
+              "DocumentIndex": 8,
+              "Title": "DataContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\DataContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "backend\\Migrations\\DataContextModelSnapshot.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\DataContextModelSnapshot.cs",
+              "RelativeToolTip": "backend\\Migrations\\DataContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T13:28:42.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20250531045624_db_update.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250531045624_db_update.cs",
+              "RelativeDocumentMoniker": "backend\\Migrations\\20250531045624_db_update.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250531045624_db_update.cs",
+              "RelativeToolTip": "backend\\Migrations\\20250531045624_db_update.cs",
+              "ViewState": "AgIAAOwBAAAAAAAAAAAowA0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T04:56:24.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IAuth.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Interface\\Auth\\IAuth.cs",
+              "RelativeDocumentMoniker": "backend\\Interface\\Auth\\IAuth.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Interface\\Auth\\IAuth.cs",
+              "RelativeToolTip": "backend\\Interface\\Auth\\IAuth.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T17:05:28.736Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+>>>>>>> main
               "Title": "AuthService.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Services\\Auth\\AuthService.cs",
               "RelativeDocumentMoniker": "backend\\Services\\Auth\\AuthService.cs",
@@ -1077,7 +1232,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 34,
+=======
+              "DocumentIndex": 16,
+>>>>>>> main
               "Title": "registerRespondDTO.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\ModelDTO\\AuthDTO\\AuthRespond\\registerRespondDTO.cs",
               "RelativeDocumentMoniker": "backend\\ModelDTO\\AuthDTO\\AuthRespond\\registerRespondDTO.cs",
@@ -1090,7 +1249,47 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 47,
+=======
+              "DocumentIndex": 19,
+              "Title": "registerRequest.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Request\\Auth\\registerRequest.cs",
+              "RelativeDocumentMoniker": "backend\\Request\\Auth\\registerRequest.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Request\\Auth\\registerRequest.cs",
+              "RelativeToolTip": "backend\\Request\\Auth\\registerRequest.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAmwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T16:36:16.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "loginRequest.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Request\\Auth\\loginRequest.cs",
+              "RelativeDocumentMoniker": "backend\\Request\\Auth\\loginRequest.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Request\\Auth\\loginRequest.cs",
+              "RelativeToolTip": "backend\\Request\\Auth\\loginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvw0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T16:35:52.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "userInformationDTO.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\ModelDTO\\Auth\\userInformationDTO.cs",
+              "RelativeDocumentMoniker": "backend\\ModelDTO\\Auth\\userInformationDTO.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\ModelDTO\\Auth\\userInformationDTO.cs",
+              "RelativeToolTip": "backend\\ModelDTO\\Auth\\userInformationDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T19:05:51.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+>>>>>>> main
               "Title": "userController.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Controllers\\userController.cs",
               "RelativeDocumentMoniker": "backend\\Controllers\\userController.cs",
@@ -1098,6 +1297,7 @@
               "RelativeToolTip": "backend\\Controllers\\userController.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwC4AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2025-05-21T19:02:09.391Z",
               "EditorCaption": ""
             },
@@ -1110,12 +1310,74 @@
               "ToolTip": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\CinemaRoom\\cinemaRoom.cs",
               "RelativeToolTip": "backend\\Model\\CinemaRoom\\cinemaRoom.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAxwCQAAAAWAAAAAAAAAA==",
+=======
+              "WhenOpened": "2025-05-21T19:02:09.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "cinemaRoom.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\CinemaRoom\\cinemaRoom.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\CinemaRoom\\cinemaRoom.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\CinemaRoom\\cinemaRoom.cs",
+              "RelativeToolTip": "backend\\Model\\CinemaRoom\\cinemaRoom.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA1wBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T18:15:28.12Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "priceInformation.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Price\\priceInformation.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\Price\\priceInformation.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Price\\priceInformation.cs",
+              "RelativeToolTip": "backend\\Model\\Price\\priceInformation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T18:13:21.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "userType.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Price\\userType.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\Price\\userType.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Price\\userType.cs",
+              "RelativeToolTip": "backend\\Model\\Price\\userType.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T18:13:01.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Language.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\Language.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\Movie\\Language.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\Language.cs",
+              "RelativeToolTip": "backend\\Model\\Movie\\Language.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T18:12:14.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "movieGenreInformation.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\movieGenreInformation.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\Movie\\movieGenreInformation.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\movieGenreInformation.cs",
+              "RelativeToolTip": "backend\\Model\\Movie\\movieGenreInformation.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
+>>>>>>> main
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T18:15:28.12Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 50,
               "Title": "userType.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\Price\\userType.cs",
@@ -1136,12 +1398,58 @@
               "ToolTip": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\Movie\\Language.cs",
               "RelativeToolTip": "backend\\Model\\Movie\\Language.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwBkAAAAWAAAAAAAAAA==",
+=======
+              "DocumentIndex": 32,
+              "Title": "movieSchedule.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\movieSchedule.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\Movie\\movieSchedule.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\movieSchedule.cs",
+              "RelativeToolTip": "backend\\Model\\Movie\\movieSchedule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T18:07:28.259Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "movieGenre.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\movieGenre.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\Movie\\movieGenre.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\movieGenre.cs",
+              "RelativeToolTip": "backend\\Model\\Movie\\movieGenre.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T18:06:57.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "movieInformation.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\movieInformation.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\Movie\\movieInformation.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Movie\\movieInformation.cs",
+              "RelativeToolTip": "backend\\Model\\Movie\\movieInformation.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAIwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T18:06:13.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "cinemaMovieInformation.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Cinemas\\cinemaMovieInformation.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\Cinemas\\cinemaMovieInformation.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Cinemas\\cinemaMovieInformation.cs",
+              "RelativeToolTip": "backend\\Model\\Cinemas\\cinemaMovieInformation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
+>>>>>>> main
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T18:12:14.114Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 28,
               "Title": "movieGenreInformation.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\Movie\\movieGenreInformation.cs",
@@ -1149,12 +1457,22 @@
               "ToolTip": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\Movie\\movieGenreInformation.cs",
               "RelativeToolTip": "backend\\Model\\Movie\\movieGenreInformation.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAuwBYAAAAWAAAAAAAAAA==",
+=======
+              "DocumentIndex": 6,
+              "Title": "Cinema.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Cinemas\\Cinema.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\Cinemas\\Cinema.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Cinemas\\Cinema.cs",
+              "RelativeToolTip": "backend\\Model\\Cinemas\\Cinema.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwDEAAAAAAAAAAAAAAA==",
+>>>>>>> main
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T18:08:03.917Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 18,
               "Title": "movieSchedule.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\Movie\\movieSchedule.cs",
@@ -1162,12 +1480,22 @@
               "ToolTip": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\Movie\\movieSchedule.cs",
               "RelativeToolTip": "backend\\Model\\Movie\\movieSchedule.cs",
               "ViewState": "AgIAADEAAAAAAAAAAAAkwEEAAAA/AAAAAAAAAA==",
+=======
+              "DocumentIndex": 21,
+              "Title": "userRoleInformation.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Auth\\userRoleInformation.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\Auth\\userRoleInformation.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Auth\\userRoleInformation.cs",
+              "RelativeToolTip": "backend\\Model\\Auth\\userRoleInformation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAcAAAAAAAAAA==",
+>>>>>>> main
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T18:07:28.259Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 43,
               "Title": "movieGenre.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\Movie\\movieGenre.cs",
@@ -1247,6 +1575,33 @@
             {
               "$type": "Document",
               "DocumentIndex": 20,
+=======
+              "DocumentIndex": 1,
+              "Title": "roleInformation.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Auth\\roleInformation.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\Auth\\roleInformation.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Auth\\roleInformation.cs",
+              "RelativeToolTip": "backend\\Model\\Auth\\roleInformation.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T18:01:53.58Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "userInformation.cs",
+              "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Auth\\userInformation.cs",
+              "RelativeDocumentMoniker": "backend\\Model\\Auth\\userInformation.cs",
+              "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Model\\Auth\\userInformation.cs",
+              "RelativeToolTip": "backend\\Model\\Auth\\userInformation.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T18:01:09.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+>>>>>>> main
               "Title": "orderDetailFood.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\Booking\\orderDetailFood.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Booking\\orderDetailFood.cs",
@@ -1259,7 +1614,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 31,
+=======
+              "DocumentIndex": 28,
+>>>>>>> main
               "Title": "foodInformation.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\Product\\foodInformation.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Product\\foodInformation.cs",
@@ -1272,7 +1631,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 82,
+=======
+              "DocumentIndex": 36,
+>>>>>>> main
               "Title": "20250520170630_v1.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520170630_v1.cs",
               "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520170630_v1.cs",
@@ -1281,7 +1644,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 21,
+=======
+              "DocumentIndex": 35,
+>>>>>>> main
               "Title": "orderDetailTicket.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\Booking\\orderDetailTicket.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Booking\\orderDetailTicket.cs",
@@ -1294,7 +1661,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 27,
               "Title": "Order.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\Booking\\Order.cs",
               "RelativeDocumentMoniker": "backend\\Model\\Booking\\Order.cs",
@@ -1307,20 +1674,32 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 25,
+=======
+              "DocumentIndex": 0,
+>>>>>>> main
               "Title": "Seats.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\CinemaRoom\\Seats.cs",
               "RelativeDocumentMoniker": "backend\\Model\\CinemaRoom\\Seats.cs",
               "ToolTip": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Model\\CinemaRoom\\Seats.cs",
               "RelativeToolTip": "backend\\Model\\CinemaRoom\\Seats.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAABEAAAAAAAAAAAAAwBwAAAAUAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAAoAAAAAAAAAAAAiwBYAAAAyAAAAAAAAAA==",
+>>>>>>> main
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T12:40:25.946Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 83,
+=======
+              "DocumentIndex": 37,
+>>>>>>> main
               "Title": "20250520115443_V1.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520115443_V1.cs",
               "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520115443_V1.cs",
@@ -1329,7 +1708,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 84,
+=======
+              "DocumentIndex": 38,
+>>>>>>> main
               "Title": "20250520112510_V1.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520112510_V1.cs",
               "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250520112510_V1.cs",
@@ -1338,7 +1721,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 85,
+=======
+              "DocumentIndex": 40,
+>>>>>>> main
               "Title": "20250509131847_v1.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250509131847_v1.cs",
               "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250509131847_v1.cs",
@@ -1347,7 +1734,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 61,
+=======
+              "DocumentIndex": 26,
+>>>>>>> main
               "Title": "appsettings.Production.json",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\appsettings.Production.json",
               "RelativeDocumentMoniker": "backend\\appsettings.Production.json",
@@ -1360,7 +1751,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 8,
+=======
+              "DocumentIndex": 11,
+>>>>>>> main
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Program.cs",
               "RelativeDocumentMoniker": "backend\\Program.cs",
@@ -1373,7 +1768,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 65,
+=======
+              "DocumentIndex": 10,
+>>>>>>> main
               "Title": "WeatherForecast.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "backend\\WeatherForecast.cs",
@@ -1386,7 +1785,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 60,
+=======
+              "DocumentIndex": 29,
+>>>>>>> main
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\appsettings.Development.json",
               "RelativeDocumentMoniker": "backend\\appsettings.Development.json",
@@ -1399,7 +1802,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 81,
+=======
+              "DocumentIndex": 39,
+>>>>>>> main
               "Title": "Dockerfile",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Dockerfile",
               "RelativeDocumentMoniker": "backend\\Dockerfile",
@@ -1412,7 +1819,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 87,
+=======
+              "DocumentIndex": 43,
+>>>>>>> main
               "Title": "appsettings.Docker.json",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\appsettings.Docker.json",
               "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\appsettings.Docker.json",
@@ -1421,7 +1832,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 16,
+=======
+              "DocumentIndex": 18,
+>>>>>>> main
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\appsettings.json",
               "RelativeDocumentMoniker": "backend\\appsettings.json",
@@ -1434,7 +1849,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 75,
+=======
+              "DocumentIndex": 25,
+>>>>>>> main
               "Title": "launchSettings.json",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "backend\\Properties\\launchSettings.json",
@@ -1447,7 +1866,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 7,
+=======
+              "DocumentIndex": 22,
+>>>>>>> main
               "Title": "DataContext.cs",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\Data\\DataContext.cs",
               "RelativeDocumentMoniker": "backend\\Data\\DataContext.cs",
@@ -1460,7 +1883,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 86,
+=======
+              "DocumentIndex": 42,
+>>>>>>> main
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -1469,7 +1896,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 88,
+=======
+              "DocumentIndex": 44,
+>>>>>>> main
               "Title": "20250508133409_v1.cs",
               "DocumentMoniker": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250508133409_v1.cs",
               "ToolTip": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\Migrations\\20250508133409_v1.cs",
@@ -1478,7 +1909,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 66,
+=======
+              "DocumentIndex": 15,
+>>>>>>> main
               "Title": "backend.csproj",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\backend.csproj",
               "RelativeDocumentMoniker": "backend\\backend.csproj",
@@ -1491,7 +1926,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 55,
+=======
+              "DocumentIndex": 41,
+>>>>>>> main
               "Title": "backend.http",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\backend.http",
               "RelativeDocumentMoniker": "backend\\backend.http",
@@ -1504,7 +1943,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 77,
+=======
+              "DocumentIndex": 24,
+>>>>>>> main
               "Title": "backend",
               "DocumentMoniker": "E:\\CNPM_DoAn\\CinemaProject\\backend\\backend\\backend.csproj",
               "RelativeDocumentMoniker": "backend\\backend.csproj",
