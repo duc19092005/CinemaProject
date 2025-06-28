@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TcxMHXJecu0=",
+  "dgSpecHash": "YKwIJiTPzTE=",
   "success": true,
-  "projectFilePath": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\backend.csproj",
+  "projectFilePath": "D:\\AddGitignore\\CinemaProject\\backend\\backend\\backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\duc19\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\duc19\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

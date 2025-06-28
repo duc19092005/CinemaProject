@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\backend.csproj": {}
+    "D:\\AddGitignore\\CinemaProject\\backend\\backend\\backend.csproj": {}
   },
   "projects": {
-    "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\backend.csproj": {
+    "D:\\AddGitignore\\CinemaProject\\backend\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\backend.csproj",
+        "projectUniqueName": "D:\\AddGitignore\\CinemaProject\\backend\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\backend.csproj",
+        "projectPath": "D:\\AddGitignore\\CinemaProject\\backend\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\duc19\\.nuget\\packages\\",
-        "outputPath": "D:\\DoAn_Huflit_2025\\CNPM_DoAn\\backend\\backend\\obj\\",
+        "outputPath": "D:\\AddGitignore\\CinemaProject\\backend\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
