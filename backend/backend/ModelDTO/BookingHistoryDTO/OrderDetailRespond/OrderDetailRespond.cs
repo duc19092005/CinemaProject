@@ -5,11 +5,11 @@ using backend.Model.Movie;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace backend.ModelDTO.Customer.OrderDetailRespond
+namespace backend.ModelDTO.BookingHistoryDTO.OrderDetailRespond
 {
     public class OrderDetailRespond
     {
-       
+
         public string userId { get; set; } = "";
 
         public string orderId { get; set; } = "";

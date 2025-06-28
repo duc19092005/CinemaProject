@@ -16,6 +16,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "backend.Controllers.BookingController",
+    "Method": "booking",
+    "RelativePath": "api/Booking/Booking",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dtos",
+        "Type": "backend.ModelDTO.Customer.OrderRequest.OrderRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "backend.Controllers.movieController",
     "Method": "createMovie",
     "RelativePath": "api/movie/createMovie",

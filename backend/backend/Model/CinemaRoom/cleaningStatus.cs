@@ -13,6 +13,7 @@ namespace backend.Model.CinemaRoom
         [Column(TypeName = "varchar(100)")]
         public string staffID {  get; set; } = string.Empty;
 
+
         public DateTime startedTime {  get; set; }
 
         public DateTime endedTime { get; set; }

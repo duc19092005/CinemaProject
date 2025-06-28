@@ -21,9 +21,12 @@ namespace backend.Model.CinemaRoom
 
         [Required]
         public bool isTaken { get; set; } = false;
-        [Required]
 
-        public bool isMiddle { get; set; } = false;
+        [Required]
+        public bool isServed { get; set; } = true;
+
+        [Required]
+        public bool isDelete { get; set; } = false;
 
         [Column(TypeName = "varchar(100)")]
         [ForeignKey("cinemaRoom")]

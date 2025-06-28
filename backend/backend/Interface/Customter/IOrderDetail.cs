@@ -1,4 +1,4 @@
-﻿using backend.ModelDTO.Customer.OrderDetailRespond;
+﻿using backend.ModelDTO.BookingHistoryDTO.OrderDetailRespond;
 
 namespace backend.Interface.Customter
 {

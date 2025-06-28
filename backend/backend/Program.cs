@@ -4,7 +4,6 @@ using backend.Interface.Auth;
 using backend.Interface.Customter;
 using backend.Model.Auth;
 using backend.Services.Auth;
-using backend.Services.CustomerServices;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
@@ -18,6 +17,9 @@ using Microsoft.IdentityModel.Tokens;
 using backend.Interface.MovieInterface;
 using backend.Interface.Schedule;
 using backend.Services.Schedule;
+using backend.Services.BookingHistoryServices;
+using backend.Interface.BookingInterface;
+using backend.Services.BookingServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -63,6 +65,10 @@ builder.Services.AddScoped<IOrderDetail, OrderDetailServices>();
 // DI MovieSchedule
 
 builder.Services.AddScoped<IScheduleServices, ScheduleServices>();
+
+// DI của Booking
+
+builder.Services.AddScoped<IBookingServices, BookingServices>();
 
 Console.WriteLine(builder.Configuration.GetConnectionString("DefaultConnection"));
 

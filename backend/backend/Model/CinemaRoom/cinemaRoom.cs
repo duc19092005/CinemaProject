@@ -7,6 +7,7 @@ using backend.Model.Cinemas;
 using backend.Model.CinemaRoom;
 using backend.Model.Price;
 using backend.Model.Product;
+using backend.Model.Report;
 
 namespace backend.Model.CinemaRoom
 {
@@ -23,9 +24,6 @@ namespace backend.Model.CinemaRoom
 
         [Required]
         public int cinemaRoomNumber { get; set; }
-
-        public bool isIMAXRoom { get; set; } = false;
-
         // Khóa ngoại
 
         [Column(TypeName = "varchar(100)")]
@@ -33,12 +31,26 @@ namespace backend.Model.CinemaRoom
         [ForeignKey("Cinema")]
         public string cinemaId { get; set; } = "";
 
+        [Column(TypeName = "varchar(100)")]
+        [ForeignKey("movieVisualFormat")]
+        [Required]
+        public string movieVisualFormatID { get; set; } = string.Empty;
+
+        public bool isDeleted { get; set; }
+
+
         public Cinema Cinema { get; set; } = null!;
+
+        public movieVisualFormat movieVisualFormat { get; set; } = null!;
 
         public List<movieSchedule> movieSchedule { get; set; } = null!;
 
         public List<Seats> Seats { get; set; } = [];
 
         public List<cleaningStatus> cleaningStatus { get; set; } = [];
+
+        public List<materialReport> materialReport { get; set; } = [];
+
+        public List<modificationRequest> modificationRequest { get; set; } = [];
     }
 }

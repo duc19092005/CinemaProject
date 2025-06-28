@@ -7,6 +7,7 @@ using backend.Model.CinemaRoom;
 using backend.Model.Movie;
 using backend.Model.Price;
 using backend.Model.Product;
+using backend.Model.Report;
 
 namespace backend.Model.Cinemas
 {
@@ -46,12 +47,13 @@ namespace backend.Model.Cinemas
         [Required]
         public string cinemaContactHotlineNumber { get; set; } = "";
 
-        [Required]
-        public bool isSupportedIMAX { get; set; } = false;
-
         public List<cinemaRoom> cinemaRoom { get; set; } = null!;
 
         public List<movieSchedule> movieSchedule { get; set; } = [];
+
+        public List<materialReport> materialReport { get; set; } = [];
+
+        public List<modificationRequest> modificationRequest { get; set; } = [];
 
 
     }

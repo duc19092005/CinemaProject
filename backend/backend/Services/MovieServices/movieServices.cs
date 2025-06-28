@@ -91,6 +91,7 @@ namespace backend.Services.MovieServices
             return false;
         }
 
+        // Không xóa phim chỉ set bằng isDelete = true thôi
         public async Task<bool> remove(string Id)
         {
             // Tìm kiếm Object
@@ -113,12 +114,13 @@ namespace backend.Services.MovieServices
                 var FindOrder = _dataContext.TicketOrderDetail.Any(x => x.movieScheduleID.Equals(FindMovieScheduleObject.Select(x => x.movieScheduleId)));
                 if (!FindOrder)
                 {
-                    _dataContext.movieGenreInformation.RemoveRange(FindGenreObject);
-                    _dataContext.movieInformation.RemoveRange(FindObjectMovieObject);
-                    _dataContext.movieCommentDetail.RemoveRange(FindCommentObject);
+                    FindObjectMovieObject.isDelete = true;
+
+                    _dataContext.movieInformation.Update(FindObjectMovieObject);
+
                     foreach (var movieSchedule in FindMovieScheduleObject)
                     {
-                        movieSchedule.IsDelete = false;
+                        movieSchedule.IsDelete = true;
                     }
 
                     _dataContext.movieSchedule.UpdateRange(FindMovieScheduleObject);
@@ -153,7 +155,7 @@ namespace backend.Services.MovieServices
                     ListLanguageName = x.Language.languageDetail,
                     movieTrailerUrl = x.movieTrailerUrl,
                     movieVisualFormat = x.movieVisualFormatDetail.Select(vs => vs.movieVisualFormat.movieVisualFormatName).ToArray(),
-                    isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ReleaseDate && !x.IsDelete) ? true : false,
+                    isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ScheduleDate && !x.IsDelete) ? true : false,
                 }).ToListAsync();
             return getAllMovieData;
         }
@@ -175,7 +177,7 @@ namespace backend.Services.MovieServices
                     ListLanguageName = x.Language.languageDetail,
                     movieTrailerUrl = x.movieTrailerUrl,
                     movieVisualFormat = x.movieVisualFormatDetail.Select(vs => vs.movieVisualFormat.movieVisualFormatName).ToArray(),
-                    isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ReleaseDate && !x.IsDelete) ? true : false,
+                    isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ScheduleDate && !x.IsDelete) ? true : false,
                 }).
                 Take(pagesize).Skip((page - 1) * pagesize).
                 ToListAsync();
@@ -205,7 +207,7 @@ namespace backend.Services.MovieServices
                     ListLanguageName = x.Language.languageDetail,
                     movieTrailerUrl = x.movieTrailerUrl,
                     movieVisualFormat = x.movieVisualFormatDetail.Select(vs => vs.movieVisualFormat.movieVisualFormatName).ToArray(),
-                    isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ReleaseDate && !x.IsDelete) ? true : false,
+                    isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ScheduleDate && !x.IsDelete) ? true : false,
 
                 })
                 .Take(5).ToListAsync();
@@ -228,7 +230,7 @@ namespace backend.Services.MovieServices
                     ListLanguageName = x.Language.languageDetail,
                     movieTrailerUrl = x.movieTrailerUrl,
                     movieVisualFormat = x.movieVisualFormatDetail.Select(vs => vs.movieVisualFormat.movieVisualFormatName).ToArray(),
-                    isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ReleaseDate && !x.IsDelete) ? true : false,
+                    isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ScheduleDate && !x.IsDelete) ? true : false,
 
                 }).ToListAsync();
             return getAllMovieData;

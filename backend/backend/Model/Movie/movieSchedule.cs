@@ -34,8 +34,13 @@ namespace backend.Model.Movie
         [Required]
         public string movieId { get; set; } = "";
 
+        [ForeignKey("movieVisualFormat")]
+        [Column(TypeName = "varchar(100)")]
+        public string movieVisualFormatID { get; set; } = "";
+
         // Khóa ngoại tham chiếu tới thứ
         [Required]
+        [Column(TypeName = "nvarchar(50)")]
         public string DayInWeekendSchedule { get; set; } = string.Empty;
 
         // Khóa ngoại tham chiếu tới giờ chiếu
@@ -44,7 +49,7 @@ namespace backend.Model.Movie
         public string HourScheduleID { get; set; } = string.Empty;
 
         [Required]
-        public DateTime ReleaseDate { get; set; }
+        public DateTime ScheduleDate { get; set; }
 
         // Trạng thái của lịch chiếu
         [Required]
@@ -60,5 +65,6 @@ namespace backend.Model.Movie
 
         public HourSchedule HourSchedule { get; set; } = null!;
 
+        public movieVisualFormat movieVisualFormat { get; set; } = null!;
     }
 }

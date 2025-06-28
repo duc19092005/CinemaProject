@@ -54,9 +54,13 @@ namespace backend.Model.Movie
         [Required]
         public int movieDuration { get; set; }
 
+        [Required]
+        public bool isDelete { get; set; } = false;
+
         [ForeignKey("Language")]
         [Column(TypeName = "varchar(100)")]
         [Required]
+
         public string languageId { get; set; } = "";
 
         public Language Language { get; set; } = null!;

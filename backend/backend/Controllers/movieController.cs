@@ -39,11 +39,14 @@ namespace backend.Controllers
             try
             {
                 var deleteStatus = await IMovieService.remove(Id);
-                await IMovieService.SaveChanges();
-                return Ok();
+                if (deleteStatus)
+                {
+                    await IMovieService.SaveChanges();
+                    return Ok(new { message = "đã xóa thành công", StatusCode = StatusCodes.Status200OK });
+                }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message);  }
-            return BadRequest();
+            return BadRequest(new { message = "đã xóa thất bại", StatusCode = StatusCodes.Status404NotFound });
         }
 
         [HttpGet("getAllMoviesPagniation")]

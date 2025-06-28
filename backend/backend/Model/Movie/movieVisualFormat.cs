@@ -1,4 +1,5 @@
-﻿using backend.Model.Price;
+﻿using backend.Model.CinemaRoom;
+using backend.Model.Price;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,5 +18,10 @@ namespace backend.Model.Movie
         public List<movieVisualFormatDetail> movieVisualFormatDetail { get; set; } = [];
 
         public List<priceInformationForEachUserFilmType> priceInformation { get; set; } = [];
+
+        public List<movieSchedule> movieSchedule { get; set; } = [];
+
+        public List<cinemaRoom> cinemaRoom { get; set; } = [];
+
     }
 }

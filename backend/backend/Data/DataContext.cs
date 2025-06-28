@@ -9,6 +9,7 @@ using backend.Model.Price;
 using backend.Model.Product;
 using backend.Model.ScheduleList;
 using System.Text;
+using backend.Model.Report;
 
 
 namespace backend.Data
@@ -64,13 +65,17 @@ namespace backend.Data
 
         public DbSet<HourSchedule> HourSchedule { get; set; }
 
+        public DbSet<materialReport> materialReport { get; set; }
+
+        public DbSet<modificationRequest> modificationRequest { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<movieSchedule>()
-                .HasIndex(ms => new { ms.cinemaRoomId, ms.cinemaID, ms.ReleaseDate })
+                .HasIndex(ms => new { ms.cinemaRoomId, ms.cinemaID, ms.ScheduleDate })
                 .IsUnique();
 
             // Configure GUID IDs for all entities and data seeding
@@ -109,7 +114,7 @@ namespace backend.Data
                     phoneNumber = "0123456789",
                     userName = "Admin User",
                     IdentityCode = "123456789012",
-                    userPoint = 1000
+                    userPoint = 0
                 },
                 new userInformation
                 {
@@ -120,7 +125,7 @@ namespace backend.Data
                     phoneNumber = "0987654321",
                     userName = "Regular User",
                     IdentityCode = "987654321098",
-                    userPoint = 50
+                    userPoint = 0
                 }
             );
 
@@ -160,7 +165,8 @@ namespace backend.Data
                     movieActor = "Diễn Viên X, Diễn Viên Y",
                     movieTrailerUrl = "http://trailer.com/phimhanhdong1",
                     movieDuration = 120, // minutes
-                    languageId = langId1
+                    languageId = langId1 ,
+                    isDelete = false
                 },
                 new movieInformation
                 {
@@ -172,7 +178,8 @@ namespace backend.Data
                     movieActor = "Actor Z, Actress W",
                     movieTrailerUrl = "http://trailer.com/comedyfilm1",
                     movieDuration = 90, // minutes
-                    languageId = langId2
+                    languageId = langId2 ,
+                    isDelete = false
                 }
             );
 
@@ -192,9 +199,29 @@ namespace backend.Data
                     cinemaLocation = "123 Đường XYZ, TP.HCM",
                     cinemaDescription = "Rạp chiếu phim hiện đại với nhiều phòng chiếu.",
                     cinemaContactHotlineNumber = "0901234567",
-                    isSupportedIMAX = true
                 }
             );
+
+           
+            // Seed Data for DayInWeekendSchedule
+
+            // Seed Data for HourSchedule
+            var hour1Id = Guid.NewGuid().ToString();
+            var hour2Id = Guid.NewGuid().ToString();
+            modelBuilder.Entity<HourSchedule>().HasData(
+                new HourSchedule { HourScheduleID = hour1Id, HourScheduleShowTime = "08:00" },
+                new HourSchedule { HourScheduleID = hour2Id, HourScheduleShowTime = "10:00" }
+            );
+
+            
+
+
+            // Seed Data for MovieVisualFormat
+            var visualFormatId1 = Guid.NewGuid().ToString();
+            modelBuilder.Entity<movieVisualFormat>().HasData(
+                new movieVisualFormat { movieVisualFormatId = visualFormatId1, movieVisualFormatName = "2D" }
+            );
+
 
             // Seed Data for CinemaRoom
             var room1Id = Guid.NewGuid().ToString();
@@ -203,27 +230,10 @@ namespace backend.Data
                 {
                     cinemaRoomId = room1Id,
                     cinemaRoomNumber = 1,
-                    isIMAXRoom = true,
-                    cinemaId = cinemaId1
+                    cinemaId = cinemaId1,
+                    movieVisualFormatID = visualFormatId1
+
                 }
-            );
-
-            // Seed Data for Seats
-            var seat1Id = Guid.NewGuid().ToString();
-            var seat2Id = Guid.NewGuid().ToString();
-            modelBuilder.Entity<Seats>().HasData(
-                new Seats { seatsId = seat1Id, seatsNumber = "A1", isTaken = false, isMiddle = true, cinemaRoomId = room1Id },
-                new Seats { seatsId = seat2Id, seatsNumber = "A2", isTaken = false, isMiddle = true, cinemaRoomId = room1Id }
-            );
-
-            // Seed Data for DayInWeekendSchedule
-
-            // Seed Data for HourSchedule
-            var hour1Id = Guid.NewGuid().ToString();
-            var hour2Id = Guid.NewGuid().ToString();
-            modelBuilder.Entity<HourSchedule>().HasData(
-                new HourSchedule { HourScheduleID = hour1Id, HourScheduleDate = "08:00" },
-                new HourSchedule { HourScheduleID = hour2Id, HourScheduleDate = "10:00" }
             );
 
             // Seed Data for movieSchedule
@@ -234,18 +244,21 @@ namespace backend.Data
                     movieScheduleId = movieScheduleId1,
                     cinemaRoomId = room1Id,
                     movieId = movieId1,
-                    HourScheduleID = hour1Id ,
-                    cinemaID = cinemaId1 ,
+                    HourScheduleID = hour1Id,
+                    cinemaID = cinemaId1,
                     IsDelete = false,
-                    DayInWeekendSchedule = "Monday" ,
-                    ReleaseDate = new DateTime(2025 , 11 , 11)
+                    DayInWeekendSchedule = "Monday",
+                    ScheduleDate = new DateTime(2025, 11, 11)
                 }
             );
 
-            // Seed Data for MovieVisualFormat
-            var visualFormatId1 = Guid.NewGuid().ToString();
-            modelBuilder.Entity<movieVisualFormat>().HasData(
-                new movieVisualFormat { movieVisualFormatId = visualFormatId1, movieVisualFormatName = "2D" }
+
+            // Seed Data for Seats
+            var seat1Id = Guid.NewGuid().ToString();
+            var seat2Id = Guid.NewGuid().ToString();
+            modelBuilder.Entity<Seats>().HasData(
+                new Seats { seatsId = seat1Id, seatsNumber = "A1", isTaken = false, cinemaRoomId = room1Id, isServed = true },
+                new Seats { seatsId = seat2Id, seatsNumber = "A2", isTaken = false, cinemaRoomId = room1Id, isServed = true }
             );
 
             // Seed Data for PriceInformation

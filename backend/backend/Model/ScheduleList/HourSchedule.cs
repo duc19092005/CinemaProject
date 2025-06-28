@@ -13,8 +13,9 @@ namespace backend.Model.ScheduleList
 
         // Giờ chiếu
         // Ví dụ : 8:00 , 10:00 , 20:00
-
-        public string HourScheduleDate { get; set; } = string.Empty;
+        
+        [Column(TypeName = "varchar(10)")]
+        public string HourScheduleShowTime { get; set; } = string.Empty;
 
         public List<movieSchedule> movieSchedule { get; set; } = [];
     }

@@ -26,25 +26,29 @@ namespace backend.Services.Schedule
                 foreach (var cinema in scheduleDate.scheduleCinemaDTOs)
                 {
                     // Duyệt phòng 
-                    foreach (var showTime in cinema.scheduleShowTimeDTOs)
+                    foreach (var visualFormat in cinema.ScheduleVisualFormat)
                     {
-                        foreach (var room in showTime.scheduleRoomDTOs)
+                        foreach (var showTime in visualFormat.scheduleShowTimeDTOs)
                         {
-                            var scheduleID = Guid.NewGuid().ToString();
-                            var newSchedule = new movieSchedule()
+                            foreach (var rooms in showTime.scheduleRoomDTOs)
                             {
-                                movieScheduleId = scheduleID,
-                                movieId = scheduleRequestDTO.movieID,
-                                cinemaRoomId = room.roomID,
-                                cinemaID = cinema.cinemaID,
-                                DayInWeekendSchedule = "Null",
-                                HourScheduleID = showTime.showTimeID,
-                                ReleaseDate = scheduleDate.startDate,
-                                IsDelete = false
+                                var scheduleID = Guid.NewGuid().ToString();
+                                var newSchedule = new movieSchedule()
+                                {
+                                    movieScheduleId = scheduleID,
+                                    movieId = scheduleRequestDTO.movieID,
+                                    cinemaRoomId = rooms.roomID,
+                                    cinemaID = cinema.cinemaID,
+                                    DayInWeekendSchedule = "Null",
+                                    HourScheduleID = showTime.showTimeID,
+                                    ScheduleDate = scheduleDate.startDate,
+                                    movieVisualFormatID = visualFormat.visualFormatID,
+                                    IsDelete = false
 
-                            };
-                            await _dataContext.movieSchedule.AddAsync(newSchedule);
-                            result = true;
+                                };
+                                await _dataContext.movieSchedule.AddAsync(newSchedule);
+                                result = true;
+                            }
                         }
                     }
                 }
@@ -72,26 +76,30 @@ namespace backend.Services.Schedule
                 // Duyệt phòng trong mảng ngày
                 foreach (var cinema in scheduleDate.scheduleCinemaDTOs)
                 {
-                    // Duyệt Giờ chiếu
-                    foreach (var showTime in cinema.scheduleShowTimeDTOs)
+                    // Duyệt phòng 
+                    foreach (var visualFormat in cinema.ScheduleVisualFormat)
                     {
-                        // Duyệt phòng chiếu
-                        foreach (var room in showTime.scheduleRoomDTOs)
+                        foreach (var showTime in visualFormat.scheduleShowTimeDTOs)
                         {
-                            var scheduleID = Guid.NewGuid().ToString();
-                            var newSchedule = new movieSchedule()
+                            foreach (var rooms in showTime.scheduleRoomDTOs)
                             {
-                                movieScheduleId = scheduleID,
-                                movieId = scheduleRequestDTO.movieID,
-                                cinemaRoomId = room.roomID,
-                                cinemaID = cinema.cinemaID,
-                                DayInWeekendSchedule = "Null",
-                                HourScheduleID = showTime.showTimeID,
-                                ReleaseDate = scheduleDate.startDate,
-                                IsDelete = false
-                            };
-                            await _dataContext.movieSchedule.AddAsync(newSchedule);
-                            result = true;
+                                var scheduleID = Guid.NewGuid().ToString();
+                                var newSchedule = new movieSchedule()
+                                {
+                                    movieScheduleId = scheduleID,
+                                    movieId = scheduleRequestDTO.movieID,
+                                    cinemaRoomId = rooms.roomID,
+                                    cinemaID = cinema.cinemaID,
+                                    DayInWeekendSchedule = "Null",
+                                    HourScheduleID = showTime.showTimeID,
+                                    ScheduleDate = scheduleDate.startDate,
+                                    movieVisualFormatID = visualFormat.visualFormatID,
+                                    IsDelete = false
+
+                                };
+                                await _dataContext.movieSchedule.AddAsync(newSchedule);
+                                result = true;
+                            }
                         }
                     }
                 }

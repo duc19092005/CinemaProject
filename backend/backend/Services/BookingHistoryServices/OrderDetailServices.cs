@@ -1,10 +1,10 @@
 ﻿using backend.Interface;
 using backend.Interface.Customter;
-using backend.ModelDTO.Customer.OrderDetailRespond;
 using backend.Data;
 using Microsoft.EntityFrameworkCore;
+using backend.ModelDTO.BookingHistoryDTO.OrderDetailRespond;
 
-namespace backend.Services.CustomerServices
+namespace backend.Services.BookingHistoryServices
 {
     public class OrderDetailServices : IOrderDetail
     {
@@ -23,7 +23,7 @@ namespace backend.Services.CustomerServices
             var orderDetailRespond = new OrderDetailRespond()
             {
                 orderId = orderID,
-                DetailTickets = getOrderTicket ,
+                DetailTickets = getOrderTicket,
                 DetailFoods = getOrderFood
             };
 

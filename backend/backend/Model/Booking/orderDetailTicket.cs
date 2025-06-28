@@ -38,7 +38,7 @@ namespace backend.Model.Booking
         public movieSchedule movieSchedule { get; set; } = null!;
     }
 
-    [PrimaryKey(nameof(seatsId) , nameof(movieScheduleID))]
+    [PrimaryKey(nameof(seatsId) , nameof(movieScheduleID) , nameof(orderId))]
     public partial class orderDetailTicket
     {
 
