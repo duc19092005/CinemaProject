@@ -3,6 +3,27 @@ import { useNavigate } from "react-router-dom";
 import Nav from '../Header/nav';
 import Bottom from "../Footer/bottom";
 
+const seatList = [
+    {
+        "Seat": "A100"
+    },
+    {
+        "Seat": "A50"
+    },
+
+    {
+        "Seat": "B200"
+    },
+
+    {
+        "Seat": "A4"
+    }
+]
+
+const sortSeatList = seatList.sort((a, b) => a.Seat.localeCompare(b.Seat, undefined, { numeric: true, sensitivity: 'base' }));
+
+sortSeatList.forEach(x => console.log(x.Seat))
+
 function Booking() {
     const navigate = useNavigate();
 
@@ -67,6 +88,7 @@ function Booking() {
                 <Bottom />
             </footer>
         </div>
+
 
 
     );

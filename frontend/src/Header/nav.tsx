@@ -18,6 +18,9 @@ function Nav() {
     const handlelogin = () => {
         navigate('/login');
     }
+    const handleIntro = () => {
+        navigate('/introduce');
+    }
 
     return (
         <nav >
@@ -32,27 +35,15 @@ function Nav() {
                         />
                     </button>
                 </div>
-                <ul className="basis-2/6 flex items-center justify-center gap-4 mx-auto uppercase">
+                <ul className="basis-2/6 flex items-center justify-center gap-4 mx-autos">
                     <li>
                         <button onClick={handleBooking} className="relative inline-flex items-center justify-center px-4 py-2.5 overflow-hidden tracking-tighter text-white bg-purple-800 rounded-md group">
                             <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-amber-400 rounded-full group-hover:w-56 group-hover:h-56"></span>
-                            <span className="relative text-base font-semibold flex items-center gap-2">
+                            <span className="relative text-base font-semibold flex items-center gap-2 uppercase">
                                 <TicketIcon className="w-6 h-6 text-white" />
                                 Đặt vé ngay
                             </span>
                         </button>
-                    </li>
-                    <li>
-                        <a
-                            href="https://www.youtube.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="relative inline-flex items-center justify-center px-4 py-2.5 overflow-hidden tracking-tighter text-white bg-purple-800 rounded-md group">
-                            <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-amber-400 rounded-full group-hover:w-56 group-hover:h-56"></span>
-                            <span className="relative text-base font-semibold flex items-center gap-2">
-                                🍿 Đặt Bắp nước
-                            </span>
-                        </a>
                     </li>
                 </ul>
                 <ul className="basis-3/6 flex justify-end items-center gap-4">
@@ -82,7 +73,7 @@ function Nav() {
 
                 </ul>
             </div>
-            <div className="flex-auto flex justify-between items-center px-6 py-4">
+            <div className="flex-auto flex justify-between items-center px-4 py-2">
                 <div className="relative flex  w-1/2">
                     <span
                         onClick={() => setIsOpen(!isOpen)}
@@ -92,8 +83,8 @@ function Nav() {
                     </span>
                     {/* Khối div xổ ra */}
                     {isOpen && (
-                        <div className="absolute left-0 top-full w-full mt-2 z-50 ">
-                            <div className="grid grid-cols-3 gap-4 p-4 bg-[#0f172a] backdrop-blur-md rounded shadow-lg w-full ">
+                        <div className="absolute left-0 top-full w-max mt-2 z-50 ">
+                            <div className="grid grid-cols-3 gap-5 p-4  bg-[#0f172a] backdrop-blur-md rounded shadow-lg w-full ">
                                 <div>
                                     <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
                                 </div>
@@ -134,25 +125,7 @@ function Nav() {
                 </div>
                 <div className="flex relative w-1/2 justify-end ">
                     <div>
-                        <span
-                            className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2">
-                            Khuyến mãi
-                        </span>
-                    </div>
-                    <div>
-                        <span
-                            className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2">
-                            Thuê sự kiện
-                        </span>
-                    </div>
-                    <div>
-                        <span
-                            className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2">
-                            Giải trí
-                        </span>
-                    </div>
-                    <div>
-                        <span
+                        <span onClick={handleIntro}
                             className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2">
                             Giới thiệu
                         </span>

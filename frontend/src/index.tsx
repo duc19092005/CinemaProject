@@ -8,6 +8,10 @@ import Booking from './Bookig/Booking';
 import Login from './Account/Login';
 import Register from './Account/Register';
 import Listfilm from './Cinema/Listfilm';
+import Forgotpassword from './Account/Forgotpass';
+import Comingmovies from './Cinema/Comingmovies';
+import Introduce from './Cinema/Introduce';
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -18,6 +22,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/login" element={< Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/listfilm" element={<Listfilm />} />
+        <Route path="/forgotpassword" element={<Forgotpassword />} />
+        <Route path="/comingmovies" element={<Comingmovies />} />
+        <Route path="/introduce" element={<Introduce />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

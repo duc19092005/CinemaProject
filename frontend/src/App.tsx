@@ -8,7 +8,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import QuickBooking from "./Bookig/QuickBooking";
-import Listfilm from './Cinema/Listfilm';
 import { useNavigate } from "react-router-dom";
 
 
@@ -18,6 +17,9 @@ function App() {
   const navigate = useNavigate();
   const handleListfilm = () => {
     navigate('/listfilm');
+  }
+  const handleComingmovies = () => {
+    navigate('/Comingmovies');
   }
   const [showTrailer, setShowTrailer] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
@@ -39,6 +41,87 @@ function App() {
 
   const movies = [
     {
+      title: "BUÔN THẦN BÁN THÁNH (T16)",
+      image: "https://bloganchoi.com/wp-content/uploads/2019/03/tam-cam-chuyen-chua-ke.jpg",
+      trailer: "https://www.youtube.com/watch?v=Ud-YVnRK_kY",
+    },
+    {
+      title: "LÂM GIANG TIÊN (T18)",
+      image: "https://static2.vieon.vn/vieplay-image/poster_v4/2025/06/02/djtoaqo5_660x946-lamgiangtien2.png",
+      trailer: "https://youtu.be/-hTr-NBoDnU?si=idCRW93f3kx6j7ZV",
+    },
+    {
+      title: "TRƯỜNG NGUYỆT TẪN MINH",
+      image: "https://bazaarvietnam.vn/wp-content/uploads/2023/04/harper-bazaar-review-phim-truong-nguyet-tan-minh-till-the-end-of-the-moon-101-e1680702014162.jpg",
+      trailer: "https://youtu.be/7kRzVm_umc0?si=bjoPQPcEVgsWZ2AL",
+    },
+    {
+      title: "BÍ KÍP LUYỆN RỒNG (K)",
+      image: "https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2025%2Fbi-kip-luyen-rong_1.jpg&w=1200&q=75",
+      trailer: "https://youtu.be/JD-idNoeiPE",
+    },
+    {
+      title: "NĂM MƯƠI (T18)",
+      image: "https://th.bing.com/th/id/R.4b3f8ee56b9334f4958f75a5f45362a9?rik=JkvbTUiZTAlZYQ&pid=ImgRaw&r=0g",
+      trailer: "https://youtu.be/miUjcCPpVGo",
+    },
+    {
+      title: "NĂM MƯƠI (T18)",
+      image: "https://th.bing.com/th/id/R.4b3f8ee56b9334f4958f75a5f45362a9?rik=JkvbTUiZTAlZYQ&pid=ImgRaw&r=0g",
+      trailer: "https://youtu.be/miUjcCPpVGo",
+    },
+  ];
+  const movies123 = [
+    {
+      title: "BUÔN THẦN BÁN THÁNH (T16)",
+      image: "https://bloganchoi.com/wp-content/uploads/2019/03/tam-cam-chuyen-chua-ke.jpg",
+      trailer: "https://www.youtube.com/watch?v=Ud-YVnRK_kY",
+    },
+    {
+      title: "LÂM GIANG TIÊN (T18)",
+      image: "https://static2.vieon.vn/vieplay-image/poster_v4/2025/06/02/djtoaqo5_660x946-lamgiangtien2.png",
+      trailer: "https://youtu.be/-hTr-NBoDnU?si=idCRW93f3kx6j7ZV",
+    },
+    {
+      title: "TRƯỜNG NGUYỆT TẪN MINH",
+      image: "https://bazaarvietnam.vn/wp-content/uploads/2023/04/harper-bazaar-review-phim-truong-nguyet-tan-minh-till-the-end-of-the-moon-101-e1680702014162.jpg",
+      trailer: "https://youtu.be/7kRzVm_umc0?si=bjoPQPcEVgsWZ2AL",
+    },
+    {
+      title: "BÍ KÍP LUYỆN RỒNG (K)",
+      image: "https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2025%2Fbi-kip-luyen-rong_1.jpg&w=1200&q=75",
+      trailer: "https://youtu.be/JD-idNoeiPE",
+    },
+    {
+      title: "NĂM MƯƠI (T18)",
+      image: "https://th.bing.com/th/id/R.4b3f8ee56b9334f4958f75a5f45362a9?rik=JkvbTUiZTAlZYQ&pid=ImgRaw&r=0g",
+      trailer: "https://youtu.be/miUjcCPpVGo",
+    },
+    {
+      title: "BUÔN THẦN BÁN THÁNH (T16)",
+      image: "https://bloganchoi.com/wp-content/uploads/2019/03/tam-cam-chuyen-chua-ke.jpg",
+      trailer: "https://www.youtube.com/watch?v=Ud-YVnRK_kY",
+    },
+    {
+      title: "LÂM GIANG TIÊN (T18)",
+      image: "https://static2.vieon.vn/vieplay-image/poster_v4/2025/06/02/djtoaqo5_660x946-lamgiangtien2.png",
+      trailer: "https://youtu.be/-hTr-NBoDnU?si=idCRW93f3kx6j7ZV",
+    },
+    {
+      title: "TRƯỜNG NGUYỆT TẪN MINH",
+      image: "https://bazaarvietnam.vn/wp-content/uploads/2023/04/harper-bazaar-review-phim-truong-nguyet-tan-minh-till-the-end-of-the-moon-101-e1680702014162.jpg",
+      trailer: "https://youtu.be/7kRzVm_umc0?si=bjoPQPcEVgsWZ2AL",
+    },
+    {
+      title: "BÍ KÍP LUYỆN RỒNG (K)",
+      image: "https://cinestar.com.vn/_next/image/?url=https%3A%2F%2Fapi-website.cinestar.com.vn%2Fmedia%2Fwysiwyg%2FPosters%2F06-2025%2Fbi-kip-luyen-rong_1.jpg&w=1200&q=75",
+      trailer: "https://youtu.be/JD-idNoeiPE",
+    },
+    {
+      title: "NĂM MƯƠI (T18)",
+      image: "https://th.bing.com/th/id/R.4b3f8ee56b9334f4958f75a5f45362a9?rik=JkvbTUiZTAlZYQ&pid=ImgRaw&r=0g",
+      trailer: "https://youtu.be/miUjcCPpVGo",
+    }, {
       title: "BUÔN THẦN BÁN THÁNH (T16)",
       image: "https://bloganchoi.com/wp-content/uploads/2019/03/tam-cam-chuyen-chua-ke.jpg",
       trailer: "https://www.youtube.com/watch?v=Ud-YVnRK_kY",
@@ -143,7 +226,7 @@ function App() {
             </div>
           </button>
           <button
-            onClick={() => window.open("https://tailwindcss.com/docs/flex-basis", "_blank")}
+            //onClick={(handleComingmovies)}
             className="overflow-hidden relative w50 p-2 h-12 bg-purple-600 text-white border-none rounded-md text-base font-bold cursor-pointer z-10 group"
           >
             🎟 Tìm hiểu thêm
@@ -159,15 +242,15 @@ function App() {
     </SwiperSlide>
   );
   return (
-    <div className="App bg-slate-900">
-      <div className="sticky top-0 z-50 bg-slate-900 shadow-md">
+    <div className="App min-h-screen w-full bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900">
+      <div className="sticky top-0 z-50 bg-slate-950 shadow-md">
         <header>
           <div className="content-wrapper max-w-screen-xl text-base mx-auto px-8">
             <Nav />
           </div>
         </header>
       </div>
-      <div className="content-wrapper max-w-screen-xl text-base mx-auto px-8 bg-slate-900 min-h-screen">
+      <div className="content-wrapper max-w-screen-xl text-base mx-auto px-8  min-h-screen top-0">
         <main className="flex flex-col gap-6 p-4">
           <MovieSlider />
           <QuickBooking />
@@ -207,13 +290,13 @@ function App() {
           <section>
             <h2 className="text-3xl text-white font-bold py-5 uppercase">-- Phim sắp chiếu --</h2>
             <Swiper slidesPerView={4} spaceBetween={30} navigation modules={[Navigation]} className="mySwiper px-6">
-              {movies.map(renderMovieSlide1)}
+              {movies123.map(renderMovieSlide1)}
             </Swiper>
           </section>
           {/* Nút Xem thêm */}
           <div className="pt-12">
             <button
-              onClick={(handleListfilm)}
+              onClick={(handleComingmovies)}
               type="submit"
               className="flex justify-center gap-2 items-center mx-auto shadow-xl text-base bg-purple-600 backdrop-blur-md lg:font-semibold isolation-auto
                     border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 
