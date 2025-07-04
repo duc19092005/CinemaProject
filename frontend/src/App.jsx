@@ -15,15 +15,14 @@ export default function StaffManager() {
   const [staffList, setStaffList] = useState([
     { email:"test@email.com", password:"1234", name: "Nguyễn Văn A", phone: "123456789", dob: "01-01-2000", role: "Cashier" },
   ]);
-  const [formData, setFormData] = useState({ email:"", password:"", name: "", phone: "", dob: "", role: "" });
+  const [formData, setFormData] = useState({ email:"", password:"", name: "", phone: "", dob: "", role: "Staff" });
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [editingStaff, setEditingStaff] = useState(null);
 
-  // Hàm thực sự lưu nhân viên mới
   const saveStaff = () => {
     if (!formData.name) return;
     setStaffList([...staffList, formData]);
-    setFormData({ email:"", password:"", name: "", phone: "", dob: "", role: "" });
+    setFormData({ email:"", password:"", name: "", phone: "", dob: "", role: "Staff" });
   };
 
   const handleDelete = (index) => {
@@ -33,14 +32,16 @@ export default function StaffManager() {
   };
 
   const handleEdit = (index) => {
-    setEditingStaff({ ...staffList[index], index });
+    // Chỉ copy các trường cần chỉnh sửa
+    const { name, phone, dob, role } = staffList[index];
+    setEditingStaff({ name, phone, dob, role, index });
   };
 
   const handleSaveEdit = () => {
     const newList = [...staffList];
+    const original = newList[editingStaff.index];
     newList[editingStaff.index] = {
-      email: editingStaff.email,
-      password: editingStaff.password,
+      ...original,
       name: editingStaff.name,
       phone: editingStaff.phone,
       dob: editingStaff.dob,
@@ -69,24 +70,62 @@ export default function StaffManager() {
         display: "grid", gridTemplateColumns: "200px 1fr", gap: "8px",
         maxWidth: "600px", marginTop: "16px"
       }}>
-        {[
-          {label:"Email Đăng nhập", field:"email"},
-          {label:"Mật khẩu", field:"password"},
-          {label:"Ngày tháng năm sinh", field:"dob"},
-          {label:"SĐT", field:"phone"},
-          {label:"Tên nhân viên", field:"name"},
-          {label:"Quyền hạn", field:"role"},
-        ].map((item, idx) => (
-          <React.Fragment key={idx}>
-            <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>{item.label}</div>
-            <input
-              type={item.field==="password" ? "password":"text"}
-              value={formData[item.field]}
-              onChange={e => setFormData({...formData, [item.field]: e.target.value })}
-              style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
-            />
-          </React.Fragment>
-        ))}
+        {/* Email */}
+        <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Email Đăng nhập</div>
+        <input
+          type="text"
+          value={formData.email}
+          onChange={e => setFormData({...formData, email: e.target.value })}
+          style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+        />
+
+        {/* Mật khẩu */}
+        <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Mật khẩu</div>
+        <input
+          type="password"
+          value={formData.password}
+          onChange={e => setFormData({...formData, password: e.target.value })}
+          style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+        />
+
+        {/* Ngày tháng năm sinh */}
+        <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Ngày tháng năm sinh</div>
+        <input
+          type="text"
+          value={formData.dob}
+          onChange={e => setFormData({...formData, dob: e.target.value })}
+          style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+        />
+
+        {/* SĐT */}
+        <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>SĐT</div>
+        <input
+          type="text"
+          value={formData.phone}
+          onChange={e => setFormData({...formData, phone: e.target.value })}
+          style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+        />
+
+        {/* Tên nhân viên */}
+        <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Tên nhân viên</div>
+        <input
+          type="text"
+          value={formData.name}
+          onChange={e => setFormData({...formData, name: e.target.value })}
+          style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+        />
+
+        {/* Quyền hạn */}
+        <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Quyền hạn</div>
+        <select
+          value={formData.role}
+          onChange={e => setFormData({...formData, role: e.target.value })}
+          style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+        >
+        
+          <option value="Cashier">Cashier</option>
+         
+        </select>
       </div>
 
       {/* Nút lưu */}
@@ -97,7 +136,7 @@ export default function StaffManager() {
         }}>Lưu</button>
       </div>
 
-      {/* Danh sách */}
+      {/* Danh sách nhân viên */}
       <h3 style={{ marginTop: "24px" }}>Danh sách nhân viên</h3>
       <div style={{ maxWidth: "900px", width:"100%" }}>
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -134,7 +173,7 @@ export default function StaffManager() {
         <div style={modalOverlayStyle}>
           <div style={{ background:"#4c65a8", padding:"24px", borderRadius:"8px", textAlign:"center", color:"white", width:"300px" }}>
             <div style={{ display:"flex", justifyContent:"center" }}>
-                <img src="/images/warning.png" alt="!" style={{ width:"40px", marginBottom:"8px" }} />
+              <img src="/images/warning.png" alt="!" style={{ width:"40px", marginBottom:"8px" }} />
             </div>
             <p>Bạn có chắc chắn muốn lưu nhân viên này?</p>
             <div style={{ display:"flex", justifyContent:"space-around", marginTop:"16px" }}>
@@ -151,8 +190,6 @@ export default function StaffManager() {
           <div style={modalContentStyle}>
             <h4>Chỉnh sửa nhân viên</h4>
             {[
-              {label:"Email Đăng nhập", field:"email"},
-              {label:"Mật khẩu (để trống nếu giữ nguyên)", field:"password"},
               {label:"Tên nhân viên", field:"name"},
               {label:"SĐT", field:"phone"},
               {label:"Ngày tháng năm sinh", field:"dob"},
@@ -160,12 +197,24 @@ export default function StaffManager() {
             ].map((item, idx) => (
               <div key={idx} style={{ marginBottom: "8px" }}>
                 <div>{item.label}</div>
-                <input
-                  type={item.field==="password" ? "password":"text"}
-                  value={editingStaff[item.field]}
-                  onChange={e => setEditingStaff({...editingStaff, [item.field]: e.target.value })}
-                  style={{ width: "100%", padding: "6px", borderRadius: "4px", border: "none", background: "#7e57c2", color: "white" }}
-                />
+                {item.field === "role" ? (
+                  <select
+                    value={editingStaff.role}
+                    onChange={e => setEditingStaff({...editingStaff, role: e.target.value })}
+                    style={{ width: "100%", padding: "6px", borderRadius: "4px", border: "none", background: "#7e57c2", color: "white" }}
+                  >
+                    
+                    <option value="Cashier">Cashier</option>
+                   
+                  </select>
+                ) : (
+                  <input
+                    type="text"
+                    value={editingStaff[item.field]}
+                    onChange={e => setEditingStaff({...editingStaff, [item.field]: e.target.value })}
+                    style={{ width: "100%", padding: "6px", borderRadius: "4px", border: "none", background: "#7e57c2", color: "white" }}
+                  />
+                )}
               </div>
             ))}
             <div style={{ textAlign:"center", marginTop:"12px" }}>
