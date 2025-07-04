@@ -1,125 +1,181 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState } from "react";
 
-const movies = [
-  { id: 1, title: "Avengers: Endgame", poster: "https://image.tmdb.org/t/p/w500/q6725aR8Zs4IwGMXzZT8aC8lh41.jpg" },
-  { id: 2, title: "Joker", poster: "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" },
-  { id: 3, title: "Interstellar", poster: "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg" },
-  { id: 4, title: "Inception", poster: "https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg" },
-  { id: 5, title: "The Dark Knight", poster: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg" },
-  { id: 6, title: "Tenet", poster: "https://image.tmdb.org/t/p/w500/k68nPLbIST6NP96JmTxmZijEvCA.jpg" },
-  { id: 7, title: "Spider-Man: No Way Home", poster: "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" },
-  { id: 8, title: "Doctor Strange 2", poster: "https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg" },
-  { id: 9, title: "Black Panther: Wakanda Forever", poster: "https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg" },
-  { id: 10, title: "Dune", poster: "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg" },
-  { id: 11, title: "Guardians of the Galaxy Vol. 3", poster: "https://image.tmdb.org/t/p/w500/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg" },
-  { id: 12, title: "Shang-Chi", poster: "https://image.tmdb.org/t/p/w500/1BIoJGKbXjdFDAqUEiA2VHqkK1Z.jpg" },
-  { id: 13, title: "Oppenheimer", poster: "https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg" },
-  { id: 14, title: "Barbie", poster: "https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" },
-  { id: 15, title: "The Flash", poster: "https://image.tmdb.org/t/p/w500/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg" },
-];
+const thStyle = { padding: "8px", textAlign: "center" };
+const tdStyle = { padding: "6px", textAlign: "center", border: "1px solid #ccc" };
+const modalOverlayStyle = {
+  position: "fixed", top:0, left:0, right:0, bottom:0,
+  background: "rgba(0,0,0,0.5)", display: "flex", alignItems: "center", justifyContent: "center"
+};
+const modalContentStyle = {
+  background: "#1a1143", color: "white", padding: "20px",
+  borderRadius: "8px", minWidth: "300px"
+};
 
-export default function App() {
-  const scrollRef = useRef(null);
-  const loopMovies = [...movies, ...movies]; // lặp vô hạn
+export default function StaffManager() {
+  const [staffList, setStaffList] = useState([
+    { email:"test@email.com", password:"1234", name: "Nguyễn Văn A", phone: "123456789", dob: "01-01-2000", role: "Cashier" },
+  ]);
+  const [formData, setFormData] = useState({ email:"", password:"", name: "", phone: "", dob: "", role: "" });
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [editingStaff, setEditingStaff] = useState(null);
 
-  useEffect(() => {
-    const container = scrollRef.current;
-    let animationFrame;
+  // Hàm thực sự lưu nhân viên mới
+  const saveStaff = () => {
+    if (!formData.name) return;
+    setStaffList([...staffList, formData]);
+    setFormData({ email:"", password:"", name: "", phone: "", dob: "", role: "" });
+  };
 
-    const scroll = () => {
-      if (container) {
-        container.scrollLeft += 1;
-        if (container.scrollLeft >= container.scrollWidth / 2) {
-          container.scrollLeft = 0;
-        }
-      }
-      animationFrame = requestAnimationFrame(scroll);
+  const handleDelete = (index) => {
+    const newList = [...staffList];
+    newList.splice(index, 1);
+    setStaffList(newList);
+  };
+
+  const handleEdit = (index) => {
+    setEditingStaff({ ...staffList[index], index });
+  };
+
+  const handleSaveEdit = () => {
+    const newList = [...staffList];
+    newList[editingStaff.index] = {
+      email: editingStaff.email,
+      password: editingStaff.password,
+      name: editingStaff.name,
+      phone: editingStaff.phone,
+      dob: editingStaff.dob,
+      role: editingStaff.role
     };
-
-    scroll(); // bắt đầu cuộn
-
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
+    setStaffList(newList);
+    setEditingStaff(null);
+  };
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen flex flex-col font-quicksand text-[20px]">
-      {/* Navbar */}
-      <header className="bg-black p-4 flex justify-between items-center">
-        <div className="flex items-center gap-3">
-          <img src="https://huflit.edu.vn/wp-content/uploads/2024/03/HUFLIT_Logo_English_Official.png" alt="HUFLIT Logo" className="w-12 h-12" />
-          <h1 className="text-2xl font-bold">🎬 Màn hình nhân viên</h1>
-        </div>
-      </header>
+    <div style={{ backgroundColor: "#231C60", color: "white", minHeight: "100vh", padding: "16px", display:"flex", flexDirection:"column", alignItems:"center" }}>
 
-      {/* Layout 2: Tất cả phim (auto scroll vô hạn) */}
-      <section className="p-6">
-        <h3 className="text-xl font-semibold mb-4">🎬 Tất cả phim</h3>
-        <div
-          ref={scrollRef}
-          className="flex overflow-x-auto space-x-4 py-4 scrollbar-hide scroll-smooth"
-        >
-          {loopMovies.map((movie, idx) => (
-            <div
-              key={`${movie.id}_scroll_${idx}`}
-              className="min-w-[200px] w-[200px] h-[340px] flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden shadow hover:scale-105 transition flex flex-col"
-            >
-              <div className="h-[220px] w-full overflow-hidden">
-                <img
-                  src={movie.poster}
-                  alt={movie.title}
-                  className="w-full h-full object-cover"
+      {/* Header */}
+      <div style={{ width:"100%", maxWidth:"900px", display: "flex", justifyContent: "space-between", alignItems: "center", paddingBottom: "8px", borderBottom: "1px solid #555" }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img src="/images/logo.png" alt="Logo" style={{ height: "40px", marginRight: "8px" }} />
+          <span style={{ fontWeight: "bold", fontSize: "20px" }}>Cinema</span>
+          <span style={{ color: "rgba(255,255,255,0.7)", marginLeft: "8px" }}>@Cnpm2025</span>
+        </div>
+        <span style={{ fontSize: "28px" }}>👤</span>
+      </div>
+
+      {/* Form thêm nhân viên */}
+      <h3 style={{ marginTop: "24px" }}>Thêm nhân viên</h3>
+      <div style={{
+        display: "grid", gridTemplateColumns: "200px 1fr", gap: "8px",
+        maxWidth: "600px", marginTop: "16px"
+      }}>
+        {[
+          {label:"Email Đăng nhập", field:"email"},
+          {label:"Mật khẩu", field:"password"},
+          {label:"Ngày tháng năm sinh", field:"dob"},
+          {label:"SĐT", field:"phone"},
+          {label:"Tên nhân viên", field:"name"},
+          {label:"Quyền hạn", field:"role"},
+        ].map((item, idx) => (
+          <React.Fragment key={idx}>
+            <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>{item.label}</div>
+            <input
+              type={item.field==="password" ? "password":"text"}
+              value={formData[item.field]}
+              onChange={e => setFormData({...formData, [item.field]: e.target.value })}
+              style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+            />
+          </React.Fragment>
+        ))}
+      </div>
+
+      {/* Nút lưu */}
+      <div style={{ marginTop: "16px" }}>
+        <button onClick={() => setShowConfirmModal(true)} style={{
+          backgroundColor: "#add8e6", color: "black", padding: "8px 24px",
+          border: "none", borderRadius: "8px"
+        }}>Lưu</button>
+      </div>
+
+      {/* Danh sách */}
+      <h3 style={{ marginTop: "24px" }}>Danh sách nhân viên</h3>
+      <div style={{ maxWidth: "900px", width:"100%" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <thead>
+            <tr style={{ backgroundColor: "#4a80d6", color: "white" }}>
+              <th style={thStyle}>STT</th>
+              <th style={thStyle}>Tên nhân viên</th>
+              <th style={thStyle}>SĐT</th>
+              <th style={thStyle}>Ngày tháng năm sinh</th>
+              <th style={thStyle}>Role</th>
+              <th style={thStyle}>Tùy chỉnh</th>
+            </tr>
+          </thead>
+          <tbody>
+            {staffList.map((staff, idx) => (
+              <tr key={idx} style={{ backgroundColor: "white", color: "black" }}>
+                <td style={tdStyle}>{idx + 1}</td>
+                <td style={tdStyle}>{staff.name}</td>
+                <td style={tdStyle}>{staff.phone}</td>
+                <td style={tdStyle}>{staff.dob}</td>
+                <td style={tdStyle}>{staff.role}</td>
+                <td style={tdStyle}>
+                  <button onClick={() => handleDelete(idx)} style={{ backgroundColor: "red", color: "white", border: "none", borderRadius: "4px", padding: "4px 8px" }}>Xóa</button>
+                  <button onClick={() => handleEdit(idx)} style={{ backgroundColor: "#ccc", color: "black", border: "none", borderRadius: "4px", padding: "4px 8px", marginLeft: "4px" }}>Sửa</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Modal xác nhận */}
+      {showConfirmModal && (
+        <div style={modalOverlayStyle}>
+          <div style={{ background:"#4c65a8", padding:"24px", borderRadius:"8px", textAlign:"center", color:"white", width:"300px" }}>
+            <div style={{ display:"flex", justifyContent:"center" }}>
+                <img src="/images/warning.png" alt="!" style={{ width:"40px", marginBottom:"8px" }} />
+            </div>
+            <p>Bạn có chắc chắn muốn lưu nhân viên này?</p>
+            <div style={{ display:"flex", justifyContent:"space-around", marginTop:"16px" }}>
+              <button onClick={() => { saveStaff(); setShowConfirmModal(false); }}>Có</button>
+              <button onClick={() => setShowConfirmModal(false)}>Không</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal chỉnh sửa */}
+      {editingStaff && (
+        <div style={modalOverlayStyle}>
+          <div style={modalContentStyle}>
+            <h4>Chỉnh sửa nhân viên</h4>
+            {[
+              {label:"Email Đăng nhập", field:"email"},
+              {label:"Mật khẩu (để trống nếu giữ nguyên)", field:"password"},
+              {label:"Tên nhân viên", field:"name"},
+              {label:"SĐT", field:"phone"},
+              {label:"Ngày tháng năm sinh", field:"dob"},
+              {label:"Quyền hạn", field:"role"},
+            ].map((item, idx) => (
+              <div key={idx} style={{ marginBottom: "8px" }}>
+                <div>{item.label}</div>
+                <input
+                  type={item.field==="password" ? "password":"text"}
+                  value={editingStaff[item.field]}
+                  onChange={e => setEditingStaff({...editingStaff, [item.field]: e.target.value })}
+                  style={{ width: "100%", padding: "6px", borderRadius: "4px", border: "none", background: "#7e57c2", color: "white" }}
                 />
               </div>
-              <div className="flex-1 flex flex-col justify-between p-3">
-                <h4 className="text-md font-semibold mb-1">{movie.title}</h4>
-                <button className="bg-red-500 hover:bg-red-600 text-white text-sm px-3 py-1 rounded">
-                  Đặt vé
-                </button>
-              </div>
+            ))}
+            <div style={{ textAlign:"center", marginTop:"12px" }}>
+              <button onClick={handleSaveEdit} style={{ marginRight:"8px", padding:"6px 12px", border:"none", borderRadius:"4px", background:"lightgreen", color:"black" }}>Lưu</button>
+              <button onClick={() => setEditingStaff(null)} style={{ padding:"6px 12px", border:"none", borderRadius:"4px", background:"grey", color:"white" }}>Hủy</button>
             </div>
-          ))}
+          </div>
         </div>
-      </section>
+      )}
 
-      {/* Banner */}
-      <section className="bg-cover bg-center h-64 flex items-center justify-center" style={{ backgroundImage: 'url(https://image.tmdb.org/t/p/original/6Wdl9N6dL0Hi0T1qJLWSz6gMLbd.jpg)' }}>
-        <div className="bg-black bg-opacity-60 p-6 rounded">
-          <h2 className="text-3xl font-bold">Chào mừng đến với MovieTickets</h2>
-          <p className="text-lg">Đặt vé xem phim nhanh chóng và tiện lợi!</p>
-        </div>
-      </section>
-
-      {/* Layout 1: Phim đang chiếu */}
-      <section className="p-6">
-        <h3 className="text-xl font-semibold mb-4">🎞️ Phim đang chiếu</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {movies.map(movie => (
-            <div
-              key={movie.id}
-              className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:scale-105 transition flex flex-col"
-            >
-              <div className="h-[250px] w-full overflow-hidden">
-                <img
-                  src={movie.poster}
-                  alt={movie.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex-1 flex flex-col justify-between p-4 h-[130px]">
-                <h4 className="text-lg font-bold mb-2">{movie.title}</h4>
-                <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">
-                  Đặt vé
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-black text-center p-4 mt-auto">
-        &copy; 2025 Màn hình khách hàng. All rights reserved.
-      </footer>
     </div>
   );
 }
