@@ -46,7 +46,7 @@ function Register() {
                                                 />
                                             </div>
                                             <div className="w-96">
-                                                <label typeof="email" className="flex justify-start items-start mb-2 text-base dark:text-gray-300 px-4 ">Email</label>
+                                                <label typeof="email" className="flex justify-start items-start mb-2 text-base font-bold dark:text-gray-300 px-4 ">Email</label>
                                                 <input
                                                     id="email"
                                                     className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
