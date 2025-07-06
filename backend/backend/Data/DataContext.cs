@@ -9,8 +9,7 @@ using backend.Model.Price;
 using backend.Model.Product;
 using backend.Model.ScheduleList;
 using System.Text;
-using backend.Model.Report;
-
+using backend.Model.Staff_Customer;
 
 namespace backend.Data
 {
@@ -23,7 +22,6 @@ namespace backend.Data
 
         public DbSet<Cinema> Cinema { get; set; }
         public DbSet<cinemaRoom> cinemaRoom { get; set; }
-
         public DbSet<movieCommentDetail> movieCommentDetail { get; set; }   
 
         public DbSet<Language> Language { get; set; }
@@ -59,15 +57,15 @@ namespace backend.Data
         public DbSet<orderDetailFood> FoodOrderDetail { get;set; }
 
         public DbSet<PriceInformation> priceInformation { get; set; }
-        public DbSet<cleaningStatus> cleaningStatus { get; set; }
 
         public DbSet<movieVisualFormatDetail> movieVisualFormatDetails { get; set; }
 
         public DbSet<HourSchedule> HourSchedule { get; set; }
 
-        public DbSet<materialReport> materialReport { get; set; }
+        public DbSet<Staff> Staff { get; set; }
 
-        public DbSet<modificationRequest> modificationRequest { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -75,9 +73,14 @@ namespace backend.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<movieSchedule>()
-                .HasIndex(ms => new { ms.cinemaRoomId, ms.cinemaID, ms.ScheduleDate })
+                .HasIndex(ms => new { ms.cinemaRoomId, ms.ScheduleDate })
                 .IsUnique();
-
+            modelBuilder.Entity<Customer>()
+                .HasIndex(ms => new {ms.userID})
+                .IsUnique();
+            modelBuilder.Entity<Staff>()
+                .HasIndex(ms => new {ms.userID})
+                .IsUnique();
             // Configure GUID IDs for all entities and data seeding
             // Cấu hình ID dưới dạng chuỗi GUID và thêm dữ liệu ban đầu (seed data)
 
@@ -110,22 +113,12 @@ namespace backend.Data
                     userId = userId1,
                     loginUserEmail = "admin@example.com",
                     loginUserPassword = "hashed_password_admin", // In a real app, hash this password
-                    dateOfBirth = new DateTime(1990, 1, 1),
-                    phoneNumber = "0123456789",
-                    userName = "Admin User",
-                    IdentityCode = "123456789012",
-                    userPoint = 0
                 },
                 new userInformation
                 {
                     userId = userId2,
                     loginUserEmail = "user@example.com",
                     loginUserPassword = "hashed_password_user", // In a real app, hash this password
-                    dateOfBirth = new DateTime(1995, 5, 10),
-                    phoneNumber = "0987654321",
-                    userName = "Regular User",
-                    IdentityCode = "987654321098",
-                    userPoint = 0
                 }
             );
 
@@ -159,26 +152,28 @@ namespace backend.Data
                 {
                     movieId = movieId1,
                     movieName = "Phim Hành Động 1",
-                    movieImage = new byte[] { 0x01, 0x02, 0x03 }, // Example byte array
+                    movieImage = "aa.com", // Example byte array
                     movieDescription = "Đây là một bộ phim hành động đầy kịch tính.",
                     movieDirector = "Đạo Diễn A",
                     movieActor = "Diễn Viên X, Diễn Viên Y",
                     movieTrailerUrl = "http://trailer.com/phimhanhdong1",
                     movieDuration = 120, // minutes
-                    languageId = langId1 ,
+                    languageId = langId1,
+                    ReleaseDate = new DateTime(2020, 11, 01),
                     isDelete = false
                 },
                 new movieInformation
                 {
                     movieId = movieId2,
                     movieName = "Comedy Film 1",
-                    movieImage = new byte[] { 0x04, 0x05, 0x06 }, // Example byte array
+                    movieImage = "aa.com", // Example byte array
                     movieDescription = "A funny movie for the whole family.",
                     movieDirector = "Director B",
                     movieActor = "Actor Z, Actress W",
                     movieTrailerUrl = "http://trailer.com/comedyfilm1",
                     movieDuration = 90, // minutes
-                    languageId = langId2 ,
+                    languageId = langId2,
+                    ReleaseDate = new DateTime(2025, 12, 01),
                     isDelete = false
                 }
             );
@@ -244,8 +239,8 @@ namespace backend.Data
                     movieScheduleId = movieScheduleId1,
                     cinemaRoomId = room1Id,
                     movieId = movieId1,
+                    movieVisualFormatID = visualFormatId1 ,
                     HourScheduleID = hour1Id,
-                    cinemaID = cinemaId1,
                     IsDelete = false,
                     DayInWeekendSchedule = "Monday",
                     ScheduleDate = new DateTime(2025, 11, 11)
@@ -257,8 +252,8 @@ namespace backend.Data
             var seat1Id = Guid.NewGuid().ToString();
             var seat2Id = Guid.NewGuid().ToString();
             modelBuilder.Entity<Seats>().HasData(
-                new Seats { seatsId = seat1Id, seatsNumber = "A1", isTaken = false, cinemaRoomId = room1Id, isServed = true },
-                new Seats { seatsId = seat2Id, seatsNumber = "A2", isTaken = false, cinemaRoomId = room1Id, isServed = true }
+                new Seats { seatsId = seat1Id, seatsNumber = "A1", isTaken = false, cinemaRoomId = room1Id},
+                new Seats { seatsId = seat2Id, seatsNumber = "A2", isTaken = false, cinemaRoomId = room1Id}
             );
 
             // Seed Data for PriceInformation

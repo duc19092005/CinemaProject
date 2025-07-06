@@ -18,11 +18,7 @@ namespace backend.Interface.MovieInterface
 
         Task<bool> edit(int Id, MovieRequestDTO entity);
 
-        // Lấy tất cả danh sách phim khi người dùng ấn "Xem thêm"
-
-        Task<List<movieRespondDTO>> getListItemsHomePage();
-
-
+ 
         // Cơ chế phân trang để giúp giảm tải ở bên phía server (trang 1 lấy data 1,2,3 - Trang 2 lấy data 4,5,6)
 
         Task<PagniationRespond> getListItemsPagination(int page , int pagesize = 9);
@@ -34,7 +30,7 @@ namespace backend.Interface.MovieInterface
 
         // Trường hợp người dùng ân vào xem thêm khi tìm kiếm phim xong thì sẽ hiển thị 
         // hết danh sách
-        Task<List<movieRespondDTO>> getListMoviesByName(string movie);
+        Task<PagniationRespond> getFullSearchResult(string movieName ,int page, int pagesize = 9);
 
         // Lấy thông tin phim khi ấn vào tìm kiếm theo ID
 

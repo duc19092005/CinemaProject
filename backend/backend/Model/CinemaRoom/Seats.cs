@@ -23,9 +23,6 @@ namespace backend.Model.CinemaRoom
         public bool isTaken { get; set; } = false;
 
         [Required]
-        public bool isServed { get; set; } = true;
-
-        [Required]
         public bool isDelete { get; set; } = false;
 
         [Column(TypeName = "varchar(100)")]

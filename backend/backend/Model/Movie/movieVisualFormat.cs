@@ -1,10 +1,12 @@
 ﻿using backend.Model.CinemaRoom;
 using backend.Model.Price;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace backend.Model.Movie
 {
+    [Index(nameof(movieVisualFormatName) , IsUnique = true)]
     public class movieVisualFormat
     {
         [Key]

@@ -7,6 +7,7 @@ using backend.Model.CinemaRoom;
 using backend.Model.Movie;
 using backend.Model.Price;
 using backend.Model.Product;
+using backend.Model.Staff_Customer;
 
 namespace backend.Model.Booking
 {
@@ -29,11 +30,11 @@ namespace backend.Model.Booking
         public DateTime paymentDate { get; set; }
 
         [Column(TypeName = "varchar(100)")]
-        [ForeignKey("userInformation")]
+        [ForeignKey("Customer")]
         [Required]
-        public string userId { get; set; } = "";
+        public string customerID { get; set; } = "";
 
-        public userInformation userInformation { get; set; } = null!;
+        public Customer Customer { get; set; } = null!;
 
         public List<orderDetailTicket> orderDetail = [];
 

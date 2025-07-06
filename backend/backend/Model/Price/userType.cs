@@ -7,9 +7,11 @@ using backend.Model.CinemaRoom;
 using backend.Model.Movie;
 using backend.Model.Price;
 using backend.Model.Product;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Model.Price
 {
+    [Index(nameof(userTypeDescription), IsUnique = true)]
     public class userType
     {
         [Key]

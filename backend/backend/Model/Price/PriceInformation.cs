@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Model.Price
 {
+    [Index(nameof(priceAmount), IsUnique =true)]
     public class PriceInformation
     {
         [Key]

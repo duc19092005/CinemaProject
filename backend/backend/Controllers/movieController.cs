@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BCrypt.Net;
 using backend.Interface.MovieInterface;
+using Microsoft.AspNetCore.Authorization;
 namespace backend.Controllers
 {
     [Route("api/[controller]")]
@@ -18,6 +19,7 @@ namespace backend.Controllers
             this.IMovieService = IMovieService;
         }
 
+        [Authorize(Policy = "Customer")]
         [HttpPost("createMovie")]
         public async Task<IActionResult> createMovie([FromForm] MovieRequestDTO movieRequestDTO) 
         {

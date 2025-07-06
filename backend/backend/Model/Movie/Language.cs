@@ -7,9 +7,11 @@ using backend.Model.Cinemas;
 using backend.Model.CinemaRoom;
 using backend.Model.Price;
 using backend.Model.Product;
-
+using Microsoft.EntityFrameworkCore;
+using System;
 namespace backend.Model.Movie
 {
+    [Index(nameof(languageDetail) , IsUnique = true)]
     public class Language
     {
 

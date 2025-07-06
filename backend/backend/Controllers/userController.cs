@@ -27,13 +27,6 @@ namespace backend.Controllers
             return Ok(_dbcontext.userInformation.ToList());
         }
 
-        [HttpGet("getAllUserByROle")]
-        public IActionResult GetUserRole()
-        {
-            return Ok(_dbcontext.userInformation.
-                Where(x => x.userName.Equals("Admin User")).Include(x => x.userRoleInformation));
-        }
-
         [HttpGet("getOrderID/{id}")]
         public IActionResult GetOrderDetail(string id)
         {

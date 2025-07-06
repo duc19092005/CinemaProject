@@ -24,11 +24,6 @@ namespace backend.Model.Movie
 
         public string cinemaRoomId { get; set; } = "";
 
-        [ForeignKey("Cinema")]
-        [Column(TypeName = "varchar(100)")]
-        [Required]
-        public string cinemaID { get; set; } = string.Empty;
-
         [ForeignKey("movieInformation")]
         [Column(TypeName = "varchar(100)")]
         [Required]
@@ -60,8 +55,6 @@ namespace backend.Model.Movie
         public movieInformation movieInformation { get; set; } = null!;
 
         public List<orderDetailTicket> orderDetailTicket { get; set; } = [];
-
-        public Cinema Cinema { get; set; } = null!;
 
         public HourSchedule HourSchedule { get; set; } = null!;
 

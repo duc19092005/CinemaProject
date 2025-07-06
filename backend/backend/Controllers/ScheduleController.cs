@@ -27,7 +27,7 @@ namespace backend.Controllers
             return BadRequest(new {message = "Thêm thất bại"});
         }
 
-        [HttpPatch("removeSchedule")]
+        [HttpDelete("removeSchedule")]
         public async Task<IActionResult> removeSchedule(string id, string options)
         {
             var status = await scheduleServices.delete(id, options);

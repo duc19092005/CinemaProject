@@ -39,7 +39,7 @@ namespace backend.Services.MovieServices
                     {
                         movieId = movieID.ToString(),
                         movieName = movieRequestDTO.movieName,
-                        movieImage = imageBytes,
+                        movieImage = "Null",
                         movieDescription = movieRequestDTO.movieDescription,
                         movieDirector = movieRequestDTO.movieDirector,
                         movieTrailerUrl = movieRequestDTO.movieTrailerUrl,
@@ -140,25 +140,6 @@ namespace backend.Services.MovieServices
             return false;
         }
 
-        public async Task<List<movieRespondDTO>> getListItemsHomePage()
-        {
-            DateTime dateTime = DateTime.Now;
-            var getAllMovieData = await _dataContext.movieInformation
-                .Select(x => new movieRespondDTO()
-                {
-                    movieName = x.movieName,
-                    movieID = x.movieId,
-                    movieActor = x.movieActor,
-                    movieDescription = x.movieDescription,
-                    movieDuration = x.movieDuration,
-                    movieGenres = x.movieGenreInformation.Select(mg => mg.movieGenre.movieGenreName).ToArray(),
-                    ListLanguageName = x.Language.languageDetail,
-                    movieTrailerUrl = x.movieTrailerUrl,
-                    movieVisualFormat = x.movieVisualFormatDetail.Select(vs => vs.movieVisualFormat.movieVisualFormatName).ToArray(),
-                    isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ScheduleDate && !x.IsDelete) ? true : false,
-                }).ToListAsync();
-            return getAllMovieData;
-        }
 
         public async Task<PagniationRespond> getListItemsPagination(int page, int pagesize = 9)
         {
@@ -170,14 +151,13 @@ namespace backend.Services.MovieServices
                 {
                     movieName = x.movieName,
                     movieID = x.movieId,
-                    movieActor = x.movieActor,
-                    movieDescription = x.movieDescription,
                     movieDuration = x.movieDuration,
                     movieGenres = x.movieGenreInformation.Select(mg => mg.movieGenre.movieGenreName).ToArray(),
                     ListLanguageName = x.Language.languageDetail,
                     movieTrailerUrl = x.movieTrailerUrl,
+                    releaseDate = x.ReleaseDate,
                     movieVisualFormat = x.movieVisualFormatDetail.Select(vs => vs.movieVisualFormat.movieVisualFormatName).ToArray(),
-                    isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ScheduleDate && !x.IsDelete) ? true : false,
+                    isRelease = dateTime > x.ReleaseDate ? true : false,
                 }).
                 Take(pagesize).Skip((page - 1) * pagesize).
                 ToListAsync();
@@ -200,12 +180,11 @@ namespace backend.Services.MovieServices
                 {
                     movieName = x.movieName,
                     movieID = x.movieId,
-                    movieActor = x.movieActor,
-                    movieDescription = x.movieDescription,
                     movieDuration = x.movieDuration,
                     movieGenres = x.movieGenreInformation.Select(mg => mg.movieGenre.movieGenreName).ToArray(),
                     ListLanguageName = x.Language.languageDetail,
                     movieTrailerUrl = x.movieTrailerUrl,
+                    releaseDate = x.ReleaseDate,
                     movieVisualFormat = x.movieVisualFormatDetail.Select(vs => vs.movieVisualFormat.movieVisualFormatName).ToArray(),
                     isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ScheduleDate && !x.IsDelete) ? true : false,
 
@@ -213,6 +192,12 @@ namespace backend.Services.MovieServices
                 .Take(5).ToListAsync();
             return getAllMovieData;
         }
+
+        public Task<PagniationRespond> getFullSearchResult(string movieName, int page, int pagesize = 9)
+        {
+            return null!;
+        }
+
 
         public async Task<List<movieRespondDTO>> getListMoviesByName(string movie)
         {
@@ -223,8 +208,6 @@ namespace backend.Services.MovieServices
                 {
                     movieName = x.movieName,
                     movieID = x.movieId,
-                    movieActor = x.movieActor,
-                    movieDescription = x.movieDescription,
                     movieDuration = x.movieDuration,
                     movieGenres = x.movieGenreInformation.Select(mg => mg.movieGenre.movieGenreName).ToArray(),
                     ListLanguageName = x.Language.languageDetail,

@@ -1,5 +1,4 @@
-﻿
-using backend.Data;
+﻿using backend.Data;
 using backend.Interface.Auth;
 using backend.Interface.Customter;
 using backend.Model.Auth;
@@ -34,6 +33,21 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DataContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddAuthorization(
+    options =>
+    {
+        options.AddPolicy("Customer", policy =>
+        {
+            policy.RequireRole("Customer");
+        });
+    });
+
+builder.Services.AddAuthorization
+    (options => 
+    options.AddPolicy
+    ("Director", policy => policy.RequireRole("Director")));
+
 // Add thêm JWT services
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

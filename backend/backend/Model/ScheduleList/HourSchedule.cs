@@ -1,10 +1,12 @@
 ﻿using backend.Model.Movie;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace backend.Model.ScheduleList
 {
     // Bảng này là bảng giờ chiếu
+    [Index(nameof(HourScheduleShowTime) , IsUnique = true)]
     public class HourSchedule
     {
         [Key]

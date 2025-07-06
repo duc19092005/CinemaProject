@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend.Data;
 
@@ -11,9 +12,11 @@ using backend.Data;
 namespace backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250706051232_CapNhatLaiDB")]
+    partial class CapNhatLaiDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +36,7 @@ namespace backend.Migrations
 
                     b.HasKey("roleId");
 
-                    b.ToTable("roleInformation", (string)null);
+                    b.ToTable("roleInformation");
 
                     b.HasData(
                         new
@@ -88,7 +91,7 @@ namespace backend.Migrations
 
                     b.HasKey("userId");
 
-                    b.ToTable("userInformation", (string)null);
+                    b.ToTable("userInformation");
 
                     b.HasData(
                         new
@@ -117,7 +120,7 @@ namespace backend.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("userRoleInformation", (string)null);
+                    b.ToTable("userRoleInformation");
 
                     b.HasData(
                         new
@@ -158,7 +161,7 @@ namespace backend.Migrations
 
                     b.HasIndex("customerID");
 
-                    b.ToTable("Order", (string)null);
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("backend.Model.Booking.orderDetailFood", b =>
@@ -176,7 +179,7 @@ namespace backend.Migrations
 
                     b.HasIndex("foodInformationId");
 
-                    b.ToTable("FoodOrderDetail", (string)null);
+                    b.ToTable("FoodOrderDetail");
                 });
 
             modelBuilder.Entity("backend.Model.Booking.orderDetailTicket", b =>
@@ -202,7 +205,7 @@ namespace backend.Migrations
 
                     b.HasIndex("priceInformationId");
 
-                    b.ToTable("TicketOrderDetail", (string)null);
+                    b.ToTable("TicketOrderDetail");
                 });
 
             modelBuilder.Entity("backend.Model.CinemaRoom.Seats", b =>
@@ -231,7 +234,7 @@ namespace backend.Migrations
 
                     b.HasIndex("cinemaRoomId");
 
-                    b.ToTable("Seats", (string)null);
+                    b.ToTable("Seats");
 
                     b.HasData(
                         new
@@ -279,7 +282,7 @@ namespace backend.Migrations
 
                     b.HasIndex("movieVisualFormatID");
 
-                    b.ToTable("cinemaRoom", (string)null);
+                    b.ToTable("cinemaRoom");
 
                     b.HasData(
                         new
@@ -315,7 +318,7 @@ namespace backend.Migrations
 
                     b.HasKey("cinemaId");
 
-                    b.ToTable("Cinema", (string)null);
+                    b.ToTable("Cinema");
 
                     b.HasData(
                         new
@@ -339,7 +342,7 @@ namespace backend.Migrations
 
                     b.HasKey("languageId");
 
-                    b.ToTable("Language", (string)null);
+                    b.ToTable("Language");
 
                     b.HasData(
                         new
@@ -370,7 +373,7 @@ namespace backend.Migrations
 
                     b.HasIndex("customerID");
 
-                    b.ToTable("movieCommentDetail", (string)null);
+                    b.ToTable("movieCommentDetail");
                 });
 
             modelBuilder.Entity("backend.Model.Movie.movieGenre", b =>
@@ -384,7 +387,7 @@ namespace backend.Migrations
 
                     b.HasKey("movieGenreId");
 
-                    b.ToTable("movieGenre", (string)null);
+                    b.ToTable("movieGenre");
 
                     b.HasData(
                         new
@@ -411,7 +414,7 @@ namespace backend.Migrations
 
                     b.HasIndex("movieGenreId");
 
-                    b.ToTable("movieGenreInformation", (string)null);
+                    b.ToTable("movieGenreInformation");
 
                     b.HasData(
                         new
@@ -472,7 +475,7 @@ namespace backend.Migrations
 
                     b.HasIndex("languageId");
 
-                    b.ToTable("movieInformation", (string)null);
+                    b.ToTable("movieInformation");
 
                     b.HasData(
                         new
@@ -547,7 +550,7 @@ namespace backend.Migrations
                     b.HasIndex("cinemaRoomId", "ScheduleDate")
                         .IsUnique();
 
-                    b.ToTable("movieSchedule", (string)null);
+                    b.ToTable("movieSchedule");
 
                     b.HasData(
                         new
@@ -574,7 +577,7 @@ namespace backend.Migrations
 
                     b.HasKey("movieVisualFormatId");
 
-                    b.ToTable("movieVisualFormat", (string)null);
+                    b.ToTable("movieVisualFormat");
 
                     b.HasData(
                         new
@@ -596,7 +599,7 @@ namespace backend.Migrations
 
                     b.HasIndex("movieVisualFormatId");
 
-                    b.ToTable("movieVisualFormatDetails", (string)null);
+                    b.ToTable("movieVisualFormatDetails");
                 });
 
             modelBuilder.Entity("backend.Model.Price.PriceInformation", b =>
@@ -609,7 +612,7 @@ namespace backend.Migrations
 
                     b.HasKey("priceInformationId");
 
-                    b.ToTable("priceInformation", (string)null);
+                    b.ToTable("priceInformation");
 
                     b.HasData(
                         new
@@ -636,7 +639,7 @@ namespace backend.Migrations
 
                     b.HasIndex("priceInformationID");
 
-                    b.ToTable("priceInformationForEachUserFilmType", (string)null);
+                    b.ToTable("priceInformationForEachUserFilmType");
 
                     b.HasData(
                         new
@@ -658,7 +661,7 @@ namespace backend.Migrations
 
                     b.HasKey("userTypeId");
 
-                    b.ToTable("userType", (string)null);
+                    b.ToTable("userType");
 
                     b.HasData(
                         new
@@ -682,7 +685,7 @@ namespace backend.Migrations
 
                     b.HasKey("foodInformationId");
 
-                    b.ToTable("foodInformation", (string)null);
+                    b.ToTable("foodInformation");
 
                     b.HasData(
                         new
@@ -704,7 +707,7 @@ namespace backend.Migrations
 
                     b.HasKey("HourScheduleID");
 
-                    b.ToTable("HourSchedule", (string)null);
+                    b.ToTable("HourSchedule");
 
                     b.HasData(
                         new
@@ -748,7 +751,7 @@ namespace backend.Migrations
                     b.HasIndex("userID")
                         .IsUnique();
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("backend.Model.Staff_Customer.Staff", b =>
@@ -786,7 +789,7 @@ namespace backend.Migrations
                     b.HasIndex("userID")
                         .IsUnique();
 
-                    b.ToTable("Staff", (string)null);
+                    b.ToTable("Staff");
                 });
 
             modelBuilder.Entity("backend.Model.Auth.userRoleInformation", b =>

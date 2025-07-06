@@ -41,5 +41,16 @@ namespace backend.Controllers
             };
             return BadRequest(newRegisterRespondDTOError);
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> login(loginRequestDTO loginRequestDTO)
+        {
+            if (loginRequestDTO != null)
+            {
+                var getStatus = await _IAuth.Login(loginRequestDTO);
+                return Ok(getStatus);
+            }
+            return BadRequest();
+        }
     }
 }

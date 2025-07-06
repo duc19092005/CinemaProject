@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend.Data;
 
@@ -11,9 +12,11 @@ using backend.Data;
 namespace backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250706045703_Update_lai_Full_DB")]
+    partial class Update_lai_Full_DB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,42 +36,42 @@ namespace backend.Migrations
 
                     b.HasKey("roleId");
 
-                    b.ToTable("roleInformation", (string)null);
+                    b.ToTable("roleInformation");
 
                     b.HasData(
                         new
                         {
-                            roleId = "e2576997-0a9c-4b60-8a4e-df641324d6e0",
+                            roleId = "77dd5194-74a4-445f-9f91-a491e7b2b72b",
                             roleName = "Customer"
                         },
                         new
                         {
-                            roleId = "5396687a-470c-41ac-8453-5d494cbbd4e5",
+                            roleId = "4b32405a-3249-4a61-8494-c49bd2958e0e",
                             roleName = "Cashier"
                         },
                         new
                         {
-                            roleId = "94857849-a56e-4ab0-b20f-c5f07bc97cf8",
+                            roleId = "cdc1bb5d-8e04-4b70-8c8d-2eab72bdcf74",
                             roleName = "Director"
                         },
                         new
                         {
-                            roleId = "ba162364-2319-4ce0-85ba-b50cd3f7c4a1",
+                            roleId = "3e0d9d72-a12b-45a7-a1e7-351f63eb87f5",
                             roleName = "MovieManager"
                         },
                         new
                         {
-                            roleId = "903c0ff7-e31c-4252-89a0-040bd159c521",
+                            roleId = "4f7b02ce-2b56-4926-a92f-99f0ac7b9b01",
                             roleName = "TheaterManager"
                         },
                         new
                         {
-                            roleId = "417377a9-daaa-4d5a-a54e-87422deb5894",
+                            roleId = "d89cb727-c0d7-4f34-89ab-79d2dcab6344",
                             roleName = "FacilitiesManager"
                         },
                         new
                         {
-                            roleId = "ed42c633-c35e-4b6f-a58b-bcf0ce8e7873",
+                            roleId = "987ce41d-78fd-41c0-9238-5ce33d3340c0",
                             roleName = "TheaterCleaner"
                         });
                 });
@@ -88,18 +91,18 @@ namespace backend.Migrations
 
                     b.HasKey("userId");
 
-                    b.ToTable("userInformation", (string)null);
+                    b.ToTable("userInformation");
 
                     b.HasData(
                         new
                         {
-                            userId = "a77f3623-50a2-40ac-ab8d-64de5d16cd71",
+                            userId = "99313ba0-36e8-40aa-8147-7c369f16162b",
                             loginUserEmail = "admin@example.com",
                             loginUserPassword = "hashed_password_admin"
                         },
                         new
                         {
-                            userId = "53307433-2178-4ceb-8b1a-160d24d71aa1",
+                            userId = "d21cbd3d-df1e-4d2f-9e0e-e3d472933e1a",
                             loginUserEmail = "user@example.com",
                             loginUserPassword = "hashed_password_user"
                         });
@@ -117,18 +120,18 @@ namespace backend.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("userRoleInformation", (string)null);
+                    b.ToTable("userRoleInformation");
 
                     b.HasData(
                         new
                         {
-                            roleId = "ba162364-2319-4ce0-85ba-b50cd3f7c4a1",
-                            userId = "a77f3623-50a2-40ac-ab8d-64de5d16cd71"
+                            roleId = "3e0d9d72-a12b-45a7-a1e7-351f63eb87f5",
+                            userId = "99313ba0-36e8-40aa-8147-7c369f16162b"
                         },
                         new
                         {
-                            roleId = "e2576997-0a9c-4b60-8a4e-df641324d6e0",
-                            userId = "53307433-2178-4ceb-8b1a-160d24d71aa1"
+                            roleId = "77dd5194-74a4-445f-9f91-a491e7b2b72b",
+                            userId = "d21cbd3d-df1e-4d2f-9e0e-e3d472933e1a"
                         });
                 });
 
@@ -158,7 +161,7 @@ namespace backend.Migrations
 
                     b.HasIndex("customerID");
 
-                    b.ToTable("Order", (string)null);
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("backend.Model.Booking.orderDetailFood", b =>
@@ -176,7 +179,7 @@ namespace backend.Migrations
 
                     b.HasIndex("foodInformationId");
 
-                    b.ToTable("FoodOrderDetail", (string)null);
+                    b.ToTable("FoodOrderDetail");
                 });
 
             modelBuilder.Entity("backend.Model.Booking.orderDetailTicket", b =>
@@ -202,7 +205,7 @@ namespace backend.Migrations
 
                     b.HasIndex("priceInformationId");
 
-                    b.ToTable("TicketOrderDetail", (string)null);
+                    b.ToTable("TicketOrderDetail");
                 });
 
             modelBuilder.Entity("backend.Model.CinemaRoom.Seats", b =>
@@ -231,13 +234,13 @@ namespace backend.Migrations
 
                     b.HasIndex("cinemaRoomId");
 
-                    b.ToTable("Seats", (string)null);
+                    b.ToTable("Seats");
 
                     b.HasData(
                         new
                         {
-                            seatsId = "bcde4517-8d60-4121-9ffb-0386616bb72d",
-                            cinemaRoomId = "a15abf0d-7497-4706-9bd7-780298c53b43",
+                            seatsId = "649cb608-74ff-4860-bc93-5339d2a41846",
+                            cinemaRoomId = "912b869a-3d00-4da0-9d46-b130a4feb073",
                             isDelete = false,
                             isServed = true,
                             isTaken = false,
@@ -245,8 +248,8 @@ namespace backend.Migrations
                         },
                         new
                         {
-                            seatsId = "e24caeec-e5e8-4926-8166-b69a1fe42536",
-                            cinemaRoomId = "a15abf0d-7497-4706-9bd7-780298c53b43",
+                            seatsId = "eaaacca9-8e55-4038-be1a-0630d6aef4b4",
+                            cinemaRoomId = "912b869a-3d00-4da0-9d46-b130a4feb073",
                             isDelete = false,
                             isServed = true,
                             isTaken = false,
@@ -279,16 +282,16 @@ namespace backend.Migrations
 
                     b.HasIndex("movieVisualFormatID");
 
-                    b.ToTable("cinemaRoom", (string)null);
+                    b.ToTable("cinemaRoom");
 
                     b.HasData(
                         new
                         {
-                            cinemaRoomId = "a15abf0d-7497-4706-9bd7-780298c53b43",
-                            cinemaId = "eb2ce2bd-5761-4ded-afaf-d0f90a848485",
+                            cinemaRoomId = "912b869a-3d00-4da0-9d46-b130a4feb073",
+                            cinemaId = "459275f6-bff5-4ccd-bef8-5f19c9562414",
                             cinemaRoomNumber = 1,
                             isDeleted = false,
-                            movieVisualFormatID = "ef392c2e-c3ed-4688-95d6-35cddc517164"
+                            movieVisualFormatID = "68300fb7-3fe0-41d3-82d9-a64b3a9e70b2"
                         });
                 });
 
@@ -315,12 +318,12 @@ namespace backend.Migrations
 
                     b.HasKey("cinemaId");
 
-                    b.ToTable("Cinema", (string)null);
+                    b.ToTable("Cinema");
 
                     b.HasData(
                         new
                         {
-                            cinemaId = "eb2ce2bd-5761-4ded-afaf-d0f90a848485",
+                            cinemaId = "459275f6-bff5-4ccd-bef8-5f19c9562414",
                             cinemaContactHotlineNumber = "0901234567",
                             cinemaDescription = "Rạp chiếu phim hiện đại với nhiều phòng chiếu.",
                             cinemaLocation = "123 Đường XYZ, TP.HCM",
@@ -339,17 +342,17 @@ namespace backend.Migrations
 
                     b.HasKey("languageId");
 
-                    b.ToTable("Language", (string)null);
+                    b.ToTable("Language");
 
                     b.HasData(
                         new
                         {
-                            languageId = "318b690e-952c-4132-9f77-1e56951ce585",
+                            languageId = "d01a000a-965f-4e6b-bf21-1a7a647d4c20",
                             languageDetail = "Vietnamese"
                         },
                         new
                         {
-                            languageId = "5f31b3a1-a3d2-49bf-bf9d-9245213ebd0c",
+                            languageId = "238b3a89-30e7-4af0-91c8-62c6a58599f2",
                             languageDetail = "English"
                         });
                 });
@@ -370,7 +373,7 @@ namespace backend.Migrations
 
                     b.HasIndex("customerID");
 
-                    b.ToTable("movieCommentDetail", (string)null);
+                    b.ToTable("movieCommentDetail");
                 });
 
             modelBuilder.Entity("backend.Model.Movie.movieGenre", b =>
@@ -384,17 +387,17 @@ namespace backend.Migrations
 
                     b.HasKey("movieGenreId");
 
-                    b.ToTable("movieGenre", (string)null);
+                    b.ToTable("movieGenre");
 
                     b.HasData(
                         new
                         {
-                            movieGenreId = "752f2f92-e3f8-4ad6-ac1a-f591847328b3",
+                            movieGenreId = "535b5175-34f7-4dca-bb9a-34876cbd3495",
                             movieGenreName = "Action"
                         },
                         new
                         {
-                            movieGenreId = "644f9e71-23a2-4da3-8954-b7c1eaefc771",
+                            movieGenreId = "24611f39-53ef-4b7c-98aa-f6bc59404b28",
                             movieGenreName = "Comedy"
                         });
                 });
@@ -411,18 +414,18 @@ namespace backend.Migrations
 
                     b.HasIndex("movieGenreId");
 
-                    b.ToTable("movieGenreInformation", (string)null);
+                    b.ToTable("movieGenreInformation");
 
                     b.HasData(
                         new
                         {
-                            movieId = "8dac25a5-fc45-4858-816b-2889968ad88e",
-                            movieGenreId = "752f2f92-e3f8-4ad6-ac1a-f591847328b3"
+                            movieId = "43d740d2-6db3-4277-8327-fba0780de96d",
+                            movieGenreId = "535b5175-34f7-4dca-bb9a-34876cbd3495"
                         },
                         new
                         {
-                            movieId = "be80cad5-0162-407e-acb9-f047169730e2",
-                            movieGenreId = "644f9e71-23a2-4da3-8954-b7c1eaefc771"
+                            movieId = "63424264-5427-44fb-80dc-def567c5a013",
+                            movieGenreId = "24611f39-53ef-4b7c-98aa-f6bc59404b28"
                         });
                 });
 
@@ -472,15 +475,15 @@ namespace backend.Migrations
 
                     b.HasIndex("languageId");
 
-                    b.ToTable("movieInformation", (string)null);
+                    b.ToTable("movieInformation");
 
                     b.HasData(
                         new
                         {
-                            movieId = "8dac25a5-fc45-4858-816b-2889968ad88e",
+                            movieId = "43d740d2-6db3-4277-8327-fba0780de96d",
                             ReleaseDate = new DateTime(2020, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isDelete = false,
-                            languageId = "318b690e-952c-4132-9f77-1e56951ce585",
+                            languageId = "d01a000a-965f-4e6b-bf21-1a7a647d4c20",
                             movieActor = "Diễn Viên X, Diễn Viên Y",
                             movieDescription = "Đây là một bộ phim hành động đầy kịch tính.",
                             movieDirector = "Đạo Diễn A",
@@ -491,10 +494,10 @@ namespace backend.Migrations
                         },
                         new
                         {
-                            movieId = "be80cad5-0162-407e-acb9-f047169730e2",
+                            movieId = "63424264-5427-44fb-80dc-def567c5a013",
                             ReleaseDate = new DateTime(2025, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isDelete = false,
-                            languageId = "5f31b3a1-a3d2-49bf-bf9d-9245213ebd0c",
+                            languageId = "238b3a89-30e7-4af0-91c8-62c6a58599f2",
                             movieActor = "Actor Z, Actress W",
                             movieDescription = "A funny movie for the whole family.",
                             movieDirector = "Director B",
@@ -547,19 +550,19 @@ namespace backend.Migrations
                     b.HasIndex("cinemaRoomId", "ScheduleDate")
                         .IsUnique();
 
-                    b.ToTable("movieSchedule", (string)null);
+                    b.ToTable("movieSchedule");
 
                     b.HasData(
                         new
                         {
-                            movieScheduleId = "bd4e4e69-e1bf-436c-9f1c-144fa182eb23",
+                            movieScheduleId = "3b62e078-bf61-46d2-a354-3c8f4c81c374",
                             DayInWeekendSchedule = "Monday",
-                            HourScheduleID = "3f208744-51fa-407f-8ad5-a9d275df7b1f",
+                            HourScheduleID = "d3475024-e0fc-4ff9-8470-051faba33f3b",
                             IsDelete = false,
                             ScheduleDate = new DateTime(2025, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            cinemaRoomId = "a15abf0d-7497-4706-9bd7-780298c53b43",
-                            movieId = "8dac25a5-fc45-4858-816b-2889968ad88e",
-                            movieVisualFormatID = "ef392c2e-c3ed-4688-95d6-35cddc517164"
+                            cinemaRoomId = "912b869a-3d00-4da0-9d46-b130a4feb073",
+                            movieId = "43d740d2-6db3-4277-8327-fba0780de96d",
+                            movieVisualFormatID = "68300fb7-3fe0-41d3-82d9-a64b3a9e70b2"
                         });
                 });
 
@@ -574,12 +577,12 @@ namespace backend.Migrations
 
                     b.HasKey("movieVisualFormatId");
 
-                    b.ToTable("movieVisualFormat", (string)null);
+                    b.ToTable("movieVisualFormat");
 
                     b.HasData(
                         new
                         {
-                            movieVisualFormatId = "ef392c2e-c3ed-4688-95d6-35cddc517164",
+                            movieVisualFormatId = "68300fb7-3fe0-41d3-82d9-a64b3a9e70b2",
                             movieVisualFormatName = "2D"
                         });
                 });
@@ -596,7 +599,7 @@ namespace backend.Migrations
 
                     b.HasIndex("movieVisualFormatId");
 
-                    b.ToTable("movieVisualFormatDetails", (string)null);
+                    b.ToTable("movieVisualFormatDetails");
                 });
 
             modelBuilder.Entity("backend.Model.Price.PriceInformation", b =>
@@ -609,12 +612,12 @@ namespace backend.Migrations
 
                     b.HasKey("priceInformationId");
 
-                    b.ToTable("priceInformation", (string)null);
+                    b.ToTable("priceInformation");
 
                     b.HasData(
                         new
                         {
-                            priceInformationId = "98e66d99-7097-4d54-ba15-b9ecbbc957d0",
+                            priceInformationId = "d0dc0cf6-82fc-4298-8a91-b201616bf2c5",
                             priceAmount = 80000L
                         });
                 });
@@ -636,14 +639,14 @@ namespace backend.Migrations
 
                     b.HasIndex("priceInformationID");
 
-                    b.ToTable("priceInformationForEachUserFilmType", (string)null);
+                    b.ToTable("priceInformationForEachUserFilmType");
 
                     b.HasData(
                         new
                         {
-                            userTypeId = "d64857b1-cf23-4e66-921b-09d31f19d4ea",
-                            movieVisualFormatId = "ef392c2e-c3ed-4688-95d6-35cddc517164",
-                            priceInformationID = "98e66d99-7097-4d54-ba15-b9ecbbc957d0"
+                            userTypeId = "4fcbe932-3c72-4d87-922b-a6bef776bc71",
+                            movieVisualFormatId = "68300fb7-3fe0-41d3-82d9-a64b3a9e70b2",
+                            priceInformationID = "d0dc0cf6-82fc-4298-8a91-b201616bf2c5"
                         });
                 });
 
@@ -658,12 +661,12 @@ namespace backend.Migrations
 
                     b.HasKey("userTypeId");
 
-                    b.ToTable("userType", (string)null);
+                    b.ToTable("userType");
 
                     b.HasData(
                         new
                         {
-                            userTypeId = "d64857b1-cf23-4e66-921b-09d31f19d4ea",
+                            userTypeId = "4fcbe932-3c72-4d87-922b-a6bef776bc71",
                             userTypeDescription = "Adult"
                         });
                 });
@@ -682,12 +685,12 @@ namespace backend.Migrations
 
                     b.HasKey("foodInformationId");
 
-                    b.ToTable("foodInformation", (string)null);
+                    b.ToTable("foodInformation");
 
                     b.HasData(
                         new
                         {
-                            foodInformationId = "80474513-4409-47e7-99bb-ce65b32544e6",
+                            foodInformationId = "42c89d7a-9da0-480e-9262-968ee0a90ca8",
                             foodInformationName = "Popcorn",
                             foodPrice = 50000L
                         });
@@ -704,17 +707,17 @@ namespace backend.Migrations
 
                     b.HasKey("HourScheduleID");
 
-                    b.ToTable("HourSchedule", (string)null);
+                    b.ToTable("HourSchedule");
 
                     b.HasData(
                         new
                         {
-                            HourScheduleID = "3f208744-51fa-407f-8ad5-a9d275df7b1f",
+                            HourScheduleID = "d3475024-e0fc-4ff9-8470-051faba33f3b",
                             HourScheduleShowTime = "08:00"
                         },
                         new
                         {
-                            HourScheduleID = "c70ee78d-7250-46b4-a0f9-7d93ad48aa41",
+                            HourScheduleID = "9e91af8e-4e3c-400d-a8e4-bddf4470b143",
                             HourScheduleShowTime = "10:00"
                         });
                 });
@@ -748,12 +751,19 @@ namespace backend.Migrations
                     b.HasIndex("userID")
                         .IsUnique();
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("backend.Model.Staff_Customer.Staff", b =>
                 {
+                    b.Property<string>("userID")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("cinemaID")
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("Id")
+                        .IsRequired()
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("IdentityCode")
@@ -764,10 +774,6 @@ namespace backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("cinemaID")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
                     b.Property<DateTime>("dateOfBirth")
                         .HasColumnType("datetime2");
 
@@ -775,18 +781,14 @@ namespace backend.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(10)");
 
-                    b.Property<string>("userID")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("Id");
+                    b.HasKey("userID", "cinemaID");
 
                     b.HasIndex("cinemaID");
 
                     b.HasIndex("userID")
                         .IsUnique();
 
-                    b.ToTable("Staff", (string)null);
+                    b.ToTable("Staff");
                 });
 
             modelBuilder.Entity("backend.Model.Auth.userRoleInformation", b =>
