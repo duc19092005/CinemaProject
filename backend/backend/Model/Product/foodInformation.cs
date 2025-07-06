@@ -6,6 +6,7 @@ using backend.Model.CinemaRoom;
 using backend.Model.Movie;
 using backend.Model.Price;
 using backend.Model.Product;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace backend.Model.Product
 {
@@ -15,6 +16,7 @@ namespace backend.Model.Product
         public string foodInformationId { get; set; } = "";
 
         [Required]
+        [Column(TypeName = "nvarchar(30)")]
         public string foodInformationName { get; set; } = "";
 
         [Required]

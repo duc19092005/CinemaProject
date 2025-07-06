@@ -7,9 +7,14 @@ using backend.Model.Cinemas;
 using backend.Model.CinemaRoom;
 using backend.Model.Price;
 using backend.Model.Product;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Model.Movie
 {
+    [Index(nameof(movieName), IsUnique = true)]
+    [Index(nameof(movieImage), IsUnique = true)]
+    [Index(nameof(movieDescription), IsUnique = true)]
+    [Index(nameof(movieTrailerUrl), IsUnique = true)]
     public class movieInformation
     {
         // Id của bộ phim 
@@ -24,7 +29,7 @@ namespace backend.Model.Movie
         public string movieName { get; set; } = "";
 
         [Required]
-        public byte[] movieImage { get; set; } = [];
+        public string movieImage { get; set; } = string.Empty;
 
         // Miêu tả của bộ phim
 
@@ -54,15 +59,26 @@ namespace backend.Model.Movie
         [Required]
         public int movieDuration { get; set; }
 
+        [Required]
+        public DateTime ReleaseDate { get; set; }
+
+        [Required]
+        public bool isDelete { get; set; } = false;
+
         [ForeignKey("Language")]
         [Column(TypeName = "varchar(100)")]
         [Required]
+
         public string languageId { get; set; } = "";
 
         public Language Language { get; set; } = null!;
 
+        public List<movieVisualFormatDetail> movieVisualFormatDetail { get; set; } = [];
         public List<movieSchedule> movieSchedule { get; set; } = null!;
+        // Khóa ngoại 1 bộ phim có nhiều comment
 
-        public List<cinemaMovieInformation> cinemaMovieInformation { get; set; } = [];
+        public List<movieGenreInformation> movieGenreInformation { get; set; } = [];
+
+        public List<movieCommentDetail> movieCommentDetail { get; set; } = [];
     }
 }

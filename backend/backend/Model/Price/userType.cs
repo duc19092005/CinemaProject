@@ -7,9 +7,11 @@ using backend.Model.CinemaRoom;
 using backend.Model.Movie;
 using backend.Model.Price;
 using backend.Model.Product;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Model.Price
 {
+    [Index(nameof(userTypeDescription), IsUnique = true)]
     public class userType
     {
         [Key]
@@ -19,7 +21,7 @@ namespace backend.Model.Price
         [Column(TypeName = "nvarchar(50)")]
         public string userTypeDescription { get; set; } = "";
 
-        public List<priceInformation> priceInformation { get; set; } = null!;
+        public List<priceInformationForEachUserFilmType> priceInformation { get; set; } = null!;
 
 
     }

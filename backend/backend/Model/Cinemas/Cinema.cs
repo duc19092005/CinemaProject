@@ -46,9 +46,7 @@ namespace backend.Model.Cinemas
         [Required]
         public string cinemaContactHotlineNumber { get; set; } = "";
 
-        public cinemaRoom cinemaRoom { get; set; } = null!;
-
-        public List<cinemaMovieInformation> cinemaMovieInformation { get; set; } = [];
+        public List<cinemaRoom> cinemaRoom { get; set; } = null!;
 
 
     }
