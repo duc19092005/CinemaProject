@@ -102,9 +102,20 @@ function Introduce() {
                         </p>
                         <button
                             onClick={() => handleOpenTrailer(trailerRawUrl)}
-                            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
+                            className="p-3 rounded-full backdrop-blur-lg border border-red-500/20 bg-gradient-to-tr from-black/60 to-black/40 shadow-lg hover:shadow-2xl hover:shadow-red-500/30 hover:scale-110 hover:rotate-2 active:scale-95 active:rotate-0 transition-all duration-300 ease-out cursor-pointer group relative overflow-hidden"
                         >
-                            Xem Trailer
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-400/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                            <div className="relative z-10">
+                                <svg
+                                    className="w-7 h-7 fill-current text-red-500 group-hover:text-red-400 transition-colors duration-300"
+                                    viewBox="0 0 576 512"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
+                                    ></path>
+                                </svg>
+                            </div>
                         </button>
                     </div>
                 </div>

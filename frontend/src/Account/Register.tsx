@@ -32,12 +32,12 @@ function Register() {
                                     <div
                                         className="border-8 border-transparent rounded-xl bg-transparent shadow-2xl p-8 m-2">
                                         <h2
-                                            className="text-xl font-bold text-center cursor-default dark:text-gray-300 text-gray-900">
+                                            className="text-xl font-extrabold text-center cursor-default dark:text-gray-300 text-gray-900">
                                             ĐĂNG KÝ
                                         </h2>
                                         <form action="#" method="post" className="space-y-6">
                                             <div className="w-96">
-                                                <label typeof="text" className="flex justify-start items-start mb-2 text-base dark:text-gray-300 px-4 pt-3">Tên đăng nhập</label>
+                                                <label typeof="text" className="flex justify-start items-start mb-2 text-base font-bold dark:text-gray-300 px-4 pt-3">Tên đăng nhập</label>
                                                 <input
                                                     id="TenDN"
                                                     className="text-base border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"

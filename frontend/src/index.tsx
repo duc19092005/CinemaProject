@@ -11,6 +11,7 @@ import Listfilm from './Cinema/Listfilm';
 import Forgotpassword from './Account/Forgotpass';
 import Comingmovies from './Cinema/Comingmovies';
 import Introduce from './Cinema/Introduce';
+import Showtimes from './Bookig/Showtimes';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/forgotpassword" element={<Forgotpassword />} />
         <Route path="/comingmovies" element={<Comingmovies />} />
         <Route path="/introduce" element={<Introduce />} />
+        <Route path="/showtimes" element={<Showtimes />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

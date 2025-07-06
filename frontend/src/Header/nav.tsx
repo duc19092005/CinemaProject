@@ -21,6 +21,9 @@ function Nav() {
     const handleIntro = () => {
         navigate('/introduce');
     }
+    const handleShowtimes = () => {
+        navigate('/showtimes');
+    }
 
     return (
         <nav >
@@ -118,6 +121,7 @@ function Nav() {
                     )}
 
                     <span
+                        onClick={(handleShowtimes)}
                         className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2">
                         <MapPinIcon className="w-5 h-5 text-purple-400" />
                         Chọn lịch chiếu
