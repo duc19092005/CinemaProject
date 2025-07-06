@@ -21,7 +21,6 @@ namespace backend.Model.Booking
         [ForeignKey("foodInformation")]
         public string foodInformationId { get; set; } = "";
 
-        [Required]
         public int quanlity { get; set; }
         public Order Order { get; set; } = null!;
 

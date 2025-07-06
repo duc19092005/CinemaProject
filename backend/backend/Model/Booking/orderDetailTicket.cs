@@ -18,21 +18,27 @@ namespace backend.Model.Booking
         public string orderId { get; set; } = "";
 
         [Column(TypeName = "varchar(100)")]
+        [ForeignKey("movieSchedule")]
+        public string movieScheduleID { get; set; } = string.Empty;
+
+        [Column(TypeName = "varchar(100)")]
         [ForeignKey("Seats")]
         public string seatsId { get; set; } = "";
 
         [Column(TypeName = "varchar(100)")]
-        [ForeignKey("priceInformation")]
+        [ForeignKey("PriceInformation")]
         public string priceInformationId { get; set; } = "";
 
         public Order Order { get; set; } = null!;
 
         public Seats Seats { get; set; } = null!;
 
-        public priceInformation priceInformation { get; set; } = null!;
+        public PriceInformation PriceInformation { get; set; } = null!;
+
+        public movieSchedule movieSchedule { get; set; } = null!;
     }
 
-    [PrimaryKey(nameof(orderId) , nameof(seatsId) , nameof(priceInformationId))]
+    [PrimaryKey(nameof(seatsId) , nameof(movieScheduleID) , nameof(orderId))]
     public partial class orderDetailTicket
     {
 

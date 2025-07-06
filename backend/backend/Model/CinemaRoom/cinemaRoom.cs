@@ -23,7 +23,6 @@ namespace backend.Model.CinemaRoom
 
         [Required]
         public int cinemaRoomNumber { get; set; }
-
         // Khóa ngoại
 
         [Column(TypeName = "varchar(100)")]
@@ -31,10 +30,23 @@ namespace backend.Model.CinemaRoom
         [ForeignKey("Cinema")]
         public string cinemaId { get; set; } = "";
 
+        [Column(TypeName = "varchar(100)")]
+        [ForeignKey("movieVisualFormat")]
+        [Required]
+        public string movieVisualFormatID { get; set; } = string.Empty;
+
+        public bool isDeleted { get; set; }
+
+
         public Cinema Cinema { get; set; } = null!;
+
+        public movieVisualFormat movieVisualFormat { get; set; } = null!;
 
         public List<movieSchedule> movieSchedule { get; set; } = null!;
 
         public List<Seats> Seats { get; set; } = [];
+
+
+
     }
 }

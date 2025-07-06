@@ -7,11 +7,12 @@ using backend.Model.CinemaRoom;
 using backend.Model.Movie;
 using backend.Model.Price;
 using backend.Model.Product;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Model.Movie
 {
     // Đây là bảng thể loại phim 
-
+    [Index(nameof(movieGenreName) , IsUnique = true)]
     public class movieGenre
     {
 
@@ -27,5 +28,7 @@ namespace backend.Model.Movie
         [Column(TypeName = "nvarchar(100)")]
         [Required]
         public string movieGenreName { get; set; } = "";
+
+        public List<movieGenreInformation> movieGenreInformation { get; set; } = [];
     }
 }
