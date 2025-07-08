@@ -1,0 +1,52 @@
+# Phiên bản Build Image
+
+version: "3.7"
+
+# Các loại services
+
+services:
+    frontend :
+        build :
+            context : ./frontend
+            dockerfile : Dockerfile
+        ports :
+            - "3000:3000"
+        depends_on :
+            - backend
+        networks : 
+            - productNetwork
+        volumes : 
+            - ./frontend:/react-app 
+            - /react-app/node_modules
+        environment :
+            - CHOKIDAR_USEPOLLING=true
+            - WATCHPACK_POLLING=true 
+            - FAST_REFRESH=true
+
+    backend :
+        build :
+            context: ./backend/backend
+            dockerfile : Dockerfile
+        ports:
+            - "5000:8080"
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Production
+        depends_on :
+            - db
+        networks : 
+            - productNetwork
+    db:
+        image: mcr.microsoft.com/mssql/server:latest
+        ports:
+            - "1433:1433"
+        environment:
+            ACCEPT_EULA: Y
+            SA_PASSWORD : anhduc9A@5
+        volumes:
+            - db_data:/var/opt/mssql
+        networks:
+            - productNetwork
+volumes:
+    db_data:
+networks:
+    productNetwork:
