@@ -89,6 +89,8 @@ namespace backend.Services.CloudinaryServices
         // Test dùng thư viện
         public async Task<string> uploadFileToCloudinary(IFormFile formFile)
         {
+            // Tạo GUID mới để file ko bị trùng
+            var newGuid = Guid.NewGuid();
             Account account = new Account()
             {
                 ApiKey = _configuration["Cloudinary:ApiKey"] ,
@@ -99,7 +101,7 @@ namespace backend.Services.CloudinaryServices
             var FileUpload = new ImageUploadParams()
             {
                 File = new FileDescription(formFile.FileName , formFile.OpenReadStream()) ,
-                PublicId = formFile.FileName.Replace(" " , "")
+                PublicId = newGuid.ToString(),
             };
             var getUpload = await cloudinary.UploadAsync(FileUpload);
             return getUpload.Url.ToString();
