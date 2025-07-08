@@ -20,6 +20,9 @@ using backend.Services.BookingServices;
 using backend.Interface.CommentInterface;
 using backend.Interface.CloudinaryInterface;
 using backend.Services.CloudinaryServices;
+using backend.Interface.VnpayInterface;
+using backend.Services.VnpayServices;
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -98,6 +101,10 @@ builder.Services.AddScoped<ICloudinaryServices, CloudinaryService>();
 
 builder.Services.AddScoped<ICommentServices, CommentServices>();
 
+// DI của VNpay Services
+
+builder.Services.AddScoped<IVnpayService, VnpayService>();
+
 // Add thêm DI của services Movie dạng Scoped
 
 builder.Services.AddScoped<IMovieService, movieServices>();
@@ -113,13 +120,29 @@ builder.Services.AddScoped<IScheduleServices, ScheduleServices>();
 
 builder.Services.AddScoped<IBookingServices, BookingServices>();
 
+builder.Services.AddScoped<VNPAY.NET.IVnpay, VNPAY.NET.Vnpay>();
+
+
 Console.WriteLine(builder.Configuration.GetConnectionString("DefaultConnection"));
 
 var app = builder.Build();
 
+using (var scoped = app.Services.CreateScope())
+{
+    var services = scoped.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<DataContext>();
+        context.Database.Migrate();
+    }
+    catch (Exception ex) 
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred while migrating the database.");
+    }
+}
 app.UseSwagger();
 app.UseSwaggerUI();
-
 
 app.UseAuthorization();
 
