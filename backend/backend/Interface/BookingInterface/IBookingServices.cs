@@ -4,6 +4,6 @@ namespace backend.Interface.BookingInterface
 {
     public interface IBookingServices
     {
-        Task<bool> booking(OrderRequestDTO orderRequestDTO);
+        Task<string> booking(OrderRequestDTO orderRequestDTO , HttpContext httpContext);
     }
 }

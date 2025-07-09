@@ -19,7 +19,6 @@ namespace backend.Controllers
             this.IMovieService = IMovieService;
         }
 
-        [Authorize(Policy = "Customer")]
         [HttpPost("createMovie")]
         public async Task<IActionResult> createMovie([FromForm] MovieRequestDTO movieRequestDTO) 
         {
@@ -28,11 +27,10 @@ namespace backend.Controllers
             await IMovieService.SaveChanges();
             if (createdStatus)
             {
-                HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-                return Ok(new { message = "Đã thêm thành công", statusCode = HttpContext.Response.StatusCode });
+                return Ok(new { message = "Đã thêm thành công", statusCode = StatusCodes.Status201Created });
             }
             HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-            return BadRequest(new { message = "Đã thêm thất bại", statusCode = HttpContext.Response.StatusCode });
+            return BadRequest(new { message = "Đã thêm thất bại", statusCode = StatusCodes.Status400BadRequest });
         }
 
         [HttpDelete("DeleteMovie")]

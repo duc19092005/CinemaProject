@@ -1,4 +1,5 @@
 ﻿using backend.Data;
+using backend.Interface.CloudinaryInterface;
 using backend.Interface.GenericsInterface;
 using backend.Interface.MovieInterface;
 using backend.Model.Movie;
@@ -16,9 +17,12 @@ namespace backend.Services.MovieServices
     {
         private readonly DataContext _dataContext;
 
-        public movieServices(DataContext dataContext)
+        private readonly ICloudinaryServices cloudinaryServices;
+
+        public movieServices(DataContext dataContext , ICloudinaryServices cloudinaryServices)
         {
             _dataContext = dataContext;
+            this.cloudinaryServices = cloudinaryServices;
         }
 
         public async Task<bool> add([FromForm] MovieRequestDTO movieRequestDTO)
@@ -29,22 +33,19 @@ namespace backend.Services.MovieServices
                 try
                 {
                     var movieID = Guid.NewGuid();
-                    byte[] imageBytes = new byte[1024];
-                    using (var memory = new MemoryStream())
-                    {
-                        movieRequestDTO.movieImage.CopyTo(memory);
-                        imageBytes = memory.ToArray();
-                    }
+
+                    var getFullUploadPath = await cloudinaryServices.uploadFileToCloudinary(movieRequestDTO.movieImage);
                     var newMovie = new movieInformation()
                     {
                         movieId = movieID.ToString(),
                         movieName = movieRequestDTO.movieName,
-                        movieImage = "Null",
+                        movieImage = getFullUploadPath,
                         movieDescription = movieRequestDTO.movieDescription,
                         movieDirector = movieRequestDTO.movieDirector,
                         movieTrailerUrl = movieRequestDTO.movieTrailerUrl,
                         movieDuration = movieRequestDTO.movieDuration,
                         languageId = movieRequestDTO.languageId,
+                        minimumAgeID = movieRequestDTO.minimumAgeID,
                     };
 
                     await _dataContext.movieInformation.AddAsync(newMovie);
@@ -151,6 +152,7 @@ namespace backend.Services.MovieServices
                 {
                     movieName = x.movieName,
                     movieID = x.movieId,
+                    movieImage = x.movieImage,
                     movieDuration = x.movieDuration,
                     movieGenres = x.movieGenreInformation.Select(mg => mg.movieGenre.movieGenreName).ToArray(),
                     ListLanguageName = x.Language.languageDetail,
@@ -158,6 +160,10 @@ namespace backend.Services.MovieServices
                     releaseDate = x.ReleaseDate,
                     movieVisualFormat = x.movieVisualFormatDetail.Select(vs => vs.movieVisualFormat.movieVisualFormatName).ToArray(),
                     isRelease = dateTime > x.ReleaseDate ? true : false,
+                    minimumAge = 
+                    _dataContext.minimumAges.FirstOrDefault(m => m.minimumAgeID.Equals(x.minimumAgeID)).minimumAgeInfo,
+                    minimumAgeDescription = 
+                    _dataContext.minimumAges.FirstOrDefault(m => m.minimumAgeID.Equals(x.minimumAgeID)).minimumAgeDescription
                 }).
                 Take(pagesize).Skip((page - 1) * pagesize).
                 ToListAsync();

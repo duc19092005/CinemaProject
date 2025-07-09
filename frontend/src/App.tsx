@@ -1,15 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import logo from '../src/logo.svg'
 
 const name : string = "abcd"
 
 function App() {
   return (
-
     <div className="App">
+      <img src={logo} />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> hello.
         </p>

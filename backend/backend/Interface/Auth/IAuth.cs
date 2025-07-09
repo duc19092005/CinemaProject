@@ -13,7 +13,7 @@ namespace backend.Interface.Auth
         // Trả về một token nếu đăng nhập thành công
         // Tạm thời chưa trả về model
 
-        Task<loginRespondDTO> Login(loginRequestDTO loginRequest);
+        loginRespondDTO Login(loginRequestDTO loginRequest);
 
         Task SaveChanges();
     }

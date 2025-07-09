@@ -35,6 +35,9 @@ namespace backend.ModelDTO.MoviesDTO.MovieRequest
         public int movieDuration { get; set; }
 
         [Required]
+        public string minimumAgeID { get; set; } = string.Empty;
+
+        [Required]
         public string languageId { get; set; } = "";
 
         [Required]

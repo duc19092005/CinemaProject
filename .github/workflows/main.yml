@@ -1,0 +1,24 @@
+name : Deployment
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy :
+    runs-on : ubuntu-18.04
+    steps:
+    -name : DeploySSH
+    uses : appleboy/ssh-action@master
+    with :
+        host: ${{secrects.HOST}}
+        username : ${{secrects.USERNAME}}
+        password : ${{secrects.PASSWORD}}
+        port: 22
+        script : 
+          cd /CinemaProject
+          git fetch origin
+          git checkout main
+          docker compose down 
+          docker compose build
+          docker compose up -d 
+
+     

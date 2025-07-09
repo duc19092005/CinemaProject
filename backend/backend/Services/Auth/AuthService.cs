@@ -12,6 +12,9 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Logging;
 using System.Reflection.PortableExecutable;
+using Microsoft.AspNetCore.Authorization;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 
 namespace backend.Services.Auth
 {
@@ -26,6 +29,8 @@ namespace backend.Services.Auth
             _dataContext = dataContext;
             this._configuration = _configuration;
         }
+
+        [AllowAnonymous]
         public async Task<registerRespondDTO> Register(registerRequestDTO registerRequest)
         {
             var getCustomerRoleID = _dataContext.roleInformation.FirstOrDefault(x => x.roleName.Equals("Customer"));
@@ -55,7 +60,8 @@ namespace backend.Services.Auth
             return new registerRespondDTO { statusCode = StatusCodes.Status400BadRequest, message = "Đã tạo thành công" };
         }
 
-        public async Task<loginRespondDTO> Login(loginRequestDTO loginRequest)
+        [AllowAnonymous]
+        public loginRespondDTO Login(loginRequestDTO loginRequest)
         {
             var checkLoginRequest = checkLogin(loginRequest);
             if (checkLoginRequest != null)
@@ -86,6 +92,11 @@ namespace backend.Services.Auth
                 }
 
             }
+
+            var imageUpload = new ImageUploadParams()
+            {
+                
+            };
             return null!;
         }
 
@@ -106,17 +117,16 @@ namespace backend.Services.Auth
             var getJWTKey = _configuration["Jwt:Key"];
 
             /*
-             * "Jwt": {
-                "Key": "6d2541e1901b00052daeef50166f9144c885437cd7c244a52a6996b0d65e43f1744209f2fcff45019d190a41385462655296b9735732ceb012001ff6bfa5f29701ac45cff6528134c4cd96b5c7bcf27f09b6091fc31b0b93c672f64cc11a56fe22714b76b8cd7658a2e5ef5b3b5f80ae8fa2c67d0d43eb769c2e3c9a552db2195d1439883c197b77e3fe06bbb71c252a0e710f8e6ec8ff4b8c81f956d05bb2d395aa970befc7bfeca35c3184a23516940a62f8b34933b85d2f1616aed6ca5c9b18aa615a969497972ce1198d74483ecd32866b5d15c31180e98139ca97b90257073bf3f5f6f820ab388911a7052ad761009b27f522bc369b4536d9027de55754",
-                "Iss": "http://localhost:5229",
-                "Aud": "http://localhost:5229"
-                },
+             * 
              */
             if (getJWTKey != null)
             {
+                // Tạo header
                 var SecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(getJWTKey));
+                // Tạo header
                 var SigningCreatical = new SigningCredentials(SecurityKey, SecurityAlgorithms.HmacSha256);
                 var Hour = DateTime.Now.AddHours(1);
+                // Tạo JWT_Token
                 var genrateTokenString = new JwtSecurityToken
                     (_configuration["Jwt:Iss"],
                     _configuration["Jwt:Aud"],

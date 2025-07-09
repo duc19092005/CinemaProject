@@ -8,12 +8,12 @@ using backend.Model.CinemaRoom;
 using backend.Model.Price;
 using backend.Model.Product;
 using Microsoft.EntityFrameworkCore;
+using backend.Model.MinimumAge;
 
 namespace backend.Model.Movie
 {
     [Index(nameof(movieName), IsUnique = true)]
     [Index(nameof(movieImage), IsUnique = true)]
-    [Index(nameof(movieDescription), IsUnique = true)]
     [Index(nameof(movieTrailerUrl), IsUnique = true)]
     public class movieInformation
     {
@@ -21,6 +21,10 @@ namespace backend.Model.Movie
         [Key]
         [Column(TypeName = "varchar(100)")]
         public string movieId { get; set; } = "";
+
+        [ForeignKey(nameof(minimumAge))]
+        [Required]
+        public string minimumAgeID { get; set; } = string.Empty;
 
         // Tên của bộ phim
 
@@ -72,6 +76,8 @@ namespace backend.Model.Movie
         public string languageId { get; set; } = "";
 
         public Language Language { get; set; } = null!;
+
+        public minimumAge minimumAge { get; set; } = null!;
 
         public List<movieVisualFormatDetail> movieVisualFormatDetail { get; set; } = [];
         public List<movieSchedule> movieSchedule { get; set; } = null!;

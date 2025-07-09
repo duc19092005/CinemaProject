@@ -47,7 +47,7 @@ namespace backend.Controllers
         {
             if (loginRequestDTO != null)
             {
-                var getStatus = await _IAuth.Login(loginRequestDTO);
+                var getStatus = _IAuth.Login(loginRequestDTO);
                 return Ok(getStatus);
             }
             return BadRequest();
