@@ -13,5 +13,9 @@ namespace backend.Controllers
             Console.WriteLine(HttpContext.Request.Query);
             return Ok(HttpContext.Response.Body);
         }
+
+        [HttpPost]
+
+        public IActionResult POST() { return Ok(); }
     }
 }

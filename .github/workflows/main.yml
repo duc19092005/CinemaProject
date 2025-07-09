@@ -1,24 +1,34 @@
-name : Deployment
+name: Deployment
 on:
   push:
     branches: [main]
-jobs:
-  deploy :
-    runs-on : ubuntu-18.04
-    steps:
-    -name : DeploySSH
-    uses : appleboy/ssh-action@master
-    with :
-        host: ${{secrects.HOST}}
-        username : ${{secrects.USERNAME}}
-        password : ${{secrects.PASSWORD}}
-        port: 22
-        script : 
-          cd /CinemaProject
-          git fetch origin
-          git checkout main
-          docker compose down 
-          docker compose build
-          docker compose up -d 
 
-     
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Checkout Code (on GitHub Actions runner)
+        uses: actions/checkout@v4 # This checks out your repo into the runner's workspace
+
+      # and if you want to use SCP for copying files.
+      # This is less common with appleboy/ssh-action which uses password/key directly.
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }} # Corrected from secrects
+          username: ${{ secrets.USERNAME }} # Corrected from secrects
+          password: ${{ secrets.PASSWORD }} # Corrected from secrects
+          port: 22
+          script: |
+            cd /CinemaProject
+
+            git fetch origin
+            git reset --hard origin/main 
+
+            docker compose down
+
+            docker compose build
+
+            docker compose up -d
