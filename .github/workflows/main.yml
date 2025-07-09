@@ -9,9 +9,9 @@ jobs:
     -name : DeploySSH
     uses : appleboy/ssh-action@master
     with :
-        host: ${{secrects.HOST}}
-        username : ${{secrects.USERNAME}}
-        password : ${{secrects.PASSWORD}}
+        host: ${{secrets.HOST}}
+        username : ${{secrets.USERNAME}}
+        password : ${{secrets.PASSWORD}}
         port: 22
         script : 
           cd /CinemaProject
