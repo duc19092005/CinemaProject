@@ -22,12 +22,12 @@ namespace backend.Model.Booking
         public string paymentMethod { get; set; } = "VNPAY";
 
         [Required]
-        public bool isPay { get; set; } = false;
+        public string PaymentStatus { get; set; } = string.Empty;
 
         [Required]
         public long totalAmount { get; set; }
 
-        public DateTime paymentDate { get; set; }
+        public DateTime paymentRequestCreatedDate { get; set; }
 
         [Column(TypeName = "varchar(100)")]
         [ForeignKey("Customer")]

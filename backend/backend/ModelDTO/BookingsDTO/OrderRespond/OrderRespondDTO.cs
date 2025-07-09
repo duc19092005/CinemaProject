@@ -7,13 +7,10 @@ namespace backend.ModelDTO.Customer.OrderRespond
 {
     public class OrderRespondDTO
     {
-        public string userName { get; set; } = "";
+        public string? Error { get; set; }
 
-        public string IdentityCode { get; set; } = "";
+        public string ? VnpayURL { get; set; } 
 
-        public int userPoint { get; set; }
-
-        public List<Order> GetOrders = [];
-
+        public long TotalAmount { get; set; } 
     }
 }

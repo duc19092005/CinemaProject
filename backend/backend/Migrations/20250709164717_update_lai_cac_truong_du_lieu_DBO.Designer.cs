@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend.Data;
 
@@ -11,9 +12,11 @@ using backend.Data;
 namespace backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250709164717_update_lai_cac_truong_du_lieu_DBO")]
+    partial class update_lai_cac_truong_du_lieu_DBO
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -818,17 +821,6 @@ namespace backend.Migrations
                         .IsUnique();
 
                     b.ToTable("Customers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "a1b2c3d4-e5f6-7a8b-c9d0-e1f2a3b4c5e1",
-                            IdentityCode = "0123456789",
-                            Name = "Trần Anh Đức",
-                            dateOfBirth = new DateTime(2005, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            phoneNumber = "1234567890",
-                            userID = "b2c3d4e5-f6a7-8b9c-d0e1-f2a3b4c5d6e7"
-                        });
                 });
 
             modelBuilder.Entity("backend.Model.Staff_Customer.Staff", b =>

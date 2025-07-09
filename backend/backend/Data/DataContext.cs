@@ -103,6 +103,18 @@ namespace backend.Data
                 }
             );
 
+            var customerID = "a1b2c3d4-e5f6-7a8b-c9d0-e1f2a3b4c5e1";
+            modelBuilder.Entity<Customer>().HasData(
+                new Customer()
+                {
+                    Id = customerID,
+                    userID = userId2,
+                    dateOfBirth = new DateTime(2005, 09, 19),
+                    IdentityCode = "0123456789",
+                    Name = "Trần Anh Đức",
+                    phoneNumber = "1234567890"
+                });
+
             // Seed Data for UserRoleInformation (linking users to roles)
             modelBuilder.Entity<userRoleInformation>().HasData(
                 new userRoleInformation { userId = userId1, roleId = MovieManagerId },

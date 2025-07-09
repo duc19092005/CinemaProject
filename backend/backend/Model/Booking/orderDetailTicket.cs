@@ -25,15 +25,9 @@ namespace backend.Model.Booking
         [ForeignKey("Seats")]
         public string seatsId { get; set; } = "";
 
-        [Column(TypeName = "varchar(100)")]
-        [ForeignKey("PriceInformation")]
-        public string priceInformationId { get; set; } = "";
-
         public Order Order { get; set; } = null!;
 
         public Seats Seats { get; set; } = null!;
-
-        public PriceInformation PriceInformation { get; set; } = null!;
 
         public movieSchedule movieSchedule { get; set; } = null!;
     }
