@@ -63,53 +63,63 @@ namespace backend.Services.Auth
         [AllowAnonymous]
         public loginRespondDTO Login(loginRequestDTO loginRequest)
         {
-            var checkLoginRequest = checkLogin(loginRequest);
-            if (checkLoginRequest != null)
+            try
             {
-                // Lấy ID
-                var getID = checkLoginRequest.userId;
-                // Lấy ID role trong bảng quan hệ n-n
-                var getRole = _dataContext.userRoleInformation.Where(x => x.userId.Equals(getID)).Select(x => x.roleId).ToList();
-                // Lấy RoleName
-                var getRoleList = _dataContext.roleInformation.Where(x => getRole.Contains(x.roleId)).Select(x => x.roleName).ToList();
+                var checkLoginRequest = checkLogin(loginRequest);
+                if (checkLoginRequest != null)
+                {
+                    // Lấy ID
+                    var getID = checkLoginRequest.userId;
+                    // Lấy ID role trong bảng quan hệ n-n
+                    var getRole = _dataContext.userRoleInformation.Where(x => x.userId.Equals(getID)).Select(x => x.roleId).ToList();
+                    // Lấy RoleName
+                    var getRoleList = _dataContext.roleInformation.Where(x => getRole.Contains(x.roleId)).Select(x => x.roleName).ToList();
 
-                // Tạo Claims để làm JWT
-                var claims = new List<Claim>
+                    // Tạo Claims để làm JWT
+                    var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name , loginRequest.loginUserName),
                 };
 
-                foreach (var roleName in getRoleList)
-                {
-                    claims.Add(new Claim(ClaimTypes.Role, roleName));
+                    foreach (var roleName in getRoleList)
+                    {
+                        claims.Add(new Claim(ClaimTypes.Role, roleName));
+                    }
+
+                    var getToken = generateToken(claims, checkLoginRequest.loginUserEmail);
+
+                    if (getToken != null)
+                    {
+                        return getToken;
+                    }
                 }
-
-                var getToken = generateToken(claims , checkLoginRequest.loginUserEmail);
-
-                if (getToken != null)
-                {
-                    return getToken;
-                }
-
+                return null!;
             }
-
-            var imageUpload = new ImageUploadParams()
+            catch (Exception e)
             {
-                
-            };
-            return null!;
+                Console.WriteLine(e.Message);
+                return null!;
+            }
         }
 
         private userInformation checkLogin(loginRequestDTO loginRequest)
         {
-            var findUser =  _dataContext.userInformation.FirstOrDefault
+            try
+            {
+                var findUser = _dataContext.userInformation.FirstOrDefault
                 (x => x.loginUserEmail.Equals(loginRequest.loginUserName)
                 && x.loginUserPassword.Equals(loginRequest.loginUserPassword));
-            if (findUser != null)
-            {
-                return findUser;
+                if (findUser != null)
+                {
+                    return findUser;
+                }
+                return null;
             }
-            return null;
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null!;
+            }
         }
 
         private loginRespondDTO generateToken(List<Claim> claims , string Email)
