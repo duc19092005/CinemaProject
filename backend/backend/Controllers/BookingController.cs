@@ -20,11 +20,11 @@ namespace backend.Controllers
         public async Task<IActionResult> booking(OrderRequestDTO dtos)
         {
             var getBookingstatus = await _services.booking(dtos , HttpContext);
-            if (getBookingstatus.Equals("Lỗi"))
+            if (String.IsNullOrEmpty(getBookingstatus.Error))
             {
-                return BadRequest();
+                return Ok(getBookingstatus);
             }
-            return Ok(getBookingstatus);
+            return BadRequest(getBookingstatus);
         }
     }
 }
