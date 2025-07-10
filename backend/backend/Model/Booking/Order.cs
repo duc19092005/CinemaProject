@@ -27,6 +27,8 @@ namespace backend.Model.Booking
         [Required]
         public long totalAmount { get; set; }
 
+        public string message { get; set; } = string.Empty;
+
         public DateTime paymentRequestCreatedDate { get; set; }
 
         [Column(TypeName = "varchar(100)")]

@@ -6,7 +6,6 @@ using backend.Model.Booking;
 using backend.Model.Price;
 using backend.ModelDTO.Customer.OrderRequest;
 using backend.ModelDTO.Customer.OrderRespond;
-using backend.ModelDTO.VNPAY;
 using backend.Services.VnpayServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -32,7 +31,7 @@ namespace backend.Services.BookingServices
                 // Xử lý trường hợp movieScheduleId là null
                 return new OrderRespondDTO()
                 {
-                    Error = "Lịch chiếu bị trống"
+                    Error = "Lỗi Lịch chiếu bị trống"
                 };
             }
 
@@ -41,12 +40,12 @@ namespace backend.Services.BookingServices
             {
                 return new OrderRespondDTO()
                 {
-                    Error = "Số ghế đặt bị dư hoặc thiếu"
+                    Error = "Lỗi Số ghế đặt bị dư hoặc thiếu"
                 };
             }
 
 
-                var orderIDGenerate = Guid.NewGuid().ToString();
+            var orderIDGenerate = Guid.NewGuid().ToString();
             // Logic "Dù thất bại hay thành công đều phải add vào bảng" của bạn sẽ ở đây
             // Ví dụ: Tạo một bản ghi Order ban đầu với trạng thái pending
 
@@ -59,7 +58,7 @@ namespace backend.Services.BookingServices
             {
                 return new OrderRespondDTO()
                 {
-                    Error = "Không tìm thấy lịch chiếu phim"
+                    Error = "Lỗi Không tìm thấy lịch chiếu phim"
                 };
             }
 
@@ -74,7 +73,7 @@ namespace backend.Services.BookingServices
                 var takenSeatNames = string.Join(", ", existingTakenSeats.Select(s => s.seatsNumber));
                 return new OrderRespondDTO()
                 {
-                    Error = $"Các ghế sau đã được đặt vui lòng chuyển ghế khác {takenSeatNames}"
+                    Error = $"Lỗi Các ghế sau đã được đặt vui lòng chuyển ghế khác {takenSeatNames}"
                 };
             }
 
@@ -169,7 +168,6 @@ namespace backend.Services.BookingServices
                 totalAmount += totalAmountFood;
 
             }
-
 
             var createdURL = vnpay.createURL(totalAmount, orderIDGenerate, httpContext);
 
