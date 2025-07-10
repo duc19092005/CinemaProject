@@ -114,18 +114,26 @@ namespace backend.Controllers
                 (x => x.orderId.Equals(vnpTxnRef));
             if (getOrderID != null)
             {
-                if (vnpResponseCode != "00")
+                try
                 {
-                    getOrderID.PaymentStatus = PaymentStatus.PaymentFailure.ToString();
+                    if (vnpResponseCode != "00")
+                    {
+                        getOrderID.PaymentStatus = PaymentStatus.PaymentFailure.ToString();
+                        getOrderID.message = responseMessage;
+
+                        _dataContext.Order.Update(getOrderID);
+                    }
+                    getOrderID.PaymentStatus = PaymentStatus.PaymentSuccess.ToString();
                     getOrderID.message = responseMessage;
-
                     _dataContext.Order.Update(getOrderID);
-                }
-                getOrderID.PaymentStatus = PaymentStatus.PaymentSuccess.ToString();
-                getOrderID.message = responseMessage;
-                _dataContext.Order.Update(getOrderID);
+                    _dataContext.SaveChanges();
 
-                return Ok("Cập nhật thành công");
+                    return Ok("Cập nhật thành công");
+                }
+                catch (Exception ex) 
+                {
+                    Console.WriteLine(ex.ToString());
+                }
             }
             return BadRequest("Không tìm thấy orderID");
         }
