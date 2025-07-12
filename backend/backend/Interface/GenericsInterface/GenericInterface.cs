@@ -1,14 +1,15 @@
-﻿namespace backend.Interface.GenericsInterface
+﻿using backend.ModelDTO.BookingHistoryDTO.OrderDetailRespond;
+
+namespace backend.Interface.GenericsInterface
+
 {
-    public interface GenericInterface<TEntity>
+    // Chia ra làm 2 kiểu generic 
+    // T List có nghĩa là danh sách 
+    // TDetail có nghĩa là xem chi tiết
+    public interface GenericInterface<TList , TDetail>
     {
-        Task<bool> add(TEntity entity);
-        Task<bool> remove(string Id);
+        Task<List<TList>> getAll(string userID);
 
-        Task<bool> edit(int Id, TEntity entity);
-
-        List<TEntity> getListItems();
-
-        Task SaveChanges();
+        Task<TDetail> getByID(string id);
     }
 }
