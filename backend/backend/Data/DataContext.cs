@@ -104,6 +104,7 @@ namespace backend.Data
             );
 
             var customerID = "a1b2c3d4-e5f6-7a8b-c9d0-e1f2a3b4c5e1";
+
             modelBuilder.Entity<Customer>().HasData(
                 new Customer()
                 {
@@ -267,6 +268,15 @@ namespace backend.Data
                 new Seats { seatsId = seat1Id, seatsNumber = "A1", isTaken = false, cinemaRoomId = room1Id },
                 new Seats { seatsId = seat2Id, seatsNumber = "A2", isTaken = false, cinemaRoomId = room1Id }
             );
+
+            for (int i = 3; i <= 22; i++) // Bắt đầu từ A3 đến A22
+            {
+                var newSeatId = Guid.NewGuid().ToString(); // Sinh GUID mới cho mỗi ghế
+                var seatNumber = "A" + i; // Tạo số ghế (ví dụ: A3, A4, ...)
+                modelBuilder.Entity<Seats>().HasData(
+                    new Seats { seatsId = newSeatId, seatsNumber = seatNumber, isTaken = false, cinemaRoomId = room1Id }
+                );
+            }
 
             // Seed Data for PriceInformation
             var priceId1 = "0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e"; // Example GUID
