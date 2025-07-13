@@ -29,6 +29,7 @@ using backend.Services.BookingHistoryServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddRequestTimeouts();
 
 
 builder.Services.AddControllers().AddJsonOptions(x =>
