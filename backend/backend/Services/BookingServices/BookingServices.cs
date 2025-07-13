@@ -35,7 +35,7 @@ namespace backend.Services.BookingServices
             }
 
             // Tra kq người dùng
-            var getCustomerInfo = _dataContext.Customers.FirstOrDefault(x => x.userID.Equals(orderRequestDTO.userId));
+            var getCustomerInfo = _dataContext.Customers.FirstOrDefault(x => x.Id.Equals(orderRequestDTO.userId));
 
             if (getCustomerInfo == null)
             {
