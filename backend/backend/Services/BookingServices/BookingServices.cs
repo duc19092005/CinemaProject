@@ -6,268 +6,225 @@ using backend.Model.Booking;
 using backend.Model.Price;
 using backend.ModelDTO.Customer.OrderRequest;
 using backend.ModelDTO.Customer.OrderRespond;
-using backend.Services.VnpayServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Linq;
-using Microsoft.AspNetCore.Http.Timeouts; // Đảm bảo bạn có namespace này
-
+using Microsoft.AspNetCore.Http; // Ensure this namespace is present
 
 namespace backend.Services.BookingServices
 {
     public class BookingServices : IBookingServices
     {
         private readonly DataContext _dataContext;
+        private readonly IVnpayService _vnpayService; // Renamed for convention
 
-        private readonly IVnpayService vnpay;
-
-        public BookingServices(DataContext dataContext , IVnpayService vnpayService)
+        public BookingServices(DataContext dataContext, IVnpayService vnpayService)
         {
             _dataContext = dataContext;
-            vnpay = vnpayService;
+            _vnpayService = vnpayService; // Assigned to the renamed field
         }
-        [RequestTimeout(60000)]
-        public async Task<OrderRespondDTO> booking(OrderRequestDTO orderRequestDTO , HttpContext httpContext)
+
+        public async Task<OrderRespondDTO> booking(OrderRequestDTO orderRequestDTO, HttpContext httpContext)
         {
-            try
+            // --- Input Validation and Pre-checks ---
+            if (string.IsNullOrEmpty(orderRequestDTO.userId)) // Using IsNullOrEmpty for string IDs
             {
-                if (orderRequestDTO.userId == null)
+                return new OrderRespondDTO { Error = "Error: User ID is missing." };
+            }
+
+            var customer = await _dataContext.Customers
+                                             .FirstOrDefaultAsync(c => c.Id == orderRequestDTO.userId); // Use FirstOrDefaultAsync
+            if (customer == null)
+            {
+                return new OrderRespondDTO { Error = "Error: User not found." };
+            }
+
+            if (string.IsNullOrEmpty(orderRequestDTO.movieScheduleId)) // Using IsNullOrEmpty for string IDs
+            {
+                return new OrderRespondDTO { Error = "Error: Movie schedule is empty." };
+            }
+
+            var requestedTotalSeats = orderRequestDTO.seatsRequestDTOs?.Count() ?? 0;
+            var userTypeQuantitySum = orderRequestDTO.userTypeRequestDTO?.Sum(x => x.quantity) ?? 0;
+
+            if (requestedTotalSeats == 0 || requestedTotalSeats != userTypeQuantitySum)
+            {
+                return new OrderRespondDTO { Error = "Error: Number of seats selected is incorrect or missing." };
+            }
+
+            var movieSchedule = await _dataContext.movieSchedule
+                                                .FirstOrDefaultAsync(ms => ms.movieScheduleId == orderRequestDTO.movieScheduleId);
+            if (movieSchedule == null)
+            {
+                return new OrderRespondDTO { Error = "Error: Movie schedule not found." };
+            }
+
+            var requestedSeatIds = orderRequestDTO.seatsRequestDTOs.Select(s => s.seatID).ToList();
+            if (!requestedSeatIds.Any()) // Check if any seat IDs were actually provided
+            {
+                return new OrderRespondDTO { Error = "Error: No seats selected for booking." };
+            }
+
+            var existingTakenSeats = await _dataContext.Seats
+                .Where(s => requestedSeatIds.Contains(s.seatsId) && s.isTaken)
+                .ToListAsync();
+
+            if (existingTakenSeats.Any())
+            {
+                var takenSeatNumbers = string.Join(", ", existingTakenSeats.Select(s => s.seatsNumber));
+                return new OrderRespondDTO
                 {
-                    return new OrderRespondDTO()
-                    {
-                        Error = "Lỗi Thiếu tên người dùng"
-                    };
-                }
+                    Error = $"Error: The following seats are already taken. Please choose different seats: {takenSeatNumbers}"
+                };
+            }
 
-                // Tra kq người dùng
-                var getCustomerInfo = _dataContext.Customers.FirstOrDefault(x => x.Id.Equals(orderRequestDTO.userId));
+            // --- Calculate Total Amount ---
+            long totalAmount = 0;
+            string movieVisualId = movieSchedule.movieVisualFormatID.IsNullOrEmpty() ? "NullAble" : movieSchedule.movieVisualFormatID;
 
-                if (getCustomerInfo == null)
+            // Calculate ticket price
+            if (orderRequestDTO.userTypeRequestDTO != null && orderRequestDTO.userTypeRequestDTO.Any())
+            {
+                var userTypeRequests = orderRequestDTO.userTypeRequestDTO.ToDictionary(x => x.userTypeID, x => x.quantity);
+                var userTypeIds = userTypeRequests.Keys;
+
+                // Get relevant price information mappings
+                var priceMappings = await _dataContext.priceInformationForEachUserFilmType
+                    .Where(x => userTypeIds.Contains(x.userTypeId) && x.movieVisualFormatId == movieVisualId)
+                    .ToDictionaryAsync(x => x.userTypeId, x => x.priceInformationID);
+
+                // Get actual prices
+                var priceInformationIds = priceMappings.Values;
+                var prices = await _dataContext.priceInformation
+                    .Where(p => priceInformationIds.Contains(p.priceInformationId))
+                    .ToDictionaryAsync(p => p.priceInformationId, p => p.priceAmount);
+
+                foreach (var userTypeReq in userTypeRequests)
                 {
-                    return new OrderRespondDTO()
+                    if (priceMappings.TryGetValue(userTypeReq.Key, out string priceInfoId))
                     {
-                        Error = "Lỗi Không tìm thấy người dùng"
-                    };
-                }
-                if (orderRequestDTO.movieScheduleId == null)
-                {
-                    // Xử lý trường hợp movieScheduleId là null
-                    return new OrderRespondDTO()
-                    {
-                        Error = "Lỗi Lịch chiếu bị trống"
-                    };
-                }
-
-                var userTypeSum = orderRequestDTO.userTypeRequestDTO.Sum(x => x.quantity);
-                if (orderRequestDTO.seatsRequestDTOs.Count() < userTypeSum || orderRequestDTO.seatsRequestDTOs.Count() > userTypeSum)
-                {
-                    return new OrderRespondDTO()
-                    {
-                        Error = "Lỗi Số ghế đặt bị dư hoặc thiếu"
-                    };
-                }
-
-
-                var orderIDGenerate = Guid.NewGuid().ToString();
-                // Logic "Dù thất bại hay thành công đều phải add vào bảng" của bạn sẽ ở đây
-                // Ví dụ: Tạo một bản ghi Order ban đầu với trạng thái pending
-
-                string movieVisualID = string.Empty;
-                long totalAmount = 0;
-                var findMovieSchedule = _dataContext.movieSchedule
-                                                        .FirstOrDefault(x => x.movieScheduleId.Equals(orderRequestDTO.movieScheduleId));
-
-                if (findMovieSchedule == null)
-                {
-                    return new OrderRespondDTO()
-                    {
-                        Error = "Lỗi Không tìm thấy lịch chiếu phim"
-                    };
-                }
-
-                var requestedSeatIds = orderRequestDTO.seatsRequestDTOs.Select(s => s.seatID).ToList();
-
-                var existingTakenSeats = await _dataContext.Seats
-                    .Where(s => requestedSeatIds.Contains(s.seatsId) && s.isTaken)
-                    .ToListAsync();
-
-                if (existingTakenSeats.Any())
-                {
-                    var takenSeatNames = string.Join(", ", existingTakenSeats.Select(s => s.seatsNumber));
-                    return new OrderRespondDTO()
-                    {
-                        Error = $"Lỗi Các ghế sau đã được đặt vui lòng chuyển ghế khác {takenSeatNames}"
-                    };
-                }
-
-                movieVisualID = findMovieSchedule.movieVisualFormatID.IsNullOrEmpty() ? "NullAble" : findMovieSchedule.movieVisualFormatID;
-
-                // Lấy danh sách các UserTypeID từ yêu cầu
-                var userTypeIds = orderRequestDTO
-                    .userTypeRequestDTO.ToList();
-
-                // Chọn ra userTypeID
-
-                // Theo Logic nếu usertypeID ban đầu và visualID ban đầu bằng với price
-                // thì sẽ nhân với số lượng của userTypeID của requeset
-
-                var getUserTypeIDs = userTypeIds.
-                    Select(x => x.userTypeID);
-
-                // Truy vấn PriceID
-                // Lọc được giá
-
-                var getPriceIDForeachUserType = _dataContext.priceInformationForEachUserFilmType
-                    .Where(x => getUserTypeIDs.Contains(x.userTypeId))
-                    .Select(x => x.priceInformationID);
-
-                // Truy vấn Giá gốc
-                // Cái này là đã lấy được giá đã được lọc theo userTypeID visualFormatID
-
-                // Lấy được Tất cả Danh sách
-                var getPriceInformation =
-                    _dataContext.priceInformation
-                    .Where(x => getPriceIDForeachUserType
-                    .Contains(x.priceInformationId))
-                    .ToList();
-
-
-                // Lấy priceID để chủ động tìm kiếm giá
-
-                var getUserTypeAndPriceID = _dataContext.priceInformationForEachUserFilmType
-                    .Where(x => getUserTypeIDs.Contains(x.userTypeId)
-                    && x.movieVisualFormatId.Equals(movieVisualID)
-                    && getPriceIDForeachUserType.Contains(x.priceInformationID))
-                    .ToDictionary(x => x.userTypeId, x => x.priceInformationID);
-
-                // Xuất ra quantity
-
-                var toDictionaryRequestsDTO = userTypeIds.ToDictionary(x => x.userTypeID, x => x.quantity);
-
-                var priceLookup = getPriceInformation.ToDictionary(x => x.priceInformationId, x => x.priceAmount);
-
-
-                foreach (var getQuantityAndUserType in toDictionaryRequestsDTO)
-                {
-                    // Lấy userTypeID
-                    string userTypeID = getQuantityAndUserType.Key;
-                    // Lấy số lượng 
-                    int Quantity = getQuantityAndUserType.Value;
-
-                    if (getUserTypeAndPriceID.TryGetValue(userTypeID, out string priceInfoID))
-                    {
-                        if (priceLookup.TryGetValue(priceInfoID, out long priceID))
+                        if (prices.TryGetValue(priceInfoId, out long pricePerUnit))
                         {
-                            totalAmount += priceID * Quantity;
+                            totalAmount += pricePerUnit * userTypeReq.Value;
+                        }
+                        else
+                        {
+                            // Log or handle case where price information is missing for a valid priceInfoId
+                            Console.WriteLine($"Warning: Price information not found for PriceInfoID: {priceInfoId}");
                         }
                     }
-
-                }
-                if (orderRequestDTO.foodRequestDTOs.Count() > 0)
-                {
-                    // Truy vấn giá đồ ăn
-
-                    var ToDictionary =
-                        orderRequestDTO.foodRequestDTOs.ToDictionary(x => x.foodID, x => x.quantity);
-                    var getFoodID =
-                        ToDictionary.Select(x => x.Key);
-                    var getFoodPrice =
-                        _dataContext.foodInformation.Where(x => getFoodID.Contains(x.foodInformationId))
-                        .ToDictionary(x => x.foodInformationId, x => x.foodPrice);
-
-                    long totalAmountFood = 0;
-
-                    foreach (var foodInfo in ToDictionary)
+                    else
                     {
-                        string foodID = foodInfo.Key;
-                        int foodQuantity = foodInfo.Value;
-
-                        if (getFoodPrice.TryGetValue(foodID, out long price))
-                        {
-                            totalAmountFood += foodQuantity * price;
-                        }
+                        // Log or handle case where a userTypeID doesn't have a valid price mapping
+                        Console.WriteLine($"Warning: Price mapping not found for UserTypeID: {userTypeReq.Key} and MovieVisualID: {movieVisualId}");
                     }
-
-                    totalAmount += totalAmountFood;
-
-                }
-
-                var createdURL = vnpay.createURL(totalAmount, orderIDGenerate, httpContext);
-
-                // Lưu thông tin thanh toán
-
-                var transation = _dataContext.Database.BeginTransaction();
-                try
-                {
-                    await _dataContext.Order.AddAsync(new Order()
-                    {
-                        orderId = orderIDGenerate,
-                        paymentRequestCreatedDate = DateTime.Now,
-                        PaymentStatus = PaymentStatus.Pending.ToString(),
-                        totalAmount = totalAmount,
-                        customerID = orderRequestDTO.userId,
-
-
-                    });
-
-                    List<orderDetailTicket> orderDetailTickets = new List<orderDetailTicket>();
-                    foreach (var seatsID in orderRequestDTO.seatsRequestDTOs)
-                    {
-                        orderDetailTickets.Add(new orderDetailTicket()
-                        {
-                            orderId = orderIDGenerate,
-                            movieScheduleID = orderRequestDTO.movieScheduleId,
-                            seatsId = seatsID.seatID
-                        });
-                    }
-                    await _dataContext.TicketOrderDetail.AddRangeAsync(orderDetailTickets);
-                    // Sau khi luuw voo trong DB thành công tiến hành cập nhật trạng thái ghế
-                    var getSeats = _dataContext.Seats
-                        .Where(x => orderRequestDTO.seatsRequestDTOs
-                        .Select(x => x.seatID)
-                        .Contains(x.seatsId)).ToList();
-                    foreach (var setSeatsStatus in getSeats)
-                    {
-                        setSeatsStatus.isTaken = true;
-                    }
-
-                    _dataContext.Seats.UpdateRange(getSeats);
-                    if (orderRequestDTO.foodRequestDTOs.Count() > 0)
-                    {
-                        List<orderDetailFood> orderDetailFoods = new List<orderDetailFood>();
-                        foreach (var foods in orderRequestDTO.foodRequestDTOs)
-                        {
-                            orderDetailFoods.Add(new orderDetailFood()
-                            {
-                                orderId = orderIDGenerate,
-                                quanlity = foods.quantity,
-                                foodInformationId = foods.foodID,
-                            });
-                        }
-                        await _dataContext.FoodOrderDetail.AddRangeAsync(orderDetailFoods);
-                    }
-                    await _dataContext.SaveChangesAsync();
-                    await transation.CommitAsync();
-                    return new OrderRespondDTO()
-                    {
-                        VnpayURL = createdURL,
-                        TotalAmount = totalAmount
-                    };
-                }
-                catch (Exception ex)
-                {
-                    await transation.RollbackAsync();
-                    Console.WriteLine(ex.ToString());
-                    return new OrderRespondDTO()
-                    {
-                        Error = "Lỗi Hệ thống Không lưu được trên Database"
-                    };
                 }
             }
-            catch (Exception e)
+
+            // Calculate food price
+            if (orderRequestDTO.foodRequestDTOs != null && orderRequestDTO.foodRequestDTOs.Any())
             {
-                Console.WriteLine("Lỗi" + e.Message);
-                return new OrderRespondDTO() { Error = $"Lỗi {e.Message}" };
+                var foodRequests = orderRequestDTO.foodRequestDTOs.ToDictionary(f => f.foodID, f => f.quantity);
+                var foodIds = foodRequests.Keys;
+
+                var foodPrices = await _dataContext.foodInformation
+                    .Where(f => foodIds.Contains(f.foodInformationId))
+                    .ToDictionaryAsync(f => f.foodInformationId, f => f.foodPrice);
+
+                foreach (var foodReq in foodRequests)
+                {
+                    if (foodPrices.TryGetValue(foodReq.Key, out long foodPrice))
+                    {
+                        totalAmount += foodPrice * foodReq.Value;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Warning: Food price not found for FoodID: {foodReq.Key}");
+                    }
+                }
+            }
+
+            // --- Generate Order ID and VNPAY URL ---
+            var orderId = Guid.NewGuid().ToString();
+            string vnpayUrl;
+            try
+            {
+                vnpayUrl = _vnpayService.createURL(totalAmount, orderId, httpContext);
+            }
+            catch (Exception ex)
+            {
+                // Handle VNPAY URL creation failure
+                Console.WriteLine($"Error creating VNPAY URL: {ex.Message}");
+                return new OrderRespondDTO { Error = "Error: Failed to create payment URL." };
+            }
+
+            // --- Database Transaction ---
+            await using var transaction = await _dataContext.Database.BeginTransactionAsync(); // Use await using for async disposal
+            try
+            {
+                // Create Order
+                var order = new Order
+                {
+                    orderId = orderId,
+                    paymentRequestCreatedDate = DateTime.Now,
+                    PaymentStatus = PaymentStatus.Pending.ToString(),
+                    totalAmount = totalAmount,
+                    customerID = orderRequestDTO.userId,
+                };
+                await _dataContext.Order.AddAsync(order);
+
+                // Create Ticket Order Details
+                var orderDetailTickets = orderRequestDTO.seatsRequestDTOs
+                    .Select(s => new orderDetailTicket
+                    {
+                        orderId = orderId,
+                        movieScheduleID = orderRequestDTO.movieScheduleId,
+                        seatsId = s.seatID
+                    })
+                    .ToList();
+                await _dataContext.TicketOrderDetail.AddRangeAsync(orderDetailTickets);
+
+                // Update Seat Status
+                var seatsToUpdate = await _dataContext.Seats
+                    .Where(s => requestedSeatIds.Contains(s.seatsId))
+                    .ToListAsync();
+
+                foreach (var seat in seatsToUpdate)
+                {
+                    seat.isTaken = true;
+                }
+                _dataContext.Seats.UpdateRange(seatsToUpdate);
+
+                // Create Food Order Details
+                if (orderRequestDTO.foodRequestDTOs != null && orderRequestDTO.foodRequestDTOs.Any())
+                {
+                    var orderDetailFoods = orderRequestDTO.foodRequestDTOs
+                        .Select(f => new orderDetailFood
+                        {
+                            orderId = orderId,
+                            quanlity = f.quantity,
+                            foodInformationId = f.foodID,
+                        })
+                        .ToList();
+                    await _dataContext.FoodOrderDetail.AddRangeAsync(orderDetailFoods);
+                }
+
+                await _dataContext.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return new OrderRespondDTO
+                {
+                    VnpayURL = vnpayUrl,
+                    TotalAmount = totalAmount
+                };
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                Console.WriteLine($"Database transaction error during booking: {ex.ToString()}"); // Log full exception
+                return new OrderRespondDTO
+                {
+                    Error = "Error: System failed to save order to the database. Please try again."
+                };
             }
         }
     }
