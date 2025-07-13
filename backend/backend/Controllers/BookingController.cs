@@ -1,6 +1,7 @@
 ﻿using backend.Interface.BookingInterface;
 using backend.ModelDTO.Customer.OrderRequest;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Timeouts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
@@ -16,6 +17,7 @@ namespace backend.Controllers
             _services = services;
         }
 
+        [RequestTimeout(600000)]
         [HttpPost("Booking")]
         public async Task<IActionResult> booking(OrderRequestDTO dtos)
         {
