@@ -17,9 +17,9 @@ namespace backend.ModelDTO.BookingHistoryDTO.OrderDetailRespond
         public string userName { get; set; } = "";
 
 
-        public List<orderDetailTicket> DetailTickets { get; set; } = [];
+        public string SeatsNumber { get; set; } = string.Empty;
 
-        public List<orderDetailFood> DetailFoods { get; set; } = [];
+        public string ProductList { get; set; } = string.Empty;
     }
 }
 

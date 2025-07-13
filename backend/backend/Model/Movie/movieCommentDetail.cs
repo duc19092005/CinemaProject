@@ -19,6 +19,8 @@ namespace backend.Model.Movie
         [Column(TypeName = "nvarchar(200)")]
         public string userCommentDetail {  get; set; } = string.Empty;
 
+        public DateTime createdCommentTime { get; set; }
+
         public movieInformation movieInformation { get; set; } = null!;
 
         public Customer Customer { get; set; } = null!;

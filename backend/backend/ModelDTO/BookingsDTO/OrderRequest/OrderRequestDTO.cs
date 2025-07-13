@@ -6,7 +6,6 @@
 
         public string movieScheduleId { get; set; } = string.Empty;
 
-        public bool isPayment { get; set; } = false;
 
         public List<SeatsRequestDTO> seatsRequestDTOs { get; set; } = [];
 

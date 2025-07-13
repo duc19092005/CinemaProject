@@ -184,6 +184,7 @@ namespace backend.Services.BookingServices
                     totalAmount = totalAmount ,
                     customerID = orderRequestDTO.userId,
                     
+                    
                 });
 
                 List<orderDetailTicket> orderDetailTickets = new List<orderDetailTicket>();

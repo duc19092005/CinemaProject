@@ -23,6 +23,9 @@ using backend.Services.CloudinaryServices;
 using backend.Interface.VnpayInterface;
 using backend.Services.VnpayServices;
 using Microsoft.Extensions.Logging;
+using backend.ModelDTO.BookingHistoryDTO.OrderDetailRespond;
+using backend.ModelDTO.BookingHistoryDTO.OrderRespond;
+using backend.Services.BookingHistoryServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -121,6 +124,9 @@ builder.Services.AddScoped<IScheduleServices, ScheduleServices>();
 builder.Services.AddScoped<IBookingServices, BookingServices>();
 
 builder.Services.AddScoped<VNPAY.NET.IVnpay, VNPAY.NET.Vnpay>();
+
+builder.Services.AddScoped
+    <GenericInterface<BookingHistoryRespondList, OrderDetailRespond>, OrderDetailServices>();
 
 
 Console.WriteLine(builder.Configuration.GetConnectionString("DefaultConnection"));
