@@ -45,5 +45,12 @@ namespace backend.Controllers
             var getAll = dataContext.userType.ToList();
             return Ok(getAll);
         }
+
+        [HttpGet("getAllOrder")]
+        public IActionResult getAllOrder()
+        {
+            var getAll = dataContext.Order.ToList();
+            return Ok(getAll);
+        }
     }
 }
