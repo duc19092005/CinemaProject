@@ -56,6 +56,11 @@ namespace backend.Services.Auth
                     roleId = getCustomerRoleID.roleId
                 };
                 await _dataContext.userRoleInformation.AddAsync(newUserRoleInformation);
+
+                var addNewUserInfo = new userInformation()
+                {
+
+                };
                 return new registerRespondDTO { statusCode = StatusCodes.Status201Created, message = "Đã tạo thành công" };
             }
             return new registerRespondDTO { statusCode = StatusCodes.Status400BadRequest, message = "Đã tạo thành công" };
