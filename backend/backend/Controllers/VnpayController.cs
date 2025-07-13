@@ -126,6 +126,7 @@ namespace backend.Controllers
                     }
                     getOrderID.PaymentStatus = PaymentStatus.PaymentSuccess.ToString();
                     getOrderID.message = responseMessage;
+                    
                     _dataContext.Order.Update(getOrderID);
                     _dataContext.SaveChanges();
 
@@ -137,6 +138,17 @@ namespace backend.Controllers
                 }
             }
             return BadRequest("Không tìm thấy orderID");
+        }
+
+        [HttpGet("getPaymentStatus/{orderID}")]
+        public IActionResult getPaymentStatus(string orderID)
+        {
+            var findOrderID = _dataContext.Order.FirstOrDefault(x => x.orderId.Equals(orderID));
+            if (findOrderID != null) 
+            {
+                return BadRequest();
+            }
+            return Ok(findOrderID);
         }
 
         [HttpGet("CallbackURL")]
