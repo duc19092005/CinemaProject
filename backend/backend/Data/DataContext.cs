@@ -269,14 +269,28 @@ namespace backend.Data
                 new Seats { seatsId = seat2Id, seatsNumber = "A2", isTaken = false, cinemaRoomId = room1Id }
             );
 
-            for (int i = 3; i <= 22; i++) // Bắt đầu từ A3 đến A22
-            {
-                var newSeatId = Guid.NewGuid().ToString(); // Sinh GUID mới cho mỗi ghế
-                var seatNumber = "A" + i; // Tạo số ghế (ví dụ: A3, A4, ...)
-                modelBuilder.Entity<Seats>().HasData(
-                    new Seats { seatsId = newSeatId, seatsNumber = seatNumber, isTaken = false, cinemaRoomId = room1Id }
-                );
-            }
+            modelBuilder.Entity<Seats>().HasData(
+                new Seats { seatsId = "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d", seatsNumber = "A3", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e", seatsNumber = "A4", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f", seatsNumber = "A5", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a", seatsNumber = "A6", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b", seatsNumber = "A7", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c", seatsNumber = "A8", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "a7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d", seatsNumber = "A9", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "b8c9d0e1-f2a3-4b5c-6d7e-8f9a0b1c2d3e", seatsNumber = "A10", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "c9d0e1f2-a3b4-5c6d-7e8f-9a0b1c2d3e4f", seatsNumber = "A11", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a", seatsNumber = "A12", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b", seatsNumber = "A13", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c", seatsNumber = "A14", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d", seatsNumber = "A15", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "b4c5d6e7-f8a9-0b1c-2d3e-4f5a6b7c8d9e", seatsNumber = "A16", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "c5d6e7f8-a9b0-1c2d-3e4f-5a6b7c8d9e0f", seatsNumber = "A17", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "d6e7f8a9-b0c1-2c3d-4e5f-6a7b8c9d0e1f", seatsNumber = "A18", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "e7f8a9b0-c1d2-3d4e-5f6a-7b8c9d0e1f2a", seatsNumber = "A19", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "f8a9b0c1-d2e3-4e5f-6a7b-8c9d0e1f2a3b", seatsNumber = "A20", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "a9b0c1d2-e3f4-5f6a-7b8c-9d0e1f2a3b4c", seatsNumber = "A21", isTaken = false, cinemaRoomId = room1Id },
+                new Seats { seatsId = "b0c1d2e3-f4a5-6a7b-8c9d-0e1f2a3b4c5d", seatsNumber = "A22", isTaken = false, cinemaRoomId = room1Id }
+            );
 
             // Seed Data for PriceInformation
             var priceId1 = "0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e"; // Example GUID
