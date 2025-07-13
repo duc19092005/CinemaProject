@@ -51,6 +51,8 @@ export default function StaffManager() {
     rạp:"A01",
   });
 
+  const [showAccountMenu, setShowAccountMenu] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState<boolean>(false);
   const [editingStaff, setEditingStaff] = useState<EditingStaff | null>(null);
 
@@ -134,7 +136,27 @@ export default function StaffManager() {
           <span style={{ fontWeight: "bold", fontSize: "20px" }}>Cinema</span>
           <span style={{ color: "rgba(255,255,255,0.7)", marginLeft: "8px" }}>@Cnpm2025</span>
         </div>
-        <span style={{ fontSize: "28px" }}>👤</span>
+          <div style={{ position: "relative" }}>
+          <span 
+              style={{ fontSize: "28px", cursor: "pointer" }} 
+              onClick={() => setShowAccountMenu(!showAccountMenu)}
+            >👤
+          </span>
+  {showAccountMenu && (
+    <div style={{
+      position: "absolute", right: 0, top: "36px",
+      background: "#4c65a8", color: "white", borderRadius: "4px",
+      padding: "8px", minWidth: "100px", textAlign: "center"
+    }}>
+      <button
+        onClick={() => { setShowLogoutModal(true); setShowAccountMenu(false); }}
+        style={{ background: "none", border: "none", color: "white", cursor: "pointer" }}
+      >
+        Đăng xuất
+      </button>
+    </div>
+  )}
+</div>
       </div>
 
       {/* Form thêm nhân viên */}
@@ -275,7 +297,30 @@ export default function StaffManager() {
           </div>
         </div>
       )}
-
+      {showLogoutModal && (
+    <div style={modalOverlayStyle}>
+    <div style={{ background:"#4c65a8", padding:"24px", borderRadius:"8px", textAlign:"center", color:"white", width:"300px" }}>
+      <div style={{ display:"flex", justifyContent:"center", marginBottom:"8px" }}>
+        <img src="/images/warning.png" alt="!" style={{ width:"40px" }} />
+      </div>
+      <p>Bạn chắc chắn muốn đăng xuất không?</p>
+      <div style={{ display:"flex", justifyContent:"space-around", marginTop:"16px" }}>
+        <button
+          onClick={() => { alert("Đã đăng xuất!"); setShowLogoutModal(false); }}
+          style={{ padding:"6px 12px", border:"none", borderRadius:"4px", background:"lightgreen", color:"black" }}
+        >
+          Có
+        </button>
+        <button
+          onClick={() => setShowLogoutModal(false)}
+          style={{ padding:"6px 12px", border:"none", borderRadius:"4px", background:'#cc3380', color:"white" }}
+        >
+          Không
+        </button>
+      </div>
+    </div>
+  </div>
+  )}
       {/* Modal chỉnh sửa */}
       {editingStaff && (
   <div style={modalOverlayStyle}>
