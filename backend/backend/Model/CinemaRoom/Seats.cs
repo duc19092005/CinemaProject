@@ -7,9 +7,12 @@ using backend.Model.CinemaRoom;
 using backend.Model.Movie;
 using backend.Model.Price;
 using backend.Model.Product;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Model.CinemaRoom
 {
+    [Index(nameof(seatsId))]
+    [Index(nameof(cinemaRoomId))]
     public class Seats
     {
         [Key]
