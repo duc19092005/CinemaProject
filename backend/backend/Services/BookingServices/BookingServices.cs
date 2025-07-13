@@ -10,6 +10,8 @@ using backend.Services.VnpayServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Linq;
+using Microsoft.AspNetCore.Http.Timeouts; // Đảm bảo bạn có namespace này
+
 
 namespace backend.Services.BookingServices
 {
@@ -24,6 +26,7 @@ namespace backend.Services.BookingServices
             _dataContext = dataContext;
             vnpay = vnpayService;
         }
+        [RequestTimeout(60000)]
         public async Task<OrderRespondDTO> booking(OrderRequestDTO orderRequestDTO , HttpContext httpContext)
         {
             try
