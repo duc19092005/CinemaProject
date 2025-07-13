@@ -42,12 +42,16 @@ export default function QuanLy() {
   };
 
   return (
-    <div style={{ display: "flex", height: "100vh", background: "#1a1143", color: "white", fontFamily: "sans-serif" }}>
+    <div style={{ display: "flex", height: "100vh", background: "#231C60", color: "white", fontFamily: "sans-serif" }}>
       {/* Sidebar */}
       <div style={{
-        width: "200px", background: "#1a1143", padding: "16px", display: "flex",
+        width: "200px", background: "#231C60", padding: "16px", display: "flex",
         flexDirection: "column", gap: "12px", borderRight: "2px solid white"
       }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img src="/images/logo.png" alt="Logo" style={{ height: "40px", marginRight: "8px" }} />
+          <span style={{ fontWeight: "bold", fontSize: "20px" }}>Cinema</span>
+        </div>
         <button
   onClick={() => setActiveTab("rap")}
   style={{
@@ -75,13 +79,13 @@ export default function QuanLy() {
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <h3>Xin chào quản trị viên hệ thống</h3>
           <div style={{ position: "relative" }}>
-  <span style={{ fontSize: "28px", cursor: "pointer" }} onClick={() => setShowAccountMenu(!showAccountMenu)}>👤</span>
-  {showAccountMenu && (
-    <div style={{
-      position: "absolute", right: 0, top: "36px",
-      background: "#4c65a8", color: "white", borderRadius: "4px",
-      padding: "8px", minWidth: "100px", textAlign: "center"
-    }}>
+              <span style={{ fontSize: "28px", cursor: "pointer" }} onClick={() => setShowAccountMenu(!showAccountMenu)}>👤</span>
+          {showAccountMenu && (
+            <div style={{
+              position: "absolute", right: 0, top: "36px",
+              background: "#231C60", color: "white", borderRadius: "4px",
+              padding: "8px", minWidth: "100px", textAlign: "center"
+          }}>
       <button onClick={() => { setShowLogoutModal(true); setShowAccountMenu(false); }} 
         style={{ background: "none", border: "none", color: "white", cursor: "pointer" }}>
         Đăng xuất
