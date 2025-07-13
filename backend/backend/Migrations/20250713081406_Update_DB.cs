@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace backend.Migrations
 {
     /// <inheritdoc />
-    public partial class Fix_Guid : Migration
+    public partial class Update_DB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -435,7 +435,8 @@ namespace backend.Migrations
                 {
                     movieId = table.Column<string>(type: "varchar(100)", nullable: false),
                     customerID = table.Column<string>(type: "varchar(100)", nullable: false),
-                    userCommentDetail = table.Column<string>(type: "nvarchar(200)", nullable: false)
+                    userCommentDetail = table.Column<string>(type: "nvarchar(200)", nullable: false),
+                    createdCommentTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -460,9 +461,10 @@ namespace backend.Migrations
                 {
                     orderId = table.Column<string>(type: "varchar(100)", nullable: false),
                     paymentMethod = table.Column<string>(type: "varchar(50)", nullable: false),
-                    isPay = table.Column<bool>(type: "bit", nullable: false),
+                    PaymentStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     totalAmount = table.Column<long>(type: "bigint", nullable: false),
-                    paymentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    message = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    paymentRequestCreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     customerID = table.Column<string>(type: "varchar(100)", nullable: false)
                 },
                 constraints: table =>
@@ -507,8 +509,7 @@ namespace backend.Migrations
                 {
                     orderId = table.Column<string>(type: "varchar(100)", nullable: false),
                     movieScheduleID = table.Column<string>(type: "varchar(100)", nullable: false),
-                    seatsId = table.Column<string>(type: "varchar(100)", nullable: false),
-                    priceInformationId = table.Column<string>(type: "varchar(100)", nullable: false)
+                    seatsId = table.Column<string>(type: "varchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -531,12 +532,6 @@ namespace backend.Migrations
                         principalTable: "movieSchedule",
                         principalColumn: "movieScheduleId",
                         onDelete: ReferentialAction.NoAction);
-                    table.ForeignKey(
-                        name: "FK_TicketOrderDetail_priceInformation_priceInformationId",
-                        column: x => x.priceInformationId,
-                        principalTable: "priceInformation",
-                        principalColumn: "priceInformationId",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -624,6 +619,11 @@ namespace backend.Migrations
                 values: new object[] { "1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f", "Adult" });
 
             migrationBuilder.InsertData(
+                table: "Customers",
+                columns: new[] { "Id", "IdentityCode", "Name", "dateOfBirth", "phoneNumber", "userID" },
+                values: new object[] { "a1b2c3d4-e5f6-7a8b-c9d0-e1f2a3b4c5e1", "0123456789", "Trần Anh Đức", new DateTime(2005, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "1234567890", "b2c3d4e5-f6a7-8b9c-d0e1-f2a3b4c5d6e7" });
+
+            migrationBuilder.InsertData(
                 table: "cinemaRoom",
                 columns: new[] { "cinemaRoomId", "cinemaId", "cinemaRoomNumber", "isDeleted", "movieVisualFormatID" },
                 values: new object[] { "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", "2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c", 1, false, "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f" });
@@ -656,8 +656,28 @@ namespace backend.Migrations
                 columns: new[] { "seatsId", "cinemaRoomId", "isDelete", "isTaken", "seatsNumber" },
                 values: new object[,]
                 {
+                    { "030ad83d-9628-4a5e-9515-fbf51710d4d5", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A22" },
+                    { "0f74e933-01fe-4cb7-af79-2ac23d21c864", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A12" },
+                    { "1b4223f9-2597-4d09-9248-13c2cba14f15", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A16" },
+                    { "246fcee7-13d4-46ca-8bd5-70bd8f3a1a88", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A17" },
+                    { "2e60c88d-6550-4400-912e-fb17d55e428c", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A15" },
+                    { "4161a7d8-8435-4e0d-bda0-8486e761eb5a", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A4" },
+                    { "5294d0e1-31d5-45c9-9a7d-ed2e04284721", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A14" },
+                    { "53d87829-a9ae-4b90-9829-9a8a91cd5a45", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A19" },
+                    { "6b52538f-3bf1-400d-acda-1229c2550ace", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A20" },
+                    { "6d74d5b0-0c6b-410e-9975-eec545617a28", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A7" },
+                    { "719d3123-7e1e-452f-8cc4-193f827fe209", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A18" },
                     { "8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A1" },
-                    { "9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A2" }
+                    { "9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A2" },
+                    { "9aafad84-181b-438f-b26c-1e93ae09ef21", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A10" },
+                    { "a52a82cf-9ace-449e-8e04-deb5227e9a22", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A9" },
+                    { "af47bb78-a399-40b0-b3ba-a07a36fe837c", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A11" },
+                    { "b5c36431-e498-4def-b5ad-c70267d49eea", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A8" },
+                    { "c3d06288-c05e-40f5-ba16-ac56d269e2dc", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A21" },
+                    { "da1f8742-6d42-4662-98d0-f5e43789e1cb", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A13" },
+                    { "e223566a-8d60-4a55-9090-f2ddeb612b54", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A5" },
+                    { "ee5fbcca-bf10-4dc3-9165-9e549a422f57", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A3" },
+                    { "f0ca2e55-213b-4f39-9d6e-cab89bf39309", "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a", false, false, "A6" }
                 });
 
             migrationBuilder.InsertData(
@@ -849,9 +869,10 @@ namespace backend.Migrations
                 column: "orderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TicketOrderDetail_priceInformationId",
-                table: "TicketOrderDetail",
-                column: "priceInformationId");
+                name: "IX_userInformation_loginUserEmail",
+                table: "userInformation",
+                column: "loginUserEmail",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_userRoleInformation_userId",
@@ -899,6 +920,9 @@ namespace backend.Migrations
                 name: "movieGenre");
 
             migrationBuilder.DropTable(
+                name: "priceInformation");
+
+            migrationBuilder.DropTable(
                 name: "userType");
 
             migrationBuilder.DropTable(
@@ -909,9 +933,6 @@ namespace backend.Migrations
 
             migrationBuilder.DropTable(
                 name: "movieSchedule");
-
-            migrationBuilder.DropTable(
-                name: "priceInformation");
 
             migrationBuilder.DropTable(
                 name: "roleInformation");

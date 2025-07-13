@@ -246,6 +246,166 @@ namespace backend.Migrations
                             isDelete = false,
                             isTaken = false,
                             seatsNumber = "A2"
+                        },
+                        new
+                        {
+                            seatsId = "ee5fbcca-bf10-4dc3-9165-9e549a422f57",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A3"
+                        },
+                        new
+                        {
+                            seatsId = "4161a7d8-8435-4e0d-bda0-8486e761eb5a",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A4"
+                        },
+                        new
+                        {
+                            seatsId = "e223566a-8d60-4a55-9090-f2ddeb612b54",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A5"
+                        },
+                        new
+                        {
+                            seatsId = "f0ca2e55-213b-4f39-9d6e-cab89bf39309",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A6"
+                        },
+                        new
+                        {
+                            seatsId = "6d74d5b0-0c6b-410e-9975-eec545617a28",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A7"
+                        },
+                        new
+                        {
+                            seatsId = "b5c36431-e498-4def-b5ad-c70267d49eea",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A8"
+                        },
+                        new
+                        {
+                            seatsId = "a52a82cf-9ace-449e-8e04-deb5227e9a22",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A9"
+                        },
+                        new
+                        {
+                            seatsId = "9aafad84-181b-438f-b26c-1e93ae09ef21",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A10"
+                        },
+                        new
+                        {
+                            seatsId = "af47bb78-a399-40b0-b3ba-a07a36fe837c",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A11"
+                        },
+                        new
+                        {
+                            seatsId = "0f74e933-01fe-4cb7-af79-2ac23d21c864",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A12"
+                        },
+                        new
+                        {
+                            seatsId = "da1f8742-6d42-4662-98d0-f5e43789e1cb",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A13"
+                        },
+                        new
+                        {
+                            seatsId = "5294d0e1-31d5-45c9-9a7d-ed2e04284721",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A14"
+                        },
+                        new
+                        {
+                            seatsId = "2e60c88d-6550-4400-912e-fb17d55e428c",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A15"
+                        },
+                        new
+                        {
+                            seatsId = "1b4223f9-2597-4d09-9248-13c2cba14f15",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A16"
+                        },
+                        new
+                        {
+                            seatsId = "246fcee7-13d4-46ca-8bd5-70bd8f3a1a88",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A17"
+                        },
+                        new
+                        {
+                            seatsId = "719d3123-7e1e-452f-8cc4-193f827fe209",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A18"
+                        },
+                        new
+                        {
+                            seatsId = "53d87829-a9ae-4b90-9829-9a8a91cd5a45",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A19"
+                        },
+                        new
+                        {
+                            seatsId = "6b52538f-3bf1-400d-acda-1229c2550ace",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A20"
+                        },
+                        new
+                        {
+                            seatsId = "c3d06288-c05e-40f5-ba16-ac56d269e2dc",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A21"
+                        },
+                        new
+                        {
+                            seatsId = "030ad83d-9628-4a5e-9515-fbf51710d4d5",
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            isDelete = false,
+                            isTaken = false,
+                            seatsNumber = "A22"
                         });
                 });
 
@@ -402,6 +562,9 @@ namespace backend.Migrations
 
                     b.Property<string>("customerID")
                         .HasColumnType("varchar(100)");
+
+                    b.Property<DateTime>("createdCommentTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("userCommentDetail")
                         .IsRequired()
