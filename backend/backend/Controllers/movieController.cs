@@ -13,7 +13,6 @@ namespace backend.Controllers
     {
         private readonly IMovieService IMovieService;
 
-
         public movieController(IMovieService IMovieService)
         {
             this.IMovieService = IMovieService;
