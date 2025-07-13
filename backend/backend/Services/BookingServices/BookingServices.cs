@@ -26,6 +26,24 @@ namespace backend.Services.BookingServices
         }
         public async Task<OrderRespondDTO> booking(OrderRequestDTO orderRequestDTO , HttpContext httpContext)
         {
+            if (orderRequestDTO.userId == null)
+            {
+                return new OrderRespondDTO()
+                {
+                    Error = "Lỗi Thiếu tên người dùng"
+                };
+            }
+
+            // Tra kq người dùng
+            var getCustomerInfo = _dataContext.Customers.FirstOrDefault(x => x.userID.Equals(orderRequestDTO.userId));
+
+            if (getCustomerInfo == null)
+            {
+                return new OrderRespondDTO()
+                {
+                    Error = "Lỗi Không tìm thấy người dùng"
+                };
+            }
             if (orderRequestDTO.movieScheduleId == null)
             {
                 // Xử lý trường hợp movieScheduleId là null

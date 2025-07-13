@@ -15,6 +15,7 @@ using System.Reflection.PortableExecutable;
 using Microsoft.AspNetCore.Authorization;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using BCrypt.Net;
 
 namespace backend.Services.Auth
 {
@@ -93,7 +94,10 @@ namespace backend.Services.Auth
                         return getToken;
                     }
                 }
-                return null!;
+                return new loginRespondDTO()
+                {
+                    message = "Error"
+                };
             }
             catch (Exception e)
             {
@@ -107,13 +111,18 @@ namespace backend.Services.Auth
             try
             {
                 var findUser = _dataContext.userInformation.FirstOrDefault
-                (x => x.loginUserEmail.Equals(loginRequest.loginUserName)
-                && x.loginUserPassword.Equals(loginRequest.loginUserPassword));
+                (x => x.loginUserEmail.Equals(loginRequest.loginUserName));
                 if (findUser != null)
                 {
-                    return findUser;
+                    // Kiểm tra có đúng mk hay không
+                    var checkPassword = BCrypt.Net.BCrypt.Verify(loginRequest.loginUserPassword, findUser.loginUserPassword);
+                    if (checkPassword)
+                    {
+                        return findUser;
+                    }
+                    return null!;
                 }
-                return null;
+                return null!;
             }
             catch (Exception e)
             {
@@ -154,6 +163,7 @@ namespace backend.Services.Auth
                     tokenID = gettingToken ,
                     userID = Email,
                     expDate = Hour.ToString(),
+                    message = "Success"
                 };
                 return newAuthRepond;
             }
