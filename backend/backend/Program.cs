@@ -149,6 +149,7 @@ using (var scoped = app.Services.CreateScope())
 }
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseRequestTimeouts(); 
 
 app.UseAuthorization();
 
