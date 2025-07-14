@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\GenericServices\**" />
+    <Content Remove="Services\GenericServices\**" />
+    <EmbeddedResource Remove="Services\GenericServices\**" />
+    <None Remove="Services\GenericServices\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="JWT" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
@@ -24,7 +31,6 @@
 
   <ItemGroup>
     <Folder Include="ModelDTO\PaginiationDTO\Request\" />
-    <Folder Include="Services\GenericServices\" />
   </ItemGroup>
 
 </Project>

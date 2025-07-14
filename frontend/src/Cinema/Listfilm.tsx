@@ -154,7 +154,8 @@ function Listfilm() {
     ];
 
     return (
-        <div className="App bg-slate-900 min-h-screen ">
+        <div className="App bg-fixed w-ful  min-h-screen bg-cover bg-center "
+            style={{ backgroundImage: "url('https://images8.alphacoders.com/136/thumb-1920-1368754.jpeg')" }}>
             {/* Header */}
             <div className="sticky top-0 z-50 bg-slate-900 shadow-md">
                 <header>

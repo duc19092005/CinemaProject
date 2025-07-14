@@ -1,7 +1,7 @@
 import './App.css';
 import Nav from './Header/nav';
 import Bottom from './Footer/bottom';
-import MovieSlider from "./MovieSlider";
+import MovieSlider from "./Components/MovieSlider";
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
 function App() {
   const navigate = useNavigate();
   const handleListfilm = () => {
@@ -20,6 +21,9 @@ function App() {
   }
   const handleComingmovies = () => {
     navigate('/Comingmovies');
+  }
+  const handleShowtimes = () => {
+    navigate('/showtimes');
   }
   const [showTrailer, setShowTrailer] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
@@ -182,7 +186,7 @@ function App() {
             </div>
           </button>
           <button
-            onClick={() => window.open("https://tailwindcss.com/docs/flex-basis", "_blank")}
+            onClick={handleShowtimes}
             className="overflow-hidden relative w50 p-2 h-12 bg-purple-600 text-white border-none rounded-md text-base font-bold cursor-pointer z-10 group"
           >
             🎟 Đặt vé ngay
@@ -242,10 +246,11 @@ function App() {
     </SwiperSlide>
   );
   return (
-    <div className="App min-h-screen w-full bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900">
+    <div className="min-h-screen bg-fixed w-full bg-cover bg-center top-0"
+      style={{ backgroundImage: "url('https://images8.alphacoders.com/136/thumb-1920-1368754.jpeg')" }}>
       <div className="sticky top-0 z-50 bg-slate-950 shadow-md">
         <header>
-          <div className="content-wrapper max-w-screen-xl text-base mx-auto px-8">
+          <div className="content-wrapper max-w-screen-xl text-base mx-auto px-8 ">
             <Nav />
           </div>
         </header>
@@ -257,7 +262,7 @@ function App() {
           {/* Phim đang chiếu */}
           <div className="container mx-auto">
             <section>
-              <h2 className="text-3xl text-white font-bold py-5 uppercase">-- Phim đang chiếu --</h2>
+              <h2 className="text-3xl text-white font-bold pt-10 pb-24 uppercase flex justify-center items-center">-- Phim đang chiếu --</h2>
               <Swiper slidesPerView={4} spaceBetween={30} navigation modules={[Navigation]} className="mySwiper px-6">
                 {movies.map(renderMovieSlide)}
               </Swiper>
@@ -288,7 +293,7 @@ function App() {
 
           {/* Phim sắp chiếu */}
           <section>
-            <h2 className="text-3xl text-white font-bold py-5 uppercase">-- Phim sắp chiếu --</h2>
+            <h2 className="text-3xl text-white font-bold py-5 uppercase pt-10 pb-24 flex justify-center items-center">-- Phim sắp chiếu --</h2>
             <Swiper slidesPerView={4} spaceBetween={30} navigation modules={[Navigation]} className="mySwiper px-6">
               {movies123.map(renderMovieSlide1)}
             </Swiper>

@@ -55,7 +55,7 @@ function Register() {
                                                 />
                                             </div>
                                             <div>
-                                                <label className="flex justify-start items-start mb-2 text-base dark:text-gray-300 px-4 ">Mật khẩu</label>
+                                                <label className="flex justify-start items-start mb-2 text-base font-bold dark:text-gray-300 px-4 ">Mật khẩu</label>
                                                 <input
                                                     id="password"
                                                     className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
@@ -64,7 +64,7 @@ function Register() {
                                                 />
                                             </div>
                                             <div className="w-96">
-                                                <label className="flex justify-start mb-2 text-base dark:text-gray-300 px-4 ">
+                                                <label className="flex justify-start mb-2 text-base font-bold dark:text-gray-300 px-4 ">
                                                     Ngày sinh
                                                 </label>
                                                 <DatePicker
@@ -78,7 +78,7 @@ function Register() {
                                                 />
                                             </div>
                                             <div className="w-96">
-                                                <label className="flex justify-start items-start mb-2 text-base dark:text-gray-300 px-4">Số điện thoại</label>
+                                                <label className="flex justify-start items-start mb-2 text-base font-bold dark:text-gray-300 px-4">Số điện thoại</label>
                                                 <input
                                                     id="phone"
                                                     className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
@@ -89,7 +89,7 @@ function Register() {
                                                 />
                                             </div>
                                             <div className="w-96">
-                                                <label className="flex justify-start items-start mb-2 text-base dark:text-gray-300 px-4">Họ và tên</label>
+                                                <label className="flex justify-start items-start mb-2 text-base font-bold dark:text-gray-300 px-4">Họ và tên</label>
                                                 <input
                                                     id="TenKH"
                                                     className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
@@ -98,7 +98,7 @@ function Register() {
                                                 />
                                             </div>
                                             <div className="w-96">
-                                                <label className="flex justify-start items-start mb-2 text-base dark:text-gray-300 px-4">Số CCCD</label>
+                                                <label className="flex justify-start items-start mb-2 text-base font-bold dark:text-gray-300 px-4">Số CCCD</label>
                                                 <input
                                                     id="CCCD"
                                                     className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"

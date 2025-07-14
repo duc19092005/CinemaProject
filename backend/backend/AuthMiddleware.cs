@@ -13,7 +13,6 @@ namespace backend
     // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
     public class AuthMiddleware
     {
-        private readonly string[] ignorePaths = ["/api/movie/createMovie"];
         private readonly RequestDelegate _next;
 
         public AuthMiddleware(RequestDelegate next)
@@ -23,13 +22,7 @@ namespace backend
 
         public async Task Invoke(HttpContext httpContext)
         {
-            foreach (var ignorePath in ignorePaths)
-            {
-                if (httpContext.Request.Path.StartsWithSegments(ignorePath))
-                {
-                    return;
-                }
-            }
+       
             string headertype = httpContext.Request.Headers["Authorization"].FirstOrDefault() ?? string.Empty ;
             if (string.IsNullOrEmpty(headertype) || !headertype.StartsWith("Bearer"))
             {

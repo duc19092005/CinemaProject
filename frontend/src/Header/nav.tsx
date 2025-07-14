@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TicketIcon } from '@heroicons/react/24/solid';
 import { MapPinIcon } from '@heroicons/react/24/solid';
+import user from "../image/user.png";
 import logo from '../image/logocinema1.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,7 +14,7 @@ function Nav() {
         console.log('Tìm kiếm:', searchTerm);
     };
     const handleBooking = () => {
-        navigate('/booking'); // 👉 chuyển sang trang booking
+        navigate('/booking');
     };
     const handlelogin = () => {
         navigate('/login');
@@ -24,9 +25,12 @@ function Nav() {
     const handleShowtimes = () => {
         navigate('/showtimes');
     }
+    const handleCinezone = () => {
+        navigate('/cinezone');
+    }
 
     return (
-        <nav >
+        <nav className="">
             <div className="flex flex-row justify-between items-center px-4">
                 <div className="basis-1/6 text-center">
                     <button
@@ -68,8 +72,10 @@ function Nav() {
                         </form>
                     </li>
                     <li>
-                        <button onClick={handlelogin} className="px-4 py-2 text-sm text-white font-semibold rounded-md shadow-md transition-transform transform bg-transparent border border-white hover:scale-90 hover:border-purple-600 hover:shadow-purple-900/50 hover:shadow-xl focus:outline-none">
-                            Đăng nhập
+                        <button onClick={handlelogin} className="px-4 py-2 text-sm text-white font-semibold rounded-3xl shadow-md transition-transform transform bg-transparent border border-white hover:scale-90 hover:border-purple-600 hover:shadow-purple-900/50 hover:shadow-xl focus:outline-none">
+                            <img src={user}
+                                alt="account"
+                                className="w-7 flex items-center" />
                         </button>
 
                     </li>
@@ -80,7 +86,7 @@ function Nav() {
                 <div className="relative flex  w-1/2">
                     <span
                         onClick={() => setIsOpen(!isOpen)}
-                        className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2">
+                        className="cursor-pointer px-4 py-2 text-zinc-50 flex items-center gap-2 ">
                         <MapPinIcon className="w-5 h-5 text-purple-400" />
                         Chọn rạp
                     </span>
@@ -88,34 +94,15 @@ function Nav() {
                     {isOpen && (
                         <div className="absolute left-0 top-full w-max mt-2 z-50 ">
                             <div className="grid grid-cols-3 gap-5 p-4  bg-[#0f172a] backdrop-blur-md rounded shadow-lg w-full ">
-                                <div>
-                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
+                                <div onClick={handleCinezone}
+                                    className="text-slate-200 font-bold cursor-pointer  ">Cinema Hòa Hưng (TP.HCM)
                                 </div>
                                 <div>
-                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
+                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinema Vũng Tàu (TP.HCM)</a>
                                 </div>
                                 <div>
-                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
+                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinema Hòa Hưng (TP.HCM)</a>
                                 </div>
-                                <div>
-                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
-                                </div>
-                                <div>
-                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
-                                </div>
-                                <div>
-                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
-                                </div>
-                                <div>
-                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
-                                </div>
-                                <div>
-                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
-                                </div>
-                                <div>
-                                    <a href="https://cinestar.com.vn/" className="text-slate-200 font-bold">Cinestar Quốc Thanh (TP.HCM)</a>
-                                </div>
-
                             </div>
                         </div>
                     )}

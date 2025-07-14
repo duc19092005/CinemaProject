@@ -154,8 +154,8 @@ function Comingmovies() {
     ];
 
     return (
-        <div className="App bg-gradient-to-tr from-slate-900 to-purple-950 min-h-screen top-0">
-            {/* Header */}
+        <div className="min-h-screen bg-fixed w-full bg-cover bg-center top-0"
+            style={{ backgroundImage: "url('https://images8.alphacoders.com/136/thumb-1920-1368754.jpeg')" }}>            
             <div className="sticky top-0 z-50 bg-slate-900 shadow-md">
                 <header>
                     <div className="max-w-screen-xl mx-auto px-8">
@@ -166,7 +166,7 @@ function Comingmovies() {
 
             {/* Main Content */}
             <main className="max-w-screen-xl mx-auto px-8 py-12 ">
-                <h2 className="text-3xl text-white font-bold mb-8 uppercase">-- Phim sắp chiếu --</h2>
+                <h2 className="text-3xl text-white font-bold mb-8 uppercase flex justify-center items-center">-- Phim sắp chiếu --</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     {movies123.map((movie, index) => (
                         <div key={index} className="bg-slate-800 rounded-xl shadow-lg p-4 flex flex-col items-center">
