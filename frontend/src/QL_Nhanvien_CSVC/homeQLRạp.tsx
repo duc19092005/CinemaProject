@@ -152,7 +152,7 @@ export default function QuanLy() {
     } else if (activeTab === "phong") {
       alert(`Đã lưu phòng chiếu: ${JSON.stringify(phong, null, 2)}`);
     } else {
-      setShowConfirmModal(true); // Show confirmation modal for staff
+      setShowConfirmModal(true);
     }
   };
 
@@ -188,7 +188,7 @@ export default function QuanLy() {
       {/* Main content */}
       <div style={{ flex: 1, padding: "24px" }}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <h3>Xin chào quản lý rạp</h3>
+          <h3>Xin chào quản lý</h3>
           <div style={{ position: "relative" }}>
             <span style={{ fontSize: "28px", cursor: "pointer" }} onClick={() => setShowAccountMenu(!showAccountMenu)}>👤</span>
             {showAccountMenu && (
@@ -218,7 +218,6 @@ export default function QuanLy() {
               display: "grid", gridTemplateColumns: "200px 1fr", gap: "8px",
               maxWidth: "600px", marginTop: "16px"
             }}>
-              {/* Rạp */}
               <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Rạp</div>
               <select
                 value={formData.rạp}
@@ -230,7 +229,6 @@ export default function QuanLy() {
                 <option value="A03">A03</option>
                 <option value="A04">A04</option>
               </select>
-              {/* Email */}
               <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Email Đăng nhập</div>
               <input
                 type="text"
@@ -238,7 +236,6 @@ export default function QuanLy() {
                 onChange={(e) => handleInputChange(e, 'email')}
                 style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
               />
-              {/* Mật khẩu */}
               <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Mật khẩu</div>
               <input
                 type="password"
@@ -246,7 +243,6 @@ export default function QuanLy() {
                 onChange={(e) => handleInputChange(e, 'password')}
                 style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
               />
-              {/* Xác nhận Mật khẩu */}
               <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Xác nhận mật khẩu</div>
               <input
                 type="password"
@@ -254,7 +250,6 @@ export default function QuanLy() {
                 onChange={(e) => handleInputChange(e, 'password2')}
                 style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
               />
-              {/* Ngày tháng năm sinh */}
               <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Ngày tháng năm sinh</div>
               <input
                 type="text"
@@ -262,7 +257,6 @@ export default function QuanLy() {
                 onChange={(e) => handleInputChange(e, 'dob')}
                 style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
               />
-              {/* SĐT */}
               <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>SĐT</div>
               <input
                 type="text"
@@ -270,7 +264,6 @@ export default function QuanLy() {
                 onChange={(e) => handleInputChange(e, 'phone')}
                 style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
               />
-              {/* Tên nhân viên */}
               <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Tên nhân viên</div>
               <input
                 type="text"
@@ -278,7 +271,6 @@ export default function QuanLy() {
                 onChange={(e) => handleInputChange(e, 'name')}
                 style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
               />
-              {/* Quyền hạn */}
               <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Quyền hạn</div>
               <select
                 value={formData.role}
@@ -288,16 +280,12 @@ export default function QuanLy() {
                 <option value="Cashier">Cashier</option>
               </select>
             </div>
-
-            {/* Nút lưu */}
             <div style={{ marginTop: "16px" }}>
               <button onClick={handleSave} style={{
                 backgroundColor: "#add8e6", color: "black", padding: "8px 24px",
                 border: "none", borderRadius: "8px"
               }}>Lưu</button>
             </div>
-
-            {/* Danh sách nhân viên */}
             <h3 style={{ marginTop: "24px" }}>Danh sách nhân viên</h3>
             <div style={{ maxWidth: "900px", width: "100%" }}>
               <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -330,8 +318,6 @@ export default function QuanLy() {
                 </tbody>
               </table>
             </div>
-
-            {/* Modal xác nhận */}
             {showConfirmModal && (
               <div style={modalOverlayStyle}>
                 <div style={{ background: "#4c65a8", padding: "24px", borderRadius: "8px", textAlign: "center", color: "white", width: "300px" }}>
@@ -346,8 +332,6 @@ export default function QuanLy() {
                 </div>
               </div>
             )}
-
-            {/* Modal chỉnh sửa */}
             {editingStaff && (
               <div style={modalOverlayStyle}>
                 <div style={modalContentStyle}>
@@ -401,52 +385,113 @@ export default function QuanLy() {
         )}
 
         {activeTab === "rap" && (
-          <>
-            <h4 style={{ marginTop: "16px" }}>Chỉnh sửa Rạp</h4>
-            <div style={{ marginTop: "16px", maxWidth: "400px", display: "flex", flexDirection: "column", gap: "12px" }}>
-              <input name="name" value={rap.name} onChange={handleRapChange} placeholder="Tên rạp"
-                style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px" }} />
-              <input name="diachi" value={rap.diachi} onChange={handleRapChange} placeholder="Địa chỉ"
-                style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px" }} />
-              <input name="mota" value={rap.mota} onChange={handleRapChange} placeholder="Miêu tả"
-                style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px" }} />
-              <input name="hotline" value={rap.hotline} onChange={handleRapChange} placeholder="Số hotline"
-                style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px" }} />
+          <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+          }}>
+            <h3 style={{ marginTop: "24px" }}>Chỉnh sửa Rạp</h3>
+            <div style={{ marginTop: "16px", maxWidth: "600px", display: "grid", gridTemplateColumns: "200px 1fr", gap: "8px" }}>
+              <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Tên rạp</div>
+              <input
+                name="name"
+                value={rap.name}
+                onChange={handleRapChange}
+                placeholder="Tên rạp"
+                style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+              />
+              <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Địa chỉ</div>
+              <input
+                name="diachi"
+                value={rap.diachi}
+                onChange={handleRapChange}
+                placeholder="Địa chỉ"
+                style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+              />
+              <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Miêu tả</div>
+              <input
+                name="mota"
+                value={rap.mota}
+                onChange={handleRapChange}
+                placeholder="Miêu tả"
+                style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+              />
+              <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Số hotline</div>
+              <input
+                name="hotline"
+                value={rap.hotline}
+                onChange={handleRapChange}
+                placeholder="Số hotline"
+                style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+              />
             </div>
-          </>
+            <div style={{ marginTop: "16px" }}>
+              <button onClick={handleSave} style={{
+                backgroundColor: "#add8e6", color: "black", padding: "8px 24px",
+                border: "none", borderRadius: "8px"
+              }}>Lưu</button>
+            </div>
+          </div>
         )}
 
         {activeTab === "phong" && (
-          <>
-            <h4 style={{ marginTop: "16px" }}>Phòng chiếu</h4>
-            <div style={{ marginTop: "16px", maxWidth: "500px", display: "flex", flexDirection: "column", gap: "12px" }}>
-              <div> Số phòng chiếu
-                <select name="soPhong" value={phong.soPhong} onChange={handlePhongChange}
-                  style={{ marginLeft: "8px", background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}>
-                  <option value="">Chọn</option><option value="1">1</option><option value="2">2</option>
-                </select>
-              </div>
-              <div> Rạp
-                <select name="rap" value={phong.rap} onChange={handlePhongChange}
-                  style={{ marginLeft: "8px", background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}>
-                  <option value="">Chọn</option><option value="A01">A01</option><option value="A02">A02</option>
-                </select>
-              </div>
-              <div> Định dạng hình ảnh
-                <input name="dinhDang" value={phong.dinhDang} onChange={handlePhongChange}
-                  style={{ display: "block", marginTop: "4px", background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px" }} />
-              </div>
-              <div> SL ghế
-                <select name="slGhe" value={phong.slGhe} onChange={handlePhongChange}
-                  style={{ marginLeft: "8px", background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}>
-                  <option value="">Chọn</option><option value="50">50</option><option value="100">100</option>
-                </select>
-              </div>
+          <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+          }}>
+            <h3 style={{ marginTop: "24px" }}>Phòng chiếu</h3>
+            <div style={{ marginTop: "16px", maxWidth: "600px", display: "grid", gridTemplateColumns: "200px 1fr", gap: "8px" }}>
+              <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Số phòng chiếu</div>
+              <select
+                name="soPhong"
+                value={phong.soPhong}
+                onChange={handlePhongChange}
+                style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+              >
+                <option value="">Chọn</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+              <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Rạp</div>
+              <select
+                name="rap"
+                value={phong.rap}
+                onChange={handlePhongChange}
+                style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+              >
+                <option value="">Chọn</option>
+                <option value="A01">A01</option>
+                <option value="A02">A02</option>
+              </select>
+              <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Định dạng hình ảnh</div>
+              <input
+                name="dinhDang"
+                value={phong.dinhDang}
+                onChange={handlePhongChange}
+                style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+              />
+              <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>SL ghế</div>
+              <select
+                name="slGhe"
+                value={phong.slGhe}
+                onChange={handlePhongChange}
+                style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+              >
+                <option value="">Chọn</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
             </div>
-          </>
+            <div style={{ marginTop: "16px" }}>
+              <button onClick={handleSave} style={{
+                backgroundColor: "#add8e6", color: "black", padding: "8px 24px",
+                border: "none", borderRadius: "8px"
+              }}>Lưu</button>
+            </div>
+          </div>
         )}
 
-        {/* Modal đăng xuất */}
         {showLogoutModal && (
           <div style={{
             position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
@@ -456,9 +501,9 @@ export default function QuanLy() {
               <p>Bạn chắc chắn muốn đăng xuất không?</p>
               <div style={{ display: "flex", justifyContent: "space-around", marginTop: "16px" }}>
                 <button onClick={() => { alert("Đã đăng xuất"); setShowLogoutModal(false); }}
-                  style={{ padding: "6px 12px", border: "none", borderRadius: "4px", background: "#ccc", color: "black" }}>Có</button>
+                  style={{ padding: "6px 12px", border: "none", borderRadius: "4px", background: "lightgreen", color: "black" }}>Có</button>
                 <button onClick={() => setShowLogoutModal(false)}
-                  style={{ padding: "6px 12px", border: "none", borderRadius: "4px", background: "#ccc", color: "black" }}>Không</button>
+                  style={{ padding: "6px 12px", border: "none", borderRadius: "4px", background: '#cc3380', color: "white" }}>Không</button>
               </div>
             </div>
           </div>
