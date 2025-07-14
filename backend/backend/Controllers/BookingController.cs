@@ -17,7 +17,6 @@ namespace backend.Controllers
             _services = services;
         }
 
-        [RequestTimeout(600000)]
         [HttpPost("Booking")]
         public async Task<IActionResult> booking(OrderRequestDTO dtos)
         {

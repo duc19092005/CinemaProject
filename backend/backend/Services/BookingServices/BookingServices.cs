@@ -130,7 +130,7 @@ namespace backend.Services.BookingServices
                     .Where(f => foodIds.Contains(f.foodInformationId))
                     .ToDictionaryAsync(f => f.foodInformationId, f => f.foodPrice);
 
-                foreach (var foodReq in foodRequests)
+                foreach (var foodReq in foodRequests)   
                 {
                     if (foodPrices.TryGetValue(foodReq.Key, out long foodPrice))
                     {
@@ -158,7 +158,7 @@ namespace backend.Services.BookingServices
             }
 
             // --- Database Transaction ---
-            await using var transaction = await _dataContext.Database.BeginTransactionAsync(); // Use await using for async disposal
+            await using var transaction = await _dataContext.Database.BeginTransactionAsync(); 
             try
             {
                 // Create Order

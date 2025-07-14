@@ -10,12 +10,19 @@ namespace backend.ModelDTO.BookingHistoryDTO.OrderDetailRespond
     public class OrderDetailRespond
     {
 
-        public string userId { get; set; } = "";
+        public string customerName { get; set; } = string.Empty;
 
-        public string orderId { get; set; } = "";
+        public string phoneNumber { get; set; } = string.Empty;
 
-        public string userName { get; set; } = "";
+        public string movieName { get; set; } = string.Empty;
 
+        public DateTime movieScheduleDate { get; set; }
+
+        public string cinemaName { get; set; } = string.Empty;
+
+        public string scheduleShowTIme { get; set; } = string.Empty;
+
+        public int cinemaRoomNumber { get; set; }
 
         public string SeatsNumber { get; set; } = string.Empty;
 

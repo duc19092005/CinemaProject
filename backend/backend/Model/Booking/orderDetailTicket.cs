@@ -25,6 +25,8 @@ namespace backend.Model.Booking
         [ForeignKey("Seats")]
         public string seatsId { get; set; } = "";
 
+        public long amount { get; set; }
+
         public Order Order { get; set; } = null!;
 
         public Seats Seats { get; set; } = null!;
