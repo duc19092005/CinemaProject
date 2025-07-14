@@ -28,18 +28,26 @@ function Forgotpassword() {
                             <section
                                 id="back-div"
                                 className="bg-transparent  rounded-3xl">
-                                <div
-                                    className="border-8 border-transparent rounded-xl  shadow-xl p-8 m-2">
+                                <div className="border-8 border-transparent rounded-xl bg-slate-300  shadow-xl p-8 m-2 flex flex-col items-center">
+                                    <div className="flex justify-start w-full">
+                                        <button onClick={handleLogin}
+                                            className=" cursor-pointer duration-200 hover:scale-125 active:scale-100" title="Go Back">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24" className=" stroke-blue-300">
+                                                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" d="M11 6L5 12M5 12L11 18M5 12H19"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+
                                     <h2
-                                        className="text-xl pb-10 font-bold text-center cursor-default dark:text-gray-300 text-gray-900">
+                                        className="text-xl pb-10 font-bold text-center cursor-default dark:text-[#12213c] text-[#12213c]">
                                         QUÊN MẬT KHẨU
                                     </h2>
                                     <form action="#" method="post" className="space-y-6">
-                                        <div className="pb-10 justify-center items-center">
-                                            <label className="flex w-96 font-semibold text-gray-50 justify-start items-start mb-2 text-base dark:text-gray-300 px-4 ">Nhập địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn hướng dẫn để tạo mật khẩu mới</label>
+                                        <div className=" justify-center items-center flex flex-col">
+                                            <label className=" w-96 font-semibold text-[#12213c] mb-2 text-base dark:text-[#12213c] px-4 pb-3">Nhập địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn hướng dẫn để tạo mật khẩu mới</label>
                                             <input
                                                 id="resetpass"
-                                                className="border justify-center items-center text-center p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-xl w-[420px] focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
+                                                className="placeholder:text-[#081b3d] border justify-center items-center text-center p-3 shadow-md bg-transparent dark:text-[#12213c] dark:border-gray-700 border-gray-300 rounded-xl w-[420px] focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
                                                 type="email"
                                                 placeholder=" -- Nhập email của bạn vào đây nha ☺️ --"
                                             />

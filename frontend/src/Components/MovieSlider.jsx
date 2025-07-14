@@ -3,8 +3,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { useNavigate } from "react-router-dom";
 
 const MovieSlider = () => {
+    const navigate = useNavigate();
+    const handleShowtimes = () => {
+        navigate("/showtimes");
+    }
     const slides = [
         {
             image: "https://api-website.cinestar.com.vn/media/MageINIC/bannerslider/chaching.jpg",
@@ -28,28 +33,20 @@ const MovieSlider = () => {
             <Swiper
                 navigation={true}
                 modules={[Navigation]}
-                className="mySwiper w-full h-[300px]"
-            >
+                className="mySwiper w-full">
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
-                        <div
-                            className="relative w-full h-full bg-cover bg-center rounded-md overflow-hidden"
-                            style={{ backgroundImage: `url(${slide.image})` }}
-                        >
-                            {/* Nút "ĐẶT VÉ NGAY" */}
-                            <div className="absolute bottom-6 right-6">
-                                <a href="https://tailwindcss.com/docs/flex-basis" className=" ">
-                                    <button class="w-[150px] bg-purple-800 h-[50px] my-3 flex items-center justify-center font-bold rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#f3ea28] before:to-[rgb(200,213,98)] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#000]">
-                                        ĐẶT VÉ NGAY
-                                    </button>
-                                </a>
-                            </div>
-
+                        <div className="relative w-full flex justify-center items-center">
+                            <img
+                                onClick={handleShowtimes}
+                                src={slide.image}
+                                alt={`slide-${index}`}
+                                className="w-full max-h-[400px] object-cover aspect-[1215/365] rounded-md"
+                            />
                         </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
-
         </div>
     );
 };

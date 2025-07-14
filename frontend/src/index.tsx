@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './Home';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Account/Login';
@@ -13,6 +13,7 @@ import Introduce from './Cinema/Introduce';
 import Showtimes from './Bookig/Showtimes';
 import Cinezone from './Cinema/Cinezone';
 import PaymentPage from './Bookig/PaymentPage';
+import Info from './Account/Info';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -27,8 +28,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/comingmovies" element={<Comingmovies />} />
         <Route path="/introduce" element={<Introduce />} />
         <Route path="/showtimes" element={<Showtimes />} />
-        <Route path="/cinezone" element={<Cinezone/>} />
+        <Route path="/cinezone" element={<Cinezone />} />
         <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/info" element={<Info />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

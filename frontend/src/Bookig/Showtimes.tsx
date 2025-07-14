@@ -323,9 +323,10 @@ function Introduce() {
                         {/* Ticket Types */}
                         <div className="mb-6 flex flex-col items-center">
                             <h2 className="text-3xl font-bold text-yellow-400 mb-4 uppercase">Chọn Loại Vé</h2>
-                            <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
+                            {/* Ví dụ cho phần chọn loại vé */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
                                 {ticketTypes.map((t) => (
-                                    <div key={t.key} className="bg-transparent p-4 rounded border border-zinc-100 w-96">
+                                    <div key={t.key} className="bg-transparent p-4 rounded border border-zinc-100 max-w-xs w-full mx-auto">
                                         <p className=" text-white uppercase font-bold hover:text-yellow-300 transition-colors">{t.label}</p>
                                         <p className="text-yellow-400">{t.price.toLocaleString()} VND</p>
                                         <div className="flex items-center gap-2 mt-2">

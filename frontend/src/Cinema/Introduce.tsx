@@ -36,13 +36,13 @@ function Introduce() {
                         <h2 className="text-2xl font-semibold text-white">
                             Về Chúng Tôi
                         </h2>
-                        <p className="leading-relaxed text-white">
+                        <p className="leading-relaxed text-white text-lg">
                             Hệ thống rạp chiếu phim CINEHA là một thương hiệu rạp phim mới,
                             phục vụ nhu cầu thưởng thức phim ảnh chất lượng cao với giá vé phù hợp
                             cho mọi đối tượng khán giả. CINEHA được đầu tư hệ thống thiết bị hiện đại
                             đạt chuẩn quốc tế về chiếu phim và âm thanh.
                         </p>
-                        <p className="leading-relaxed text-white">
+                        <p className="leading-relaxed text-white text-lg">
                             Chúng tôi luôn cam kết mang đến cho khách hàng trải nghiệm xem phim tuyệt vời nhất,
                             không gian thoải mái, dịch vụ chuyên nghiệp và các chương trình ưu đãi hấp dẫn.
                         </p>
@@ -56,7 +56,7 @@ function Introduce() {
                         <h2 className="text-2xl font-semibold  text-white">
                             Tầm Nhìn & Sứ Mệnh
                         </h2>
-                        <p className="leading-relaxed text-white pb-32">
+                        <p className="leading-relaxed text-white pb-32 text-lg">
                             CINEHA phấn đấu trở thành chuỗi rạp chiếu phim được yêu thích nhất,
                             không ngừng đổi mới và nâng cao chất lượng phục vụ để đáp ứng sự tin tưởng của khách hàng.
                         </p>

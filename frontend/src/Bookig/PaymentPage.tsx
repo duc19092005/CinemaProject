@@ -47,26 +47,7 @@ export default function PaymentPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="relative group w-full">
-                            <div
-                                className="relative h-14 opacity-90 overflow-hidden rounded-xl bg-black z-10 w-full">
-                                <div
-                                    className="absolute z-10 -translate-x-44 group-hover:translate-x-[30rem] ease-in transistion-all duration-700 h-full w-44 bg-gradient-to-r from-gray-500 to-white/10 opacity-30 -skew-x-12">
-                                </div>
-                                <div
-                                    className="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-black w-full h-[90%]">
-                                    <button
-                                        name="text"
-                                        className="input text-lg h-full opacity-90 w-full px-16 bg-black py-3 font-semibold rounded flex items-center justify-center gap-2 hover:opacity-90">
-                                        Thanh toán trực tiếp
-                                    </button>
-                                </div>
-                                <div
-                                    className="absolute duration-1000 group-hover:animate-spin w-full h-[100px] bg-gradient-to-r from-green-500 to-yellow-500 blur-[30px]">
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex justify-between gap-4 mt-6">
+                        <div onClick={handleShowtimes} className="relative group w-full gap-4 mt-6">
                             <button className="bg-gray-950 text-gray-400 border border-gray-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
                                 <span className="bg-gray-400 shadow-gray-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
                                 Quay lại

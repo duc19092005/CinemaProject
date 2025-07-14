@@ -258,12 +258,12 @@ function TabsExample() {
                 <div className="flex border-b border-gray-300 justify-center items-center mb-4 space-x-40 text-lg pt-5">
                     <button
                         onClick={() => setActiveTab("tab1")}
-                        className={`px-4 py-2 ${activeTab === "tab1" ? "border-b-2 border-yellow-500 font-bold px-10 text-yellow-500" : ""}`}>
+                        className={`text-white font-medium text-xl px-4 py-2 ${activeTab === "tab1" ? "border-b-2 border-yellow-500 font-semibold px-10 text-yellow-500" : ""}`}>
                         Phim đang chiếu
                     </button>
                     <button
                         onClick={() => setActiveTab("tab2")}
-                        className={`px-4 py-2 ${activeTab === "tab2" ? "border-b-2 border-yellow-500 font-bold px-10 text-yellow-500" : ""}`}>
+                        className={`text-white font-medium text-xl px-4 py-2 ${activeTab === "tab2" ? "border-b-2 border-yellow-500 font-semibold px-10 text-yellow-500" : ""}`}>
                         Phim sắp chiếu
                     </button>
                 </div>

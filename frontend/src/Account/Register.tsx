@@ -21,7 +21,7 @@ function Register() {
                     </div>
                 </header>
             </div>
-            <div className="content-wrapper max-w-screen-xl text-base mx-auto px-8  min-h-screen">
+            <div className="content-wrapper max-w-screen-xl text-base mx-auto px-8  min-h-screen pb-32">
                 <div className="content-wrapper max-w-screen-2xl text-base mx-auto px-8  min-h-screen">
                     <div>
                         <div className="flex justify-center items-center h-full w-full pt-20">
@@ -30,41 +30,41 @@ function Register() {
                                     id="back-div"
                                     className="bg-transparent rounded-3xl">
                                     <div
-                                        className="border-8 border-transparent rounded-xl bg-transparent shadow-2xl p-8 m-2">
+                                        className="border-8 border-transparent rounded-xl bg-slate-300 shadow-2xl p-8 m-2">
                                         <h2
-                                            className="text-xl font-extrabold text-center cursor-default dark:text-gray-300 text-gray-900">
+                                            className="text-2xl font-extrabold text-center cursor-default  text-[#12213c]">
                                             ĐĂNG KÝ
                                         </h2>
                                         <form action="#" method="post" className="space-y-6">
                                             <div className="w-96">
-                                                <label typeof="text" className="flex justify-start items-start mb-2 text-base font-bold dark:text-gray-300 px-4 pt-3">Tên đăng nhập</label>
+                                                <label typeof="text" className="flex justify-start items-start mb-2 text-base text-[#12213c] font-bold px-4 ">Tên đăng nhập</label>
                                                 <input
                                                     id="TenDN"
-                                                    className="text-base border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
+                                                    className="placeholder:text-slate-500 text-base border p-3 shadow-md bg-transparent dark:text-[#12213c] dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
                                                     type="text"
                                                     placeholder="Nhập tên đăng nhập"
                                                 />
                                             </div>
                                             <div className="w-96">
-                                                <label typeof="email" className="flex justify-start items-start mb-2 text-base font-bold dark:text-gray-300 px-4 ">Email</label>
+                                                <label typeof="email" className="flex justify-start items-start mb-2 text-base text-[#12213c] font-bold px-4 ">Email</label>
                                                 <input
                                                     id="email"
-                                                    className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
+                                                    className="placeholder:text-slate-500 border p-3 shadow-md bg-transparent dark:text-[#12213c] dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
                                                     type="email"
                                                     placeholder="Email"
                                                 />
                                             </div>
                                             <div>
-                                                <label className="flex justify-start items-start mb-2 text-base font-bold dark:text-gray-300 px-4 ">Mật khẩu</label>
+                                                <label className="flex justify-start items-start mb-2 text-base text-[#12213c] font-bold px-4 ">Mật khẩu</label>
                                                 <input
                                                     id="password"
-                                                    className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
+                                                    className="placeholder:text-slate-500 border p-3 shadow-md bg-transparent dark:text-[#12213c] dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
                                                     type="password"
                                                     placeholder="Hãy nhập mật khẩu "
                                                 />
                                             </div>
                                             <div className="w-96">
-                                                <label className="flex justify-start mb-2 text-base font-bold dark:text-gray-300 px-4 ">
+                                                <label className="flex justify-start items-start mb-2 text-base text-[#12213c] font-bold px-4 ">
                                                     Ngày sinh
                                                 </label>
                                                 <DatePicker
@@ -74,14 +74,14 @@ function Register() {
                                                     isClearable
                                                     showYearDropdown
                                                     scrollableMonthYearDropdown placeholderText="Chọn ngày sinh của bạn 🎂"
-                                                    className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-[385px] focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
+                                                    className="placeholder:text-slate-500 border p-3 shadow-md bg-transparent dark:text-[#12213c] dark:border-gray-700 border-gray-300 rounded-lg w-[385px] focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
                                                 />
                                             </div>
                                             <div className="w-96">
-                                                <label className="flex justify-start items-start mb-2 text-base font-bold dark:text-gray-300 px-4">Số điện thoại</label>
+                                                <label className="flex justify-start items-start mb-2 text-base text-[#12213c] font-bold px-4 ">Số điện thoại</label>
                                                 <input
                                                     id="phone"
-                                                    className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
+                                                    className="placeholder:text-slate-500 border p-3 shadow-md bg-transparent dark:text-[#12213c] dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
                                                     type="tel"
                                                     maxLength={10}
                                                     pattern="[0-9]{10}"
@@ -89,19 +89,19 @@ function Register() {
                                                 />
                                             </div>
                                             <div className="w-96">
-                                                <label className="flex justify-start items-start mb-2 text-base font-bold dark:text-gray-300 px-4">Họ và tên</label>
+                                                <label className="flex justify-start items-start mb-2 text-base text-[#12213c] font-bold px-4 ">Họ và tên</label>
                                                 <input
                                                     id="TenKH"
-                                                    className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
+                                                    className="placeholder:text-slate-500 border p-3 shadow-md bg-transparent dark:text-[#12213c] dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
                                                     type="text"
                                                     placeholder="Nhập họ và tên"
                                                 />
                                             </div>
                                             <div className="w-96">
-                                                <label className="flex justify-start items-start mb-2 text-base font-bold dark:text-gray-300 px-4">Số CCCD</label>
+                                                <label className="flex justify-start items-start mb-2 text-base text-[#12213c] font-bold px-4 ">Số CCCD</label>
                                                 <input
                                                     id="CCCD"
-                                                    className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
+                                                    className="placeholder:text-slate-500 border p-3 shadow-md bg-transparent dark:text-[#12213c] dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
                                                     type="tel"
                                                     maxLength={12}
                                                     pattern="[0-9]{12}"
@@ -114,7 +114,7 @@ function Register() {
                                                     type="checkbox"
                                                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
                                                 />
-                                                <label htmlFor="agree" className="ml-2 w-[360px] text-sm text-gray-900 dark:text-gray-300">
+                                                <label htmlFor="agree" className="ml-2 w-[360px] text-sm text-gray-900 dark:text-[#12213c]">
                                                     Khách hàng đã đồng ý các điều khoản, điều kiện của thành viên Cinema
                                                 </label>
                                             </div>
@@ -124,7 +124,7 @@ function Register() {
                                                 ĐĂNG KÝ
                                             </button>
                                         </form>
-                                        <div className="flex flex-col mt-4 text-sm text-center dark:text-gray-300">
+                                        <div className="flex flex-col mt-4 text-sm text-center dark:text-[#12213c]">
                                             <p>
                                                 Bạn đã có tài khoản?
                                                 <span onClick={handleLogin} className="text-blue-400 transition hover:underline cursor-pointer">Đăng nhập</span>
@@ -138,7 +138,7 @@ function Register() {
                     </div>
                 </div>
             </div>
-            <footer className="pt-32">
+            <footer className="2">
                 <Bottom />
             </footer>
         </div>

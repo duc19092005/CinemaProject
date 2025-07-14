@@ -29,33 +29,32 @@ function Login() {
                             <section
                                 id="back-div"
                                 className="bg-transparent rounded-3xl ">
-                                <div
-                                    className="border-8 border-transparent rounded-xl bg-transparent shadow-2xl p-8 m-2">
+                                <div className=" border-transparent rounded-xl bg-slate-300 shadow-2xl p-8 m-2">
                                     <h2
-                                        className="text-xl font-bold text-center cursor-default dark:text-gray-300 text-gray-900">
+                                        className="text-2xl font-bold text-center cursor-default  text-[#12213c]">
                                         ĐĂNG NHẬP
                                     </h2>
                                     <form action="#" method="post" className="space-y-6">
                                         <div className="w-96">
-                                            <label typeof="email" className="flex justify-start items-start mb-2 text-base dark:text-gray-300 px-4 pt-3">Email</label>
+                                            <label typeof="email" className="flex justify-start items-start mb-2 text-base text-[#12213c] font-bold px-4 pt-3">Email</label>
                                             <input
                                                 id="email"
-                                                className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
+                                                className="placeholder:text-slate-500 border p-3 shadow-md bg-transparent text-[#12213c]  dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
                                                 type="email"
                                                 placeholder="Email"
                                             />
                                         </div>
                                         <div>
-                                            <label className="flex justify-start items-start mb-2 text-base dark:text-gray-300 px-4 ">Mật khẩu</label>
+                                            <label className="flex justify-start items-start mb-2 text-base text-[#12213c] font-bold px-4 ">Mật khẩu</label>
                                             <input
                                                 id="password"
-                                                className="border p-3 shadow-md bg-transparent dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
+                                                className="placeholder:text-slate-500 border p-3 shadow-md bg-transparent text-[#12213c]  dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
                                                 type="password"
                                                 placeholder="Password"
                                             />
                                         </div>
                                         <div>
-                                            <span onClick={handleForgotpassword} className="text-blue-200 text-sm font-bold transition hover:underline flex  justify-end items-end cursor-pointer">Quên mật khẩu?</span>
+                                            <span onClick={handleForgotpassword} className="text-[#12213c] text-sm font-bold transition hover:underline flex justify-end items-end cursor-pointer ">Quên mật khẩu?</span>
                                         </div>
                                         <button
                                             className="text-xl w-full font-bold p-3 mt-4 text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg hover:scale-105 transition transform duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -63,10 +62,10 @@ function Login() {
                                             ĐĂNG NHẬP
                                         </button>
                                     </form>
-                                    <div className="flex justify-start items-start flex-col mt-4 text-sm text-center dark:text-gray-300">
+                                    <div className="flex justify-center items-center flex-col mt-4 text-sm text-center text-[#12213c] font-bold">
                                         <p>
                                             Chưa có tài khoản?
-                                            <span onClick={handleRegister} className="text-blue-400 transition hover:underline cursor-pointer">Đăng kí</span>
+                                            <span onClick={handleRegister} className="text-blue-400 transition hover:underline cursor-pointer pl-3">Đăng ký</span>
                                         </p>
                                     </div>
                                 </div>
