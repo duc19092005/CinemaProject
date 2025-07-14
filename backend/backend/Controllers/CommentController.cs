@@ -30,6 +30,17 @@ namespace backend.Controllers
             return BadRequest(new {message = "Phim hiện tại chưa có comment :("});
         }
 
+        [HttpGet("getCommentDetail/{commentID}")]
+        public IActionResult getCommentDetail(string commentID)
+        {
+            var getComment = _services.getCommentDetails(commentID);
+            if (getComment.data != null)
+            {
+                return Ok(getComment);
+            }
+            return BadRequest(getComment);
+        }
+
         [HttpPost("uploadComment/{CustomerID}/{movieID}")]
         public async Task<IActionResult> postComment(string CustomerID , string movieID , CommentRequestDTO dtos)
         {

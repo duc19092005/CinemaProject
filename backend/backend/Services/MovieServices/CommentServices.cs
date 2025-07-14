@@ -115,6 +115,54 @@ namespace backend.Services.MovieServices
 
         }
 
+        public GenericRespondWithObjectDTO<CommentRequestDTO> getCommentDetails(string commentID)
+        {
+            if (commentID != null)
+            {
+                var getCommentInfo = _dataContext.movieCommentDetail
+                    .FirstOrDefault(x => x.commentID.Equals(commentID));
+                if (getCommentInfo != null)
+                {
+                    var getUserEmail = _dataContext.Customers
+                        .Include(x => x.userInformation).Where(x => x.Id.Equals(getCommentInfo.customerID));
+                    var firstOrDefaultEmail = getUserEmail.FirstOrDefault();
+                    var getMovies = _dataContext.movieInformation.FirstOrDefault(x => x.movieId.Equals(getCommentInfo.movieId));
+                    if (getMovies != null)
+                    {
+                        if (firstOrDefaultEmail != null && getMovies.movieName != null)
+                        {
+                            return new GenericRespondWithObjectDTO<CommentRequestDTO>()
+                            {
+                                message = "Thành công" ,
+                                Status = GenericStatusEnum.Success.ToString(),
+                                data = new CommentRequestDTO()
+                                {
+                                    movieName = getMovies.movieName,
+                                    commentDetail = getCommentInfo.userCommentDetail,
+                                    userEmail = firstOrDefaultEmail.userInformation.loginUserEmail
+                                }
+                            };
+                        }
+                        return new GenericRespondWithObjectDTO<CommentRequestDTO>()
+                        {
+                            message = "Lỗi Không tìm thấy Phim hoặc Email",
+                            Status = GenericStatusEnum.Failure.ToString()
+                        };
+                    }
+                    return new GenericRespondWithObjectDTO<CommentRequestDTO>()
+                    {
+                        message = "Lỗi Không tìm thấy commendID",
+                        Status = GenericStatusEnum.Failure.ToString()
+                    };
+                }
+            }
+            return new GenericRespondWithObjectDTO<CommentRequestDTO>()
+            {
+                message = "Lỗi Thiếu commentID",
+                Status = GenericStatusEnum.Failure.ToString()
+            };
+        }
+
         public async Task<GenericRespondDTOs> editComment(string commentID, CommentRequestDTO commentRequestDTO)
         {
             var getComment = _dataContext.movieCommentDetail.FirstOrDefault(x => x.commentID.Equals((commentID)));

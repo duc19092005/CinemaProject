@@ -9,6 +9,8 @@ namespace backend.Interface.CommentInterface
     {
         List<CommentRequestGetListDTO> getAllComent(string movieID);
 
+        GenericRespondWithObjectDTO<CommentRequestDTO> getCommentDetails(string commentID);
+
         Task<GenericRespondDTOs> uploadComment(string userID, string movieID, CommentRequestDTO commentRequestDTO);
 
         Task<GenericRespondDTOs> editComment(string commentID, CommentRequestDTO commentRequestDTO);
