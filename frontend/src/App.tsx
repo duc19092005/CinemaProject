@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Qlnhanvien from './QL_Nhanvien/homeQLNhanvien'
-import QLCSVC from './QLCoSoVatChat/homeQLCSVC'
+import Qlnhanvien from './QL_Nhanvien_CSVC/homeQLRạp'
 
 function App(){
   return (
