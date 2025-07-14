@@ -1,4 +1,5 @@
 ﻿using backend.Interface.CommentInterface;
+using backend.ModelDTO.CommentDTO.CommentRequest;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,17 @@ namespace backend.Controllers
                 return Ok(ListComment);
             }
             return BadRequest(new {message = "Phim hiện tại chưa có comment :("});
+        }
+
+        [HttpPost("uploadComment/{CustomerID}/{movieID}")]
+        public async Task<IActionResult> postComment(string CustomerID , string movieID , CommentRequestDTO dtos)
+        {
+            var getStatus = await _services.uploadComment(CustomerID, movieID, dtos);
+            if (getStatus.message.ToLower().Contains("lỗi"))
+            {
+                return BadRequest(getStatus);
+            }
+            return Ok(getStatus);
         }
     }
 }

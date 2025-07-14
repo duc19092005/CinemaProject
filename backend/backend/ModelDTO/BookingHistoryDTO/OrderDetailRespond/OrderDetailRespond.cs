@@ -18,6 +18,8 @@ namespace backend.ModelDTO.BookingHistoryDTO.OrderDetailRespond
 
         public DateTime movieScheduleDate { get; set; }
 
+        public string ShowStatus { get; set; }
+
         public string cinemaName { get; set; } = string.Empty;
 
         public string scheduleShowTIme { get; set; } = string.Empty;
@@ -26,7 +28,7 @@ namespace backend.ModelDTO.BookingHistoryDTO.OrderDetailRespond
 
         public string SeatsNumber { get; set; } = string.Empty;
 
-        public string ProductList { get; set; } = string.Empty;
+        public Dictionary<string, int> ProductList { get; set; } = [];
     }
 }
 
