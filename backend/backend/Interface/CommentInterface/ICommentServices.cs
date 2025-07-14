@@ -11,8 +11,8 @@ namespace backend.Interface.CommentInterface
 
         Task<GenericRespondDTOs> uploadComment(string userID, string movieID, CommentRequestDTO commentRequestDTO);
 
-        GenericRespondDTOs editComment(string userID, string movieID, CommentRequestDTO commentRequestDTO);
+        Task<GenericRespondDTOs> editComment(string commentID, CommentRequestDTO commentRequestDTO);
 
-        GenericRespondDTOs deleteComment(string userID, string movieID); 
+        Task<GenericRespondDTOs> deleteComment(string commentID);
     }
 }

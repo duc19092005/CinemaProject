@@ -2,6 +2,7 @@
 using backend.Enum;
 using backend.Interface.CommentInterface;
 using backend.Interface.MovieInterface;
+using backend.Model.Staff_Customer;
 using backend.ModelDTO.CommentDTO.CommentRequest;
 using backend.ModelDTO.CommentDTO.CommentRespond;
 using backend.ModelDTO.GenericRespond;
@@ -79,12 +80,14 @@ namespace backend.Services.MovieServices
             {
                 try
                 {
+                    string commentIDGenerate = Guid.NewGuid().ToString();
                     await _dataContext.movieCommentDetail.AddAsync(new Model.Movie.movieCommentDetail()
                     {
                         customerID = customerID,
                         createdCommentTime = DateTime.Now,
                         movieId = movieID,
                         userCommentDetail = commentRequestDTO.commentDetail,
+                        commentID = commentIDGenerate,
                     });
                     await _dataContext.SaveChangesAsync();
                     return new GenericRespondDTOs()
@@ -112,14 +115,72 @@ namespace backend.Services.MovieServices
 
         }
 
-        public GenericRespondDTOs editComment(string userID, string movieID, CommentRequestDTO commentRequestDTO)
+        public async Task<GenericRespondDTOs> editComment(string commentID, CommentRequestDTO commentRequestDTO)
         {
-            return null!;
+            var getComment = _dataContext.movieCommentDetail.FirstOrDefault(x => x.commentID.Equals((commentID)));
+            if (getComment != null)
+            {
+                try
+                {
+                    getComment.createdCommentTime = DateTime.Now;
+                    getComment.userCommentDetail = commentRequestDTO.commentDetail;
+
+                    _dataContext.movieCommentDetail.Update(getComment);
+                    await _dataContext.SaveChangesAsync();
+
+                    return new GenericRespondDTOs()
+                    {
+                        Status = GenericStatusEnum.Success.ToString(),
+                        message = "Sửa Bình Luận Thành công"
+                    };
+                }
+                catch (Exception ex) 
+                {
+                    return new GenericRespondDTOs()
+                    {
+                        Status = GenericStatusEnum.Failure.ToString(),
+                        message = "Lỗi : " + ex.Message
+                    };
+                }
+            }
+            return new GenericRespondDTOs()
+            {
+                Status = GenericStatusEnum.Failure.ToString(),
+                message = "Lỗi Không tìm được bình luận"
+            };
+
         }
 
-        public GenericRespondDTOs deleteComment(string userID, string movieID)
+        public async Task<GenericRespondDTOs> deleteComment(string commentID)
         {
-            return null!;
+            var getComment = _dataContext.movieCommentDetail.FirstOrDefault(x => x.commentID.Equals(commentID));
+            if (getComment != null)
+            {
+                try
+                {
+                    _dataContext.movieCommentDetail.Remove(getComment);
+                   await  _dataContext.SaveChangesAsync();
+                    return new GenericRespondDTOs()
+                    {
+                        Status = GenericStatusEnum.Success.ToString(),
+                        message = "Xóa bình luận thành công"
+                    };
+                }
+                catch (Exception ex)
+                {
+                    return new GenericRespondDTOs()
+                    {
+                        Status = GenericStatusEnum.Failure.ToString(),
+                        message = "Lỗi : " + ex.Message
+                    };
+                }
+            }
+            return new GenericRespondDTOs()
+            {
+                Status = GenericStatusEnum.Failure.ToString(),
+                message = "Lỗi Không tìm được bình luận"
+            };
+
         }
     }
 }
