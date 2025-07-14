@@ -173,7 +173,7 @@ export default function QuanLy() {
         <div style={{ display: "flex", alignItems: "center" }}>
           <img src="/images/logocinema1.png" alt="Logo" style={{ height: "40px", marginRight: "8px" }} />
         </div>
-        <h3>Bạn muốn chỉnh sửa/ thêm gì ?</h3>
+        <h3>Bạn muốn chỉnh sửa/ thêm gì</h3>
         <button onClick={() => setActiveTab("nhanvien")} className="button2">
           <span style={{ fontSize: "18px", marginRight: "8px" }}>☰</span> Nhân viên
         </button>
