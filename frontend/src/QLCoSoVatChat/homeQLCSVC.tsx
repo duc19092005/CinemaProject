@@ -42,7 +42,18 @@ export default function QuanLy() {
   };
 
   return (
-    <div style={{ display: "flex", height: "100vh", background: "#231C60", color: "white", fontFamily: "sans-serif" }}>
+    <div style={{
+          backgroundImage: "url('/images/bg.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          color: "white",
+          minHeight: "100vh",
+          padding: "16px",
+          display:"flex",
+          flexDirection:"column",
+          alignItems:"center"
+      }}>
       {/* Sidebar */}
       <div style={{
         width: "200px", background: "#231C60", padding: "16px", display: "flex",
@@ -76,7 +87,7 @@ export default function QuanLy() {
       {/* Main content */}
       <div style={{ flex: 1, padding: "24px" }}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <h3>Xin chào quản trị viên hệ thống</h3>
+          <h3>Xin chào quản lý rạp</h3>
           <div style={{ position: "relative" }}>
               <span style={{ fontSize: "28px", cursor: "pointer" }} onClick={() => setShowAccountMenu(!showAccountMenu)}>👤</span>
           {showAccountMenu && (
@@ -86,7 +97,7 @@ export default function QuanLy() {
               padding: "8px", minWidth: "100px", textAlign: "center"
           }}>
       <button onClick={() => { setShowLogoutModal(true); setShowAccountMenu(false); }} 
-        style={{ background: "none", border: "none", color: "white", cursor: "pointer" }}>
+        style={{ background: "lightgreen", border: "", color: "black", cursor: "pointer" }}>
         Đăng xuất
       </button>
     </div>
