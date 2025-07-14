@@ -5,7 +5,7 @@ import QLCSVC from './QLCoSoVatChat/homeQLCSVC'
 function App(){
   return (
     <div>
-    <Qlnhanvien/>
+    <QLCSVC/>
   </div> 
   )
 }
