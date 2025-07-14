@@ -1,20 +1,20 @@
 .button2 {
-  display: inline-flex;              /* Dùng inline-flex để dễ canh giữa */
-  align-items: center;              /* Canh dọc giữa */
-  justify-content: center;          /* Canh ngang giữa */
+  display: inline-flex;              
+  align-items: center;              
+  justify-content: center;          
   transition: all 0.2s ease-in;
   position: relative;
   overflow: hidden;
   z-index: 1;
   color: #090909;
-  padding: 0.7em 1.7em;             /* Padding hợp lý */
+  padding: 0.7em 1.7em;             
   cursor: pointer;
   font-size: 18px;
-  font-weight: 500;                 /* Tuỳ thêm, giúp chữ rõ nét */
+  font-weight: 500;                 
   border-radius: 0.5em;
-  background: #e8e8e8;
-  border: 1px solid #e8e8e8;
-  text-align: center;               /* Dự phòng nếu inline-flex không đủ */
+  background: #CAFF38;
+  border: 1px solid #CAFF38;
+  text-align: center;               
 }
 
 .button2:active {
@@ -24,6 +24,6 @@
 
 .button2:hover {
   color: #ffffff;
-  background-color: #009087;
-  border: 1px solid #009087;
+  background-color: #4C28DB;
+  border: 1px solid #4C28DB;
 }
