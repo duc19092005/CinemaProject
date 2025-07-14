@@ -132,8 +132,7 @@ export default function StaffManager() {
       {/* Header */}
       <div style={{ width:"100%", maxWidth:"900px", display: "flex", justifyContent: "space-between", alignItems: "center", paddingBottom: "8px", borderBottom: "1px solid #555" }}>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <img src="/images/logo.png" alt="Logo" style={{ height: "40px", marginRight: "8px" }} />
-          <span style={{ fontWeight: "bold", fontSize: "20px" }}>Cinema</span>
+          <img src="/images/logocinema1.png" alt="Logo" style={{ height: "40px", marginRight: "8px" }} />
           <span style={{ color: "rgba(255,255,255,0.7)", marginLeft: "8px" }}>@Cnpm2025</span>
         </div>
           <div style={{ position: "relative" }}>

@@ -49,8 +49,7 @@ export default function QuanLy() {
         flexDirection: "column", gap: "12px", borderRight: "2px solid white"
       }}>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <img src="/images/logo.png" alt="Logo" style={{ height: "40px", marginRight: "8px" }} />
-          <span style={{ fontWeight: "bold", fontSize: "20px" }}>Cinema</span>
+          <img src="/images/logocinema1.png" alt="Logo" style={{ height: "40px", marginRight: "8px" }} />
         </div>
         <button
   onClick={() => setActiveTab("rap")}
