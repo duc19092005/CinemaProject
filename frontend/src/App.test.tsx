@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import QLNV from './HomeQLRap';
+import App from './Home';
 
 test('renders learn react link', () => {
-  render(<QLNV />);
+  render(<App />);
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });
