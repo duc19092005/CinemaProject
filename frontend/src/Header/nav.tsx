@@ -4,7 +4,13 @@ import user from "../image/user.png";
 import logo from '../image/logocinema1.png';
 import { useNavigate } from 'react-router-dom';
 
+
 function Nav() {
+    const userEmail = localStorage.getItem('userEmail');
+    const handleInfo = () => {
+        navigate('/info');
+    }
+
     const [searchTerm, setSearchTerm] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,9 +60,17 @@ function Nav() {
                         <button type="submit" className="bg-purple-600 text-white px-4 py-2 hover:bg-purple-800 transition">Tìm</button>
                     </form>
 
-                    <button onClick={() => navigate('/login')} className="flex items-center px-3 py-2 border border-white rounded-full hover:scale-90 transition">
-                        <img src={user} alt="account" className="w-7" />
-                    </button>
+                    {userEmail ? (
+                        <div className="flex items-center gap-2">
+                            <img src={user} alt="user" className="w-7" />
+                            <span onClick={handleInfo} className="text-white text-sm font-semibold cursor-pointer hover:text-yellow-300">{userEmail}</span>
+                        </div>
+                    ) : (
+                        <button onClick={() => navigate('/login')} className="flex items-center px-3 py-2 border border-white rounded-full hover:scale-90 transition">
+                            <img src={user} alt="account" className="w-7" />
+                        </button>
+                    )}
+
                 </div>
             </div>
 
@@ -66,21 +80,17 @@ function Nav() {
                     <div className="flex justify-between items-center mb-6">
                         <img src={logo} alt="logo" className="h-12" />
                         <div className="flex items-center space-x-2">
-                            <button onClick={() => setIsOpen(!isOpen)} className="border rounded px-3 py-1 text-yellow-400 font-bold border-white flex items-center gap-1">
-                                Chọn Rạp <span className="rotate-90">▼</span>
-                            </button>
                             <button onClick={() => setIsMenuOpen(false)} className="text-white border border-white rounded-full p-1">
                                 <XMarkIcon className="w-6 h-6" />
                             </button>
                         </div>
                     </div>
                     <ul className="space-y-4 text-lg font-bold">
+                        <li className="text-white">Xin chào {userEmail}</li>
                         <li className="text-yellow-400 cursor-pointer" onClick={() => navigate('/')}>TRANG CHỦ</li>
                         <li className="cursor-pointer" onClick={() => navigate('/booking')}>ĐẶT VÉ</li>
-                        <li className="cursor-pointer">BẮP NƯỚC</li>
                         <li className="cursor-pointer" onClick={() => navigate('/info')}>LỊCH CHIẾU</li>
-                        <li className="cursor-pointer">KHUYẾN MÃI</li>
-                        <li className="cursor-pointer">THÀNH VIÊN</li>
+                        <li className="cursor-pointer" onClick={() => navigate('/info')}>THÀNH VIÊN</li>
                     </ul>
                 </div>
             )}
@@ -98,9 +108,9 @@ function Nav() {
                             <div onClick={() => navigate('/cinezone')} className="text-slate-200 font-bold cursor-pointer">Cinema Quốc Thanh (TP HCM)</div>
                         </div>
                     )}
-                    <span onClick={() => navigate('/info')} className="cursor-pointer flex items-center gap-1 hover:text-purple-300">
+                    <span onClick={() => navigate('/listfilm')} className="cursor-pointer flex items-center gap-1 hover:text-purple-300">
                         <MapPinIcon className="w-5 h-5 text-purple-400" />
-                        Chọn lịch chiếu
+                        Chọn phim đang chiếu
                     </span>
                 </div>
                 <div className="w-full md:w-1/2 text-right mt-2 md:mt-0 text-sm">

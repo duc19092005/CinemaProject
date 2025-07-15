@@ -16,7 +16,6 @@ import PaymentPage from './Bookig/PaymentPage';
 import Info from './Account/Info';
 import QLRap from  './HomeQLRap'
 
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>

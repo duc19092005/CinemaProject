@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Nav from '../Header/nav';
 import Bottom from '../Footer/bottom';
 
 function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if (email && password) {
+            localStorage.setItem('userEmail', email);
+            navigate('/');
+        } else {
+            alert("Vui lòng nhập đầy đủ Email và Mật khẩu!");
+        }
+    };
+
     const navigate = useNavigate();
     const handleRegister = () => {
         navigate('/register');
@@ -34,7 +48,7 @@ function Login() {
                                         className="text-2xl font-bold text-center cursor-default  text-[#12213c]">
                                         ĐĂNG NHẬP
                                     </h2>
-                                    <form action="#" method="post" className="space-y-6">
+                                    <form onSubmit={handleLogin} method="post" className="space-y-6">
                                         <div className="w-96">
                                             <label typeof="email" className="flex justify-start items-start mb-2 text-base text-[#12213c] font-bold px-4 pt-3">Email</label>
                                             <input
@@ -42,6 +56,8 @@ function Login() {
                                                 className="placeholder:text-slate-500 border p-3 shadow-md bg-transparent text-[#12213c]  dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
                                                 type="email"
                                                 placeholder="Email"
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
                                             />
                                         </div>
                                         <div>
@@ -51,6 +67,8 @@ function Login() {
                                                 className="placeholder:text-slate-500 border p-3 shadow-md bg-transparent text-[#12213c]  dark:border-gray-700 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300"
                                                 type="password"
                                                 placeholder="Password"
+                                                value={password}
+                                                onChange={(e) => setPassword(e.target.value)}
                                             />
                                         </div>
                                         <div>

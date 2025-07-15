@@ -164,7 +164,7 @@ function Home() {
           src={movie.image}
           alt={movie.title}
           onClick={() => handleOpenTrailer(movie.trailer)}
-          className="w-80 h-[500px] object-cover rounded shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer"
+          className="w-80 h-[400px] object-cover rounded shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer"
         />
         <p className="text-white mt-4 font-semibold text-center">{movie.title}</p>
         <div className="mt-2 flex gap-2">
@@ -205,7 +205,7 @@ function Home() {
           src={movie.image}
           alt={movie.title}
           onClick={() => handleOpenTrailer(movie.trailer)}
-          className="w-80 h-[500px] object-cover rounded shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer"
+          className="w-80 h-[400px] object-cover rounded shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer"
         />
         <p className="text-white mt-4 font-semibold text-center">{movie.title}</p>
         <div className="mt-2 flex gap-2">
