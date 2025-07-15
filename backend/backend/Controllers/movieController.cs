@@ -32,6 +32,17 @@ namespace backend.Controllers
             return BadRequest(new { message = "Đã thêm thất bại", statusCode = StatusCodes.Status400BadRequest });
         }
 
+        [HttpPatch("editMovie")]
+        public async Task<IActionResult> editMovie(string movieID , [FromForm] MovieEditRequestDTO dtos)
+        {
+            var status = await IMovieService.edit(movieID, dtos);
+            if (status)
+            {
+                return Ok(new { message = "Đã sửa thành công", statusCode = StatusCodes.Status200OK });
+            }
+            return BadRequest(new { message = "Đã sửa thất bại", statusCode = StatusCodes.Status400BadRequest });
+        }
+
         [HttpDelete("DeleteMovie")]
         public async Task<IActionResult> deleteMovie(string Id)
         {

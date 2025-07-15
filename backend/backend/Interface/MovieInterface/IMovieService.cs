@@ -16,7 +16,7 @@ namespace backend.Interface.MovieInterface
 
         // CHỉnh sửa phim
 
-        Task<bool> edit(int Id, MovieEditRequestDTO dtos);
+        Task<bool> edit(string movieID, MovieEditRequestDTO dtos);
 
  
         // Cơ chế phân trang để giúp giảm tải ở bên phía server (trang 1 lấy data 1,2,3 - Trang 2 lấy data 4,5,6)
