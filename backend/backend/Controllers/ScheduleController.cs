@@ -1,5 +1,6 @@
 ﻿using backend.Interface.Schedule;
 using backend.ModelDTO.ScheduleDTO.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,16 +16,15 @@ namespace backend.Controllers
         {
             this.scheduleServices = scheduleServices;
         }
-
         [HttpPost("addSchedule")]
         public async Task<IActionResult> addSchedule(ScheduleRequestDTO scheduleRequestDTO)
         {
             var status = await scheduleServices.add(scheduleRequestDTO);
-            if (status)
+            if (status.Status.StartsWith("F"))
             {
-                return Ok(new {message = "Thêm thành công"});
+                return BadRequest(status);
             }
-            return BadRequest(new {message = "Thêm thất bại"});
+            return Ok(status);
         }
 
         [HttpPatch("editSchedule/{id}")]

@@ -1,9 +1,11 @@
 ﻿using backend.Data;
+using backend.Enum;
 using backend.Interface.CloudinaryInterface;
 using backend.Interface.GenericsInterface;
 using backend.Interface.MovieInterface;
 using backend.Model.MinimumAge;
 using backend.Model.Movie;
+using backend.ModelDTO.GenericRespond;
 using backend.ModelDTO.MoviesDTO.MovieRequest;
 using backend.ModelDTO.MoviesDTO.MovieRespond;
 using backend.ModelDTO.PaginiationDTO.Respond;
@@ -139,6 +141,54 @@ namespace backend.Services.MovieServices
             }
             return false;
         }
+
+        public GenericRespondWithObjectDTO<movieGetDetailResponseDTO> getMovieDetail(string movieID)
+        {
+            var findMovieInfo = _dataContext.movieInformation
+                .Where(x => x.movieId.Equals(movieID))
+                .Include(x => x.Language)
+                .Include(x => x.minimumAge)
+                .FirstOrDefault();
+            if (findMovieInfo != null)
+            {
+                // Tiến hành lọc thông tin
+                var findMovieVisualFormat = _dataContext.movieVisualFormatDetails
+                    .Where(x => x.movieId == movieID)
+                    .Include(x => x.movieVisualFormat);
+
+                var findMovieGenre = _dataContext.movieGenreInformation.
+                    Where(x => x.movieId == movieID)
+                    .Include(x => x.movieGenre);
+
+                return new GenericRespondWithObjectDTO<movieGetDetailResponseDTO>()
+                {
+                    Status = GenericStatusEnum.Success.ToString(),
+                    message = "Tìm chi tiết phim thành công",
+                    data = new movieGetDetailResponseDTO()
+                    {
+                        movieId = movieID,
+                        movieVisualFormat = string.Join("," , findMovieVisualFormat.Select(x => x.movieVisualFormat.movieVisualFormatName)) ,
+                        movieGenre = string.Join("," , findMovieGenre.Select(x => x.movieGenre.movieGenreName)) ,
+                        movieDirector = findMovieInfo.movieDirector,
+                        movieImage = findMovieInfo.movieImage,
+                        movieTrailerUrl = findMovieInfo.movieTrailerUrl,
+                        ReleaseDate = findMovieInfo.ReleaseDate,
+                        movieName = findMovieInfo.movieName,
+                        movieActor = findMovieInfo.movieActor,
+                        movieDescription = findMovieInfo.movieDescription,
+                        movieDuration = findMovieInfo.movieDuration,
+                        languageName = findMovieInfo.Language.languageDetail,
+                        minimumAge = findMovieInfo.minimumAge.minimumAgeInfo,
+                    }
+                };
+            }
+            return new GenericRespondWithObjectDTO<movieGetDetailResponseDTO>()
+            {
+                Status = GenericStatusEnum.Failure.ToString(),
+                message = "Không tìm thấy phim , vui lòng thử lại sau"
+            };
+        }
+
 
         public async Task<bool> edit(string movieID, MovieEditRequestDTO dtos)
         {

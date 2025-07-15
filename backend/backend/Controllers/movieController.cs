@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using BCrypt.Net;
 using backend.Interface.MovieInterface;
 using Microsoft.AspNetCore.Authorization;
+using backend.Enum;
 namespace backend.Controllers
 {
     [Route("api/[controller]")]
@@ -41,6 +42,17 @@ namespace backend.Controllers
                 return Ok(new { message = "Đã sửa thành công", statusCode = StatusCodes.Status200OK });
             }
             return BadRequest(new { message = "Đã sửa thất bại", statusCode = StatusCodes.Status400BadRequest });
+        }
+
+        [HttpGet("getMovieDetail")]
+        public IActionResult getMovieDetail(string movieID)
+        {
+            var getMovieDetail = IMovieService.getMovieDetail(movieID);
+            if (getMovieDetail.Status.Equals(GenericStatusEnum.Success.ToString()))
+            {
+                return Ok(getMovieDetail);
+            }
+            return BadRequest(getMovieDetail);
         }
 
         [HttpDelete("DeleteMovie")]

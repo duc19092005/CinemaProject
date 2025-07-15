@@ -3,6 +3,7 @@ using backend.ModelDTO.MoviesDTO.MovieRequest;
 using backend.ModelDTO.MoviesDTO.MovieRespond;
 using Microsoft.EntityFrameworkCore.Update.Internal;
 using backend.ModelDTO.PaginiationDTO.Respond;
+using backend.ModelDTO.GenericRespond;
 
 namespace backend.Interface.MovieInterface
 {
@@ -17,6 +18,8 @@ namespace backend.Interface.MovieInterface
         // CHỉnh sửa phim
 
         Task<bool> edit(string movieID, MovieEditRequestDTO dtos);
+
+        GenericRespondWithObjectDTO<movieGetDetailResponseDTO> getMovieDetail(string movieID);
 
  
         // Cơ chế phân trang để giúp giảm tải ở bên phía server (trang 1 lấy data 1,2,3 - Trang 2 lấy data 4,5,6)
