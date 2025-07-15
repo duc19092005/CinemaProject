@@ -27,7 +27,18 @@ namespace backend.Controllers
             return BadRequest(new {message = "Thêm thất bại"});
         }
 
-        [HttpDelete("removeSchedule")]
+        [HttpPatch("editSchedule/{id}")]
+        public async Task<IActionResult> editSchedule(string id, ScheduleRequestDTO scheduleRequestDTO)
+        {
+            var status = await scheduleServices.edit(id, scheduleRequestDTO);
+            if (status)
+            {
+                return Ok(new { message = "Đã thay đổi thành công" });
+            }
+            return BadRequest(new { message = "thay đổi thất bại do có lỗi =(" });
+        }
+
+        [HttpDelete("removeSchedule/{id}")]
         public async Task<IActionResult> removeSchedule(string id, string options)
         {
             var status = await scheduleServices.delete(id, options);
@@ -37,5 +48,7 @@ namespace backend.Controllers
             }
             return BadRequest(new {message = "Xóa thất bại do có người đã đặt lịch này"});
         }
+
+        
     }
 }

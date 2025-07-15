@@ -2,6 +2,7 @@
 using backend.Interface.CloudinaryInterface;
 using backend.Interface.GenericsInterface;
 using backend.Interface.MovieInterface;
+using backend.Model.MinimumAge;
 using backend.Model.Movie;
 using backend.ModelDTO.MoviesDTO.MovieRequest;
 using backend.ModelDTO.MoviesDTO.MovieRespond;
@@ -9,6 +10,7 @@ using backend.ModelDTO.PaginiationDTO.Respond;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
+using System.Globalization;
 using System.Linq;
 
 namespace backend.Services.MovieServices
@@ -46,6 +48,7 @@ namespace backend.Services.MovieServices
                         movieDuration = movieRequestDTO.movieDuration,
                         languageId = movieRequestDTO.languageId,
                         minimumAgeID = movieRequestDTO.minimumAgeID,
+                        ReleaseDate = movieRequestDTO.releaseDate,
                     };
 
                     await _dataContext.movieInformation.AddAsync(newMovie);
@@ -136,8 +139,119 @@ namespace backend.Services.MovieServices
             return false;
         }
 
-        public async Task<bool> edit(int Id, MovieRequestDTO movieRequestDTO)
+        public async Task<bool> edit(int Id, MovieEditRequestDTO dtos)
         {
+
+            // Tìm kiếm các trường dữ liệu liên quan
+            var findLanguageAndMiniumAgeAndMovieInfo = _dataContext.movieInformation.Include
+                (x => x.movieId.Equals(Id))
+                .Include(x => x.Language)
+                .Include(x => x.minimumAge)
+                .FirstOrDefault();
+
+            // Tìm kiếm Thể loại
+
+            var findGenreFilm = _dataContext.movieGenreInformation
+                .Where(x => x.movieId.Equals(Id));
+
+            // Tìm kiếm định dạng hình ảnh
+
+            var findMovieVisualFormatID = _dataContext.movieVisualFormatDetails
+                .Where(x => x.movieId.Equals(Id));
+
+            string movieName = string.Empty;
+            string minumAgeID = string.Empty;
+            string movieImage = string.Empty;
+            string movieDescription = string.Empty;
+            string movieDirector = string.Empty;
+            string movieActor = string.Empty;
+            string trailerURL = string.Empty;
+            int movieDuration = 0;
+            DateTime relaseDate = new DateTime();
+            string languageID = string.Empty;
+
+            List<string> visualFormatList = new List<string>();
+            List<string> movieGenreList = new List<string>();
+
+            // Nếu nó là null thì lấy chính nó
+
+            if (findLanguageAndMiniumAgeAndMovieInfo != null)
+            {
+                if (String.IsNullOrEmpty(dtos.movieName))
+                {
+                    movieName = findLanguageAndMiniumAgeAndMovieInfo.movieName;
+                }
+
+                if (String.IsNullOrEmpty(dtos.minimumAgeID))
+                {
+                    minumAgeID = findLanguageAndMiniumAgeAndMovieInfo.minimumAgeID;
+                }
+
+                if (dtos.movieImage == null)
+                {
+                    movieImage = findLanguageAndMiniumAgeAndMovieInfo.movieImage;
+                }
+
+                if (String.IsNullOrEmpty(dtos.movieDescription))
+                {
+                    movieDescription = findLanguageAndMiniumAgeAndMovieInfo.movieDescription;
+                }
+
+                if (String.IsNullOrEmpty(dtos.movieDirector))
+                {
+                    movieDirector = findLanguageAndMiniumAgeAndMovieInfo.movieDirector;
+                }
+
+                if (String.IsNullOrEmpty(dtos.movieActor))
+                {
+                    movieActor = findLanguageAndMiniumAgeAndMovieInfo.movieActor;
+                }
+
+                if (String.IsNullOrEmpty(dtos.movieTrailerUrl))
+                {
+                    trailerURL = findLanguageAndMiniumAgeAndMovieInfo.movieTrailerUrl;
+                }
+
+                if (dtos.movieDuration == null)
+                {
+                    movieDuration = findLanguageAndMiniumAgeAndMovieInfo.movieDuration;
+                }
+
+                if (String.IsNullOrEmpty(dtos.languageId))
+                {
+                    languageID = findLanguageAndMiniumAgeAndMovieInfo.languageId;
+                }
+
+                if (dtos.releaseDate == null)
+                {
+                    relaseDate = findLanguageAndMiniumAgeAndMovieInfo.ReleaseDate;
+                }
+
+                if (dtos.movieGenreList == null)
+                {
+                    movieGenreList = findGenreFilm
+                        .Select(x => x.movieGenreId).ToList();
+                }
+
+                if (dtos.visualFormatList == null)
+                {
+                    visualFormatList = findMovieVisualFormatID
+                        .Select(x => x.movieVisualFormatId).ToList();
+                }
+
+                findLanguageAndMiniumAgeAndMovieInfo.movieName = movieDirector;
+                findLanguageAndMiniumAgeAndMovieInfo.movieActor = movieActor;
+                findLanguageAndMiniumAgeAndMovieInfo.movieDirector = movieDirector;
+                findLanguageAndMiniumAgeAndMovieInfo.movieDuration = movieDuration;
+                findLanguageAndMiniumAgeAndMovieInfo.languageId = languageID;
+                findLanguageAndMiniumAgeAndMovieInfo.minimumAgeID = minumAgeID;
+                findLanguageAndMiniumAgeAndMovieInfo.movieName = movieName;
+                findLanguageAndMiniumAgeAndMovieInfo.ReleaseDate = relaseDate;
+                findLanguageAndMiniumAgeAndMovieInfo.movieDescription = movieDescription;   
+                var getFullUploadPath = await cloudinaryServices.uploadFileToCloudinary(dtos.movieImage);
+                findLanguageAndMiniumAgeAndMovieInfo.movieImage = getFullUploadPath;
+                return false;
+            }
             return false;
         }
 
