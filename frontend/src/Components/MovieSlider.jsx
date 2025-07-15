@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
@@ -32,8 +32,10 @@ const MovieSlider = () => {
         <div className="w-full bg-[#0d1128]">
             <Swiper
                 navigation={true}
-                modules={[Navigation]}
-                className="mySwiper w-full">
+                modules={[Navigation, Autoplay]}
+                autoplay={{ delay: 2000, disableOnInteraction: false }}
+                className="mySwiper w-full"
+            >
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
                         <div className="relative w-full flex justify-center items-center">

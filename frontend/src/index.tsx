@@ -15,7 +15,6 @@ import Cinezone from './Cinema/Cinezone';
 import PaymentPage from './Bookig/PaymentPage';
 import Info from './Account/Info';
 
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
