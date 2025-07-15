@@ -240,25 +240,25 @@ function Home() {
     </SwiperSlide>
   );
   return (
-    <div className="min-h-screen bg-fixed w-full bg-cover bg-center top-0"
+    <div className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('https://images8.alphacoders.com/136/thumb-1920-1368754.jpeg')" }}>
-      <div className="sticky top-0 z-50 bg-slate-950 shadow-md">
-        <header>
-          <div className="content-wrapper max-w-screen-xl text-base mx-auto px-8 ">
-            <Nav />
-          </div>
-        </header>
-      </div>
-      <div className="content-wrapper max-w-screen-xl text-base mx-auto px-8  min-h-screen top-0">
-        <main className="flex flex-col gap-6 p-4">
-          <MovieSlider />
-          <QuickBooking />
-          {/* Phim đang chiếu */}
-          <div className="container mx-auto">
+      <div className="relative z-10">
+        <div className="sticky top-0 z-50 bg-slate-950 shadow-md">
+          <header>
+            <div className="content-wrapper max-w-screen-xl text-base mx-auto px-8">
+              <Nav />
+            </div>
+          </header>
+        </div>
+
+        <div className="content-wrapper max-w-screen-xl text-base mx-auto px-8 min-h-screen top-0">
+          <main className="flex flex-col gap-6 p-4">
+            <MovieSlider />
+            <QuickBooking />
+
+            {/* Phim đang chiếu */}
             <section>
-              <h2 className="text-3xl text-white font-bold pt-10 pb-24 uppercase flex justify-center items-center">
-                -- Phim đang chiếu --
-              </h2>
+              <h2 className="text-3xl text-white font-bold pt-10 pb-24 uppercase text-center">-- Phim đang chiếu --</h2>
               <div className="px-4 sm:px-6 lg:px-8">
                 <Swiper
                   breakpoints={{
@@ -269,12 +269,12 @@ function Home() {
                   }}
                   navigation
                   modules={[Navigation]}
-                  className="mySwiper">
+                  className="mySwiper"
+                >
                   {movies.map(renderMovieSlide)}
                 </Swiper>
               </div>
             </section>
-
             {/* Nút Xem thêm */}
             <div className="pt-12">
               <button
@@ -297,78 +297,67 @@ function Home() {
                 </svg>
               </button>
             </div>
-          </div>
 
-          {/* Phim sắp chiếu */}
-          <section>
-            <h2 className="text-3xl text-white font-bold pt-10 pb-24 uppercase flex justify-center items-center">
-              -- Phim sắp chiếu --
-            </h2>
-            <div className="px-4 sm:px-6 lg:px-8">
-              <Swiper
-                breakpoints={{ //Hiển thị số lượng slider phim theo kích thước từng màn hình
-                  320: { slidesPerView: 1, spaceBetween: 10 },
-                  640: { slidesPerView: 2, spaceBetween: 20 },
-                  1024: { slidesPerView: 3, spaceBetween: 30 },
-                  1280: { slidesPerView: 4, spaceBetween: 30 },
-                }}
-                navigation
-                modules={[Navigation]}
-                className="mySwiper">
-                {movies123.map(renderMovieSlide1)}
-              </Swiper>
-            </div>
-          </section>
-
-          {/* Nút Xem thêm */}
-          <div className="pt-12">
-            <button
-              onClick={(handleComingmovies)}
-              type="submit"
-              className="flex justify-center gap-2 items-center mx-auto shadow-xl text-base bg-purple-600 backdrop-blur-md lg:font-semibold isolation-auto
+            {/* Phim sắp chiếu */}
+            <section>
+              <h2 className="text-3xl text-white font-bold pt-10 pb-24 uppercase text-center">-- Phim sắp chiếu --</h2>
+              <div className="px-4 sm:px-6 lg:px-8">
+                <Swiper
+                  breakpoints={{
+                    320: { slidesPerView: 1, spaceBetween: 10 },
+                    640: { slidesPerView: 2, spaceBetween: 20 },
+                    1024: { slidesPerView: 3, spaceBetween: 30 },
+                    1280: { slidesPerView: 4, spaceBetween: 30 },
+                  }}
+                  navigation
+                  modules={[Navigation]}
+                  className="mySwiper"
+                >
+                  {movies123.map(renderMovieSlide1)}
+                </Swiper>
+              </div>
+            </section>
+            {/* Nút Xem thêm */}
+            <div className="pt-12">
+              <button
+                onClick={(handleComingmovies)}
+                type="submit"
+                className="flex justify-center gap-2 items-center mx-auto shadow-xl text-base bg-purple-600 backdrop-blur-md lg:font-semibold isolation-auto
                             border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 
                             before:rounded-full before:bg-orange-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 
                             relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group">
-              Xem thêm
-              <svg
-                className="w-6 h-6 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700
+                Xem thêm
+                <svg
+                  className="w-6 h-6 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700
                               group-hover:border-none p-2 rotate-45"
-                viewBox="0 0 16 19"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                  className="fill-gray-800 group-hover:fill-gray-800"
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </main>
-
-        {/* Trailer popup */}
-        {showTrailer && (
-          <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-            <div className="bg-black rounded-lg p-4 relative w-[90%] md:w-[60%] aspect-video">
-              <button
-                onClick={() => setShowTrailer(false)}
-                className="absolute top-2 right-2 text-white text-2xl font-bold">
-                ✕
+                  viewBox="0 0 16 19"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                    className="fill-gray-800 group-hover:fill-gray-800"
+                  ></path>
+                </svg>
               </button>
-              <iframe
-                src={trailerUrl}
-                title="Trailer"
-                className="w-full h-full rounded-md"
-                allowFullScreen
-              />
             </div>
-          </div>
-        )}
-      </div>
+            {/* Popup Trailer */}
+            {showTrailer && (
+              <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+                <div className="bg-black rounded-lg p-4 relative w-[90%] md:w-[60%] aspect-video">
+                  <button onClick={() => setShowTrailer(false)} className="absolute top-2 right-2 text-white text-2xl font-bold">✕</button>
+                  <iframe src={trailerUrl} title="Trailer" className="w-full h-full rounded-md" allowFullScreen />
+                </div>
+              </div>
+            )}
+          </main>
+        </div>
 
-      <footer className="pt-32">
-        <Bottom />
-      </footer>
+        <footer className="pt-32">
+          <Bottom />
+        </footer>
+      </div>
     </div>
   );
+
 }
 
 export default Home;
