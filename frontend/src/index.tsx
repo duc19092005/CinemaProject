@@ -14,6 +14,7 @@ import Showtimes from './Bookig/Showtimes';
 import Cinezone from './Cinema/Cinezone';
 import PaymentPage from './Bookig/PaymentPage';
 import Info from './Account/Info';
+import QLRap from  './HomeQLRap'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -31,6 +32,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/cinezone" element={<Cinezone />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/info" element={<Info />} />
+        <Route path="/QLRap/Home" element={<QLRap />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
