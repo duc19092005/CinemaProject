@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import Nav from "../Header/nav";
 import Bottom from "../Footer/bottom";
+import { useNavigate } from "react-router-dom";
 
 function Listfilm() {
     const [showTrailer, setShowTrailer] = useState(false);
     const [trailerUrl, setTrailerUrl] = useState("");
+    const navigate = useNavigate();
 
+    const handleShowtimes = () => {
+        navigate("/showtimes");
+    };
     const handleOpenTrailer = (url: string) => {
         let embedUrl = url;
 
@@ -197,7 +202,7 @@ function Listfilm() {
                                         </div>
                                     </button>
                                     <button
-                                        onClick={() => window.open("https://tailwindcss.com/docs/flex-basis", "_blank")}
+                                        onClick={(handleShowtimes)}
                                         className="overflow-hidden relative w50 p-2 h-12 bg-purple-600 text-white border-none rounded-md text-base font-bold cursor-pointer z-10 group"
                                     >
                                         🎟 Đặt vé ngay

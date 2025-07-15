@@ -7,6 +7,9 @@ import Choose from "./Choose";
 
 function Introduce() {
     const navigate = useNavigate();
+    const handleComment = () => {
+        navigate("/comment");
+    }
 
     const handlePayment = () => {
         // Tạo object chứa thông tin cần truyền
@@ -202,8 +205,8 @@ function Introduce() {
                         </div>
                         <div>
                             <p
-                                onClick={() => handleOpenTrailer(movieInfo.trailer)}
-                                className="text-white pl-32 py-9 text-lg font-bold flex items-center gap-2 cursor-pointer">
+                                onClick={(handleComment)}
+                                className="text-white pl-32 py-9 text-lg font-bold flex items-center gap-2 cursor-pointer hover:text-yellow-400 transition-colors duration-300">
                                 <img
                                     className="w-9"
                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB00lEQVR4nO3au0oDQRiG4cGIhZ029l6EhcROBDsRLBQFwdbSzsrGqKUgKN6C9xBJtLQURWyUxGvwhK8k+ZA15LAJk8NM/qfSmSHZeYm7G1nnjDHGGGMEmACOgTfiUQaOKntz7VBbGKtcmgBlLZ53kQCy2lM5zeIqF5nU+yLtwsBYAPFXKjAWQPyVCowFEH+lAmMBxF+pwFgA8VcqMBZA/JUS4JbeuWnzPn/zgwxQ7GGAQpv3KQw8QCgsgPgrFRgLIP5K9ecq0PVZP5arQNdn/b4FCIUFEH+lAmMBxF+pwFgA8VcqMBZA/JUKjAWQjktRu9f/dw8e6FjXAaravViIYw3VLxymAx5UgGL9t7BAx7oLEItOApS1NusiASxoT6U0i3MMh2sg4/k/UYdpH5TMJT4Jg7Te4jg/OnidUmXzqR6UHAbAtg688rTqVJM1L1oz62IDjAF32uBlkzV5zS+7GAFzwCfwA2w0mD9RgAMXK2BPm3wHFuvmVjSXdzEDzhMR1hLj0xr7BmZcrIAMcKEIlT+HU2BSc1ca33WxA/aBL234CdgEVvX7Y6t7hthOjA+J6/tr4uctNwqo3ajtAM91Nzv3bpQA48AScKZPQtxXA2OM64Vff3q7PXoJEkoAAAAASUVORK5CYII="
@@ -245,8 +248,6 @@ function Introduce() {
                         </div>
                     </div>
                 </div>
-
-
                 {/* Showtime Selector */}
                 <div className="mb-6 flex flex-col items-center">
                     <h2 className="text-3xl font-bold text-yellow-400 mb-4 uppercase">Chọn Lịch Chiếu</h2>

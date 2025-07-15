@@ -9,6 +9,9 @@ function TabsExample() {
     const handleShowTimes = () => {
         navigate("/showtimes");
     }
+    const handleFutureFilm = () => {
+        navigate("/futurefilm");
+    };
     // State lưu tab đang active
     const [activeTab, setActiveTab] = useState("tab1");
     const [showTrailer, setShowTrailer] = useState(false);
@@ -342,7 +345,7 @@ function TabsExample() {
                                         </div>
                                     </button>
                                     <button
-                                        onClick={() => window.open("https://tailwindcss.com/docs/flex-basis", "_blank")}
+                                        onClick={(handleFutureFilm)}
                                         className="overflow-hidden relative w50 p-2 h-12 bg-purple-600 text-white border-none rounded-md text-base font-bold cursor-pointer z-10 group"
                                     >
                                         🎟 Tìm hiểu thêm

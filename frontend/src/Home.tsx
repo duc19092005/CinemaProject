@@ -25,6 +25,9 @@ function Home() {
   const handleShowtimes = () => {
     navigate('/showtimes');
   }
+  const handleFutureFilm = () => {
+    navigate('/futurefilm');
+  }
   const [showTrailer, setShowTrailer] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
 
@@ -225,7 +228,7 @@ function Home() {
             </div>
           </button>
           <button
-            //onClick={(handleComingmovies)}
+            onClick={(handleFutureFilm)}
             className="overflow-hidden relative w50 p-2 h-12 bg-purple-600 text-white border-none rounded-md text-base font-bold cursor-pointer z-10 group">
             🎟 Tìm hiểu thêm
             <span className="absolute w-60 h-40 -top-12 -left-10 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
