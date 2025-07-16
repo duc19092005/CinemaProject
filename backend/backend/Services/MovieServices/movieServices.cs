@@ -30,7 +30,7 @@ namespace backend.Services.MovieServices
             this.cloudinaryServices = cloudinaryServices;
         }
 
-        public async Task<bool> add([FromForm] MovieRequestDTO movieRequestDTO)
+        public async Task<GenericRespondDTOs> add([FromForm] MovieRequestDTO movieRequestDTO)
         {
             if (movieRequestDTO != null)
             {
@@ -84,22 +84,38 @@ namespace backend.Services.MovieServices
                     await _dataContext.movieVisualFormatDetails.AddRangeAsync(newMovieVisualArray);
 
                     await _dataContext.SaveChangesAsync();
-                    return true;
+                    return new GenericRespondDTOs()
+                    {
+                        Status = GenericStatusEnum.Success.ToString(),
+                        message = "Thêm thành công"
+                    };
                 }
                 catch (DbException db)
                 {
-                    throw new ApplicationException("Lỗi database" + db.Message);
+                    return new GenericRespondDTOs()
+                    {
+                        Status = GenericStatusEnum.Failure.ToString(),
+                        message = "Lỗi Database"
+                    };
                 }
                 catch (Exception e)
                 {
-                    throw new Exception("Lỗi hệ thống" + e.Message);
+                    return new GenericRespondDTOs()
+                    {
+                        Status = GenericStatusEnum.Failure.ToString(),
+                        message = "Lỗi hệ thống"
+                    };
                 }
             }
-            return false;
+            return new GenericRespondDTOs()
+            {
+                Status = GenericStatusEnum.Failure.ToString(),
+                message = "Lỗi nhập không đầy đủ thông tin"
+            };
         }
 
         // Không xóa phim chỉ set bằng isDelete = true thôi
-        public async Task<bool> remove(string Id)
+        public async Task<GenericRespondDTOs> remove(string Id)
         {
             // Tìm kiếm Object
 
@@ -131,15 +147,26 @@ namespace backend.Services.MovieServices
                     }
 
                     _dataContext.movieSchedule.UpdateRange(FindMovieScheduleObject);
-                    return true;
+                    return new GenericRespondDTOs()
+                    {
+                        Status = GenericStatusEnum.Success.ToString(),
+                        message = "Xóa thành công"
+                    };
                 }
                 else
                 {
-
-                    return false;
+                    return new GenericRespondDTOs()
+                    {
+                        Status = GenericStatusEnum.Failure.ToString(),
+                        message = "Lỗi đã có người vé phim này nên Không thể xóa"
+                    };
                 }
             }
-            return false;
+            return new GenericRespondDTOs()
+            {
+                Status = GenericStatusEnum.Failure.ToString(),
+                message = "Lỗi Không tìm thấy phim để xóa"
+            };
         }
 
         public GenericRespondWithObjectDTO<movieGetDetailResponseDTO> getMovieDetail(string movieID)
@@ -190,7 +217,7 @@ namespace backend.Services.MovieServices
         }
 
 
-        public async Task<bool> edit(string movieID, MovieEditRequestDTO dtos)
+        public async Task<GenericRespondDTOs> edit(string movieID, MovieEditRequestDTO dtos)
         {
 
             // Tìm kiếm các trường dữ liệu liên quan
@@ -200,14 +227,14 @@ namespace backend.Services.MovieServices
                 .Include(x => x.minimumAge)
                 .FirstOrDefault();
 
+
+
             if (findLanguageAndMiniumAgeAndMovieInfo != null)
             {
 
-                var FindMovieSchedules = _dataContext.movieSchedule.Where
-                (x => x.movieId.Equals(findLanguageAndMiniumAgeAndMovieInfo.movieId));
-
-
-                if (FindMovieSchedules.Count() == 0)
+                var FindMovieScheduleObject = _dataContext.movieSchedule.Where(x => x.movieId.Equals(findLanguageAndMiniumAgeAndMovieInfo.movieId) && !x.IsDelete).ToList();
+                var FindOrder = _dataContext.TicketOrderDetail.Any(x => x.movieScheduleID.Equals(FindMovieScheduleObject.Select(x => x.movieScheduleId)));
+                if (!FindOrder)
                 {
                     var findGenreFilm = _dataContext.movieGenreInformation
                     .Where(x => x.movieId.Equals(movieID));
@@ -309,19 +336,34 @@ namespace backend.Services.MovieServices
                         await _dataContext.movieVisualFormatDetails.AddRangeAsync(movieVisualFormatDetails);
                         await _dataContext.SaveChangesAsync();
                         await Transition.CommitAsync();
-                        return true;
-
+                        return new GenericRespondDTOs()
+                        {
+                            Status = GenericStatusEnum.Success.ToString(),
+                            message = "Sửa phim thành công"
+                        };
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                         await Transition.RollbackAsync();
-                        return false;
+                        return new GenericRespondDTOs()
+                        {
+                            Status = GenericStatusEnum.Failure.ToString(),
+                            message = "Lỗi" + ex.Message
+                        };
                     }
                 }
-                return false;
+                return new GenericRespondDTOs()
+                {
+                    Status = GenericStatusEnum.Failure.ToString(),
+                    message = "Lỗi đã có người đặt vé"
+                };
             }
-            return false;
+            return new GenericRespondDTOs()
+            {
+                Status = GenericStatusEnum.Failure.ToString(),
+                message = "Lỗi Không tìm thấy thông tin phim"
+            };
         }
 
         public async Task<PagniationRespond> getListItemsPagination(int page, int pagesize = 9)

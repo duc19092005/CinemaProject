@@ -10,14 +10,14 @@ namespace backend.Interface.MovieInterface
     public interface IMovieService
     {
         // Thêm phim
-        Task<bool> add(MovieRequestDTO entity);
+        Task<GenericRespondDTOs> add(MovieRequestDTO entity);
 
         // Xóa phim
-        Task<bool> remove(string Id);
+        Task<GenericRespondDTOs> remove(string Id);
 
         // CHỉnh sửa phim
 
-        Task<bool> edit(string movieID, MovieEditRequestDTO dtos);
+        Task<GenericRespondDTOs> edit(string movieID, MovieEditRequestDTO dtos);
 
         GenericRespondWithObjectDTO<movieGetDetailResponseDTO> getMovieDetail(string movieID);
 
