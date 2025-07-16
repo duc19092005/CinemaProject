@@ -1,0 +1,35 @@
+.button2 {
+  display: inline-flex;              
+  align-items: center;              
+  justify-content: center;          
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #090909;
+  padding: 0.7em 1.7em;             
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;                 
+  border-radius: 0.5em;
+  background: #CAFF38;
+  border: 1px solid #CAFF38;
+  text-align: center;               
+}
+
+.button2:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.button2:hover {
+  color: #ffffff;
+  background-color: #4C28DB;
+  border: 1px solid #4C28DB;
+}
+
+
+/* From Uiverse.io by SelfMadeSystem */ 
+/*
+More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/
+ */

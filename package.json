@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-datepicker": "^8.4.0",
+    "swiper": "^11.2.10"
+  }
+}

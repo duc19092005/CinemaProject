@@ -14,8 +14,8 @@ import Showtimes from './Bookig/Showtimes';
 import Cinezone from './Cinema/Cinezone';
 import PaymentPage from './Bookig/PaymentPage';
 import Info from './Account/Info';
-
-
+import QLNV from './QL_Nhanvien_CSVC_QLRap/homeQLRạp'
+import DT from './QL_Doanhthu_GiamDoc_ThuNgan/Doanhthu'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -31,6 +31,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/cinezone" element={<Cinezone />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/info" element={<Info />} />
+        <Route path="/QLNV" element={<QLNV />} />
+        <Route path="/doanhthu" element={<DT />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
