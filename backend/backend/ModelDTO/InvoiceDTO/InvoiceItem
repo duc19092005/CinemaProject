@@ -1,0 +1,8 @@
+namespace backend.ModelDTO
+{
+    public class InvoiceItem
+    {
+        public string ServiceName { get; set; }
+        public int Quantity { get; set; }
+    }
+}

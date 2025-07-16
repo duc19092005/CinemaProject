@@ -17,14 +17,51 @@ namespace backend.Controllers
     public class VnpayController : ControllerBase
     {
         private readonly DataContext _dataContext;
+        private readonly InvoiceService _invoiceService;
 
-        public VnpayController(DataContext dataContext) 
+        public VnpayController(DataContext dataContext)
         {
             this._dataContext = dataContext;
         }
+        public VnpayController(DataContext dataContext, InvoiceService invoiceService)
+        {
+            _dataContext = dataContext;
+            _invoiceService = invoiceService;
+        }
+
         [HttpGet("IPN")]
         public IActionResult IPN()
         {
+            getOrderID.PaymentStatus = PaymentStatus.PaymentSuccess.ToString();
+            getOrderID.message = responseMessage;
+
+            // Tạo dữ liệu hóa đơn
+            var invoiceModel = new InvoiceModel
+{
+    EmployeeCode = getOrderID.EmployeeCode,
+    Email = getOrderID.Email,
+    OrderDate = DateTime.Now,
+    OrderCode = getOrderID.orderId,
+    TotalAmount = getOrderID.Total,
+    Items = new List<InvoiceItem>
+    {
+        new() { ServiceName = "Vé xem phim", Quantity = 2 },
+        new() { ServiceName = "Combo bắp + nước", Quantity = 1 }
+        // Hoặc bạn lấy thực tế từ bảng OrderDetail (nếu có)
+    }
+};
+
+            // Gửi hóa đơn
+            byte[] pdf = _invoiceService.GenerateInvoicePdf(invoiceModel);
+            await _invoiceService.SendInvoiceEmail(invoiceModel.Email, pdf, invoiceModel.OrderCode);
+            string cloudinaryUrl = await _invoiceService.UploadInvoiceToCloudinary(pdf, invoiceModel.OrderCode);
+
+            // Lưu vào DB
+            getOrderID.InvoiceUrl = cloudinaryUrl;
+
+            _dataContext.Order.Update(getOrderID);
+            await _dataContext.SaveChangesAsync();
+
             var queryParams = HttpContext.Request.Query;
 
             var vnpAmount = queryParams["vnp_Amount"].ToString();

@@ -1,0 +1,15 @@
+using System;
+using System.Collections.Generic;
+
+namespace backend.ModelDTO
+{
+    public class InvoiceModel
+    {
+        public string EmployeeCode { get; set; }
+        public string Email { get; set; }
+        public DateTime OrderDate { get; set; }
+        public string OrderCode { get; set; }
+        public decimal TotalAmount { get; set; }
+        public List<InvoiceItem> Items { get; set; } = new();
+    }
+}
