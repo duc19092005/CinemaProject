@@ -1,0 +1,103 @@
+using System.Net.Mail;
+using System.Net;
+using backend.ModelDTO;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
+using Microsoft.AspNetCore.Http;
+using backend.Services.CloudinaryServices;
+
+namespace backend.Services.InvoiceServices
+{
+    public class InvoiceService
+    {
+        private readonly CloudinaryService _cloudinary;
+
+        public InvoiceService(CloudinaryService cloudinary)
+        {
+            _cloudinary = cloudinary;
+        }
+
+        public byte[] GenerateInvoicePdf(InvoiceModel model)
+        {
+            var doc = Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.Margin(30);
+                    page.Content().Column(col =>
+                    {
+                        col.Item().Text("HÓA ĐƠN THANH TOÁN").FontSize(20).Bold().AlignCenter().SpacingBottom(10);
+
+                        col.Item().Column(info =>
+                        {
+                            info.Item().Text($"Mã nhân viên: {model.EmployeeCode}");
+                            info.Item().Text($"Email người đặt: {model.Email}");
+                            info.Item().Text($"Ngày order: {model.OrderDate:dd/MM/yyyy}");
+                        }).SpacingBottom(15);
+
+                        col.Item().Table(table =>
+                        {
+                            table.ColumnsDefinition(columns =>
+                            {
+                                columns.ConstantColumn(40);   // STT
+                                columns.RelativeColumn(4);   // Dịch vụ
+                                columns.ConstantColumn(70);  // Số lượng
+                            });
+
+                            table.Header(header =>
+                            {
+                                header.Cell().Element(CellStyle).Text("STT").Bold();
+                                header.Cell().Element(CellStyle).Text("Dịch vụ").Bold();
+                                header.Cell().Element(CellStyle).Text("Số lượng").Bold();
+                            });
+
+                            int index = 1;
+                            foreach (var item in model.Items)
+                            {
+                                table.Cell().Element(CellStyle).Text(index++);
+                                table.Cell().Element(CellStyle).Text(item.ServiceName);
+                                table.Cell().Element(CellStyle).AlignRight().Text(item.Quantity);
+                            }
+
+                            table.Cell().ColumnSpan(2).Element(CellStyle).Text("Tổng tiền").Bold();
+                            table.Cell().Element(CellStyle).AlignRight()
+                                         .Text($"{model.TotalAmount:N0} VND").Bold();
+
+                            IContainer CellStyle(IContainer container) =>
+                                container.PaddingVertical(4).BorderBottom(1).BorderColor("#E0E0E0");
+                        });
+                    });
+                });
+            });
+
+            return doc.GeneratePdf();
+        }
+
+        public async Task<string> UploadInvoiceToCloudinary(byte[] pdfBytes, string filename)
+        {
+            var stream = new MemoryStream(pdfBytes);
+            var formFile = new FormFile(stream, 0, pdfBytes.Length, filename, filename + ".pdf")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "application/pdf"
+            };
+
+            return await _cloudinary.uploadFileToCloudinary(formFile);
+        }
+
+        public async Task SendInvoiceEmail(string toEmail, byte[] pdfBytes, string filename)
+        {
+            var message = new MailMessage("your_email@gmail.com", toEmail, "Hóa đơn thanh toán", "Vui lòng xem hóa đơn đính kèm.");
+            message.Attachments.Add(new Attachment(new MemoryStream(pdfBytes), filename + ".pdf"));
+
+            var smtp = new SmtpClient("smtp.gmail.com", 587)
+            {
+                Credentials = new NetworkCredential("your_email@gmail.com", "your_app_password"),
+                EnableSsl = true
+            };
+
+            await smtp.SendMailAsync(message);
+        }
+    }
+}

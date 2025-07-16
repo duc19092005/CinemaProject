@@ -12,36 +12,49 @@ using backend.Model.Staff_Customer;
 namespace backend.Model.Booking
 {
     public class Order
-    {
-        [Key]
-        [Column(TypeName = "varchar(100)")]
-        public string orderId { get; set; } = "";
+{
+    [Key]
+    [Column(TypeName = "varchar(100)")]
+    public string orderId { get; set; } = "";
 
-        [Required]
-        [Column(TypeName = "varchar(50)")]
-        public string paymentMethod { get; set; } = "VNPAY";
+    [Required]
+    [Column(TypeName = "varchar(50)")]
+    public string paymentMethod { get; set; } = "VNPAY";
 
-        [Required]
-        public string PaymentStatus { get; set; } = string.Empty;
+    [Required]
+    public string PaymentStatus { get; set; } = string.Empty;
 
-        [Required]
-        public long totalAmount { get; set; }
+    [Required]
+    public long totalAmount { get; set; }
 
-        public string message { get; set; } = string.Empty;
+    public string message { get; set; } = string.Empty;
 
-        public DateTime paymentRequestCreatedDate { get; set; }
+    public DateTime paymentRequestCreatedDate { get; set; }
 
-        [Column(TypeName = "varchar(100)")]
-        [ForeignKey("Customer")]
-        [Required]
-        public string customerID { get; set; } = "";
+    [Column(TypeName = "varchar(100)")]
+    [ForeignKey("Customer")]
+    [Required]
+    public string customerID { get; set; } = "";
 
-        public Customer Customer { get; set; } = null!;
+    public Customer Customer { get; set; } = null!;
 
-        public List<orderDetailTicket> orderDetail = [];
+    public List<orderDetailTicket> orderDetail = [];
 
-        public List<orderDetailFood> orderDetailFood = [];
+    public List<orderDetailFood> orderDetailFood = [];
 
-        
-    }
+    // --- Hóa đơn ---
+    [Column(TypeName = "varchar(255)")]
+    public string invoicePdfUrl { get; set; } = "";
+
+    public DateTime? invoiceCreatedAt { get; set; }
+
+    [Column(TypeName = "varchar(100)")]
+    public string orderEmail { get; set; } = "";
+
+    [Column(TypeName = "varchar(100)")]
+    public string staffCode { get; set; } = "";
+
+    public bool isEmailSent { get; set; } = false;
+}
+
 }
