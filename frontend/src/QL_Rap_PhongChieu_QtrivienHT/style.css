@@ -1,0 +1,29 @@
+.button2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #000;
+  padding: 0.7em 1.7em;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 0.5em;
+  background: #CAFF38; /* Changed from #ddd to lightgreen */
+  border: 1px solid #CAFF38; /* Changed from #ddd to lightgreen for consistency */
+  text-align: center;
+}
+
+.button2:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #044119;
+}
+
+.button2:hover {
+  color: #ffffff;
+  background-color: #7e57c2;
+  border: 1px solid #7e57c2;
+}
