@@ -106,11 +106,11 @@ export default function QuanLy() {
   const [revenueList] = useState<Revenue[]>([
     { stt: 1, ngay: "20/11/2025", tongDoanhThu: "VND 20.000" },
     { stt: 2, ngay: "19/11/2025", tongDoanhThu: "VND 120.000" },
-    { stt: 3, ngay: "19/11/2025", tongDoanhThu: "VND 50.000" },
+    { stt: 3, ngay: "19/11/2025", tongDoanhThu: "VND 5.000.000" },
     { stt: 4, ngay: "20/11/2025", tongDoanhThu: "VND 70.000" },
     { stt: 5, ngay: "01/10/2025", tongDoanhThu: "VND 10.000" },
-    { stt: 6, ngay: "15/10/2025", tongDoanhThu: "VND 30.000" },
-    { stt: 7, ngay: "05/12/2025", tongDoanhThu: "VND 200.000" },
+    { stt: 6, ngay: "15/10/2025", tongDoanhThu: "VND 30.000.000" },
+    { stt: 7, ngay: "05/12/2025", tongDoanhThu: "VND 2.000.000" },
   ]);
   const [selectedRap, setSelectedRap] = useState("Chọn");
   const [filterDate, setFilterDate] = useState("");

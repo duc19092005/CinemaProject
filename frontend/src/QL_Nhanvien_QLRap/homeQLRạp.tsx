@@ -381,15 +381,19 @@ export default function QuanLy() {
               </div>
             )}
 
+            {/* Modal Đăng xuất */}
             {showLogoutModal && (
-              <div style={{
-                position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
-                background: "rgba(0,0,0,0.5)", display: "flex", justifyContent: "center", alignItems: "center"
-              }}>
+              <div style={modalOverlayStyle}>
                 <div style={{ background: "#4c65a8", padding: "24px", borderRadius: "8px", textAlign: "center", color: "white", width: "300px" }}>
+                  <div style={{ marginBottom: "8px" }}>
+                    <div style={{ display: "flex", justifyContent: "center", marginBottom: "8px" }}>
+                      <img src="/images/warning.png" alt="!" style={{ width: "40px" }} />
+                    </div>
+                  </div>
                   <p>Bạn chắc chắn muốn đăng xuất không?</p>
                   <div style={{ display: "flex", justifyContent: "space-around", marginTop: "16px" }}>
-                    <button onClick={() => { alert("Đã đăng xuất"); navigate("/"); setShowLogoutModal(false); }}
+                    <button onClick={() => { setShowLogoutModal(false);
+                      navigate("/"); setShowLogoutModal(false);alert("Đã đăng xuất"); /* navigate("/"); */ }}
                       style={{ padding: "6px 12px", border: "none", borderRadius: "4px", background: "lightgreen", color: "black" }}>Có</button>
                     <button onClick={() => setShowLogoutModal(false)}
                       style={{ padding: "6px 12px", border: "none", borderRadius: "4px", background: '#cc3380', color: "white" }}>Không</button>
