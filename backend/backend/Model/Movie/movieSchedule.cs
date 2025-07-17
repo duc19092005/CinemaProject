@@ -9,6 +9,7 @@ using backend.Model.Movie;
 using backend.Model.Price;
 using backend.Model.Product;
 using backend.Model.ScheduleList;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Model.Movie
 {
