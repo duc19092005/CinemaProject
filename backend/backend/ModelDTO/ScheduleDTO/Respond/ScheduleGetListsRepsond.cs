@@ -2,9 +2,7 @@
 {
     public class ScheduleGetListsRepsond
     {
-        public DateTime showDateTime { get; set; } = string.Empty;
-
-
+        public DateTime ShowDateTime { get; set; } 
     }
 
     public class cinemaList

@@ -850,11 +850,15 @@ namespace backend.Migrations
 
                     b.HasIndex("HourScheduleID");
 
-                    b.HasIndex("movieId");
-
                     b.HasIndex("movieVisualFormatID");
 
                     b.HasIndex("cinemaRoomId", "ScheduleDate")
+                        .IsUnique();
+
+                    b.HasIndex("cinemaRoomId", "ScheduleDate", "HourScheduleID")
+                        .IsUnique();
+
+                    b.HasIndex("movieId", "ScheduleDate", "HourScheduleID")
                         .IsUnique();
 
                     b.ToTable("movieSchedule");

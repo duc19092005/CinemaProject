@@ -61,6 +61,16 @@ namespace backend.Data
             modelBuilder.Entity<Staff>()
                 .HasIndex(ms => new { ms.userID })
                 .IsUnique();
+            
+            // unique Phim phim , ngay , gio
+            modelBuilder.Entity<movieSchedule>()
+                .HasIndex(ms => new { ms.movieId, ms.ScheduleDate, ms.HourScheduleID })
+                .IsUnique();
+            
+            // unique Lichj chieu Phong , Ngay , Gio
+            modelBuilder.Entity<movieSchedule>()
+                .HasIndex(ms => new { ms.cinemaRoomId, ms.ScheduleDate, ms.HourScheduleID })
+                .IsUnique();
 
             // =====================================================================
             // KHÔNG CHỈNH SỬA - Dữ liệu vai trò và phân quyền người dùng
