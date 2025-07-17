@@ -86,10 +86,10 @@ const MonthlyRevenueChart: React.FC<{ currentRevenue: number; onClose: () => voi
         <Doughnut data={data} options={options} />
       </div>
       <p style={{ marginTop: "15px", fontSize: "1.1em" }}>
-        Tổng doanh thu: **{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(currentRevenue)}**
+        Tổng doanh thu: {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(currentRevenue)}
       </p>
       <p style={{ fontSize: "1.1em" }}>
-        Mục tiêu tháng: **{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(targetRevenue)}**
+        Mục tiêu: {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(targetRevenue)}
       </p>
     </div>
   );
@@ -190,7 +190,7 @@ export default function QuanLy() {
             <div style={{ display: "flex", alignItems: "center" }}>
               <img src="/images/logocinema1.png" alt="Logo" style={{ height: "40px", marginRight: "8px" }} />
             </div>
-            <h3>Bạn muốn chỉnh sửa/ thêm gì</h3>
+            <h3>Bấm vào ô bên dưới để xuất chart doanh thu theo ngày so với mục tiêu</h3>
             <button
               className="button2"
               onClick={() => setShowRevenueChartModal(true)}
