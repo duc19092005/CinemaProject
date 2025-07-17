@@ -17,6 +17,7 @@ import Info from './Account/Info';
 import QLRap from './HomeQLRap'
 import Comment from './Cinema/Comment';
 import FutureFilm from './Bookig/FutureFilm';
+import Booking from './Bookig/Booking';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -36,6 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/QLRap/Home" element={<QLRap />} />
         <Route path="/comment" element={<Comment />} />
         <Route path="/futurefilm" element={<FutureFilm />} />
+        <Route path="/booking" element={<Booking />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

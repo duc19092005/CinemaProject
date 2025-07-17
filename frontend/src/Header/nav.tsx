@@ -10,6 +10,9 @@ function Nav() {
     const handleInfo = () => {
         navigate('/info');
     }
+    const handleBooking = () => {
+        navigate('/booking');
+    }
 
     const [searchTerm, setSearchTerm] = useState('');
     const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +42,7 @@ function Nav() {
 
                 <div className="hidden md:flex items-center gap-6">
                     <button
-                        onClick={() => navigate('/booking')}
+                        onClick={handleBooking}
                         className="relative inline-flex items-center justify-center px-4 py-2 overflow-hidden text-white bg-purple-800 rounded-md group">
                         <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-amber-400 rounded-full group-hover:w-56 group-hover:h-56"></span>
                         <span className="relative text-base font-semibold flex items-center gap-2 uppercase">
