@@ -1,4 +1,5 @@
-﻿using backend.BaseModel.BaseModel_UserInformation;
+﻿using System.ComponentModel.DataAnnotations;
+using backend.BaseModel.BaseModel_UserInformation;
 using backend.Model.Auth;
 using backend.Model.Booking;
 using backend.Model.Cinemas;
@@ -12,6 +13,10 @@ namespace backend.Model.Staff_Customer
 
         [ForeignKey("userInformation")]
         public string userID { get; set; } = string.Empty;
+        
+        [Column(TypeName = "varchar(70)")]
+        [Required]
+        public string IdentityCode { get; set; } = "";
 
         public userInformation userInformation { get; set; } = null!;
 

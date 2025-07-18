@@ -12,6 +12,7 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Logging;
 using System.Reflection.PortableExecutable;
+using backend.Model.Staff_Customer;
 using Microsoft.AspNetCore.Authorization;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
@@ -38,32 +39,49 @@ namespace backend.Services.Auth
 
             if (getCustomerRoleID != null)
             {
-                Guid userID = Guid.NewGuid();
-                var BryptPassword = BCrypt.Net.BCrypt.HashPassword(registerRequest.loginUserPassword);
-                var BryptIdentifyCode = BCrypt.Net.BCrypt.HashPassword(registerRequest.IdentityCode);
-                var newUserInformarion = new userInformation()
+                var Transition =  await _dataContext.Database.BeginTransactionAsync();
+                try
                 {
-                    userId = userID.ToString(),
-                    loginUserEmail = registerRequest.loginEmail,
-                    loginUserPassword = BryptPassword,
+                    Guid userID = Guid.NewGuid();
+                    var BryptPassword = BCrypt.Net.BCrypt.HashPassword(registerRequest.loginUserPassword);
+                    var BryptIdentifyCode = BCrypt.Net.BCrypt.HashPassword(registerRequest.IdentityCode);
+                    var newUserInformarion = new userInformation()
+                    {
+                        userId = userID.ToString(),
+                        loginUserEmail = registerRequest.loginEmail,
+                        loginUserPassword = BryptPassword
+                    };
+                    string CustomerID = Guid.NewGuid().ToString();
+                    var newCustomerInfo = new Customer()
+                    {
+                        dateOfBirth = registerRequest.dateOfBirth,
+                        IdentityCode = BryptIdentifyCode,
+                        Id = CustomerID,
+                        Name = registerRequest.userName,
+                        userID = userID.ToString(),
+                        phoneNumber = registerRequest.phoneNumber,
+                    };
+                    await _dataContext.Customers.AddAsync(newCustomerInfo);
+                    await _dataContext.userInformation.AddAsync(newUserInformarion);
+
+                    var newUserRoleInformation = new userRoleInformation()
+                    {
+                        userId = userID.ToString(),
+                        roleId = getCustomerRoleID.roleId
+                    };
+                    await _dataContext.userRoleInformation.AddAsync(newUserRoleInformation);
                     
-                };
-                await _dataContext.userInformation.AddAsync(newUserInformarion);
-
-                var newUserRoleInformation = new userRoleInformation()
+                    await Transition.CommitAsync();
+                    return new registerRespondDTO { statusCode = StatusCodes.Status201Created, message = "Đã tạo thành công" };
+                }
+                catch (Exception ex)
                 {
-                    userId = userID.ToString(),
-                    roleId = getCustomerRoleID.roleId
-                };
-                await _dataContext.userRoleInformation.AddAsync(newUserRoleInformation);
-
-                var addNewUserInfo = new userInformation()
-                {
-
-                };
-                return new registerRespondDTO { statusCode = StatusCodes.Status201Created, message = "Đã tạo thành công" };
+                    await Transition.RollbackAsync();
+                    return new registerRespondDTO { statusCode = StatusCodes.Status201Created, message = "Lỗi Database" };
+                }
+               
             }
-            return new registerRespondDTO { statusCode = StatusCodes.Status400BadRequest, message = "Đã tạo thành công" };
+            return new registerRespondDTO { statusCode = StatusCodes.Status400BadRequest, message = "Loi Nhap Thieu Truong Du Lieu" };
         }
 
         [AllowAnonymous]

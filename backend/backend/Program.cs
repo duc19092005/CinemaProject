@@ -19,6 +19,7 @@ using backend.Interface.BookingInterface;
 using backend.Services.BookingServices;
 using backend.Interface.CommentInterface;
 using backend.Interface.CloudinaryInterface;
+using backend.Interface.RoomInferface;
 using backend.Services.CloudinaryServices;
 using backend.Interface.VnpayInterface;
 using backend.Services.VnpayServices;
@@ -26,6 +27,7 @@ using Microsoft.Extensions.Logging;
 using backend.ModelDTO.BookingHistoryDTO.OrderDetailRespond;
 using backend.ModelDTO.BookingHistoryDTO.OrderRespond;
 using backend.Services.BookingHistoryServices;
+using backend.Services.RoomServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -110,6 +112,8 @@ builder.Services.AddScoped<IAuth, AuthService>();
 builder.Services.AddScoped<ICloudinaryServices, CloudinaryService>();
 
 builder.Services.AddScoped<ICommentServices, CommentServices>();
+
+builder.Services.AddScoped<IRoomService , RoomService>();
 
 // DI của VNpay Services
 
