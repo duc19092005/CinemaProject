@@ -10,6 +10,8 @@ export default function QuanLy() {
   const [activeTab, setActiveTab] = useState<"rap" | "phong">("rap");
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [editRapIndex, setEditRapIndex] = useState<number | null>(null);
+  const [editSeatIndex, setEditSeatIndex] = useState<number | null>(null);
 
   const [rap, setRap] = useState({
     name: "",
@@ -25,7 +27,7 @@ export default function QuanLy() {
     slGhe: "",
   });
 
-  const [gheList] = useState([
+  const [gheList, setGheList] = useState<{ stt: number; ghe: string }[]>([
     { stt: 1, ghe: "A01" },
     { stt: 2, ghe: "A02" },
   ]);
@@ -43,21 +45,49 @@ export default function QuanLy() {
   const handlePhongChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setPhong({ ...phong, [name]: value });
+
+    // Generate gheList when slGhe changes
+    if (name === "slGhe") {
+      if (value) {
+        const numSeats = parseInt(value, 10);
+        const newGheList = Array.from({ length: numSeats }, (_, index) => ({
+          stt: index + 1,
+          ghe: `A${(index + 1).toString().padStart(1, '0')}`,
+        }));
+        setGheList(newGheList);
+      } else {
+        setGheList([]); // Clear gheList if slGhe is empty
+      }
+      setEditSeatIndex(null); // Clear edit state when slGhe changes
+    }
   };
 
   const handleAdd = () => {
     if (activeTab === "rap") {
       if (rap.name && rap.diachi && rap.hotline) {
-        const newRap = {
-          stt: listRap.length + 1,
-          name: rap.name,
-          diachi: rap.diachi,
-          hotline: rap.hotline,
-        };
-        setListRap([...listRap, newRap]);
+        if (editRapIndex !== null) {
+          // Update existing cinema
+          const updatedList = listRap.map((item, index) =>
+            index === editRapIndex
+              ? { ...item, name: rap.name, diachi: rap.diachi, hotline: rap.hotline }
+              : item
+          );
+          setListRap(updatedList);
+          alert(`Đã cập nhật rạp: ${JSON.stringify({ name: rap.name, diachi: rap.diachi, hotline: rap.hotline }, null, 2)}`);
+          setEditRapIndex(null);
+        } else {
+          // Add new cinema
+          const newRap = {
+            stt: listRap.length + 1,
+            name: rap.name,
+            diachi: rap.diachi,
+            hotline: rap.hotline,
+          };
+          setListRap([...listRap, newRap]);
+          alert(`Đã thêm rạp: ${JSON.stringify(newRap, null, 2)}`);
+          setActiveTab("phong"); // Switch to Phòng chiếu tab
+        }
         setRap({ name: "", diachi: "", mota: "", hotline: "" });
-        alert(`Đã thêm rạp: ${JSON.stringify(newRap, null, 2)}`);
-        setActiveTab("phong"); // Switch to Phòng chiếu tab
       } else {
         alert("Vui lòng điền đầy đủ Tên rạp, Địa chỉ và Hotline!");
       }
@@ -68,17 +98,33 @@ export default function QuanLy() {
 
   const handleDelete = (stt: number) => {
     setListRap(listRap.filter((item) => item.stt !== stt));
+    setEditRapIndex(null); // Clear edit state if deleted
     alert(`Đã xóa rạp có STT: ${stt}`);
   };
 
-  const handleEdit = (item: typeof listRap[0]) => {
+  const handleEdit = (item: typeof listRap[0], index: number) => {
     setRap({
       name: item.name,
       diachi: item.diachi,
       mota: "",
       hotline: item.hotline,
     });
+    setEditRapIndex(index);
     alert(`Đã chọn rạp để sửa: ${item.name}`);
+  };
+
+  const handleSeatDelete = (stt: number) => {
+    const deletedSeat = gheList.find((item) => item.stt === stt);
+    setGheList(gheList.filter((item) => item.stt !== stt));
+    setEditSeatIndex(null); // Clear edit state if deleted
+    alert(`Đã xóa ghế: ${JSON.stringify(deletedSeat, null, 2)}`);
+  };
+
+  const handleSeatEdit = (item: typeof gheList[0], index: number) => {
+    // Since gheList is regenerated based on slGhe, set slGhe to current gheList length
+    setPhong({ ...phong, slGhe: gheList.length.toString() });
+    setEditSeatIndex(index);
+    alert(`Đã chọn ghế để sửa: ${item.ghe}`);
   };
 
   return (
@@ -87,6 +133,7 @@ export default function QuanLy() {
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
+      backgroundAttachment: "fixed",
       color: "white",
       minHeight: "100vh",
       padding: "16px",
@@ -191,7 +238,7 @@ export default function QuanLy() {
                   </tr>
                 </thead>
                 <tbody>
-                  {listRap.map((item) => (
+                  {listRap.map((item, index) => (
                     <tr key={item.stt}>
                       <td style={tdStyle}>{item.stt}</td>
                       <td style={tdStyle}>{item.name}</td>
@@ -205,7 +252,7 @@ export default function QuanLy() {
                           Xóa
                         </button>
                         <button
-                          onClick={() => handleEdit(item)}
+                          onClick={() => handleEdit(item, index)}
                           style={{ backgroundColor: "#ccc", color: "black", border: "none", borderRadius: "4px", padding: "4px 8px" }}
                         >
                           Sửa
@@ -284,13 +331,23 @@ export default function QuanLy() {
                   </tr>
                 </thead>
                 <tbody>
-                  {gheList.map((item) => (
+                  {gheList.map((item, index) => (
                     <tr key={item.stt}>
                       <td style={tdStyle}>{item.stt}</td>
                       <td style={tdStyle}>{item.ghe}</td>
                       <td style={tdStyle}>
-                        <button style={{ backgroundColor: '#cc3380', color: "white", border: "none", borderRadius: "4px", padding: "4px 8px", marginRight: "4px" }}>Xóa</button>
-                        <button style={{ backgroundColor: "#ccc", color: "black", border: "none", borderRadius: "4px", padding: "4px 8px" }}>Sửa</button>
+                        <button
+                          onClick={() => handleSeatDelete(item.stt)}
+                          style={{ backgroundColor: '#cc3380', color: "white", border: "none", borderRadius: "4px", padding: "4px 8px", marginRight: "4px" }}
+                        >
+                          Xóa
+                        </button>
+                        <button
+                          onClick={() => handleSeatEdit(item, index)}
+                          style={{ backgroundColor: "#ccc", color: "black", border: "none", borderRadius: "4px", padding: "4px 8px" }}
+                        >
+                          Sửa
+                        </button>
                       </td>
                     </tr>
                   ))}
