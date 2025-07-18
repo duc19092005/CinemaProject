@@ -47,7 +47,7 @@ export default function QuanLy() {
 
   const handleAdd = () => {
     if (activeTab === "rap") {
-      if (rap.name && rap.diachi && rap.hotline) { // Basic validation
+      if (rap.name && rap.diachi && rap.hotline) {
         const newRap = {
           stt: listRap.length + 1,
           name: rap.name,
@@ -55,7 +55,7 @@ export default function QuanLy() {
           hotline: rap.hotline,
         };
         setListRap([...listRap, newRap]);
-        setRap({ name: "", diachi: "", mota: "", hotline: "" }); // Clear form
+        setRap({ name: "", diachi: "", mota: "", hotline: "" });
         alert(`Đã thêm rạp: ${JSON.stringify(newRap, null, 2)}`);
       } else {
         alert("Vui lòng điền đầy đủ Tên rạp, Địa chỉ và Hotline!");
@@ -138,34 +138,46 @@ export default function QuanLy() {
             <>
               <h4 style={{ marginTop: "16px" }}>Chỉnh sửa Rạp</h4>
               <div style={{ marginTop: "16px", maxWidth: "400px", display: "flex", flexDirection: "column", gap: "12px", width: "100%" }}>
-                <input
-                  name="name"
-                  value={rap.name}
-                  onChange={handleRapChange}
-                  placeholder="Tên rạp"
-                  style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px" }}
-                />
-                <input
-                  name="diachi"
-                  value={rap.diachi}
-                  onChange={handleRapChange}
-                  placeholder="Địa chỉ"
-                  style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px" }}
-                />
-                <input
-                  name="mota"
-                  value={rap.mota}
-                  onChange={handleRapChange}
-                  placeholder="Miêu tả"
-                  style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px" }}
-                />
-                <input
-                  name="hotline"
-                  value={rap.hotline}
-                  onChange={handleRapChange}
-                  placeholder="Số hotline"
-                  style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px" }}
-                />
+                <div className="uiverse-pixel-input-wrapper">
+                  <label className="uiverse-pixel-label">Tên rạp</label>
+                  <input
+                    name="name"
+                    value={rap.name}
+                    onChange={handleRapChange}
+                    placeholder="Tên rạp"
+                    className="uiverse-pixel-input"
+                  />
+                </div>
+                <div className="uiverse-pixel-input-wrapper">
+                  <label className="uiverse-pixel-label">Địa chỉ</label>
+                  <input
+                    name="diachi"
+                    value={rap.diachi}
+                    onChange={handleRapChange}
+                    placeholder="Địa chỉ"
+                    className="uiverse-pixel-input"
+                  />
+                </div>
+                <div className="uiverse-pixel-input-wrapper">
+                  <label className="uiverse-pixel-label">Miêu tả</label>
+                  <input
+                    name="mota"
+                    value={rap.mota}
+                    onChange={handleRapChange}
+                    placeholder="Miêu tả"
+                    className="uiverse-pixel-input"
+                  />
+                </div>
+                <div className="uiverse-pixel-input-wrapper">
+                  <label className="uiverse-pixel-label">Số hotline</label>
+                  <input
+                    name="hotline"
+                    value={rap.hotline}
+                    onChange={handleRapChange}
+                    placeholder="Số hotline"
+                    className="uiverse-pixel-input"
+                  />
+                </div>
               </div>
               <table className="revenue-table" style={{ width: "auto", marginTop: "20px" }}>
                 <thead>
@@ -207,26 +219,26 @@ export default function QuanLy() {
             <>
               <h4 style={{ marginTop: "16px" }}>Phòng chiếu</h4>
               <div style={{ marginTop: "16px", maxWidth: "500px", display: "flex", flexDirection: "column", gap: "16px", width: "100%" }}>
-                <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                  <label style={{ fontWeight: "bold" }}>Số phòng chiếu</label>
+                <div className="uiverse-pixel-input-wrapper">
+                  <label className="uiverse-pixel-label">Số phòng chiếu</label>
                   <select
                     name="soPhong"
                     value={phong.soPhong}
                     onChange={handlePhongChange}
-                    style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px", width: "100%" }}
+                    className="uiverse-pixel-input"
                   >
                     <option value="">Chọn</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                   </select>
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                  <label style={{ fontWeight: "bold" }}>Rạp</label>
+                <div className="uiverse-pixel-input-wrapper">
+                  <label className="uiverse-pixel-label">Rạp</label>
                   <select
                     name="rap"
                     value={phong.rap}
                     onChange={handlePhongChange}
-                    style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px", width: "100%" }}
+                    className="uiverse-pixel-input"
                   >
                     <option value="">Chọn</option>
                     {listRap.map((item) => (
@@ -234,26 +246,26 @@ export default function QuanLy() {
                     ))}
                   </select>
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                  <label style={{ fontWeight: "bold" }}>Định dạng hình ảnh</label>
+                <div className="uiverse-pixel-input-wrapper">
+                  <label className="uiverse-pixel-label">Định dạng hình ảnh</label>
                   <select
                     name="dinhDang"
                     value={phong.dinhDang}
                     onChange={handlePhongChange}
-                    style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px", width: "100%" }}
+                    className="uiverse-pixel-input"
                   >
                     <option value="">Chọn</option>
                     <option value="2D">2D</option>
                     <option value="3D">3D</option>
                   </select>
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                  <label style={{ fontWeight: "bold" }}>SL ghế</label>
+                <div className="uiverse-pixel-input-wrapper">
+                  <label className="uiverse-pixel-label">SL ghế</label>
                   <select
                     name="slGhe"
                     value={phong.slGhe}
                     onChange={handlePhongChange}
-                    style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px", width: "100%" }}
+                    className="uiverse-pixel-input"
                   >
                     <option value="">Chọn</option>
                     <option value="50">50</option>

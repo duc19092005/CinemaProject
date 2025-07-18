@@ -144,6 +144,82 @@
     opacity: 1;
   }
 }
+
+
+/* From Uiverse.io by xbeat_5120, modified to use #7e57c2 color scheme */
+.uiverse-pixel-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  font-family: "Courier New", monospace;
+  color: #fff;
+  font-size: 1em;
+  width: 18em;
+}
+
+.uiverse-pixel-label {
+  text-shadow: 1px 1px #000;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.uiverse-pixel-input {
+  appearance: none;
+  border: none;
+  padding: 0.6em;
+  font-size: 1em;
+  font-family: "Courier New", monospace;
+  color: #fff;
+  background: #7e57c2;
+  image-rendering: pixelated;
+  box-shadow:
+    0 0 0 0.15em #000,
+    0 0 0 0.3em #fff,
+    0 0 0 0.45em #000,
+    0 0.3em 0 0 #5e35b1,
+    0 0.3em 0 0.15em #000;
+  outline: none;
+  transition: all 0.15s steps(1);
+  text-shadow: 1px 1px #000;
+}
+
+.uiverse-pixel-input::placeholder {
+  color: #fff;
+  opacity: 0.6;
+}
+
+.uiverse-pixel-input:focus {
+  background: #9575cd;
+  box-shadow:
+    0 0 0 0.15em #000,
+    0 0 0 0.3em #fff,
+    0 0 0 0.45em #000,
+    0 0.2em 0 0 #7e57c2,
+    0 0.2em 0 0.15em #000;
+}
+
+.uiverse-pixel-input:hover {
+  animation: uiverse-glitch-input 0.3s steps(2) infinite;
+}
+
+/* Glitch animation */
+@keyframes uiverse-glitch-input {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-1px, 1px);
+  }
+  50% {
+    transform: translate(1px, -1px);
+  }
+  75% {
+    transform: translate(-1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
 /* From Uiverse.io by SelfMadeSystem */ 
 /*
 More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/

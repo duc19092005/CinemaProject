@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { useNavigate } from "react-router-dom";
 import './style.css';
 
 interface Staff {
@@ -33,13 +33,12 @@ const modalContentStyle: React.CSSProperties = {
 };
 
 export default function QuanLy() {
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<"nhanvien">("nhanvien");
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // State for staff management
   const [staffList, setStaffList] = useState<Staff[]>([
     { email: "test@email.com", password: "1234", name: "Nguyễn Văn A", phone: "123456789", dob: "01-01-2000", role: "Cashier", rạp: "A01" },
   ]);
@@ -61,11 +60,10 @@ export default function QuanLy() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 5000); // 5 seconds
-    return () => clearTimeout(timer); // Cleanup timer on unmount
+    }, 5000);
+    return () => clearTimeout(timer);
   }, []);
 
-  // Staff management functions
   const saveStaff = (): void => {
     if (!formData.name) {
       alert("Tên nhân viên không được để trống.");
@@ -168,7 +166,6 @@ export default function QuanLy() {
         </div>
       ) : (
         <>
-          {/* Sidebar */}
           <div style={{
             width: "300px", background: "#231C60", padding: "16px", display: "flex",
             flexDirection: "column", gap: "12px", borderRight: "2px solid white"
@@ -182,7 +179,6 @@ export default function QuanLy() {
             </button>
           </div>
 
-          {/* Main content */}
           <div style={{ flex: 1, padding: "24px" }}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <h3>Xin chào quản lý</h3>
@@ -203,7 +199,6 @@ export default function QuanLy() {
               </div>
             </div>
 
-            {/* Nội dung */}
             {activeTab === "nhanvien" && (
               <div style={{
                 display: "flex",
@@ -212,70 +207,92 @@ export default function QuanLy() {
               }}>
                 <h3 style={{ marginTop: "24px" }}>Thêm nhân viên</h3>
                 <div style={{
-                  display: "grid", gridTemplateColumns: "200px 1fr", gap: "8px",
+                  display: "flex", flexDirection: "column", gap: "16px",
                   maxWidth: "600px", marginTop: "16px"
                 }}>
-                  <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Rạp</div>
-                  <select
-                    value={formData.rạp}
-                    onChange={(e) => handleInputChange(e, 'rạp')}
-                    style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
-                  >
-                    <option value="A01">A01</option>
-                    <option value="A02">A02</option>
-                    <option value="A03">A03</option>
-                    <option value="A04">A04</option>
-                  </select>
-                  <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Email Đăng nhập</div>
-                  <input
-                    type="text"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange(e, 'email')}
-                    style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
-                  />
-                  <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Mật khẩu</div>
-                  <input
-                    type="password"
-                    value={formData.password}
-                    onChange={(e) => handleInputChange(e, 'password')}
-                    style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
-                  />
-                  <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Xác nhận mật khẩu</div>
-                  <input
-                    type="password"
-                    value={formData.password2}
-                    onChange={(e) => handleInputChange(e, 'password2')}
-                    style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
-                  />
-                  <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Ngày tháng năm sinh</div>
-                  <input
-                    type="text"
-                    value={formData.dob}
-                    onChange={(e) => handleInputChange(e, 'dob')}
-                    style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
-                  />
-                  <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>SĐT</div>
-                  <input
-                    type="text"
-                    value={formData.phone}
-                    onChange={(e) => handleInputChange(e, 'phone')}
-                    style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
-                  />
-                  <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Tên nhân viên</div>
-                  <input
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => handleInputChange(e, 'name')}
-                    style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
-                  />
-                  <div style={{ backgroundColor: "#ddd", color: "#000", borderRadius: "4px", padding: "6px" }}>Quyền hạn</div>
-                  <select
-                    value={formData.role}
-                    onChange={(e) => handleInputChange(e, 'role')}
-                    style={{ backgroundColor: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
-                  >
-                    <option value="Cashier">Cashier</option>
-                  </select>
+                  <div className="uiverse-pixel-input-wrapper">
+                    <label className="uiverse-pixel-label">Rạp</label>
+                    <select
+                      value={formData.rạp}
+                      onChange={(e) => handleInputChange(e, 'rạp')}
+                      className="uiverse-pixel-input"
+                    >
+                      <option value="A01">A01</option>
+                      <option value="A02">A02</option>
+                      <option value="A03">A03</option>
+                      <option value="A04">A04</option>
+                    </select>
+                  </div>
+                  <div className="uiverse-pixel-input-wrapper">
+                    <label className="uiverse-pixel-label">Email Đăng nhập</label>
+                    <input
+                      type="text"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange(e, 'email')}
+                      className="uiverse-pixel-input"
+                      placeholder="Email Đăng nhập"
+                    />
+                  </div>
+                  <div className="uiverse-pixel-input-wrapper">
+                    <label className="uiverse-pixel-label">Mật khẩu</label>
+                    <input
+                      type="password"
+                      value={formData.password}
+                      onChange={(e) => handleInputChange(e, 'password')}
+                      className="uiverse-pixel-input"
+                      placeholder="Mật khẩu"
+                    />
+                  </div>
+                  <div className="uiverse-pixel-input-wrapper">
+                    <label className="uiverse-pixel-label">Xác nhận mật khẩu</label>
+                    <input
+                      type="password"
+                      value={formData.password2}
+                      onChange={(e) => handleInputChange(e, 'password2')}
+                      className="uiverse-pixel-input"
+                      placeholder="Xác nhận mật khẩu"
+                    />
+                  </div>
+                  <div className="uiverse-pixel-input-wrapper">
+                    <label className="uiverse-pixel-label">Ngày tháng năm sinh</label>
+                    <input
+                      type="text"
+                      value={formData.dob}
+                      onChange={(e) => handleInputChange(e, 'dob')}
+                      className="uiverse-pixel-input"
+                      placeholder="Ngày tháng năm sinh"
+                    />
+                  </div>
+                  <div className="uiverse-pixel-input-wrapper">
+                    <label className="uiverse-pixel-label">SĐT</label>
+                    <input
+                      type="text"
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange(e, 'phone')}
+                      className="uiverse-pixel-input"
+                      placeholder="SĐT"
+                    />
+                  </div>
+                  <div className="uiverse-pixel-input-wrapper">
+                    <label className="uiverse-pixel-label">Tên nhân viên</label>
+                    <input
+                      type="text"
+                      value={formData.name}
+                      onChange={(e) => handleInputChange(e, 'name')}
+                      className="uiverse-pixel-input"
+                      placeholder="Tên nhân viên"
+                    />
+                  </div>
+                  <div className="uiverse-pixel-input-wrapper">
+                    <label className="uiverse-pixel-label">Quyền hạn</label>
+                    <select
+                      value={formData.role}
+                      onChange={(e) => handleInputChange(e, 'role')}
+                      className="uiverse-pixel-input"
+                    >
+                      <option value="Cashier">Cashier</option>
+                    </select>
+                  </div>
                 </div>
                 <div style={{ marginTop: "16px" }}>
                   <button onClick={handleSave} style={{
@@ -333,44 +350,45 @@ export default function QuanLy() {
                   <div style={modalOverlayStyle}>
                     <div style={modalContentStyle}>
                       <h4>Chỉnh sửa nhân viên</h4>
-                      {[
-                        { label: "Rạp", field: "rạp" },
-                        { label: "Tên nhân viên", field: "name" },
-                        { label: "SĐT", field: "phone" },
-                        { label: "Ngày tháng năm sinh", field: "dob" },
-                        { label: "Quyền hạn", field: "role" },
-                      ].map((item, idx) => (
-                        <div key={idx} style={{ marginBottom: "8px" }}>
-                          <div>{item.label}</div>
-                          {item.field === "role" ? (
-                            <select
-                              value={editingStaff.role}
-                              onChange={(e) => handleEditInputChange(e, 'role')}
-                              style={{ width: "100%", padding: "6px", borderRadius: "4px", border: "none", background: "#7e57c2", color: "white" }}
-                            >
-                              <option value="Cashier">Cashier</option>
-                            </select>
-                          ) : item.field === "rạp" ? (
-                            <select
-                              value={editingStaff.rạp}
-                              onChange={(e) => handleEditInputChange(e, 'rạp')}
-                              style={{ width: "100%", padding: "6px", borderRadius: "4px", border: "none", background: "#7e57c2", color: "white" }}
-                            >
-                              <option value="A01">A01</option>
-                              <option value="A02">A02</option>
-                              <option value="A03">A03</option>
-                              <option value="A04">A04</option>
-                            </select>
-                          ) : (
-                            <input
-                              type="text"
-                              value={editingStaff[item.field as keyof Omit<EditingStaff, 'index'>]}
-                              onChange={(e) => handleEditInputChange(e, item.field as keyof Omit<EditingStaff, 'index'>)}
-                              style={{ width: "100%", padding: "6px", borderRadius: "4px", border: "none", background: "#7e57c2", color: "white" }}
-                            />
-                          )}
-                        </div>
-                      ))}
+                      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                        {[
+                          { label: "Rạp", field: "rạp", type: "select" },
+                          { label: "Tên nhân viên", field: "name", type: "text" },
+                          { label: "SĐT", field: "phone", type: "text" },
+                          { label: "Ngày tháng năm sinh", field: "dob", type: "text" },
+                          { label: "Quyền hạn", field: "role", type: "select" },
+                        ].map((item, idx) => (
+                          <div key={idx} className="uiverse-pixel-input-wrapper">
+                            <label className="uiverse-pixel-label">{item.label}</label>
+                            {item.type === "select" ? (
+                              <select
+                                value={editingStaff[item.field as keyof Omit<EditingStaff, 'index'>]}
+                                onChange={(e) => handleEditInputChange(e, item.field as keyof Omit<EditingStaff, 'index'>)}
+                                className="uiverse-pixel-input"
+                              >
+                                {item.field === "role" ? (
+                                  <option value="Cashier">Cashier</option>
+                                ) : (
+                                  <>
+                                    <option value="A01">A01</option>
+                                    <option value="A02">A02</option>
+                                    <option value="A03">A03</option>
+                                    <option value="A04">A04</option>
+                                  </>
+                                )}
+                              </select>
+                            ) : (
+                              <input
+                                type="text"
+                                value={editingStaff[item.field as keyof Omit<EditingStaff, 'index'>]}
+                                onChange={(e) => handleEditInputChange(e, item.field as keyof Omit<EditingStaff, 'index'>)}
+                                className="uiverse-pixel-input"
+                                placeholder={item.label}
+                              />
+                            )}
+                          </div>
+                        ))}
+                      </div>
                       <div style={{ textAlign: "center", marginTop: "12px" }}>
                         <button onClick={handleSaveEdit} style={{ marginRight: "8px", padding: "6px 12px", border: "none", borderRadius: "4px", background: "lightgreen", color: "black" }}>Lưu</button>
                         <button onClick={() => setEditingStaff(null)} style={{ padding: "6px 12px", border: "none", borderRadius: "4px", background: '#cc3380', color: "white" }}>Hủy</button>
@@ -381,7 +399,6 @@ export default function QuanLy() {
               </div>
             )}
 
-            {/* Modal Đăng xuất */}
             {showLogoutModal && (
               <div style={modalOverlayStyle}>
                 <div style={{ background: "#4c65a8", padding: "24px", borderRadius: "8px", textAlign: "center", color: "white", width: "300px" }}>
@@ -392,8 +409,11 @@ export default function QuanLy() {
                   </div>
                   <p>Bạn chắc chắn muốn đăng xuất không?</p>
                   <div style={{ display: "flex", justifyContent: "space-around", marginTop: "16px" }}>
-                    <button onClick={() => { setShowLogoutModal(false);
-                      navigate("/"); setShowLogoutModal(false);alert("Đã đăng xuất"); /* navigate("/"); */ }}
+                    <button onClick={() => {
+                      alert("Đã đăng xuất");
+                      setShowLogoutModal(false);
+                      navigate("/");
+                    }}
                       style={{ padding: "6px 12px", border: "none", borderRadius: "4px", background: "lightgreen", color: "black" }}>Có</button>
                     <button onClick={() => setShowLogoutModal(false)}
                       style={{ padding: "6px 12px", border: "none", borderRadius: "4px", background: '#cc3380', color: "white" }}>Không</button>
