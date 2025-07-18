@@ -22,7 +22,7 @@ const modalOverlayStyle: React.CSSProperties = {
 
 
 const MonthlyRevenueChart: React.FC<{ currentRevenue: number; onClose: () => void }> = ({ currentRevenue, onClose }) => {
-  const targetRevenue = 100000000; 
+  const targetRevenue = 1000000000; 
   const remaining = Math.max(0, targetRevenue - currentRevenue); 
   const achievedPercentage = (targetRevenue > 0) ? (currentRevenue / targetRevenue) * 100 : 0; 
 
@@ -104,6 +104,30 @@ export default function QuanLy() {
    const navigate = useNavigate();
 
   const [revenueList] = useState<Revenue[]>([
+    { stt: 1, ngay: "20/11/2025", tongDoanhThu: "VND 20.000" },
+    { stt: 2, ngay: "19/11/2025", tongDoanhThu: "VND 120.000" },
+    { stt: 3, ngay: "19/11/2025", tongDoanhThu: "VND 5.000.000" },
+    { stt: 4, ngay: "20/11/2025", tongDoanhThu: "VND 70.000" },
+    { stt: 5, ngay: "01/10/2025", tongDoanhThu: "VND 10.000" },
+    { stt: 6, ngay: "15/10/2025", tongDoanhThu: "VND 30.000.000" },
+    { stt: 1, ngay: "20/11/2025", tongDoanhThu: "VND 20.000" },
+    { stt: 2, ngay: "19/11/2025", tongDoanhThu: "VND 120.000" },
+    { stt: 3, ngay: "19/11/2025", tongDoanhThu: "VND 5.000.000" },
+    { stt: 4, ngay: "20/11/2025", tongDoanhThu: "VND 70.000" },
+    { stt: 5, ngay: "01/10/2025", tongDoanhThu: "VND 10.000" },
+    { stt: 6, ngay: "15/10/2025", tongDoanhThu: "VND 30.000.000" },
+    { stt: 1, ngay: "20/11/2025", tongDoanhThu: "VND 20.000" },
+    { stt: 2, ngay: "19/11/2025", tongDoanhThu: "VND 120.000" },
+    { stt: 3, ngay: "19/11/2025", tongDoanhThu: "VND 5.000.000" },
+    { stt: 4, ngay: "20/11/2025", tongDoanhThu: "VND 70.000" },
+    { stt: 5, ngay: "01/10/2025", tongDoanhThu: "VND 10.000" },
+    { stt: 6, ngay: "15/10/2025", tongDoanhThu: "VND 30.000.000" },
+    { stt: 1, ngay: "20/11/2025", tongDoanhThu: "VND 20.000" },
+    { stt: 2, ngay: "19/11/2025", tongDoanhThu: "VND 120.000" },
+    { stt: 3, ngay: "19/11/2025", tongDoanhThu: "VND 5.000.000" },
+    { stt: 4, ngay: "20/11/2025", tongDoanhThu: "VND 70.000" },
+    { stt: 5, ngay: "01/10/2025", tongDoanhThu: "VND 10.000" },
+    { stt: 6, ngay: "15/10/2025", tongDoanhThu: "VND 30.000.000" },
     { stt: 1, ngay: "20/11/2025", tongDoanhThu: "VND 20.000" },
     { stt: 2, ngay: "19/11/2025", tongDoanhThu: "VND 120.000" },
     { stt: 3, ngay: "19/11/2025", tongDoanhThu: "VND 5.000.000" },

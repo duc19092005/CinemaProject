@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Đảm bảo dòng này đã được import
+import { useNavigate } from "react-router-dom";
 import './style.css';
 
 const thStyle: React.CSSProperties = { padding: "8px", textAlign: "center" };
 const tdStyle: React.CSSProperties = { padding: "6px", textAlign: "center", border: "1px solid #ccc" };
 
 export default function QuanLy() {
-  const navigate = useNavigate(); // Khởi tạo hook useNavigate
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<"rap" | "phong">("rap");
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
-  // State for 'rạp' (cinema)
   const [rap, setRap] = useState({
     name: "",
     diachi: "",
@@ -19,7 +18,6 @@ export default function QuanLy() {
     hotline: "",
   });
 
-  // State for 'phòng chiếu' (screening room)
   const [phong, setPhong] = useState({
     soPhong: "",
     rap: "",
@@ -27,10 +25,14 @@ export default function QuanLy() {
     slGhe: "",
   });
 
-  // Demo list of seats (gheList) - 'tongDoanhThu' removed
   const [gheList] = useState([
-    { stt: 1, ngay: "20/11/2025" },
-    { stt: 2, ngay: "19/11/2025" },
+    { stt: 1, ghe: "A01" },
+    { stt: 2, ghe: "A02" },
+  ]);
+
+  const [listRap, setListRap] = useState([
+    { stt: 1, name: "Rạp 1", diachi: "123 Đường ABC", hotline: "0123456789" },
+    { stt: 2, name: "Rạp 2", diachi: "456 Đường XYZ", hotline: "0987654321" },
   ]);
 
   const handleRapChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,12 +45,39 @@ export default function QuanLy() {
     setPhong({ ...phong, [name]: value });
   };
 
-  const handleSave = () => {
+  const handleAdd = () => {
     if (activeTab === "rap") {
-      alert(`Đã lưu rạp: ${JSON.stringify(rap, null, 2)}`);
+      if (rap.name && rap.diachi && rap.hotline) { // Basic validation
+        const newRap = {
+          stt: listRap.length + 1,
+          name: rap.name,
+          diachi: rap.diachi,
+          hotline: rap.hotline,
+        };
+        setListRap([...listRap, newRap]);
+        setRap({ name: "", diachi: "", mota: "", hotline: "" }); // Clear form
+        alert(`Đã thêm rạp: ${JSON.stringify(newRap, null, 2)}`);
+      } else {
+        alert("Vui lòng điền đầy đủ Tên rạp, Địa chỉ và Hotline!");
+      }
     } else {
       alert(`Đã lưu phòng chiếu: ${JSON.stringify(phong, null, 2)}`);
     }
+  };
+
+  const handleDelete = (stt: number) => {
+    setListRap(listRap.filter((item) => item.stt !== stt));
+    alert(`Đã xóa rạp có STT: ${stt}`);
+  };
+
+  const handleEdit = (item: typeof listRap[0]) => {
+    setRap({
+      name: item.name,
+      diachi: item.diachi,
+      mota: "",
+      hotline: item.hotline,
+    });
+    alert(`Đã chọn rạp để sửa: ${item.name}`);
   };
 
   return (
@@ -64,7 +93,6 @@ export default function QuanLy() {
       flexDirection: "row",
       alignItems: "flex-start"
     }}>
-      {/* Sidebar */}
       <div style={{
         width: "300px", background: "#231C60", padding: "16px", display: "flex",
         flexDirection: "column", gap: "12px", borderRight: "2px solid white",
@@ -85,9 +113,7 @@ export default function QuanLy() {
         </button>
       </div>
 
-      {/* Main content wrapper */}
       <div style={{ flex: 1, padding: "24px", marginLeft: "300px" }}>
-        {/* Header section (Xin chào quản lý, logout) */}
         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "24px" }}>
           <h3>Xin chào Quản trị viên hệ thống</h3>
           <div style={{ position: "relative" }}>
@@ -107,7 +133,6 @@ export default function QuanLy() {
           </div>
         </div>
 
-        {/* Centered content section */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
           {activeTab === "rap" ? (
             <>
@@ -142,53 +167,93 @@ export default function QuanLy() {
                   style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px" }}
                 />
               </div>
+              <table className="revenue-table" style={{ width: "auto", marginTop: "20px" }}>
+                <thead>
+                  <tr>
+                    <th style={thStyle}>STT</th>
+                    <th style={thStyle}>Tên rạp</th>
+                    <th style={thStyle}>Địa chỉ</th>
+                    <th style={thStyle}>Hotline</th>
+                    <th style={thStyle}>Tùy chỉnh</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {listRap.map((item) => (
+                    <tr key={item.stt}>
+                      <td style={tdStyle}>{item.stt}</td>
+                      <td style={tdStyle}>{item.name}</td>
+                      <td style={tdStyle}>{item.diachi}</td>
+                      <td style={tdStyle}>{item.hotline}</td>
+                      <td style={tdStyle}>
+                        <button
+                          onClick={() => handleDelete(item.stt)}
+                          style={{ backgroundColor: '#cc3380', color: "white", border: "none", borderRadius: "4px", padding: "4px 8px", marginRight: "4px" }}
+                        >
+                          Xóa
+                        </button>
+                        <button
+                          onClick={() => handleEdit(item)}
+                          style={{ backgroundColor: "#ccc", color: "black", border: "none", borderRadius: "4px", padding: "4px 8px" }}
+                        >
+                          Sửa
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </>
           ) : (
             <>
               <h4 style={{ marginTop: "16px" }}>Phòng chiếu</h4>
-              <div style={{ marginTop: "16px", maxWidth: "500px", display: "flex", flexDirection: "column", gap: "12px", width: "100%" }}>
-                <div>
-                  Số phòng chiếu
+              <div style={{ marginTop: "16px", maxWidth: "500px", display: "flex", flexDirection: "column", gap: "16px", width: "100%" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                  <label style={{ fontWeight: "bold" }}>Số phòng chiếu</label>
                   <select
                     name="soPhong"
                     value={phong.soPhong}
                     onChange={handlePhongChange}
-                    style={{ marginLeft: "8px", background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+                    style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px", width: "100%" }}
                   >
                     <option value="">Chọn</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                   </select>
                 </div>
-                <div>
-                  Rạp
+                <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                  <label style={{ fontWeight: "bold" }}>Rạp</label>
                   <select
                     name="rap"
                     value={phong.rap}
                     onChange={handlePhongChange}
-                    style={{ marginLeft: "8px", background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+                    style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px", width: "100%" }}
                   >
                     <option value="">Chọn</option>
-                    <option value="A01">A01</option>
-                    <option value="A02">A02</option>
+                    {listRap.map((item) => (
+                      <option key={item.stt} value={item.name}>{item.name}</option>
+                    ))}
                   </select>
                 </div>
-                <div>
-                  Định dạng hình ảnh
-                  <input
+                <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                  <label style={{ fontWeight: "bold" }}>Định dạng hình ảnh</label>
+                  <select
                     name="dinhDang"
                     value={phong.dinhDang}
                     onChange={handlePhongChange}
-                    style={{ display: "block", marginTop: "4px", background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px" }}
-                  />
+                    style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px", width: "100%" }}
+                  >
+                    <option value="">Chọn</option>
+                    <option value="2D">2D</option>
+                    <option value="3D">3D</option>
+                  </select>
                 </div>
-                <div>
-                  SL ghế
+                <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                  <label style={{ fontWeight: "bold" }}>SL ghế</label>
                   <select
                     name="slGhe"
                     value={phong.slGhe}
                     onChange={handlePhongChange}
-                    style={{ marginLeft: "8px", background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "6px" }}
+                    style={{ background: "#7e57c2", color: "white", border: "none", borderRadius: "4px", padding: "8px", width: "100%" }}
                   >
                     <option value="">Chọn</option>
                     <option value="50">50</option>
@@ -197,12 +262,11 @@ export default function QuanLy() {
                 </div>
               </div>
 
-              {/* Danh sách ghế */}
               <table className="revenue-table" style={{ width: "auto", marginTop: "20px" }}>
                 <thead>
                   <tr>
                     <th style={thStyle}>STT</th>
-                    <th style={thStyle}>Ngày</th>
+                    <th style={thStyle}>Tên ghế</th>
                     <th style={thStyle}>Tùy chỉnh</th>
                   </tr>
                 </thead>
@@ -210,7 +274,7 @@ export default function QuanLy() {
                   {gheList.map((item) => (
                     <tr key={item.stt}>
                       <td style={tdStyle}>{item.stt}</td>
-                      <td style={tdStyle}>{item.ngay}</td>
+                      <td style={tdStyle}>{item.ghe}</td>
                       <td style={tdStyle}>
                         <button style={{ backgroundColor: '#cc3380', color: "white", border: "none", borderRadius: "4px", padding: "4px 8px", marginRight: "4px" }}>Xóa</button>
                         <button style={{ backgroundColor: "#ccc", color: "black", border: "none", borderRadius: "4px", padding: "4px 8px" }}>Sửa</button>
@@ -222,12 +286,13 @@ export default function QuanLy() {
             </>
           )}
 
-          {/* Nút Lưu */}
           <div style={{ marginTop: "16px" }}>
-            <button onClick={handleSave} style={{
+            <button onClick={handleAdd} style={{
               background: "#add8e6", color: "black", padding: "8px 24px",
               border: "none", borderRadius: "8px", cursor: "pointer"
-            }}>Lưu</button>
+            }}>
+              {activeTab === "rap" ? "Thêm" : "Lưu"}
+            </button>
           </div>
         </div>
       </div>
@@ -252,7 +317,7 @@ export default function QuanLy() {
               <button onClick={() => {
                 alert("Đã đăng xuất");
                 setShowLogoutModal(false);
-                navigate("/"); // Thêm dòng này để điều hướng về trang chủ
+                navigate("/");
               }}
                 style={{ padding: "6px 12px", border: "none", borderRadius: "4px", background: "#ccc", color: "black" }}>Có</button>
               <button onClick={() => setShowLogoutModal(false)}
