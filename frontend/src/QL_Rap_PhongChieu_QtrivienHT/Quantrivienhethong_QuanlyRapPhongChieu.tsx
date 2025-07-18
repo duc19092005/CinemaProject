@@ -57,6 +57,7 @@ export default function QuanLy() {
         setListRap([...listRap, newRap]);
         setRap({ name: "", diachi: "", mota: "", hotline: "" });
         alert(`Đã thêm rạp: ${JSON.stringify(newRap, null, 2)}`);
+        setActiveTab("phong"); // Switch to Phòng chiếu tab
       } else {
         alert("Vui lòng điền đầy đủ Tên rạp, Địa chỉ và Hotline!");
       }
