@@ -38,7 +38,7 @@ namespace backend.Model.Booking
 
         public Customer Customer { get; set; } = null!;
 
-        public List<orderDetailTicket> orderDetail = [];
+        public List<orderDetailTicket> orderDetailTicket = [];
 
         public List<orderDetailFood> orderDetailFood = [];
 

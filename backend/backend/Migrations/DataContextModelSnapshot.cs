@@ -96,13 +96,13 @@ namespace backend.Migrations
                         {
                             userId = "a1b2c3d4-e5f6-7a8b-c9d0-e1f2a3b4c5d6",
                             loginUserEmail = "admin@example.com",
-                            loginUserPassword = "hashed_password_admin"
+                            loginUserPassword = "$2a$12$hZw7TwWKR/cR2WRRn/Q1guTjMqLH6dYcchlw4sAimSU41bJ42r3Ka"
                         },
                         new
                         {
                             userId = "b2c3d4e5-f6a7-8b9c-d0e1-f2a3b4c5d6e7",
                             loginUserEmail = "user@example.com",
-                            loginUserPassword = "hashed_password_user"
+                            loginUserPassword = "$2a$12$ADqBiSquthm1g7bLZvg6UulJ5QJFQQ6olUQzf66AQfJDGbQ2W1wlG"
                         });
                 });
 
@@ -228,6 +228,8 @@ namespace backend.Migrations
 
                     b.HasIndex("cinemaRoomId");
 
+                    b.HasIndex("seatsId");
+
                     b.ToTable("Seats");
 
                     b.HasData(
@@ -297,115 +299,59 @@ namespace backend.Migrations
                         },
                         new
                         {
-                            seatsId = "a7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            seatsId = "11111111-2d3e-4f5a-6b7c-8d9e0f1a2b3c",
+                            cinemaRoomId = "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b",
                             isDelete = false,
                             isTaken = false,
-                            seatsNumber = "A9"
+                            seatsNumber = "B1"
                         },
                         new
                         {
-                            seatsId = "b8c9d0e1-f2a3-4b5c-6d7e-8f9a0b1c2d3e",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            seatsId = "22222222-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
+                            cinemaRoomId = "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b",
                             isDelete = false,
                             isTaken = false,
-                            seatsNumber = "A10"
+                            seatsNumber = "B2"
                         },
                         new
                         {
-                            seatsId = "c9d0e1f2-a3b4-5c6d-7e8f-9a0b1c2d3e4f",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            seatsId = "33333333-4f5a-6b7c-8d9e-0f1a2b3c4d5e",
+                            cinemaRoomId = "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b",
                             isDelete = false,
                             isTaken = false,
-                            seatsNumber = "A11"
+                            seatsNumber = "B3"
                         },
                         new
                         {
-                            seatsId = "d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            seatsId = "44444444-5a6b-7c8d-9e0f-1a2b3c4d5e6f",
+                            cinemaRoomId = "8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c",
                             isDelete = false,
                             isTaken = false,
-                            seatsNumber = "A12"
+                            seatsNumber = "C1"
                         },
                         new
                         {
-                            seatsId = "e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            seatsId = "55555555-6b7c-8d9e-0f1a-2b3c4d5e6f7a",
+                            cinemaRoomId = "8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c",
                             isDelete = false,
                             isTaken = false,
-                            seatsNumber = "A13"
+                            seatsNumber = "C2"
                         },
                         new
                         {
-                            seatsId = "f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            seatsId = "66666666-7c8d-9e0f-1a2b-3c4d5e6f7a8b",
+                            cinemaRoomId = "9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
                             isDelete = false,
                             isTaken = false,
-                            seatsNumber = "A14"
+                            seatsNumber = "D1"
                         },
                         new
                         {
-                            seatsId = "a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            seatsId = "77777777-8d9e-0f1a-2b3c-4d5e6f7a8b9c",
+                            cinemaRoomId = "9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
                             isDelete = false,
                             isTaken = false,
-                            seatsNumber = "A15"
-                        },
-                        new
-                        {
-                            seatsId = "b4c5d6e7-f8a9-0b1c-2d3e-4f5a6b7c8d9e",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
-                            isDelete = false,
-                            isTaken = false,
-                            seatsNumber = "A16"
-                        },
-                        new
-                        {
-                            seatsId = "c5d6e7f8-a9b0-1c2d-3e4f-5a6b7c8d9e0f",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
-                            isDelete = false,
-                            isTaken = false,
-                            seatsNumber = "A17"
-                        },
-                        new
-                        {
-                            seatsId = "d6e7f8a9-b0c1-2c3d-4e5f-6a7b8c9d0e1f",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
-                            isDelete = false,
-                            isTaken = false,
-                            seatsNumber = "A18"
-                        },
-                        new
-                        {
-                            seatsId = "e7f8a9b0-c1d2-3d4e-5f6a-7b8c9d0e1f2a",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
-                            isDelete = false,
-                            isTaken = false,
-                            seatsNumber = "A19"
-                        },
-                        new
-                        {
-                            seatsId = "f8a9b0c1-d2e3-4e5f-6a7b-8c9d0e1f2a3b",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
-                            isDelete = false,
-                            isTaken = false,
-                            seatsNumber = "A20"
-                        },
-                        new
-                        {
-                            seatsId = "a9b0c1d2-e3f4-5f6a-7b8c-9d0e1f2a3b4c",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
-                            isDelete = false,
-                            isTaken = false,
-                            seatsNumber = "A21"
-                        },
-                        new
-                        {
-                            seatsId = "b0c1d2e3-f4a5-6a7b-8c9d-0e1f2a3b4c5d",
-                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
-                            isDelete = false,
-                            isTaken = false,
-                            seatsNumber = "A22"
+                            seatsNumber = "D2"
                         });
                 });
 
@@ -444,6 +390,30 @@ namespace backend.Migrations
                             cinemaRoomNumber = 1,
                             isDeleted = false,
                             movieVisualFormatID = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f"
+                        },
+                        new
+                        {
+                            cinemaRoomId = "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b",
+                            cinemaId = "2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c",
+                            cinemaRoomNumber = 2,
+                            isDeleted = false,
+                            movieVisualFormatID = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a"
+                        },
+                        new
+                        {
+                            cinemaRoomId = "8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c",
+                            cinemaId = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f",
+                            cinemaRoomNumber = 1,
+                            isDeleted = false,
+                            movieVisualFormatID = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f"
+                        },
+                        new
+                        {
+                            cinemaRoomId = "9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
+                            cinemaId = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f",
+                            cinemaRoomNumber = 2,
+                            isDeleted = false,
+                            movieVisualFormatID = "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b"
                         });
                 });
 
@@ -480,6 +450,14 @@ namespace backend.Migrations
                             cinemaDescription = "Rạp chiếu phim hiện đại với nhiều phòng chiếu.",
                             cinemaLocation = "123 Đường XYZ, TP.HCM",
                             cinemaName = "Rạp Chiếu Phim ABC"
+                        },
+                        new
+                        {
+                            cinemaId = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f",
+                            cinemaContactHotlineNumber = "0987654321",
+                            cinemaDescription = "Không gian ấm cúng, chất lượng hàng đầu.",
+                            cinemaLocation = "456 Đường UVW, Hà Nội",
+                            cinemaName = "Rạp Chiếu Phim LMN"
                         });
                 });
 
@@ -506,6 +484,12 @@ namespace backend.Migrations
                     b.ToTable("minimumAges");
 
                     b.HasData(
+                        new
+                        {
+                            minimumAgeID = "6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d",
+                            minimumAgeDescription = "Phim phù hợp với mọi lứa tuổi.",
+                            minimumAgeInfo = 0
+                        },
                         new
                         {
                             minimumAgeID = "7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d",
@@ -552,27 +536,44 @@ namespace backend.Migrations
                         {
                             languageId = "d4e5f6a7-b8c9-d0e1-f2a3-b4c5d6e7f8a9",
                             languageDetail = "English"
+                        },
+                        new
+                        {
+                            languageId = "11d4e5f6-a7b8-c9d0-e1f2-a3b4c5d6e711",
+                            languageDetail = "Korean"
+                        },
+                        new
+                        {
+                            languageId = "22d4e5f6-a7b8-c9d0-e1f2-a3b4c5d6e722",
+                            languageDetail = "Japanese"
                         });
                 });
 
             modelBuilder.Entity("backend.Model.Movie.movieCommentDetail", b =>
                 {
-                    b.Property<string>("movieId")
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("customerID")
-                        .HasColumnType("varchar(100)");
+                    b.Property<string>("commentID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("createdCommentTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("customerID")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("movieId")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("userCommentDetail")
                         .IsRequired()
                         .HasColumnType("nvarchar(200)");
 
-                    b.HasKey("movieId", "customerID");
+                    b.HasKey("commentID");
 
                     b.HasIndex("customerID");
+
+                    b.HasIndex("movieId");
 
                     b.ToTable("movieCommentDetail");
                 });
@@ -603,6 +604,26 @@ namespace backend.Migrations
                         {
                             movieGenreId = "f6a7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c1",
                             movieGenreName = "Comedy"
+                        },
+                        new
+                        {
+                            movieGenreId = "a1a7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c2",
+                            movieGenreName = "Horror"
+                        },
+                        new
+                        {
+                            movieGenreId = "b2b7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c3",
+                            movieGenreName = "Sci-Fi"
+                        },
+                        new
+                        {
+                            movieGenreId = "c3c7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c4",
+                            movieGenreName = "Romance"
+                        },
+                        new
+                        {
+                            movieGenreId = "d4d7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c5",
+                            movieGenreName = "Animation"
                         });
                 });
 
@@ -630,6 +651,26 @@ namespace backend.Migrations
                         {
                             movieId = "1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b",
                             movieGenreId = "f6a7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c1"
+                        },
+                        new
+                        {
+                            movieId = "2f3a4b5c-6d7e-8f9a-0b1c2d3e4f5a6b7c",
+                            movieGenreId = "a1a7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c2"
+                        },
+                        new
+                        {
+                            movieId = "3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d",
+                            movieGenreId = "b2b7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c3"
+                        },
+                        new
+                        {
+                            movieId = "3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d",
+                            movieGenreId = "e5f6a7b8-c9d0-e1f2-a3b4-c5d6e7f8a9b0"
+                        },
+                        new
+                        {
+                            movieId = "4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e",
+                            movieGenreId = "d4d7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c5"
                         });
                 });
 
@@ -726,6 +767,51 @@ namespace backend.Migrations
                             movieImage = "aa.com.vn",
                             movieName = "Comedy Film 1",
                             movieTrailerUrl = "http://trailer.com/comedyfilm1"
+                        },
+                        new
+                        {
+                            movieId = "2f3a4b5c-6d7e-8f9a-0b1c2d3e4f5a6b7c",
+                            ReleaseDate = new DateTime(2013, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDelete = false,
+                            languageId = "d4e5f6a7-b8c9-d0e1-f2a3-b4c5d6e7f8a9",
+                            minimumAgeID = "9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f",
+                            movieActor = "Vera Farmiga, Patrick Wilson",
+                            movieDescription = "Dựa trên một câu chuyện có thật, phim theo chân hai nhà điều tra hiện tượng siêu nhiên.",
+                            movieDirector = "James Wan",
+                            movieDuration = 112,
+                            movieImage = "conjuring.com",
+                            movieName = "Ám Ảnh Kinh Hoàng",
+                            movieTrailerUrl = "http://trailer.com/conjuring"
+                        },
+                        new
+                        {
+                            movieId = "3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d",
+                            ReleaseDate = new DateTime(2014, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDelete = false,
+                            languageId = "d4e5f6a7-b8c9-d0e1-f2a3-b4c5d6e7f8a9",
+                            minimumAgeID = "7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d",
+                            movieActor = "Matthew McConaughey, Anne Hathaway",
+                            movieDescription = "Một nhóm các nhà du hành vũ trụ đi qua một hố sâu để tìm một ngôi nhà mới cho nhân loại.",
+                            movieDirector = "Christopher Nolan",
+                            movieDuration = 169,
+                            movieImage = "interstellar.com",
+                            movieName = "Hố Đen Du Hành",
+                            movieTrailerUrl = "http://trailer.com/interstellar"
+                        },
+                        new
+                        {
+                            movieId = "4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e",
+                            ReleaseDate = new DateTime(2001, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDelete = false,
+                            languageId = "22d4e5f6-a7b8-c9d0-e1f2-a3b4c5d6e722",
+                            minimumAgeID = "6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d",
+                            movieActor = "Rumi Hiiragi, Miyu Irino",
+                            movieDescription = "Trong lúc chuyển nhà, cô bé Chihiro và gia đình đã lạc vào một thế giới của các vị thần.",
+                            movieDirector = "Hayao Miyazaki",
+                            movieDuration = 125,
+                            movieImage = "spiritedaway.com",
+                            movieName = "Vùng Đất Linh Hồn",
+                            movieTrailerUrl = "http://trailer.com/spiritedaway"
                         });
                 });
 
@@ -764,11 +850,15 @@ namespace backend.Migrations
 
                     b.HasIndex("HourScheduleID");
 
-                    b.HasIndex("movieId");
-
                     b.HasIndex("movieVisualFormatID");
 
                     b.HasIndex("cinemaRoomId", "ScheduleDate")
+                        .IsUnique();
+
+                    b.HasIndex("cinemaRoomId", "ScheduleDate", "HourScheduleID")
+                        .IsUnique();
+
+                    b.HasIndex("movieId", "ScheduleDate", "HourScheduleID")
                         .IsUnique();
 
                     b.ToTable("movieSchedule");
@@ -783,6 +873,39 @@ namespace backend.Migrations
                             ScheduleDate = new DateTime(2025, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
                             movieId = "0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a",
+                            movieVisualFormatID = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f"
+                        },
+                        new
+                        {
+                            movieScheduleId = "8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c",
+                            DayInWeekendSchedule = "Friday",
+                            HourScheduleID = "8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c",
+                            IsDelete = false,
+                            ScheduleDate = new DateTime(2025, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            cinemaRoomId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            movieId = "2f3a4b5c-6d7e-8f9a-0b1c2d3e4f5a6b7c",
+                            movieVisualFormatID = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f"
+                        },
+                        new
+                        {
+                            movieScheduleId = "9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
+                            DayInWeekendSchedule = "Saturday",
+                            HourScheduleID = "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b",
+                            IsDelete = false,
+                            ScheduleDate = new DateTime(2025, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            cinemaRoomId = "9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
+                            movieId = "3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d",
+                            movieVisualFormatID = "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b"
+                        },
+                        new
+                        {
+                            movieScheduleId = "a1b2c3d4-e5f6-7a8b-c9d0-e1f2a3b4c5d6",
+                            DayInWeekendSchedule = "Sunday",
+                            HourScheduleID = "4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e",
+                            IsDelete = false,
+                            ScheduleDate = new DateTime(2025, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            cinemaRoomId = "8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c",
+                            movieId = "4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e",
                             movieVisualFormatID = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f"
                         });
                 });
@@ -808,6 +931,16 @@ namespace backend.Migrations
                         {
                             movieVisualFormatId = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f",
                             movieVisualFormatName = "2D"
+                        },
+                        new
+                        {
+                            movieVisualFormatId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            movieVisualFormatName = "3D"
+                        },
+                        new
+                        {
+                            movieVisualFormatId = "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b",
+                            movieVisualFormatName = "IMAX"
                         });
                 });
 
@@ -846,6 +979,21 @@ namespace backend.Migrations
                         {
                             priceInformationId = "0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e",
                             priceAmount = 80000L
+                        },
+                        new
+                        {
+                            priceInformationId = "1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f",
+                            priceAmount = 120000L
+                        },
+                        new
+                        {
+                            priceInformationId = "2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a",
+                            priceAmount = 70000L
+                        },
+                        new
+                        {
+                            priceInformationId = "3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b",
+                            priceAmount = 60000L
                         });
                 });
 
@@ -874,6 +1022,30 @@ namespace backend.Migrations
                             userTypeId = "1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f",
                             movieVisualFormatId = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f",
                             priceInformationID = "0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e"
+                        },
+                        new
+                        {
+                            userTypeId = "1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f",
+                            movieVisualFormatId = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            priceInformationID = "1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f"
+                        },
+                        new
+                        {
+                            userTypeId = "1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f",
+                            movieVisualFormatId = "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b",
+                            priceInformationID = "1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f"
+                        },
+                        new
+                        {
+                            userTypeId = "2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a",
+                            movieVisualFormatId = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f",
+                            priceInformationID = "3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b"
+                        },
+                        new
+                        {
+                            userTypeId = "3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b",
+                            movieVisualFormatId = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f",
+                            priceInformationID = "2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a"
                         });
                 });
 
@@ -898,6 +1070,16 @@ namespace backend.Migrations
                         {
                             userTypeId = "1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f",
                             userTypeDescription = "Adult"
+                        },
+                        new
+                        {
+                            userTypeId = "2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a",
+                            userTypeDescription = "Child"
+                        },
+                        new
+                        {
+                            userTypeId = "3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b",
+                            userTypeDescription = "Student"
                         });
                 });
 
@@ -923,6 +1105,24 @@ namespace backend.Migrations
                             foodInformationId = "2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a",
                             foodInformationName = "Popcorn",
                             foodPrice = 50000L
+                        },
+                        new
+                        {
+                            foodInformationId = "3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b",
+                            foodInformationName = "Coca-Cola",
+                            foodPrice = 25000L
+                        },
+                        new
+                        {
+                            foodInformationId = "4f5a6b7c-8d9e-0f1a-2b3c-4d5e6f7a8b9c",
+                            foodInformationName = "Nachos",
+                            foodPrice = 65000L
+                        },
+                        new
+                        {
+                            foodInformationId = "5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d",
+                            foodInformationName = "Hot Dog",
+                            foodPrice = 45000L
                         });
                 });
 
@@ -952,6 +1152,26 @@ namespace backend.Migrations
                         {
                             HourScheduleID = "4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e",
                             HourScheduleShowTime = "10:00"
+                        },
+                        new
+                        {
+                            HourScheduleID = "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f",
+                            HourScheduleShowTime = "14:00"
+                        },
+                        new
+                        {
+                            HourScheduleID = "6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+                            HourScheduleShowTime = "16:30"
+                        },
+                        new
+                        {
+                            HourScheduleID = "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b",
+                            HourScheduleShowTime = "19:00"
+                        },
+                        new
+                        {
+                            HourScheduleID = "8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c",
+                            HourScheduleShowTime = "21:30"
                         });
                 });
 
@@ -962,7 +1182,7 @@ namespace backend.Migrations
 
                     b.Property<string>("IdentityCode")
                         .IsRequired()
-                        .HasColumnType("varchar(70)");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -1002,10 +1222,6 @@ namespace backend.Migrations
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(100)");
-
-                    b.Property<string>("IdentityCode")
-                        .IsRequired()
-                        .HasColumnType("varchar(70)");
 
                     b.Property<string>("Name")
                         .IsRequired()

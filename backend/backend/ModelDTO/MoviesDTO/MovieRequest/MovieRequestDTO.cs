@@ -41,6 +41,9 @@ namespace backend.ModelDTO.MoviesDTO.MovieRequest
         public string languageId { get; set; } = "";
 
         [Required]
+        public DateTime releaseDate { get; set; }
+
+        [Required]
         public List<string> visualFormatList { get; set; } = [];
 
         [Required]

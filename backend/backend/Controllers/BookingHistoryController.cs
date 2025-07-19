@@ -30,5 +30,13 @@ namespace backend.Controllers
 
             return NotFound(new {message = "Lỗi rồi chúng tôi Không tìm thấy thông tin của bạn"});
         }
+
+        [HttpGet("getBookingHistoryDetail/{orderID}")]
+        public async Task<IActionResult> getBookingHistoryDetail(string orderID)
+        {
+            // Add Thêm services
+            var getServices = await bookingHistoryList.getByID(orderID);
+            return Ok(getServices);
+        }
     }
 }

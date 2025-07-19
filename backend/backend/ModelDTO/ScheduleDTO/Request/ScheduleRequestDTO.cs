@@ -12,15 +12,7 @@
         {
             public DateTime startDate { get; set; }
 
-            public List<ScheduleCinemaDTO> scheduleCinemaDTOs { get; set; } = [];
-        }
-
-        public class ScheduleCinemaDTO
-        {
-
-            public string cinemaID { get; set; } = string.Empty;
-
-            public List<ScheduleVisualFormat> ScheduleVisualFormat { get; set; } = [];
+            public List<ScheduleVisualFormat> ScheduleVisualFormatDTOs { get; set; } = [];
         }
 
         public class ScheduleVisualFormat

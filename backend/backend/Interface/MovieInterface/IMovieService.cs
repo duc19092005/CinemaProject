@@ -3,20 +3,23 @@ using backend.ModelDTO.MoviesDTO.MovieRequest;
 using backend.ModelDTO.MoviesDTO.MovieRespond;
 using Microsoft.EntityFrameworkCore.Update.Internal;
 using backend.ModelDTO.PaginiationDTO.Respond;
+using backend.ModelDTO.GenericRespond;
 
 namespace backend.Interface.MovieInterface
 {
     public interface IMovieService
     {
         // Thêm phim
-        Task<bool> add(MovieRequestDTO entity);
+        Task<GenericRespondDTOs> add(MovieRequestDTO entity);
 
         // Xóa phim
-        Task<bool> remove(string Id);
+        Task<GenericRespondDTOs> remove(string Id);
 
         // CHỉnh sửa phim
 
-        Task<bool> edit(int Id, MovieRequestDTO entity);
+        Task<GenericRespondDTOs> edit(string movieID, MovieEditRequestDTO dtos);
+
+        GenericRespondWithObjectDTO<movieGetDetailResponseDTO> getMovieDetail(string movieID);
 
  
         // Cơ chế phân trang để giúp giảm tải ở bên phía server (trang 1 lấy data 1,2,3 - Trang 2 lấy data 4,5,6)
