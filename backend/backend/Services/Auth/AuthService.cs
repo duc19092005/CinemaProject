@@ -12,6 +12,7 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Logging;
 using System.Reflection.PortableExecutable;
+using backend.Helper;
 using backend.Model.Staff_Customer;
 using Microsoft.AspNetCore.Authorization;
 using CloudinaryDotNet;
@@ -25,11 +26,14 @@ namespace backend.Services.Auth
         private readonly DataContext _dataContext;
 
         private readonly IConfiguration _configuration;
+        
+        private readonly HashHelper _hashHelper;
 
-        public AuthService(DataContext dataContext, IConfiguration _configuration)
+        public AuthService(DataContext dataContext, IConfiguration _configuration , HashHelper hashHelper)
         {
             _dataContext = dataContext;
             this._configuration = _configuration;
+            _hashHelper = hashHelper;
         }
 
         [AllowAnonymous]
@@ -44,7 +48,7 @@ namespace backend.Services.Auth
                 {
                     Guid userID = Guid.NewGuid();
                     var BryptPassword = BCrypt.Net.BCrypt.HashPassword(registerRequest.loginUserPassword);
-                    var BryptIdentifyCode = BCrypt.Net.BCrypt.HashPassword(registerRequest.IdentityCode);
+                    var HashIdentityCode = _hashHelper.Hash(registerRequest.IdentityCode);
                     var newUserInformarion = new userInformation()
                     {
                         userId = userID.ToString(),
@@ -55,7 +59,7 @@ namespace backend.Services.Auth
                     var newCustomerInfo = new Customer()
                     {
                         dateOfBirth = registerRequest.dateOfBirth,
-                        IdentityCode = BryptIdentifyCode,
+                        IdentityCode = HashIdentityCode,
                         Id = CustomerID,
                         Name = registerRequest.userName,
                         userID = userID.ToString(),

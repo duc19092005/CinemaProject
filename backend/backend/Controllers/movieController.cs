@@ -87,5 +87,23 @@ namespace backend.Controllers
             }
             return NotFound(new { message = "Cannot Find Movie There's an error" });
         }
+        
+        [HttpGet("SearchMovieTake5")]
+        public async Task<IActionResult> SearchMovieTake5(string movieName)
+        {
+            var gettersList = await IMovieService.getListMoviesByNameTake5(movieName);
+            if (gettersList.Count > 0)
+            {
+                return Ok(gettersList);
+            }
+            return NotFound(new { message = "Cannot Find Movie There's an error" });
+        }
+        
+        [HttpGet("SearchAllMovie")]
+        public async Task<IActionResult> SearchMovieTake5(string movieName , int page)
+        {
+            var gettersList = await IMovieService.getFullSearchResult(movieName , page);
+            return Ok(gettersList);
+        }
     }
 }

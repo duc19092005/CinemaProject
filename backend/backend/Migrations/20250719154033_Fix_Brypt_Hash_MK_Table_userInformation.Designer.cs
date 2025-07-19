@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend.Data;
 
@@ -11,9 +12,11 @@ using backend.Data;
 namespace backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250719154033_Fix_Brypt_Hash_MK_Table_userInformation")]
+    partial class Fix_Brypt_Hash_MK_Table_userInformation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -96,13 +99,13 @@ namespace backend.Migrations
                         {
                             userId = "a1b2c3d4-e5f6-7a8b-c9d0-e1f2a3b4c5d6",
                             loginUserEmail = "admin@example.com",
-                            loginUserPassword = "$2a$12$hZw7TwWKR/cR2WRRn/Q1guTjMqLH6dYcchlw4sAimSU41bJ42r3Ka"
+                            loginUserPassword = "$2a$11$pygsxEU/dOothY1Uvba5tOiKtT0OoiHsNcWUTt0hpknXOVvE8BA8G"
                         },
                         new
                         {
                             userId = "b2c3d4e5-f6a7-8b9c-d0e1-f2a3b4c5d6e7",
                             loginUserEmail = "user@example.com",
-                            loginUserPassword = "$2a$12$ADqBiSquthm1g7bLZvg6UulJ5QJFQQ6olUQzf66AQfJDGbQ2W1wlG"
+                            loginUserPassword = "$2a$11$IbdXmPBNLvebUAbc21vKN.OpDIkehFG/DY0CaTXQcIvVdxLnyWA5O"
                         });
                 });
 

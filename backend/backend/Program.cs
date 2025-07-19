@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.Json.Serialization;
 using backend.Services.MovieServices;
 using backend;
+using backend.Helper;
+using backend.Interface.Account;
 using backend.Interface.GenericsInterface;
 using backend.ModelDTO.MoviesDTO.MovieRequest;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -19,6 +21,8 @@ using backend.Interface.BookingInterface;
 using backend.Services.BookingServices;
 using backend.Interface.CommentInterface;
 using backend.Interface.CloudinaryInterface;
+using backend.Interface.FoodInterface;
+using backend.Interface.PriceInterfaces;
 using backend.Interface.RoomInferface;
 using backend.Services.CloudinaryServices;
 using backend.Interface.VnpayInterface;
@@ -26,8 +30,13 @@ using backend.Services.VnpayServices;
 using Microsoft.Extensions.Logging;
 using backend.ModelDTO.BookingHistoryDTO.OrderDetailRespond;
 using backend.ModelDTO.BookingHistoryDTO.OrderRespond;
+using backend.Services.AccountServices;
 using backend.Services.BookingHistoryServices;
+using backend.Services.FoodServices;
+using backend.Services.PriceServices;
 using backend.Services.RoomServices;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.Identity.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -119,6 +128,30 @@ builder.Services.AddScoped<IRoomService , RoomService>();
 
 builder.Services.AddScoped<IVnpayService, VnpayService>();
 
+// DI cua Price
+
+// DI cua DIDataProtector
+
+builder.Services.AddDataProtection()
+    .SetApplicationName("MyCitizenIdApp"); // Rất khuyến nghị sử dụng
+
+// Bước 2: Đăng ký một IDataProtector cụ thể với một purpose string
+// Sử dụng AddSingleton vì IDataProtector thường an toàn cho thread và không cần tạo lại cho mỗi yêu cầu.
+builder.Services.AddSingleton<IDataProtector>(serviceProvider => {
+    // Lấy IDataProtectionProvider từ serviceProvider (đã được AddDataProtection() đăng ký)
+    var dataProtectionProvider = serviceProvider.GetRequiredService<IDataProtectionProvider>();
+
+    // Tạo IDataProtector với chuỗi mục đích cụ thể.
+    // Chuỗi này PHẢI DUY NHẤT cho mục đích mã hóa này trong ứng dụng của bạn.
+    return dataProtectionProvider.CreateProtector("CitizenIdEncryptionPurpose");
+});
+
+builder.Services.AddScoped<IPriceService, PriceService>();
+
+// DI cua Food
+
+builder.Services.AddScoped<IFoodService, FoodService>();
+
 // Add thêm DI của services Movie dạng Scoped
 
 builder.Services.AddScoped<IMovieService, movieServices>();
@@ -133,6 +166,14 @@ builder.Services.AddScoped<IScheduleServices, ScheduleServices>();
 // DI của Booking
 
 builder.Services.AddScoped<IBookingServices, BookingServices>();
+
+// DI của Hash Helper
+
+builder.Services.AddSingleton<HashHelper>();
+
+// DI cua Account Service
+
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 builder.Services.AddScoped<VNPAY.NET.IVnpay, VNPAY.NET.Vnpay>();
 

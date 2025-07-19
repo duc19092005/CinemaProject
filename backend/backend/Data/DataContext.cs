@@ -96,18 +96,20 @@ namespace backend.Data
             // Seed Data for UserInformation
             var userId1 = "a1b2c3d4-e5f6-7a8b-c9d0-e1f2a3b4c5d6";
             var userId2 = "b2c3d4e5-f6a7-8b9c-d0e1-f2a3b4c5d6e7";
+
+
             modelBuilder.Entity<userInformation>().HasData(
                 new userInformation
                 {
                     userId = userId1,
                     loginUserEmail = "admin@example.com",
-                    loginUserPassword = "hashed_password_admin", // In a real app, hash this password
+                    loginUserPassword = "$2a$12$hZw7TwWKR/cR2WRRn/Q1guTjMqLH6dYcchlw4sAimSU41bJ42r3Ka",
                 },
                 new userInformation
                 {
                     userId = userId2,
                     loginUserEmail = "user@example.com",
-                    loginUserPassword = "hashed_password_user", // In a real app, hash this password
+                    loginUserPassword = "$2a$12$ADqBiSquthm1g7bLZvg6UulJ5QJFQQ6olUQzf66AQfJDGbQ2W1wlG",
                 }
             );
 

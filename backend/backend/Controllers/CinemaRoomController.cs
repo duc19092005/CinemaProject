@@ -6,15 +6,10 @@ namespace backend.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class CinemaRoomController : ControllerBase
+public class CinemaRoomController(IRoomService roomService) : ControllerBase
 {
-    private readonly IRoomService _roomService;
-
-    public CinemaRoomController(IRoomService roomService)
-    {
-        this._roomService = roomService;
-    }
-
+    private readonly IRoomService _roomService = roomService;
+    
     [HttpGet("GetCinemaRoomInfo")]
     public IActionResult GetCinemaRoomInfo(string movieID , DateTime scheduleDate ,  string HourId , string movieVisualID)
     {

@@ -10,7 +10,7 @@ namespace backend.ModelDTO.Account.AccountRespond
     public class profileRequest
     {
 
-        public DateTime dateOfBirth { get; set; }
+        public DateTime? dateOfBirth { get; set; }
 
         public string phoneNumber { get; set; } = "";
 

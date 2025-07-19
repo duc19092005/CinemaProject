@@ -383,7 +383,7 @@ namespace backend.Services.MovieServices
                     movieTrailerUrl = x.movieTrailerUrl,
                     releaseDate = x.ReleaseDate,
                     movieVisualFormat = x.movieVisualFormatDetail.Select(vs => vs.movieVisualFormat.movieVisualFormatName).ToArray(),
-                    isRelease = dateTime > x.ReleaseDate ? true : false,
+                    isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ScheduleDate && !x.IsDelete) ? true : false,
                     minimumAge = 
                     _dataContext.minimumAges.FirstOrDefault(m => m.minimumAgeID.Equals(x.minimumAgeID)).minimumAgeInfo,
                     minimumAgeDescription = 
@@ -423,9 +423,39 @@ namespace backend.Services.MovieServices
             return getAllMovieData;
         }
 
-        public Task<PagniationRespond> getFullSearchResult(string movieName, int page, int pagesize = 9)
+        public async Task<PagniationRespond> getFullSearchResult(string movieName, int page, int pagesize = 9)
         {
-            return null!;
+            // Lấy giờ hiện tại
+            DateTime dateTime = DateTime.Now;
+            var getAllMovieData = await _dataContext.movieInformation
+                .Where(x => x.movieName.Contains(movieName))
+                .Select(x => new movieRespondDTO()
+                {
+                    movieName = x.movieName,
+                    movieID = x.movieId,
+                    movieImage = x.movieImage,
+                    movieDuration = x.movieDuration,
+                    movieGenres = x.movieGenreInformation.Select(mg => mg.movieGenre.movieGenreName).ToArray(),
+                    ListLanguageName = x.Language.languageDetail,
+                    movieTrailerUrl = x.movieTrailerUrl,
+                    releaseDate = x.ReleaseDate,
+                    movieVisualFormat = x.movieVisualFormatDetail.Select(vs => vs.movieVisualFormat.movieVisualFormatName).ToArray(),
+                    isRelease = x.movieSchedule.Any(x => x.movieId.Equals(x.movieId) && dateTime >= x.ScheduleDate && !x.IsDelete) ? true : false,
+                    minimumAge = 
+                        _dataContext.minimumAges.FirstOrDefault(m => m.minimumAgeID.Equals(x.minimumAgeID)).minimumAgeInfo,
+                    minimumAgeDescription = 
+                        _dataContext.minimumAges.FirstOrDefault(m => m.minimumAgeID.Equals(x.minimumAgeID)).minimumAgeDescription
+                }).
+                Take(pagesize).Skip((page - 1) * pagesize).
+                ToListAsync();
+            var newPagniationRespond = new PagniationRespond()
+            {
+                movieRespondDTOs = getAllMovieData,
+                page = page,
+                pageSize = (int)Math.Ceiling((double)getAllMovieData.Count() / pagesize),
+                totalCount = getAllMovieData.Count,
+            };
+            return newPagniationRespond;
         }
 
 

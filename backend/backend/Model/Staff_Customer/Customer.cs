@@ -14,7 +14,7 @@ namespace backend.Model.Staff_Customer
         [ForeignKey("userInformation")]
         public string userID { get; set; } = string.Empty;
         
-        [Column(TypeName = "varchar(70)")]
+        [Column(TypeName = "varchar(200)")]
         [Required]
         public string IdentityCode { get; set; } = "";
 

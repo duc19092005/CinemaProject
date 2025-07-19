@@ -33,7 +33,7 @@ public class RoomService : IRoomService
             // Tiep tuc truy van toi bang room
             var getSeatsNumber = _context.Seats.Include
                 (x => x.cinemaRoom)
-                .Where(x => x.cinemaRoomId.Equals(getRoomID.cinemaRoomId));
+                .Where(x => x.cinemaRoomId.Equals(getRoomID.cinemaRoomId) && !x.isDelete);
             
             List<SeatsDTO> seatsDTO = new List<SeatsDTO>();
             foreach (var seats in getSeatsNumber)
